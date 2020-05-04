@@ -71,8 +71,8 @@ function FormPage20200504(props) {
 				// mail.tum.de too fast (when outlook has not received
 				// the mail yet)
 				setTimeout(() => {
-					props.history.push('/20200504/verify' + getPathParams());
 					setSubmitting(false);
+					props.history.push('/20200504/verify' + getPathParams());
 				}, 1500);
 			})
 			.catch(() => {

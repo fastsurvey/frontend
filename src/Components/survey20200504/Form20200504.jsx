@@ -107,6 +107,7 @@ function Form20200504(props) {
 						disabled={props.submitting}
 						label="Email"
 						fullWidth
+						helperText="<lrz-kennung>@mytum.de"
 						value={props.formValues.email}
 						variant="outlined"
 						onChange={(newValue) => handleFormChange({email: newValue})}
