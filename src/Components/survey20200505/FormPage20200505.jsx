@@ -12,16 +12,25 @@ import {BACKEND_URL} from "../../constants";
 function FormPage20200505(props) {
 
 	const pathParams = queryString.parse(window.location.search);
-	let initialState = {};
-	const keys = ["name", "email", "remote"];
-
-	keys.forEach((key) => {
-		if (key in pathParams) {
-			initialState[key] = (key !== "remote") ? pathParams[key].replace("+", " ") : (pathParams[key] === "true");
-		} else {
-			initialState[key] = (key !== "remote") ? "" : false;
+	let initialState = {
+		email: "",
+		election: {
 		}
-	})
+	};
+
+	if ("email" in pathParams) {
+		initialState.email = pathParams["email"].replace("+", " ");
+	}
+
+	const names = ["albers", "ballweg", "deniers", "schmidt"];
+	for (let i=0; i<4; i++) {
+		if (names[i] in pathParams) {
+			initialState.election[names[i]] = (pathParams[names[i]] === "true");
+		} else {
+			initialState.election[names[i]] = false;
+		}
+	}
+
 
 	const [formValues, setFormValuesRaw] = useState(initialState);
 
@@ -31,13 +40,13 @@ function FormPage20200505(props) {
 	}
 
 	function getPathParams() {
-		let pathParams = "?";
+		let pathParams = "?email=" + formValues["email"];
 
-		keys.forEach((key) => {
-			pathParams += key + "=" + formValues[key] + "&";
+		names.forEach((name) => {
+			pathParams += "&" + name + "=" + formValues.election[name];
 		})
 
-		return pathParams.substring(0, pathParams.length - 1);
+		return pathParams;
 	}
 
 	const [snackbar, setSnackbar] = useState({open: false, text: ""})
@@ -54,13 +63,13 @@ function FormPage20200505(props) {
 
 		axios.post(BACKEND_URL + "submit/20200505", formValues)
 			.then(() => {
-				props.history.push('/verify' + getPathParams());
+				props.history.push('/20200505/verify' + getPathParams());
 				setSubmitting(false);
 			})
 			.catch((error) => {
 				setTimeout(() => {
 					setSubmitting(false);
-					props.history.push('/form' + getPathParams());
+					props.history.push('/20200505/form' + getPathParams());
 					setSnackbar({
 						open: true,
 						text: JSON.parse(error.request.response).status
@@ -75,9 +84,13 @@ function FormPage20200505(props) {
 		props.history.push('/form');
 
 		setFormValues({
-			name: "",
 			email: "",
-			remote: false,
+			election: {
+				albers: false,
+				ballweg: false,
+				deniers: false,
+				schmidt: false,
+			}
 		})
 	}
 

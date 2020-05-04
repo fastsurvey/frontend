@@ -13,22 +13,26 @@ function Form20200505(props) {
 
 	const classes = useStyles();
 
-	function handleFormChange(newValue) {
+	function handleFormChange(stateUpdate) {
 
 		// Deepcopy object without a library
-		let newState = {};
-		const keys = ["name", "email", "remote"];
+		let newState = {
+			email: props.formValues.email,
+			election: props.formValues.election,
+		};
 
-		keys.forEach((key) => {
-			if (key in newValue) {
-				newState[key] = newValue[key];
-			} else {
-				newState[key] = props.formValues[key];
+		if ("email" in stateUpdate) {
+			newState.email = stateUpdate.email;
+		}
+
+		if ("election" in stateUpdate) {
+			const names = ["albers", "deniers", "schmidt", "ballweg"];
+
+			for (let i=0; i<4; i++) {
+				if (names[i] in stateUpdate.election) {
+					newState.election[names[i]] = stateUpdate.election[names[i]];
+				}
 			}
-		})
-
-		if ("remote" in newValue) {
-			Cookies.set('form-remote', newValue["remote"], {expires: 1});
 		}
 
 		props.setFormValues(newState);
@@ -37,44 +41,18 @@ function Form20200505(props) {
 	return (
 		<React.Fragment>
 			<Grid container justitfy="center" spacing={2}>
-				<Grid item xs={12} className={classes.textBox3}>
-					<Typography variant="subtitle1">
-						Bitte überprüfe in jedem Fall, ob in TUMOnline <br/>
-						deine aktuelle Wohnadresse eingetragen ist:
-						<br/>
-						<strong>Ressourcen > Korrespondenzadresse (Studienadresse)</strong>
+
+				<div className={classes.titleTextBox2}>
+					<Typography variant="h4">
+						Semestersprecher Wahl
 					</Typography>
-				</Grid>
-				<Grid item xs={12}>
-					<div className={classes.flexBoxRow}>
-						<div className={classes.button}>
-							<a href="https://campus.tum.de/" target="_blank" rel="noopener noreferrer">
-								<Button
-									disabled={props.submitting}
-									variant="contained"
-									onClick={props.handleReset}
-									disableElevation>
-									campus.tum.de öffnen
-								</Button>
-							</a>
-						</div>
-					</div>
-				</Grid>
+				</div>
+				<div className={classes.titleTextBox1}>
+					<Typography variant="h5">
+						6. Fachsemester, 05.05.2020
+					</Typography>
+				</div>
 
-				<Grid item xs={12}>
-					<div className={classes.divider3}/>
-				</Grid>
-
-				<Grid item xs={12}>
-					<CustomTextField
-						disabled={props.submitting}
-						label="Name"
-						fullWidth
-						value={props.formValues.name}
-						variant="outlined"
-						onChange={(newValue) => handleFormChange({name: newValue})}
-					/>
-				</Grid>
 				<Grid item xs={12}>
 					<CustomTextField
 						disabled={props.submitting}
@@ -91,12 +69,12 @@ function Form20200505(props) {
 					<div className={classes.flexBoxRow}>
 						<Checkbox
 							disabled={props.submitting}
-							checked={props.formValues.remote}
+							checked={props.formValues.election.albers}
 							color="primary"
-							onChange={() => handleFormChange({remote: !props.formValues.remote})}
+							onChange={() => handleFormChange({election: {albers: !props.formValues.election.albers}})}
 						/>
 						<Typography variant="subtitle1" className={props.submitting ? classes.disabledText : ""}>
-							Ich kann das Arduino Kit <strong>nicht</strong> persönlich in München abholen
+							Steffi Albers
 						</Typography>
 					</div>
 				</Grid>
@@ -110,7 +88,7 @@ function Form20200505(props) {
 								color="primary"
 								onClick={props.handleSubmit}
 								disableElevation>
-								Kit Reservieren
+								Wahl Bestätigen
 							</Button>
 							{props.submitting && (
 								<CircularProgress size={24}

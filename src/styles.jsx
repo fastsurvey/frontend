@@ -50,10 +50,12 @@ const useStyles = makeStyles(theme => ({
 	titleTextBox1: {
 		marginBottom: theme.spacing(5),
 		textAlign: "center",
+		width: "100%",
 	},
 	titleTextBox2: {
 		marginBottom: theme.spacing(1),
 		textAlign: "center",
+		width: "100%",
 	},
 
 	textBox5: {
