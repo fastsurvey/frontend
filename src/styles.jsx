@@ -118,12 +118,54 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
 	},
+	divider2: {
+		marginTop: theme.spacing(2),
+		marginBottom: theme.spacing(2),
+	},
+	divider1: {
+		marginTop: theme.spacing(1),
+		marginBottom: theme.spacing(1),
+	},
 	margin3: {
 		marginBottom: theme.spacing(3),
 	},
 	margin6: {
 		marginBottom: theme.spacing(6),
-	}
+	},
+
+
+	candidateRow: {
+	},
+	portraitBox: {
+		borderRadius: theme.spacing(0.5),
+		overflow: "hidden",
+	},
+	portraitImage: {
+		maxHeight: "100%",
+	},
+
+	portraitBoxLarge: {
+		height: 180,
+		marginRight: theme.spacing(4),
+	},
+	portraitBoxSmall: {
+		height: 120,
+		marginRight: theme.spacing(1),
+	},
+	candidateTextLarge: {
+		width: 200,
+	},
+	candidateTextSmall: {
+		width: 120,
+	},
+
+	hintText: {
+		paddingTop: theme.spacing(0.5),
+		paddingBottom: theme.spacing(0.5),
+		width: "100%",
+		textAlign: "center",
+		color: "rgb(125, 125, 125)",
+	},
 }))
 
 export default useStyles;

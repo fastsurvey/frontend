@@ -61,10 +61,12 @@ function FormPage20200505(props) {
 		closeMessage();
 		console.log("Submit");
 
-		axios.post(BACKEND_URL + "submit/20200505", formValues)
+		axios.post(BACKEND_URL + "20200505/submit", {form_data: formValues})
 			.then(() => {
-				props.history.push('/20200505/verify' + getPathParams());
-				setSubmitting(false);
+				setTimeout(() => {
+					props.history.push('/20200505/verify' + getPathParams());
+					setSubmitting(false);
+				}, 1500);
 			})
 			.catch((error) => {
 				setTimeout(() => {

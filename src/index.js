@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import Router from './Router';
 import * as serviceWorker from './serviceWorker';
+import {BreakpointProvider} from "react-socks";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router/>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <BreakpointProvider>
+            <Router/>
+        </BreakpointProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
