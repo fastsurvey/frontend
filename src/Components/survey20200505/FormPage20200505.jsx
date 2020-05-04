@@ -49,11 +49,15 @@ function FormPage20200505(props) {
 		return pathParams;
 	}
 
-	const [snackbar, setSnackbar] = useState({open: false, text: ""})
+	const [snackbarOpen, setSnackbarOpen] = useState(false)
 	const [submitting, setSubmitting] = useState(false);
 
 	function closeMessage(){
-		setSnackbar({open: false, text: snackbar.text});
+		setSnackbarOpen(false);
+	}
+
+	function openMessage(){
+		setSnackbarOpen(true);
 	}
 
 	function submit() {
@@ -63,19 +67,20 @@ function FormPage20200505(props) {
 
 		axios.post(BACKEND_URL + "20200505/submit", {form_data: formValues})
 			.then(() => {
+				// Timeout needed so that the user does not get on
+				// mail.tum.de too fast (when outlook has not received
+				// the mail yet)
 				setTimeout(() => {
 					props.history.push('/20200505/verify' + getPathParams());
 					setSubmitting(false);
-				}, 1500);
+				}, 2500);
 			})
-			.catch((error) => {
+			.catch(() => {
+				// Timeout for a better visual experience
 				setTimeout(() => {
 					setSubmitting(false);
 					props.history.push('/20200505/form' + getPathParams());
-					setSnackbar({
-						open: true,
-						text: JSON.parse(error.request.response).status
-					});
+					openMessage();
 				}, 800)
 			})
 	}
@@ -106,8 +111,7 @@ function FormPage20200505(props) {
 				submitting={submitting}
 			/>
 			<MessageSnackbar
-				open={snackbar.open}
-				text={snackbar.text}
+				open={snackbarOpen}
 				closeMessage={closeMessage}
 			/>
 		</React.Fragment>
