@@ -21,9 +21,20 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "center",
 		flexDirection: "row",
 	},
+	flexBoxCol: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "column",
+	},
 	logoBox: {
-		height: 100,
 		marginBottom: theme.spacing(5),
+	},
+	logoBox100: {
+		height: 100,
+	},
+	logoBox200: {
+		height: 200,
 	},
 	logoBoxLogo: {
 		maxHeight: "100%",
@@ -35,7 +46,7 @@ const useStyles = makeStyles(theme => ({
 		textAlign: "center",
 	},
 	titleTextBox2: {
-		marginBottom: theme.spacing(5),
+		marginBottom: theme.spacing(1),
 		textAlign: "center",
 	},
 
@@ -99,6 +110,12 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
 	},
+	margin3: {
+		marginBottom: theme.spacing(3),
+	},
+	margin6: {
+		marginBottom: theme.spacing(6),
+	}
 }))
 
 export default useStyles;

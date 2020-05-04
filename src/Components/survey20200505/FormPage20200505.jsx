@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import Form from "../Components/Form";
+import Form from "./Form20200505";
 
 import axios from 'axios';
-import MessageSnackbar from "../Components/MessageSnackbar";
+import MessageSnackbar from "../../Components/MessageSnackbar";
 import queryString from 'query-string'
 
 import {withRouter} from 'react-router-dom'
-import {BACKEND_URL} from "../constants";
+import {BACKEND_URL} from "../../constants";
 
 
-function FormPage(props) {
+function FormPage20200505(props) {
 
 	const pathParams = queryString.parse(window.location.search);
 	let initialState = {};
@@ -100,4 +100,4 @@ function FormPage(props) {
 
 }
 
-export default withRouter(FormPage);
+export default withRouter(FormPage20200505);

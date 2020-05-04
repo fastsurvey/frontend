@@ -1,7 +1,7 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter, Link} from 'react-router-dom';
-import IndexPage from "./Pages/IndexPage";
-import FormPage from "./Pages/FormPage";
+import {Switch, Route, BrowserRouter, Link, Redirect} from 'react-router-dom';
+import IndexPageDistributor from "./Pages/IndexPageDistributor";
+import FormPage from "./Pages/FormPageDistributor";
 import VerifyPage from "./Pages/VerifyPage";
 import SuccessPage from "./Pages/SuccessPage";
 import NotFoundPage from "./Pages/NotFoundPage";
@@ -37,9 +37,15 @@ function Router() {
 	return (
 		<BrowserRouter>
 			<Switch>
+				<Route exact strict path="/">
+					<Content>
+						<NotFoundPage/>
+					</Content>
+				</Route>
+
 				<Route exact strict path="/:surveyId">
 					<Content>
-						<IndexPage/>
+						<IndexPageDistributor/>
 					</Content>
 				</Route>
 
@@ -61,16 +67,8 @@ function Router() {
 					</Content>
 				</Route>
 
-				<Route path="/:surveyId">
-					<Content>
-						<NotFoundPage/>
-					</Content>
-				</Route>
-
 				<Route>
-					<Content>
-						<NotFoundPage/>
-					</Content>
+					<Redirect to="/"/>
 				</Route>
 			</Switch>
 		</BrowserRouter>

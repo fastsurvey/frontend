@@ -1,17 +1,15 @@
 import React from 'react';
-import useStyles from "../styles";
-import {CustomTextField} from "./CustomTextField";
+import useStyles from "../../styles";
+import {CustomTextField} from "../CustomTextField";
 import Grid from "@material-ui/core/Grid";
 import Checkbox from "@material-ui/core/Checkbox";
-import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Cookies from "js-cookie";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Container from "@material-ui/core/Container";
 
 
-function Form(props) {
+function Form20200505(props) {
 
 	const classes = useStyles();
 
@@ -50,7 +48,7 @@ function Form(props) {
 				<Grid item xs={12}>
 					<div className={classes.flexBoxRow}>
 						<div className={classes.button}>
-							<a href="https://campus.tum.de/" target="_blank">
+							<a href="https://campus.tum.de/" target="_blank" rel="noopener noreferrer">
 								<Button
 									disabled={props.submitting}
 									variant="contained"
@@ -128,4 +126,4 @@ function Form(props) {
 
 }
 
-export default Form;
+export default Form20200505;
