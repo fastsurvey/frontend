@@ -31,7 +31,7 @@ function IndexPage20200504() {
 			<Container maxWidth="xs">
 				<div className={classes.titleTextBox2}>
 					<Typography variant="subtitle1">
-						Am <strong>04.05.2020</strong> von <strong>10:00 bis 20:00 Uhr</strong>&nbsp;
+						Am <strong>04.05.2020</strong> von <strong>12:00 bis 24:00 Uhr</strong>&nbsp;
 						findet die Wahl zum Semestersprecher statt.
 
 						<br/><br/>
