@@ -41,8 +41,9 @@ function IndexPage20200505() {
 
 						<br/><br/>
 
-						Bitte verwende hierfür deine <strong>@mytum.de Adresse</strong>, da
-						wir deine Stimme sonst nicht werten können.
+						Damit wir deine Stimme werten können, verwende hierfür bitte deine&nbsp;
+						<strong>@mytum.de Email Adresse</strong>.<br/>
+						<em>(z.B. ab12cd3@mytum.de)</em>
 
 						<br/><br/>
 					</Typography>
