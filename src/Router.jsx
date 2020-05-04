@@ -19,7 +19,7 @@ function ContentComponent (props) {
 	return (
 		<div className={classes.page}>
 			<div className={classes.cornerLogoBox}>
-				<Link to={"/" + (surveyId ? surveyId !== undefined : "")}>
+				<Link to={"/" + (surveyId !== undefined ? surveyId : "")}>
 					<img src={MSELogo} alt="MSE Logo" className={classes.cornerLogo}/>
 				</Link>
 			</div>
