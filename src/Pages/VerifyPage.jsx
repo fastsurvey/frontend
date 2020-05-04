@@ -1,11 +1,11 @@
 import React from 'react';
 import useStyles from "../styles";
 import Typography from "@material-ui/core/Typography";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import queryString from "query-string";
 
-function VerifyPage() {
+function VerifyPage(props) {
 
 	const classes = useStyles();
 
@@ -40,7 +40,7 @@ function VerifyPage() {
 			</div>
 
 			<div className={classes.flexBoxRow}>
-				<Link to={"/form" + window.location.search}>
+				<Link to={"/" + props.match.params.surveyId + "/form" + window.location.search}>
 					<div className={classes.button}>
 						<Button variant="contained" disableElevation>
 							Zum Formular
@@ -60,4 +60,4 @@ function VerifyPage() {
 
 }
 
-export default VerifyPage;
+export default withRouter(VerifyPage);
