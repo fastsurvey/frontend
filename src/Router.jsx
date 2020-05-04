@@ -8,14 +8,16 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
 import MSELogo from './Components/assets/MSELogo.png';
+import {withRouter} from 'react-router-dom';
 
-function Content (props) {
+
+function ContentComponent (props) {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.page}>
 			<div className={classes.cornerLogoBox}>
-				<Link to="/">
+				<Link to={"/" + props.match.params.surveyId}>
 					<img src={MSELogo} alt="MSE Logo" className={classes.cornerLogo}/>
 				</Link>
 			</div>
@@ -28,36 +30,38 @@ function Content (props) {
 	)
 }
 
+const Content = withRouter(ContentComponent);
+
 
 function Router() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact strict path="/20200505">
+				<Route exact strict path="/:surveyId">
 					<Content>
 						<IndexPage/>
 					</Content>
 				</Route>
 
-				<Route exact strict path="/20200505/form">
+				<Route exact strict path="/:surveyId/form">
 					<Content>
 						<FormPage/>
 					</Content>
 				</Route>
 
-				<Route exact strict path="/20200505/verify">
+				<Route exact strict path="/:surveyId/verify">
 					<Content>
 						<VerifyPage/>
 					</Content>
 				</Route>
 
-				<Route exact strict path="/20200505/success">
+				<Route exact strict path="/:surveyId/success">
 					<Content>
 						<SuccessPage/>
 					</Content>
 				</Route>
 
-				<Route path="/20200505">
+				<Route path="/:surveyId">
 					<Content>
 						<NotFoundPage/>
 					</Content>
