@@ -1,6 +1,6 @@
 {
-  "short_name": "Arduino Survey",
-  "name": "MINT Projektmodul Arduino Survey",
+  "short_name": "MSE Survey Tool",
+  "name": "Survey Tool of the Munich School of Engineering (Department of TUM)",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
