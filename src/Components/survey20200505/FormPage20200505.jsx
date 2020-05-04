@@ -73,7 +73,7 @@ function FormPage20200505(props) {
 				setTimeout(() => {
 					props.history.push('/20200505/verify' + getPathParams());
 					setSubmitting(false);
-				}, 2500);
+				}, 1500);
 			})
 			.catch(() => {
 				// Timeout for a better visual experience
