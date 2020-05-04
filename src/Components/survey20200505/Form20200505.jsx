@@ -176,9 +176,7 @@ function Form20200505(props) {
 							  props.formValues.election.deniers && props.formValues.election.schmidt}>
 						<em>Bitte wähle <strong>maximal drei Kandidaten</strong></em>
 					</Collapse>
-				</Grid>
 
-				<Grid item xs={12}>
 					<div className={classes.flexBoxRow}>
 						<div className={classes.button}>
 							<Button

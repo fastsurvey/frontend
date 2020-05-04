@@ -160,8 +160,7 @@ const useStyles = makeStyles(theme => ({
 	},
 
 	hintText: {
-		paddingTop: theme.spacing(0.5),
-		paddingBottom: theme.spacing(0.5),
+		paddingBottom: theme.spacing(1.5),
 		width: "100%",
 		textAlign: "center",
 		color: "rgb(125, 125, 125)",
