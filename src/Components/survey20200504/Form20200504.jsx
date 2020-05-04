@@ -58,7 +58,7 @@ function CandidateRow(props) {
 	);
 }
 
-function Form20200505(props) {
+function Form20200504(props) {
 
 	const classes = useStyles();
 
@@ -212,4 +212,4 @@ function Form20200505(props) {
 
 }
 
-export default Form20200505;
+export default Form20200504;

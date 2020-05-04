@@ -1,12 +1,12 @@
 import React from 'react';
 import {Redirect, withRouter} from 'react-router-dom'
-import FormPage20200505 from "../Components/survey20200505/FormPage20200505";
+import FormPage20200504 from "../Components/survey20200504/FormPage20200504";
 
 
 function FormPageDistributor(props) {
 	switch (props.match.params.surveyId) {
-		case "20200505":
-			return <FormPage20200505/>;
+		case "20200504":
+			return <FormPage20200504/>;
 		default:
 			return <Redirect to="/"/>;
 	}

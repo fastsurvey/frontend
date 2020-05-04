@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Form from "./Form20200505";
+import Form from "./Form20200504";
 
 import axios from 'axios';
 import MessageSnackbar from "../../Components/MessageSnackbar";
@@ -9,7 +9,7 @@ import {withRouter} from 'react-router-dom'
 import {BACKEND_URL} from "../../constants";
 
 
-function FormPage20200505(props) {
+function FormPage20200504(props) {
 
 	const pathParams = queryString.parse(window.location.search);
 	let initialState = {
@@ -65,13 +65,13 @@ function FormPage20200505(props) {
 		closeMessage();
 		console.log("Submit");
 
-		axios.post(BACKEND_URL + "20200505/submit", {form_data: formValues})
+		axios.post(BACKEND_URL + "20200504/submit", {form_data: formValues})
 			.then(() => {
 				// Timeout needed so that the user does not get on
 				// mail.tum.de too fast (when outlook has not received
 				// the mail yet)
 				setTimeout(() => {
-					props.history.push('/20200505/verify' + getPathParams());
+					props.history.push('/20200504/verify' + getPathParams());
 					setSubmitting(false);
 				}, 1500);
 			})
@@ -79,7 +79,7 @@ function FormPage20200505(props) {
 				// Timeout for a better visual experience
 				setTimeout(() => {
 					setSubmitting(false);
-					props.history.push('/20200505/form' + getPathParams());
+					props.history.push('/20200504/form' + getPathParams());
 					openMessage();
 				}, 800)
 			})
@@ -119,4 +119,4 @@ function FormPage20200505(props) {
 
 }
 
-export default withRouter(FormPage20200505);
+export default withRouter(FormPage20200504);

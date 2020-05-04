@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 
 
-function IndexPage20200505() {
+function IndexPage20200504() {
 
 	const classes = useStyles();
 
@@ -20,18 +20,18 @@ function IndexPage20200505() {
 
 			<div className={classes.titleTextBox2}>
 				<Typography variant="h4">
-					Semestersprecher Wahl
+					Semestersprecher-Wahl
 				</Typography>
 			</div>
 			<div className={classes.titleTextBox1}>
 				<Typography variant="h5">
-					6. Fachsemester, 05.05.2020
+					6. Fachsemester, 04.05.2020
 				</Typography>
 			</div>
 			<Container maxWidth="xs">
 				<div className={classes.titleTextBox2}>
 					<Typography variant="subtitle1">
-						Am <strong>05.05.2020</strong> von <strong>10:00 bis 20:00 Uhr</strong>&nbsp;
+						Am <strong>04.05.2020</strong> von <strong>10:00 bis 20:00 Uhr</strong>&nbsp;
 						findet die Wahl zum Semestersprecher statt.
 
 						<br/><br/>
@@ -51,7 +51,7 @@ function IndexPage20200505() {
 			</Container>
 
 			<div className={classes.flexBoxRow}>
-				<Link to="/20200505/form">
+				<Link to="/20200504/form">
 					<Button variant="contained" color="primary" disableElevation>
 						Zum Formular
 					</Button>
@@ -62,4 +62,4 @@ function IndexPage20200505() {
 
 }
 
-export default IndexPage20200505;
+export default IndexPage20200504;
