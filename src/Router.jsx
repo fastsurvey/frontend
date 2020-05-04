@@ -14,10 +14,12 @@ import {withRouter} from 'react-router-dom';
 function ContentComponent (props) {
 	const classes = useStyles();
 
+	let surveyId = props.match.params.surveyId;
+
 	return (
 		<div className={classes.page}>
 			<div className={classes.cornerLogoBox}>
-				<Link to={"/" + props.match.params.surveyId}>
+				<Link to={"/" + (surveyId ? surveyId !== undefined : "")}>
 					<img src={MSELogo} alt="MSE Logo" className={classes.cornerLogo}/>
 				</Link>
 			</div>

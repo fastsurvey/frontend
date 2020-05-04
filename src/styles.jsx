@@ -36,6 +36,12 @@ const useStyles = makeStyles(theme => ({
 	logoBox200: {
 		height: 200,
 	},
+	logoBox250: {
+		height: 250,
+	},
+	logoBox300: {
+		height: 300,
+	},
 	logoBoxLogo: {
 		maxHeight: "100%",
 		marginLeft: theme.spacing(1.5),

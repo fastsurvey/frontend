@@ -1,7 +1,6 @@
 import React from 'react';
 import useStyles from "../styles";
-import Button from "@material-ui/core/Button";
-import Drawing404 from '../Components/assets/Drawing_404.png';
+import DrawingSurvey from '../Components/assets/undraw_customer_survey_f9ur.svg';
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 
@@ -13,14 +12,19 @@ function NotFoundPage() {
 	return (
 		<React.Fragment>
 			<div className={classes.flexBoxCol}>
+
+				<div className={clsx(classes.logoBox, classes.logoBox250)}>
+					<img src={DrawingSurvey} alt="Survey Drawing" className={classes.logoBoxLogo}/>
+				</div>
+
 				<div className={classes.textBox3}>
 					<Typography variant="h4">
-						Welcome to the MSE Survey Tool!
+						Willkommen beim MSE Survey Tool!
 					</Typography>
 				</div>
 				<div className={classes.textBox3}>
 					<Typography variant="subtitle1">
-						Please <strong>use a valid link</strong> to take part in a survey.
+						Bitte <strong>benutze einen gültigen Link</strong>, um an einer Umfrage teilzunehmen.
 					</Typography>
 				</div>
 			</div>
