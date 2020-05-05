@@ -12,6 +12,9 @@ function MessageSnackbar(props) {
     let text = "";
 
     switch (props.text) {
+        case "survey closed":
+            text = "Der Abstimmungszeitraum für diese Umfrage ist vorbei.";
+            break;
         default:
             text = "Leid trat auf unserem Server ein Fehler auf, bitte überprüfe deine " +
                 "Eingabe oder versuche es später erneut.";

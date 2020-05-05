@@ -58,7 +58,7 @@ function FormPage20200504(props) {
 	}
 
 	function openMessage(text){
-		setSnackbar({open: false, text: text});
+		setSnackbar({open: true, text: text});
 	}
 
 	function submit() {
@@ -66,7 +66,12 @@ function FormPage20200504(props) {
 		closeMessage();
 		console.log("Submit");
 
-		axios.post(BACKEND_URL + "20200504/submit", {form_data: formValues})
+		let backend = axios.create({
+			baseURL: BACKEND_URL,
+			responseType: "json"
+		});
+
+		backend.post("20200504/submit", {form_data: formValues})
 			.then(() => {
 				// Timeout needed so that the user does not get on
 				// mail.tum.de too fast (when outlook has not received
@@ -76,13 +81,14 @@ function FormPage20200504(props) {
 					props.history.push('/20200504/verify' + getPathParams());
 				}, 1500);
 			})
-			.catch(() => {
+			.catch(error => {
 				// Timeout for a better visual experience
 				setTimeout(() => {
 					setSubmitting(false);
 					props.history.push('/20200504/form' + getPathParams());
-					openMessage("server error");
-				}, 800)
+					console.log(error.response.data.status);
+					openMessage(error.response.data.status);
+				}, 800);
 			})
 	}
 
