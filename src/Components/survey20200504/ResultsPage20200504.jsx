@@ -27,7 +27,7 @@ function ResultsPage20200504(props) {
             </div>
             <Container maxWidth="lg">
                 <div className={classes.chartBox1}>
-                    <Chart1 results={props.results}/>
+                    <Chart1 results={props.loading ? {} : props.results}/>
                 </div>
             </Container>
         </React.Fragment>

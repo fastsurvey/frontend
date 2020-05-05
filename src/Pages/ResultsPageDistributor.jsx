@@ -13,26 +13,22 @@ function ResultsPageDistributor(props) {
 	const surveyId = props.match.params.surveyId;
 	const validSurveyIds = ["20200504"];
 
-	if (validSurveyIds.includes(surveyId)) {
-		loadResults();
-	}
-
-	function loadResults() {
+	if (validSurveyIds.includes(surveyId) && Object.keys(results).length === 0) {
 		axios.get(BACKEND_URL + surveyId + "/results").then(response => {
+			setResults(response.data.results);
 			setTimeout(() => {
-				setResults(response.data.results);
 				setLoading(false);
-			}, 1000);
+			}, 700);
 		}).catch(() => {
 			setTimeout(() => {
 				setLoading(false);
-			}, 1000);
+			}, 700);
 		})
 	}
 
 	switch (surveyId) {
 		case "20200504":
-			return <ResultsPage20200504 results={results} loading={loading} triggerReload={loadResults}/>;
+			return <ResultsPage20200504 results={results} loading={loading}/>;
 		default:
 			return <Redirect to="/"/>;
 	}

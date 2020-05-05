@@ -24,7 +24,7 @@ function ContentComponent (props) {
 					<img src={MSELogo} alt="MSE Logo" className={classes.cornerLogo}/>
 				</Link>
 			</div>
-			<Container maxWidth="sm">
+			<Container maxWidth="md">
 				<div className={classes.main}>
 					{props.children}
 				</div>

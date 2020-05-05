@@ -3,6 +3,7 @@ import useStyles from "../styles";
 import Typography from "@material-ui/core/Typography";
 import {Link, withRouter} from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
 
 
 function SuccessPage(props) {
@@ -10,7 +11,7 @@ function SuccessPage(props) {
 	const classes = useStyles();
 
 	return (
-		<React.Fragment>
+		<Container maxWidth="sm">
 			<div className={classes.textBox3}>
 				<Typography variant="h4">
 					Eingabe erfolgreich bestätigt!
@@ -31,7 +32,7 @@ function SuccessPage(props) {
 					</Button>
 				</Link>
 			</div>
-		</React.Fragment>
+		</Container>
 	);
 
 }

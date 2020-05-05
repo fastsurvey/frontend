@@ -166,11 +166,8 @@ const useStyles = makeStyles(theme => ({
 		color: "rgb(125, 125, 125)",
 	},
 
-
-
-
 	chartBox1: {
-		height: 250,
+		height: 350,
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",

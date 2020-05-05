@@ -118,25 +118,32 @@ const data = [
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
+
+const theme = {
+    axis: {
+        textColor: '#eee',
+        fontSize: "25px",
+        tickColor: '#eee',
+    },
+};
+
 function Chart1 (props) {
 
     let resultsFormatted = [
         {
-            "name": "Steffi Albers",
+            "name": "Steffi",
             "Stimmen": props.results["albers"]
         }, {
-            "name": "Jonas Ballweg",
+            "name": "Jonas",
             "Stimmen": props.results["ballweg"]
         }, {
-            "name": "Clara Deniers",
+            "name": "Clara",
             "Stimmen": props.results["deniers"]
         }, {
-            "name": "Tobias Schmidt",
+            "name": "Tobias",
             "Stimmen": props.results["schmidt"],
-            "StimmenColor": "rgb(0, 200, 0)"
         }
     ];
-
 
     console.log(props.results);
     console.log(resultsFormatted);
@@ -144,12 +151,13 @@ function Chart1 (props) {
     return (
         <ResponsiveBar
             data={resultsFormatted}
-            keys={[ 'Stimmen' ]}
+            keys={['Stimmen']}
             indexBy="name"
-            margin={{top: 40, right: 60, bottom: 60, left: 60}}
+            margin={{top: 40, right: 25, bottom: 25, left: 25}}
             padding={0.3}
             colors={{scheme: 'red_yellow_green'}}
             colorBy="index"
+            theme={theme}
             borderRadius={3}
 
             axisTop={null}

@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import {Link, withRouter} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import queryString from "query-string";
+import Container from "@material-ui/core/Container";
 
 function VerifyPage(props) {
 
@@ -16,7 +17,7 @@ function VerifyPage(props) {
 	}
 
 	return (
-		<React.Fragment>
+		<Container maxWidth="sm">
 			<div className={classes.textBox3}>
 				<Typography variant="h4">
 					Bitte bestätige deine Email Adresse!
@@ -55,7 +56,7 @@ function VerifyPage(props) {
 					</div>
 				</a>
 			</div>
-		</React.Fragment>
+		</Container>
 	);
 
 }

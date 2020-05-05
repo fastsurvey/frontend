@@ -7,6 +7,7 @@ import queryString from 'query-string'
 
 import {withRouter} from 'react-router-dom'
 import {BACKEND_URL} from "../../constants";
+import Container from "@material-ui/core/Container";
 
 
 function FormPage20200504(props) {
@@ -102,7 +103,7 @@ function FormPage20200504(props) {
 	}
 
 	return (
-		<React.Fragment>
+		<Container maxWidth="sm">
 			<Form
 				formValues={formValues}
 				setFormValues={setFormValues}
@@ -114,7 +115,7 @@ function FormPage20200504(props) {
 				open={snackbarOpen}
 				closeMessage={closeMessage}
 			/>
-		</React.Fragment>
+		</Container>
 	);
 
 }
