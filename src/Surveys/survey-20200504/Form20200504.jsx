@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from "../../styles";
-import {CustomTextField} from "../CustomTextField";
+import {CustomTextField} from "../../Components/CustomTextField";
 import Grid from "@material-ui/core/Grid";
 import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";

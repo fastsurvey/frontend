@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from "../styles";
-import DrawingSurvey from '../Components/assets/undraw_customer_survey_f9ur.svg';
+import DrawingSurvey from '../Surveys/assets/undraw_customer_survey_f9ur.svg';
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 

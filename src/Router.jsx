@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, BrowserRouter, Link, Redirect, withRouter} from 'react-router-dom';
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
-import MSELogo from './Components/assets/MSELogo.png';
+import MSELogo from './Surveys/assets/MSELogo.png';
 
 import NotFoundPage from "./Pages/NotFoundPage";
 
