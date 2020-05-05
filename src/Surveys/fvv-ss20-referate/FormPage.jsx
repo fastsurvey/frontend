@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Form from "./form-fvv-ss20-referate";
+import Form from "./Form";
 
 import axios from 'axios';
 import MessageSnackbar from "../../Components/MessageSnackbar";
@@ -16,6 +16,16 @@ function FormPage(props) {
 	let initialState = {
 		email: "",
 		election: {
+			erstsemester: {},
+			veranstaltungen: {},
+			skripte: {},
+			quantum: {},
+			kooperationen: {},
+			it: {},
+			evaluationen: {},
+			hochschulpolitik: {},
+			finanzen: {},
+			pr: {},
 		}
 	};
 
@@ -121,7 +131,6 @@ function FormPage(props) {
 				formValues={formValues}
 				setFormValues={setFormValues}
 				handleSubmit={submit}
-				handleReset={reset}
 				submitting={submitting}
 			/>
 			<MessageSnackbar
