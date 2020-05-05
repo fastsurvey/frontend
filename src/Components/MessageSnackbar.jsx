@@ -9,8 +9,14 @@ import useStyles from "../styles";
 function MessageSnackbar(props) {
     const classes = useStyles();
 
-    const text = "Leid trat auf unserem Server ein Fehler auf, bitte überprüfe deine " +
-        "Eingabe oder versuche es später erneut.";
+    let text = "";
+
+    switch (props.text) {
+        default:
+            text = "Leid trat auf unserem Server ein Fehler auf, bitte überprüfe deine " +
+                "Eingabe oder versuche es später erneut.";
+            break;
+    }
 
     return (
         <Snackbar className={classes.snackbar}

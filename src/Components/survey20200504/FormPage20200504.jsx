@@ -50,15 +50,15 @@ function FormPage20200504(props) {
 		return pathParams;
 	}
 
-	const [snackbarOpen, setSnackbarOpen] = useState(false)
+	const [snackbar, setSnackbar] = useState({open: false, text: ""})
 	const [submitting, setSubmitting] = useState(false);
 
 	function closeMessage(){
-		setSnackbarOpen(false);
+		setSnackbar({open: false, text: snackbar.text});
 	}
 
-	function openMessage(){
-		setSnackbarOpen(true);
+	function openMessage(text){
+		setSnackbar({open: false, text: text});
 	}
 
 	function submit() {
@@ -81,7 +81,7 @@ function FormPage20200504(props) {
 				setTimeout(() => {
 					setSubmitting(false);
 					props.history.push('/20200504/form' + getPathParams());
-					openMessage();
+					openMessage("server error");
 				}, 800)
 			})
 	}
@@ -112,7 +112,8 @@ function FormPage20200504(props) {
 				submitting={submitting}
 			/>
 			<MessageSnackbar
-				open={snackbarOpen}
+				open={snackbar.open}
+				text={snackbar.text}
 				closeMessage={closeMessage}
 			/>
 		</Container>
