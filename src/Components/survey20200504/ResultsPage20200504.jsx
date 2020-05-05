@@ -9,14 +9,12 @@ import Collapse from "@material-ui/core/Collapse";
 
 function ResultsPage20200504(props) {
 
+    console.log(props.results);
+
     const classes = useStyles();
 
     return (
         <React.Fragment>
-            <div className={clsx(classes.flexBoxRow, classes.logoBox, classes.logoBox200)}>
-                <img src={VotingImage} alt="Voting Image" className={classes.logoBoxLogo}/>
-            </div>
-
             <div className={classes.titleTextBox2}>
                 <Typography variant="h4">
                     Semestersprecher-Wahl
@@ -29,12 +27,7 @@ function ResultsPage20200504(props) {
             </div>
             <Container maxWidth="lg">
                 <div className={classes.chartBox1}>
-                    {props.loading && (
-                        "Spinner"
-                    )}
-					{!props.loading && (
-						<Chart1 results={props.results}/>
-					)}
+                    <Chart1 results={props.results}/>
                 </div>
             </Container>
         </React.Fragment>

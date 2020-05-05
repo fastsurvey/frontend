@@ -170,7 +170,7 @@ const useStyles = makeStyles(theme => ({
 
 
 	chartBox1: {
-		height: 400,
+		height: 250,
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
