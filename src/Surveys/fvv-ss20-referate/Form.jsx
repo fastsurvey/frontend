@@ -167,14 +167,122 @@ function Form(props) {
 							id: "erstsemester"
 						}}
 						candidates={[
-							{
-								id: "koenigbaur",
-								name: "Marie Königbaur"
-							},
-							{
-								id: "wernsdorfer",
-								name: "Ruben Wernsdorfer"
-							}
+							{id: "koenigbaur", name: "Marie Königbaur"},
+							{id: "wernsdorfer", name: "Ruben Wernsdorfer"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Veranstaltungs-Referat",
+							id: "veranstaltungen"
+						}}
+						candidates={[
+							{id: "ritter", name: "Alvaro Ritter"},
+							{id: "pro", name: "Daniel San José Pro"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Skripten-Referat",
+							id: "skripte"
+						}}
+						candidates={[
+							{id: "lukasch", name: "Carolin Lukasch"},
+							{id: "limant", name: "Semyon Limant"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Quantum-Referat",
+							id: "quantum"
+						}}
+						candidates={[
+							{id: "albrecht", name: "Lena Albrecht"},
+							{id: "roithmaier", name: "Tobias Roithmaier"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Kooperationen-Referat",
+							id: "kooperationen"
+						}}
+						candidates={[
+							{id: "winckler", name: "Klara Winckler"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "IT-Referat",
+							id: "it"
+						}}
+						candidates={[
+							{id: "kalk", name: "Maximilian Kalk"},
+							{id: "sittig", name: "Malte Sittig"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Evalutionen-Referat",
+							id: "evaluationen"
+						}}
+						candidates={[
+							{id: "reichelt", name: "Charlotte Reichelt"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Hochschulpolitik-Referat",
+							id: "hochschulpolitik"
+						}}
+						candidates={[
+							{id: "armbruster", name: "Luis Armbruster"},
+							{id: "paulus", name: "Jona Paulus"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Finanzen-Referat",
+							id: "finanzen"
+						}}
+						candidates={[
+							{id: "schuh", name: "Anna Schuh"},
+							{id: "spicker", name: "Daniel Spicker"},
+						]}
+					/>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "PR-Referat",
+							id: "pr"
+						}}
+						candidates={[
+							{id: "werle", name: "Lara Werle"}
 						]}
 					/>
 				</Grid>
