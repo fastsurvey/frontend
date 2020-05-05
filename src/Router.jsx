@@ -1,15 +1,16 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter, Link, Redirect} from 'react-router-dom';
-import IndexPageDistributor from "./Pages/IndexPageDistributor";
-import FormPage from "./Pages/FormPageDistributor";
-import VerifyPage from "./Pages/VerifyPage";
-import SuccessPage from "./Pages/SuccessPage";
-import NotFoundPage from "./Pages/NotFoundPage";
+import {Switch, Route, BrowserRouter, Link, Redirect, withRouter} from 'react-router-dom';
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
 import MSELogo from './Components/assets/MSELogo.png';
-import {withRouter} from 'react-router-dom';
 
+import NotFoundPage from "./Pages/NotFoundPage";
+
+import IndexPageDistributor from "./Pages/IndexPageDistributor";
+import FormPageDistributor from "./Pages/FormPageDistributor";
+import VerifyPage from "./Pages/VerifyPage";
+import SuccessPage from "./Pages/SuccessPage";
+import ResultsPageDistributor from "./Pages/ResultsPageDistributor";
 
 function ContentComponent (props) {
 	const classes = useStyles();
@@ -53,7 +54,7 @@ function Router() {
 
 				<Route exact strict path="/:surveyId/form">
 					<Content>
-						<FormPage/>
+						<FormPageDistributor/>
 					</Content>
 				</Route>
 
@@ -66,6 +67,12 @@ function Router() {
 				<Route exact strict path="/:surveyId/success">
 					<Content>
 						<SuccessPage/>
+					</Content>
+				</Route>
+
+				<Route exact strict path="/:surveyId/results">
+					<Content>
+						<ResultsPageDistributor/>
 					</Content>
 				</Route>
 

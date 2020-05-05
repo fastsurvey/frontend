@@ -19,10 +19,8 @@ function SuccessPage(props) {
 
 			<div className={classes.textBox3}>
 				<Typography variant="subtitle1">
-					<React.Fragment>
-						<strong>Falls du deine Daten ändern möchtest</strong>, fülle einfach nochmal
-						das Formular aus und bestätige die Daten mit der neuen Verifikations-Mail.
-					</React.Fragment>
+					<strong>Falls du deine Daten ändern möchtest</strong>, fülle einfach nochmal
+					das Formular aus und bestätige die Daten mit der neuen Verifikations-Mail.
 				</Typography>
 			</div>
 

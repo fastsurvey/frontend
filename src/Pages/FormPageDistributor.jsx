@@ -12,5 +12,4 @@ function FormPageDistributor(props) {
 	}
 }
 
-
 export default withRouter(FormPageDistributor);
