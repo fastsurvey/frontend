@@ -19,10 +19,14 @@ function ResultsPageDistributor(props) {
 
 	function loadResults() {
 		axios.get(BACKEND_URL + surveyId + "/results").then(response => {
-			setResults(response.data.results);
-			setLoading(false);
+			setTimeout(() => {
+				setResults(response.data.results);
+				setLoading(false);
+			}, 1000);
 		}).catch(() => {
-			setLoading(false);
+			setTimeout(() => {
+				setLoading(false);
+			}, 1000);
 		})
 	}
 

@@ -165,6 +165,16 @@ const useStyles = makeStyles(theme => ({
 		textAlign: "center",
 		color: "rgb(125, 125, 125)",
 	},
+
+
+
+
+	chartBox1: {
+		height: 400,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+	},
 }))
 
 export default useStyles;
