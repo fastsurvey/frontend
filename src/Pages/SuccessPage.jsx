@@ -26,11 +26,21 @@ function SuccessPage(props) {
 			</div>
 
 			<div className={classes.flexBoxRow}>
-				<Link to={"/" + props.match.params.surveyId + "/form"}>
-					<Button variant="contained" color="primary" disableElevation>
-						Zum Formular
-					</Button>
-				</Link>
+				<div className={classes.button}>
+					<Link to={"/" + props.match.params.surveyId + "/form"}>
+						<Button variant="contained" disableElevation>
+							Zum Formular
+						</Button>
+					</Link>
+				</div>
+
+				<div className={classes.button}>
+					<Link to={"/" + props.match.params.surveyId + "/results"}>
+						<Button variant="contained" color="primary" disableElevation>
+							Zu den Ergebnissen
+						</Button>
+					</Link>
+				</div>
 			</div>
 		</Container>
 	);

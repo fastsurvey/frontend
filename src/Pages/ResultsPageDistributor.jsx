@@ -18,11 +18,11 @@ function ResultsPageDistributor(props) {
 			setResults(response.data.results);
 			setTimeout(() => {
 				setLoading(false);
-			}, 700);
+			}, 300);
 		}).catch(() => {
 			setTimeout(() => {
 				setLoading(false);
-			}, 700);
+			}, 300);
 		})
 	}
 
