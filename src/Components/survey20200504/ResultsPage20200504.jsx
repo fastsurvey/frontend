@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 
 
-function ResultsPage20200504() {
+function ResultsPage20200504(props) {
 
 	const classes = useStyles();
 
@@ -29,7 +29,7 @@ function ResultsPage20200504() {
 				</Typography>
 			</div>
 			<Container maxWidth="xs">
-				results
+				loading = {props.loading ? "true" : "false"}
 			</Container>
 		</React.Fragment>
 	);
