@@ -7,31 +7,69 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PortraitAlbers from '../assets/albers.jpg';
-import PortraitBallweg from '../assets/ballweg.jpg';
-import PortraitDeniers from '../assets/deniers.jpeg';
-import PortraitSchmidt from '../assets/schmidt.jpeg';
 import clsx from "clsx";
 import {Breakpoint} from "react-socks";
 import Collapse from '@material-ui/core/Collapse';
 
-function CandidateRow(props) {
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Container from "@material-ui/core/Container";
+
+
+function ReferatRow(props) {
 
 	const classes = useStyles();
 
-	return (
+	// TODO: Add Error indicator (no votes or too many votes)
 
-		<div className={classes.flexBoxRow}>
-			<Checkbox
-				disabled={props.submitting}
-				checked={props.checked}
-				color="primary"
-				onChange={props.onChange}
-			/>
-			<Typography variant="subtitle1"
-						className={clsx(props.submitting ? classes.disabledText : "", classes.candidateTextSmall)}>
-				{props.name}
-			</Typography>
-		</div>
+	const referatId = props.referat.id;
+
+	let candidateList = props.candidates.map((candidate) => {
+		const candidateId = candidate.id;
+
+		return (
+			<div className={clsx(classes.flexBoxRow)}>
+				<Checkbox
+					disabled={props.submitting}
+					checked={props.formValues.election[referatId][candidate.id]}
+					color="primary"
+					onChange={() => props.handleElectionChange(
+						referatId, candidateId, !props.formValues.election[referatId][candidateId])}
+				/>
+				<Typography variant="subtitle1"
+							className={clsx(props.submitting ? classes.disabledText : "", classes.candidateTextLarge)}>
+					{candidate.name}
+				</Typography>
+			</div>
+		);
+	});
+
+	return (
+		<ExpansionPanel elevation={3}>
+			<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+				<Typography variant="h6">
+					{props.referat.name}
+				</Typography>
+			</ExpansionPanelSummary>
+			<ExpansionPanelDetails>
+				<Container maxWidth="sm">
+					<div className={classes.margin3}>
+						{candidateList}
+					</div>
+					<CustomTextField
+						disabled={props.submitting}
+						label="Andere"
+						fullWidth
+						helperText="'<leer>' oder '<Name 1>' oder '<Name 1>, <Name 2>'"
+						value={props.formValues.election[referatId]["andere"]}
+						variant="outlined"
+						onChange={(newValue) => props.handleElectionChange(referatId, "andere", newValue)}
+					/>
+				</Container>
+			</ExpansionPanelDetails>
+		</ExpansionPanel>
 
 	);
 }
@@ -53,7 +91,18 @@ function Form(props) {
 
 	const classes = useStyles();
 
-	function handleFormChange(stateUpdate) {
+	function handleEmailChange(newEmail) {
+
+		// Deepcopy object without a library
+		let newState = {
+			email: newEmail,
+			election: props.formValues.election,
+		};
+
+		props.setFormValues(newState);
+	}
+
+	function handleElectionChange(referatId, candidateId, newValue) {
 
 		// Deepcopy object without a library
 		let newState = {
@@ -61,25 +110,21 @@ function Form(props) {
 			election: props.formValues.election,
 		};
 
-		if ("email" in stateUpdate) {
-			newState.email = stateUpdate.email;
-		}
+		for (let i=0; i<names.length; i++) {
+			let nameList = names[i].split(".");
 
-		if ("election" in stateUpdate) {
-			for (let i=0; i<names.length; i++) {
-				let nameList = names[i].split(".");
-
-				// no distinction between "<name>" and "andere" necessary
-				if (nameList[0] in stateUpdate) {
-					if (nameList[1] in stateUpdate[nameList[0]]) {
-						newState.election[nameList[0]][nameList[1]] = stateUpdate.election[nameList[0]][nameList[1]];
-					}
+			// no distinction between "<name>" and "andere" necessary
+			if (nameList[0] === referatId) {
+				if (nameList[1] === candidateId) {
+					newState.election[referatId][candidateId] = newValue;
 				}
 			}
 		}
 
 		props.setFormValues(newState);
 	}
+
+
 
 	return (
 		<React.Fragment>
@@ -104,54 +149,39 @@ function Form(props) {
 						helperText="<lrz-kennung>@mytum.de"
 						value={props.formValues.email}
 						variant="outlined"
-						onChange={(newValue) => handleFormChange({email: newValue})}
+						onChange={(newValue) => handleEmailChange(newValue)}
 					/>
 				</Grid>
 
 				<Grid item xs={12}>
+					<div className={classes.divider1}/>
+				</Grid>
+
+				<Grid item xs={12}>
+					<ReferatRow
+						submitting={props.submitting}
+						formValues={props.formValues}
+						handleElectionChange={handleElectionChange}
+						referat={{
+							name: "Erstsemester-Referat",
+							id: "erstsemester"
+						}}
+						candidates={[
+							{
+								id: "koenigbaur",
+								name: "Marie Königbaur"
+							},
+							{
+								id: "wernsdorfer",
+								name: "Ruben Wernsdorfer"
+							}
+						]}
+					/>
+				</Grid>
+
+				<Grid item xs={12}>
+
 					<div className={classes.divider3}/>
-				</Grid>
-
-				<Grid item xs={12}>
-					<CandidateRow
-						submitting={props.submitting}
-						checked={props.formValues.election.albers}
-						onChange={() => handleFormChange({election: {albers: !props.formValues.election.albers}})}
-						name="Steffi Albers"
-						image={PortraitAlbers}
-					/>
-				</Grid>
-
-				<Grid item xs={12}>
-					<CandidateRow
-						submitting={props.submitting}
-						checked={props.formValues.election.ballweg}
-						onChange={() => handleFormChange({election: {ballweg: !props.formValues.election.ballweg}})}
-						name="Jonas Ballweg"
-					/>
-				</Grid>
-
-				<Grid item xs={12}>
-					<CandidateRow
-						submitting={props.submitting}
-						checked={props.formValues.election.deniers}
-						onChange={() => handleFormChange({election: {deniers: !props.formValues.election.deniers}})}
-						name="Clara Deniers"
-					/>
-				</Grid>
-
-				<Grid item xs={12}>
-					<CandidateRow
-						submitting={props.submitting}
-						checked={props.formValues.election.schmidt}
-						onChange={() => handleFormChange({election: {schmidt: !props.formValues.election.schmidt}})}
-						name="Tobias Schmidt"
-					/>
-				</Grid>
-
-				<Grid item xs={12}>
-
-					<div className={classes.divider2}/>
 					<Collapse className={classes.hintText}
 							  in={!props.formValues.email.endsWith("@mytum.de") ||
 							  props.formValues.email.length !== 16}>
