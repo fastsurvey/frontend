@@ -15,7 +15,7 @@ function Chart3 (props) {
     let resultsFormatted = [
         {
             "id": "ja",
-            "label": "ja",
+            "label": "Ja",
             "value": props.results["ja"]
         }, {
             "id": "nein",
@@ -23,7 +23,7 @@ function Chart3 (props) {
             "value": props.results["nein"]
         }, {
             "id": "enthaltung",
-            "name": "Enthaltung",
+            "label": "Enthaltung",
             "value": props.results["enthaltung"]
         }
     ];

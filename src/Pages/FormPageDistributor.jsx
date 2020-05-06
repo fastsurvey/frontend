@@ -4,6 +4,7 @@ import FormPage20200504 from "../Surveys/survey-20200504/FormPage20200504";
 import FormPage2 from "../Surveys/fvv-ss20-referate/FormPage";
 import FormPage3 from "../Surveys/fvv-ss20-go/FormPage";
 import FormPage4 from "../Surveys/fvv-ss20-entlastung/FormPage";
+import FormPage5 from "../Surveys/fvv-ss20-leitung/FormPage";
 
 
 function FormPageDistributor(props) {
@@ -16,6 +17,8 @@ function FormPageDistributor(props) {
 			return <FormPage3/>;
 		case "fvv-ss20-entlastung":
 			return <FormPage4/>;
+		case "fvv-ss20-leitung":
+			return <FormPage5/>;
 		default:
 			return <Redirect to="/"/>;
 	}
