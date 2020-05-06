@@ -163,15 +163,14 @@ function Form(props) {
 
 				<div className={classes.titleTextBox2}>
 					<Typography variant="h4">
-						Semestersprecher Wahl
+						Wahl der Fachschafts-Referate
 					</Typography>
 				</div>
 				<div className={classes.titleTextBox1}>
 					<Typography variant="h5">
-						6. Fachsemester, 04.05.2020
+						FVV SS20, 06.05.2020
 					</Typography>
 				</div>
-
 				<Grid item xs={12}>
 					<CustomTextField
 						disabled={props.submitting}

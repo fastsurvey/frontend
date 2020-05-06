@@ -25,7 +25,7 @@ function IndexPage() {
 			</div>
 			<div className={classes.titleTextBox1}>
 				<Typography variant="h5">
-					FVV, 06.05.2020
+					FVV SS20, 06.05.2020
 				</Typography>
 			</div>
 			<Container maxWidth="sm">
