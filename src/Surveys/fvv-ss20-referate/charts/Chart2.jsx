@@ -3,8 +3,9 @@ import {ResponsiveBar} from '@nivo/bar'
 import Typography from "@material-ui/core/Typography";
 import useStyles from "../../../styles";
 import Divider from "@material-ui/core/Divider";
-import Container from "@material-ui/core/Container";
-
+import Paper from "@material-ui/core/Paper";
+import PersonIcon from '@material-ui/icons/Person';
+import Chip from "@material-ui/core/Chip";
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -17,23 +18,35 @@ function Chart2(props) {
 
     const classes = useStyles();
     let resultsFormatted = [];
+    let andereResults = [];
 
     if (props.results !== undefined) {
         for (let i = 0; i < props.candidates.length; i++) {
-            if (props.candidates[i].id !== "andere") {
-                resultsFormatted.push({
-                    "name": props.candidates[i].name,
-                    "Stimmen": props.results[props.referat.id][props.candidates[i].id]
-                });
-            }
+            resultsFormatted.push({
+                "name": props.candidates[i].name,
+                "Stimmen": props.results[props.referat.id][props.candidates[i].id]
+            });
         }
+
+        const andereDict = props.results[props.referat.id]["andere"];
+        const keys = Object.keys(andereDict);
+
+        for (let j = 0; j < keys.length; j++) {
+            andereResults.push({
+                "name": keys[j],
+                "Stimmen": andereDict[keys[j]]
+            });
+        }
+
+        andereResults = andereResults.sort((a, b) => {
+            return b["Stimmen"] - a["Stimmen"]
+        })
     }
 
+    console.log(andereResults)
+
     return (
-        <React.Fragment>
-            <div className={classes.divider123}>
-                <Divider/>
-            </div>
+        <Paper elevation={3} className={classes.resultsPaper}>
             <Typography variant="h6" className={classes.titleTextBox3}>
                 {props.referat.name}
             </Typography>
@@ -74,7 +87,23 @@ function Chart2(props) {
                     motionDamping={15}
                 />
             </div>
-        </React.Fragment>
+            {andereResults.length !== 0 && (
+                <div component="ul" className={classes.chipRoot}>
+                    {andereResults.map((data) => {
+                        return (
+                            <li key={data["name"]}>
+                                <Chip
+                                    icon={<PersonIcon/>}
+                                    label={data["name"] + " (" + data["Stimmen"].toString() +
+                                    " Stimme" + (data["Stimmen"] === 1 ? "" : "n") + ")"}
+                                    className={classes.chip}
+                                />
+                            </li>
+                        );
+                    })}
+                </div>
+            )}
+        </Paper>
     );
 }
 

@@ -214,6 +214,28 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: "column",
 		width: "100%",
 	},
+
+
+
+
+
+
+	chipRoot: {
+		display: 'flex',
+		justifyContent: 'center',
+		flexWrap: 'wrap',
+		listStyle: 'none',
+		padding: theme.spacing(0.5),
+		marginTop: theme.spacing(3),
+	},
+	chip: {
+		margin: theme.spacing(0.5),
+	},
+	resultsPaper: {
+		padding: theme.spacing(2),
+		marginTop: theme.spacing(2),
+		marginBottom: theme.spacing(2),
+	},
 }))
 
 export default useStyles;
