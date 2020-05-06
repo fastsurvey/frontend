@@ -35,8 +35,12 @@ function ReferatRow(props) {
 		}
 	})
 
-	voteCount += (props.formValues.election[referatId]["andere"].split(",")).length - 1;
-
+	let andereList = (props.formValues.election[referatId]["andere"].split(","));
+	for (let i=0; i<andereList.length; i++) {
+		if (andereList[i] !== "" && andereList[i] !== " " && andereList[i] !== "  ") {
+			voteCount++;
+		}
+	}
 
 	if (voteCount === 0) {
 		voteCountMessage = "Du enthälst dich ...";
