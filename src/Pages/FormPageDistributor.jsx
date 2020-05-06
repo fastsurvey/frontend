@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect, withRouter} from 'react-router-dom'
 import FormPage20200504 from "../Surveys/survey-20200504/FormPage20200504";
 import FormPage2 from "../Surveys/fvv-ss20-referate/FormPage";
+import FormPage3 from "../Surveys/fvv-ss20-go/FormPage";
 
 
 function FormPageDistributor(props) {
@@ -10,6 +11,8 @@ function FormPageDistributor(props) {
 			return <FormPage20200504/>;
 		case "fvv-ss20-referate":
 			return <FormPage2/>;
+		case "fvv-ss20-go":
+			return <FormPage3/>;
 		default:
 			return <Redirect to="/"/>;
 	}

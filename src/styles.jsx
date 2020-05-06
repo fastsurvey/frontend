@@ -120,6 +120,10 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
 	},
+	divider4: {
+		marginTop: theme.spacing(4),
+		marginBottom: theme.spacing(4),
+	},
 	divider123: {
 		marginTop: theme.spacing(12),
 		marginBottom: theme.spacing(3),
@@ -166,7 +170,8 @@ const useStyles = makeStyles(theme => ({
 	},
 
 	hintText: {
-		paddingBottom: theme.spacing(1.5),
+		paddingTop: theme.spacing(1),
+		paddingBottom: theme.spacing(1),
 		width: "100%",
 		textAlign: "center",
 		color: "rgb(125, 125, 125)",
