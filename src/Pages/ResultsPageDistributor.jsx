@@ -3,7 +3,7 @@ import {Redirect, withRouter} from 'react-router-dom';
 import ResultsPage20200504 from "../Surveys/survey-20200504/ResultsPage20200504";
 import ResultsPage2 from "../Surveys/fvv-ss20-referate/ResultsPage";
 import ResultsPage3 from "../Surveys/fvv-ss20-go/ResultsPage";
-import ResultsPage4 from "../Surveys/fvv-ss20-leitung/ResultsPage";
+import ResultsPage4 from "../Surveys/fvv-ss20-entlastung/ResultsPage";
 import axios from 'axios';
 import {BACKEND_URL} from "../constants";
 
@@ -14,7 +14,7 @@ function ResultsPageDistributor(props) {
 	const [loading, setLoading] = useState(true);
 
 	const surveyId = props.match.params.surveyId;
-	const validSurveyIds = ["20200504", "fvv-ss20-referate", "fvv-ss20-go", "fvv-ss20-leitung"]
+	const validSurveyIds = ["20200504", "fvv-ss20-referate", "fvv-ss20-go", "fvv-ss20-entlastung"]
 
 	if (validSurveyIds.includes(surveyId) && Object.keys(results).length === 0) {
 		axios.get(BACKEND_URL + surveyId + "/results").then(response => {
@@ -36,7 +36,7 @@ function ResultsPageDistributor(props) {
 			return <ResultsPage2 results={results} loading={loading}/>;
 		case "fvv-ss20-go":
 			return <ResultsPage3 results={results} loading={loading}/>;
-		case "fvv-ss20-leitung":
+		case "fvv-ss20-entlastung":
 			return <ResultsPage4 results={results} loading={loading}/>;
 		default:
 			return <Redirect to="/"/>;

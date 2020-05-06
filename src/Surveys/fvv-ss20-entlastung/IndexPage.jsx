@@ -59,7 +59,7 @@ function IndexPage() {
 			</Container>
 
 			<div className={classes.flexBoxRow}>
-				<Link to="/fvv-ss20-leitung/form">
+				<Link to="/fvv-ss20-entlastung/form">
 					<Button variant="contained" color="primary" disableElevation>
 						Zum Formular
 					</Button>

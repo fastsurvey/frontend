@@ -71,21 +71,21 @@ function FormPage(props) {
 			responseType: "json"
 		});
 
-		backend.post("fvv-ss20-leitung/submit", {form_data: formValues})
+		backend.post("fvv-ss20-entlastung/submit", {form_data: formValues})
 			.then(() => {
 				// Timeout needed so that the user does not get on
 				// mail.tum.de too fast (when outlook has not received
 				// the mail yet)
 				setTimeout(() => {
 					setSubmitting(false);
-					props.history.push('/fvv-ss20-leitung/verify' + getPathParams());
+					props.history.push('/fvv-ss20-entlastung/verify' + getPathParams());
 				}, 1500);
 			})
 			.catch(error => {
 				// Timeout for a better visual experience
 				setTimeout(() => {
 					setSubmitting(false);
-					props.history.push('/fvv-ss20-leitung/form' + getPathParams());
+					props.history.push('/fvv-ss20-entlastung/form' + getPathParams());
 					console.log(error.response.data.status);
 					openMessage(error.response.data.status);
 				}, 800);
