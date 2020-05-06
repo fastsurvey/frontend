@@ -33,14 +33,6 @@ function SuccessPage(props) {
 						</Button>
 					</Link>
 				</div>
-
-				<div className={classes.button}>
-					<Link to={"/" + props.match.params.surveyId + "/results"}>
-						<Button variant="contained" color="primary" disableElevation>
-							Zu den Ergebnissen
-						</Button>
-					</Link>
-				</div>
 			</div>
 		</Container>
 	);
