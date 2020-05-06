@@ -1,4 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
 
 const useStyles = makeStyles(theme => ({
 	page: {
@@ -118,6 +120,10 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
 	},
+	divider123: {
+		marginTop: theme.spacing(12),
+		marginBottom: theme.spacing(3),
+	},
 	divider2: {
 		marginTop: theme.spacing(2),
 		marginBottom: theme.spacing(2),
@@ -172,6 +178,17 @@ const useStyles = makeStyles(theme => ({
 		alignItems: "center",
 		justifyContent: "center",
 	},
+	chartBox2: {
+		height: 200,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "column",
+	},
+	titleTextBox3: {
+		width: "100%",
+		textAlign: "center",
+	}
 }))
 
 export default useStyles;

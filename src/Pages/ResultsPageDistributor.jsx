@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Redirect, withRouter} from 'react-router-dom';
-import ResultsPage20200504 from "../Components/survey20200504/ResultsPage20200504";
+import ResultsPage20200504 from "../Surveys/survey-20200504/ResultsPage20200504";
+import ResultsPage2 from "../Surveys/fvv-ss20-referate/ResultsPage";
 import axios from 'axios';
 import {BACKEND_URL} from "../constants";
 
@@ -11,7 +12,7 @@ function ResultsPageDistributor(props) {
 	const [loading, setLoading] = useState(true);
 
 	const surveyId = props.match.params.surveyId;
-	const validSurveyIds = ["20200504"];
+	const validSurveyIds = ["20200504", "fvv-ss20-referate"]
 
 	if (validSurveyIds.includes(surveyId) && Object.keys(results).length === 0) {
 		axios.get(BACKEND_URL + surveyId + "/results").then(response => {
@@ -29,6 +30,8 @@ function ResultsPageDistributor(props) {
 	switch (surveyId) {
 		case "20200504":
 			return <ResultsPage20200504 results={results} loading={loading}/>;
+		case "fvv-ss20-referate":
+			return <ResultsPage2 results={results} loading={loading}/>;
 		default:
 			return <Redirect to="/"/>;
 	}
