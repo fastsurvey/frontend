@@ -2,7 +2,7 @@ import React from 'react';
 import useStyles from "../../styles";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Chart3 from "./charts/Chart3";
+import Chart3 from "../fvv-ss20-go/charts/Chart3";
 
 function ResultsPage(props) {
 
@@ -14,7 +14,7 @@ function ResultsPage(props) {
         <React.Fragment>
             <div className={classes.titleTextBox2}>
                 <Typography variant="h4">
-                    Abstimmung zur Geschäftsordnung der Fachschaft
+                    Entlastung der Fachschaftsleitung
                 </Typography>
             </div>
             <div className={classes.titleTextBox1}>

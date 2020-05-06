@@ -20,7 +20,7 @@ function IndexPage() {
 
 			<div className={classes.titleTextBox2}>
 				<Typography variant="h4">
-					Abstimmung zur Geschäftsordnung der Fachschaft
+					Entlastung der Fachschaftsleitung
 				</Typography>
 			</div>
 			<div className={classes.titleTextBox1}>
@@ -40,7 +40,7 @@ function IndexPage() {
 						<br/><br/>
 
 						Wir <strong>künden im Live Stream an, ab wann und bis wann</strong>&nbsp;
-						du hier für über die Änderungen an der Geschäftsordnung abstimmen kannst.
+						du hier für über die Entlastung der Fachschaftsleitung abstimmen kannst.
 
 						<br/><br/>
 
@@ -59,7 +59,7 @@ function IndexPage() {
 			</Container>
 
 			<div className={classes.flexBoxRow}>
-				<Link to="/fvv-ss20-go/form">
+				<Link to="/fvv-ss20-leitung/form">
 					<Button variant="contained" color="primary" disableElevation>
 						Zum Formular
 					</Button>

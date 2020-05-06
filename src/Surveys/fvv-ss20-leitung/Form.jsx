@@ -77,7 +77,7 @@ function Form(props) {
 
 				<div className={classes.titleTextBox2}>
 					<Typography variant="h4">
-						Abstimmung zur Geschäftsordnung der Fachschaft
+						Entlastung der Fachschaftsleitung
 					</Typography>
 				</div>
 				<div className={classes.titleTextBox1}>
@@ -108,7 +108,7 @@ function Form(props) {
 
 				<div className={classes.titleTextBox2}>
 					<Typography variant="h5">
-						Stimmst du der neuen Geschäftsordnung der zu?
+						Entlastest du die Fachschaftsleitung der MSE?
 					</Typography>
 				</div>
 
