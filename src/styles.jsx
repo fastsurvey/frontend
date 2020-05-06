@@ -190,6 +190,13 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "center",
 		flexDirection: "column",
 	},
+	chartBox3: {
+		height: 500,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "column",
+	},
 	titleTextBox3: {
 		width: "100%",
 		textAlign: "center",
