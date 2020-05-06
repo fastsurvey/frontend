@@ -200,7 +200,20 @@ const useStyles = makeStyles(theme => ({
 	titleTextBox3: {
 		width: "100%",
 		textAlign: "center",
-	}
+	},
+	expansionIndicator: {
+		color: "hsl(0, 0%, 50%)"
+	},
+	expansionError: {
+		color: "hsl(0, 50%, 60%)"
+	},
+	expansionSummaryBox: {
+		display: "flex",
+		alignItems: "flex-start",
+		justifyContent: "center",
+		flexDirection: "column",
+		width: "100%",
+	},
 }))
 
 export default useStyles;

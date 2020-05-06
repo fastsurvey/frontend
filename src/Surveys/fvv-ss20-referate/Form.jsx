@@ -26,6 +26,24 @@ function ReferatRow(props) {
 
 	const referatId = props.referat.id;
 
+	let voteCount = 0;
+	let voteCountMessage = "";
+
+	props.candidates.forEach((candidate) => {
+		if (props.formValues.election[referatId][candidate.id]) {
+			voteCount++;
+		}
+	})
+
+	voteCount += (props.formValues.election[referatId]["andere"].split(",")).length - 1;
+
+
+	if (voteCount === 0) {
+		voteCountMessage = "Du enthälst dich ...";
+	} else if (voteCount > 2) {
+		voteCountMessage = "Maximal 2 Stimmen!";
+	}
+
 	let candidateList = props.candidates.map((candidate) => {
 		const candidateId = candidate.id;
 
@@ -49,9 +67,18 @@ function ReferatRow(props) {
 	return (
 		<ExpansionPanel elevation={3}>
 			<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-				<Typography variant="h6">
-					{props.referat.name}
-				</Typography>
+				<div className={classes.expansionSummaryBox}>
+					<Typography variant="h6">
+						{props.referat.name}
+					</Typography>
+
+					{voteCount <= 2 && (
+						<Typography variant="subtitle1" className={classes.expansionIndicator}>{voteCountMessage}</Typography>
+					)}
+					{voteCount > 2 && (
+						<Typography variant="subtitle1" className={classes.expansionError}>{voteCountMessage}</Typography>
+					)}
+				</div>
 			</ExpansionPanelSummary>
 			<ExpansionPanelDetails>
 				<Container maxWidth="sm">
