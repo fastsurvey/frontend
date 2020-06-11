@@ -12,12 +12,11 @@
 # below:
 .git
 .gitignore
+README.md
 
 # Node.js dependencies:
 node_modules/
 
-
+# Source Directories
 src/
 public/
-README.md
-deploy_guide.md
