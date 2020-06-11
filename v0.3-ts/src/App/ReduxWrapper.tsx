@@ -10,9 +10,9 @@ let cloneDeep = require('lodash.clonedeep');
 interface ReduxAction {
     type: string,
     data: {
-        text?: string,
         config?: object,
         formData?: object,
+        text?: string
     }
 }
 
@@ -38,14 +38,14 @@ function storeReducer(state = {
             // TODO: POST form data to backend
             return newState;
 
-        case "SHOW_MESSAGE":
+        case "OPEN_MESSAGE":
             newState.message = {
                 text: action.data.text,
                 visible: true
             };
             return newState;
 
-        case "HIDE_MESSAGE":
+        case "CLOSE_MESSAGE":
             newState.message.visible = false;
             return newState;
 
