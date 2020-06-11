@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App/App';
 import * as serviceWorker from './serviceWorker';
+import ThemeWrapper from "./App/ThemeWrapper";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeWrapper/>
   </React.StrictMode>,
   document.getElementById('root')
 );
