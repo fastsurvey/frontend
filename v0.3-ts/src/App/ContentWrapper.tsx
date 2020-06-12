@@ -8,7 +8,10 @@ import {ReduxStore} from "./ReduxWrapper";
 import {connect} from "react-redux";
 
 
-function ContentWrapperComponent({children, fetchingConfig, submittingData}: InferProps<typeof ContentWrapperComponent.propTypes>) {
+function ContentWrapperComponent(
+    {children, fetchingConfig, submittingData}:
+        InferProps<typeof ContentWrapperComponent.propTypes>
+) {
 
     let logoURL: string;
     if (isSurveyPath(window.location.pathname)) {

@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes, { InferProps } from "prop-types";
 import {createStore} from 'redux'
 import {Provider} from "react-redux";
+import cloneDeep from 'lodash.clonedeep';
 
-
-let cloneDeep = require('lodash.clonedeep');
+// const cloneDeep = require('lodash.clonedeep');
 
 export interface ReduxStore {
     config: object, fetchingConfig: boolean,
@@ -28,14 +28,17 @@ function storeReducer(state = {
     message: {text: "", visible: false}
 }, action: ReduxAction) {
 
+    // tslint:disable-next-line
     let newState = cloneDeep(state);
 
     switch (action.type) {
         case "ADD_CONFIG":
+            // @ts-ignore
             newState.config = action.data.config;
             return newState;
 
         case "MODIFY_FORM_DATA":
+            // @ts-ignore
             newState.formData = action.data.formData;
             return newState;
 
@@ -45,10 +48,9 @@ function storeReducer(state = {
             return newState;
 
         case "OPEN_MESSAGE":
-            newState.message = {
-                text: action.data.text,
-                visible: true
-            };
+            // @ts-ignore
+            newState.message.text = action.data.text;
+            newState.message.visible = true;
             return newState;
 
         case "CLOSE_MESSAGE":
@@ -60,6 +62,7 @@ function storeReducer(state = {
     }
 }
 
+// tslint:disable-next-line
 let store = createStore(storeReducer);
 
 
