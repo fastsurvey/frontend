@@ -35,31 +35,33 @@ function storeReducer(state = {
         case "ADD_CONFIG":
             // @ts-ignore
             newState.config = action.data.config;
-            return newState;
+            break;
 
         case "MODIFY_FORM_DATA":
             // @ts-ignore
             newState.formData = action.data.formData;
-            return newState;
+            break;
 
         case "SUBMIT_FORM_DATA":
             newState.submittingData = true;
             // TODO: POST form data to backend
-            return newState;
+            break;
 
         case "OPEN_MESSAGE":
             // @ts-ignore
             newState.message.text = action.data.text;
             newState.message.visible = true;
-            return newState;
+           break;
 
         case "CLOSE_MESSAGE":
             newState.message.visible = false;
-            return newState;
+            break;
 
         default:
-            return newState;
+            break;
     }
+
+    return newState;
 }
 
 // tslint:disable-next-line
