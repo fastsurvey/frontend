@@ -1,9 +1,14 @@
 
-import { ReduxAction } from './reduxInterfaces';
+import {ConfigInterface, ReduxAction} from './reduxInterfaces';
 
-export const addConfig = (config: object): ReduxAction => ({
+export const addConfig = (config: ConfigInterface, formData: object): ReduxAction => ({
     type: 'ADD_CONFIG',
-    data: { config },
+    data: { config, formData },
+});
+
+export const setInvalidSurveyId = (): ReduxAction => ({
+    type: 'SET_INVALID_SURVEY_ID',
+    data: {},
 });
 
 export const modifyFormData = (formData: object): ReduxAction => ({
