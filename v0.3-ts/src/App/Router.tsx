@@ -7,9 +7,29 @@ function Router() {
         <BrowserRouter>
             <Route>
                 <Switch>
-                    <Route exact strict path='^/([a-z]|[A-Z]|[0-9]|-){1,20}/([a-z]|[A-Z]|[0-9]|-){1,20}(|/)$'>
+                    <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})`}>
                         <ContentWrapper>
                             <div>Index</div>
+                        </ContentWrapper>
+                    </Route>
+                    <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})/form`}>
+                        <ContentWrapper>
+                            <div>Form</div>
+                        </ContentWrapper>
+                    </Route>
+                    <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})/verify`}>
+                        <ContentWrapper>
+                            <div>Verify</div>
+                        </ContentWrapper>
+                    </Route>
+                    <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})/success`}>
+                        <ContentWrapper>
+                            <div>Success</div>
+                        </ContentWrapper>
+                    </Route>
+                    <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})/results`}>
+                        <ContentWrapper>
+                            <div>Results</div>
                         </ContentWrapper>
                     </Route>
                     <Route>
