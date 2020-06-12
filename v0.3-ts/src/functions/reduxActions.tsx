@@ -1,27 +1,27 @@
 
-import {InterfaceReduxAction} from '../App/ReduxWrapper';
+import { ReduxAction } from './reduxInterfaces';
 
-export const addConfig = (config: object): InterfaceReduxAction => ({
+export const addConfig = (config: object): ReduxAction => ({
     type: 'ADD_CONFIG',
-    data: { config }
+    data: { config },
 });
 
-export const modifyFormData = (formData: object): InterfaceReduxAction => ({
+export const modifyFormData = (formData: object): ReduxAction => ({
     type: 'MODIFY_FORM_DATA',
-    data: { formData }
+    data: { formData },
 });
 
-export const submitFormData = (): InterfaceReduxAction => ({
+export const submitFormData = (): ReduxAction => ({
     type: 'SUBMIT_FORM_DATA',
-    data: {}
+    data: {},
 });
 
-export const openMessage = (text: string): InterfaceReduxAction => ({
+export const openMessage = (text: string): ReduxAction => ({
     type: 'OPEN_MESSAGE',
-    data: { text }
+    data: { text },
 });
 
-export const closeMessage = (config: object): InterfaceReduxAction => ({
+export const closeMessage = (config: object): ReduxAction => ({
     type: 'CLOSE_MESSAGE',
-    data: {}
+    data: {},
 });

@@ -1,15 +1,15 @@
-import React from 'react';
-import RocketLogo from '../assets/branding/rocket.svg';
-import './ContentWrapper.scss';
-import {isSurveyPath, getSurveyRootPath} from '../functions/pathFunctions';
 
-import PropTypes, {InferProps} from 'prop-types';
-import {InterfaceReduxStore} from './ReduxWrapper';
-import {connect} from 'react-redux';
+import React from 'react';
+import PropTypes, { InferProps} from 'prop-types';
+import { ReduxStore} from '../functions/reduxInterfaces';
+import { connect} from 'react-redux';
+
+import RocketLogo from '../assets/branding/rocket.svg';
+import { getSurveyRootPath, isSurveyPath } from '../functions/pathFunctions';
+import './ContentWrapper.scss';
 
 function ContentWrapperComponent(
-    {children, fetchingConfig, submittingData}:
-        InferProps<typeof ContentWrapperComponent.propTypes>
+    { children, fetchingConfig, submittingData }: InferProps<typeof ContentWrapperComponent.propTypes>
 ) {
 
     const logoURL: string = isSurveyPath(window.location.pathname) ?
@@ -45,9 +45,9 @@ ContentWrapperComponent.propTypes = {
     submittingData: PropTypes.bool,
 };
 
-const mapStateToProps = (state: InterfaceReduxStore) => ({
+const mapStateToProps = (state: ReduxStore) => ({
     fetchingConfig: state.fetchingConfig,
-    submittingData: state.submittingData
+    submittingData: state.submittingData,
 });
 
 const ContentWrapper = connect(mapStateToProps, () => {

@@ -9,5 +9,6 @@ export function getSurveyRootPath(path: string): string {
     const rootMatch = path.match(
         '/([a-z]|[A-Z]|[0-9]|-){6,20}/([a-z]|[A-Z]|[0-9]|-){6,20}'
     );
+
     return rootMatch !== null ? rootMatch[0] : '/';
 }
