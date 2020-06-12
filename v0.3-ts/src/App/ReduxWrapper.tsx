@@ -1,7 +1,6 @@
-
 import React from 'react';
-import PropTypes, { InferProps } from 'prop-types';
-import {createStore} from 'redux'
+import PropTypes, {InferProps} from 'prop-types';
+import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import cloneDeep from 'lodash.clonedeep';
 
@@ -24,11 +23,19 @@ export interface InterfaceReduxAction {
     };
 }
 
-function storeReducer(state = {
-    config: {}, fetchingConfig: true,
-    formData: {}, submittingData: false,
-    message: {text: '', visible: false}
-}, action: InterfaceReduxAction) {
+function storeReducer(
+    state = {
+        config: {},
+        fetchingConfig: true,
+        formData: {},
+        submittingData: false,
+        message: {
+            text: '',
+            visible: false
+        }
+    },
+    action: InterfaceReduxAction
+) {
 
     // tslint:disable-next-line
     let newState = cloneDeep(state);

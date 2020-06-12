@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import ReduxWrapper from "./App/ReduxWrapper";
-import Router from "./App/Router";
-
+import ReduxWrapper from './App/ReduxWrapper';
+import Router from './App/Router';
 
 ReactDOM.render(
     <React.StrictMode>

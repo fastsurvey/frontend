@@ -7,7 +7,6 @@ import PropTypes, {InferProps} from 'prop-types';
 import {InterfaceReduxStore} from './ReduxWrapper';
 import {connect} from 'react-redux';
 
-
 function ContentWrapperComponent(
     {children, fetchingConfig, submittingData}:
         InferProps<typeof ContentWrapperComponent.propTypes>

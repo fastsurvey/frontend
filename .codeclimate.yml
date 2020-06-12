@@ -41,6 +41,11 @@ exclude_patterns:
   - "**/*.html" # Not supported by CodeClimate yet
   - "**/*.json" # Not supported by CodeClimate yet
 
-plugins:
+engines:
   tslint:
     enabled: true
+    checks:
+      interface-name:
+        enabled: false
+      no-empty:
+        enabled: false

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import ContentWrapper from "./ContentWrapper";
+import ContentWrapper from './ContentWrapper';
 
 function Router() {
     return (
         <BrowserRouter>
             <Route>
                 <Switch>
-                    <Route exact strict path="/">
+                    <Route exact strict path='/'>
                         <ContentWrapper>
                             <div>Index</div>
                         </ContentWrapper>
@@ -20,7 +20,7 @@ function Router() {
                 </Switch>
             </Route>
         </BrowserRouter>
-    )
+    );
 }
 
 export default Router;
