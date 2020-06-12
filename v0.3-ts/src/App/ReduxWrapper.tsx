@@ -1,59 +1,61 @@
 
 import React from 'react';
-import PropTypes, { InferProps } from "prop-types";
+import PropTypes, { InferProps } from 'prop-types';
 import {createStore} from 'redux'
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
 import cloneDeep from 'lodash.clonedeep';
 
 // const cloneDeep = require('lodash.clonedeep');
 
-export interface ReduxStore {
-    config: object, fetchingConfig: boolean,
-    formData: object, submittingData: boolean,
-    message: {text: string, visible: boolean}
+export interface InterfaceReduxStore {
+    config: object;
+    fetchingConfig: boolean;
+    formData: object;
+    submittingData: boolean;
+    message: { text: string; visible: boolean };
 }
 
-export interface ReduxAction {
-    type: string,
+export interface InterfaceReduxAction {
+    type: string;
     data: {
-        config?: object,
-        formData?: object,
-        text?: string
-    }
+        config?: object;
+        formData?: object;
+        text?: string;
+    };
 }
 
 function storeReducer(state = {
     config: {}, fetchingConfig: true,
     formData: {}, submittingData: false,
-    message: {text: "", visible: false}
-}, action: ReduxAction) {
+    message: {text: '', visible: false}
+}, action: InterfaceReduxAction) {
 
     // tslint:disable-next-line
     let newState = cloneDeep(state);
 
     switch (action.type) {
-        case "ADD_CONFIG":
+        case 'ADD_CONFIG':
             // @ts-ignore
             newState.config = action.data.config;
             break;
 
-        case "MODIFY_FORM_DATA":
+        case 'MODIFY_FORM_DATA':
             // @ts-ignore
             newState.formData = action.data.formData;
             break;
 
-        case "SUBMIT_FORM_DATA":
+        case 'SUBMIT_FORM_DATA':
             newState.submittingData = true;
             // TODO: POST form data to backend
             break;
 
-        case "OPEN_MESSAGE":
+        case 'OPEN_MESSAGE':
             // @ts-ignore
             newState.message.text = action.data.text;
             newState.message.visible = true;
-           break;
+            break;
 
-        case "CLOSE_MESSAGE":
+        case 'CLOSE_MESSAGE':
             newState.message.visible = false;
             break;
 
@@ -66,7 +68,6 @@ function storeReducer(state = {
 
 // tslint:disable-next-line
 let store = createStore(storeReducer);
-
 
 export function ReduxWrapper({children}: InferProps<typeof ReduxWrapper.propTypes>) {
     return (

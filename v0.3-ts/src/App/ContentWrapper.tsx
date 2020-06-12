@@ -1,11 +1,11 @@
 import React from 'react';
 import RocketLogo from '../assets/branding/rocket.svg';
 import './ContentWrapper.scss';
-import {isSurveyPath, getSurveyRootPath} from "../functions/pathFunctions";
+import {isSurveyPath, getSurveyRootPath} from '../functions/pathFunctions';
 
-import PropTypes, {InferProps} from "prop-types";
-import {ReduxStore} from "./ReduxWrapper";
-import {connect} from "react-redux";
+import PropTypes, {InferProps} from 'prop-types';
+import {InterfaceReduxStore} from './ReduxWrapper';
+import {connect} from 'react-redux';
 
 
 function ContentWrapperComponent(
@@ -13,26 +13,23 @@ function ContentWrapperComponent(
         InferProps<typeof ContentWrapperComponent.propTypes>
 ) {
 
-    let logoURL: string;
-    if (isSurveyPath(window.location.pathname)) {
-        logoURL = getSurveyRootPath(window.location.pathname);
-    } else {
-        logoURL = "/";
-    }
+    const logoURL: string = isSurveyPath(window.location.pathname) ?
+        getSurveyRootPath(window.location.pathname) :
+        '/';
 
     return (
         <React.Fragment>
             <header>
                 {(!fetchingConfig && !submittingData) && (
-                    <div className="FastSurveyIcon" style={{ cursor: "pointer" }}>
+                    <div className='FastSurveyIcon' style={{cursor: 'pointer'}}>
                         <a href={logoURL}>
-                            <img src={RocketLogo} alt="FastSurvey Icon"/>
+                            <img src={RocketLogo} alt='FastSurvey Icon'/>
                         </a>
                     </div>
                 )}
                 {(fetchingConfig || submittingData) && (
-                    <div  className="FastSurveyIcon" style={{ cursor: "wait" }}>
-                        <img src={RocketLogo} alt="FastSurvey Icon"/>
+                    <div className='FastSurveyIcon' style={{cursor: 'wait'}}>
+                        <img src={RocketLogo} alt='FastSurvey Icon'/>
                     </div>
                 )}
             </header>
@@ -49,11 +46,12 @@ ContentWrapperComponent.propTypes = {
     submittingData: PropTypes.bool,
 };
 
-const mapStateToProps = (state: ReduxStore) => ({
+const mapStateToProps = (state: InterfaceReduxStore) => ({
     fetchingConfig: state.fetchingConfig,
     submittingData: state.submittingData
 });
 
-const ContentWrapper = connect(mapStateToProps, () => {})(ContentWrapperComponent);
+const ContentWrapper = connect(mapStateToProps, () => {
+})(ContentWrapperComponent);
 
 export default ContentWrapper;
