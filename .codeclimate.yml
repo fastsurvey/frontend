@@ -30,12 +30,16 @@ exclude_patterns:
   - "/v0.2-js"
   - "/.idea"
   - "/.*"
-  - "README.md"
-  - "*.svg"
-  - "*.png"
-  - "*.jpg"
-  - "*.jpeg"
-  - "*.gif"
+  - "**/*.svg"
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.jpeg"
+  - "**/*.gif"
+  - "**/*.ico"
+  - "**/*.md"
+  - "**/*.scss" # Not supported by CodeClimate yet
+  - "**/*.html" # Not supported by CodeClimate yet
+  - "**/*.json" # Not supported by CodeClimate yet
 
 plugins:
   tslint:
