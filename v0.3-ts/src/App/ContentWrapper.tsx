@@ -7,23 +7,34 @@ import { connect} from 'react-redux';
 import RocketLogo from '../assets/branding/rocket.svg';
 import { getSurveyRootPath, isSurveyPath } from '../functions/pathFunctions';
 import './ContentWrapper.scss';
+import {Link} from 'react-router-dom';
 
 function ContentWrapperComponent(
-    { children, fetchingConfig, submittingData }: InferProps<typeof ContentWrapperComponent.propTypes>
+    { children, fetchingConfig, validSurveyId, submittingData }: InferProps<typeof ContentWrapperComponent.propTypes>
 ) {
 
     const logoURL: string = isSurveyPath(window.location.pathname) ?
         getSurveyRootPath(window.location.pathname) :
         '/';
 
+    function Content() {
+        if ((!fetchingConfig && validSurveyId) || ['', '/'].includes(window.location.pathname)) {
+            return children;
+        } else if (fetchingConfig) {
+            return <div>Fetching</div>;
+        } else {
+            return <div>404</div>;
+        }
+    }
+
     return (
         <React.Fragment>
             <header>
                 {(!fetchingConfig && !submittingData) && (
                     <div className='FastSurveyIcon' style={{cursor: 'pointer'}}>
-                        <a href={logoURL}>
+                        <Link to={logoURL}>
                             <img src={RocketLogo} alt='FastSurvey Icon'/>
-                        </a>
+                        </Link>
                     </div>
                 )}
                 {(fetchingConfig || submittingData) && (
@@ -33,7 +44,7 @@ function ContentWrapperComponent(
                 )}
             </header>
             <main>
-                {children}
+                <Content/>
             </main>
         </React.Fragment>
     );
@@ -42,15 +53,16 @@ function ContentWrapperComponent(
 ContentWrapperComponent.propTypes = {
     children: PropTypes.element.isRequired,
     fetchingConfig: PropTypes.bool,
+    validSurveyId: PropTypes.bool,
     submittingData: PropTypes.bool,
 };
 
 const mapStateToProps = (state: ReduxStore) => ({
     fetchingConfig: state.fetchingConfig,
+    validSurveyId: state.validSurveyId,
     submittingData: state.submittingData,
 });
 
-const ContentWrapper = connect(mapStateToProps, () => {
-})(ContentWrapperComponent);
+const ContentWrapper = connect(mapStateToProps, () => ({}))(ContentWrapperComponent);
 
 export default ContentWrapper;

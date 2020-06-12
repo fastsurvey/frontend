@@ -7,9 +7,14 @@ function Router() {
         <BrowserRouter>
             <Route>
                 <Switch>
+                    <Route exact path={'/'}>
+                        <ContentWrapper>
+                            <div>FastSurvey Landing Page</div>
+                        </ContentWrapper>
+                    </Route>
                     <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})`}>
                         <ContentWrapper>
-                            <div>Index</div>
+                            <div>Survey Index</div>
                         </ContentWrapper>
                     </Route>
                     <Route exact path={`/([a-zA-Z0-9-]{1,20})/([a-zA-Z0-9-]{1,20})/form`}>
