@@ -12,15 +12,16 @@ import { isSurveyPath, getSurveyRootPath } from '../functions/pathFunctions';
 function storeReducer(
     state = {
         validSurveyId: true,
+        fetching: true,
+        submitting: false,
+
         config: {
-            title: "",
-            description: "",
+            title: '',
+            description: '',
             start: 0,
-            end: 0
+            end: 0,
         },
-        fetchingConfig: true,
         formData: {},
-        submittingData: false,
         message: {
             text: '',
             visible: false,
@@ -34,18 +35,16 @@ function storeReducer(
 
     switch (action.type) {
         case 'ADD_CONFIG':
-            console.debug("FastSurvey: Valid Survey Id");
-            console.debug({config: action.data.config});
             // @ts-ignore
             newState.config = action.data.config;
             // @ts-ignore
             newState.formData = action.data.formData;
-            newState.fetchingConfig = false;
+            newState.fetching = false;
             break;
 
         case 'SET_INVALID_SURVEY_ID':
-            console.error("FastSurvey: Invalid Survey Id");
-            newState.fetchingConfig = false;
+            console.error('FastSurvey: Invalid Survey Id');
+            newState.fetching = false;
             newState.validSurveyId = false;
             break;
 
@@ -55,7 +54,7 @@ function storeReducer(
             break;
 
         case 'SUBMIT_FORM_DATA':
-            newState.submittingData = true;
+            newState.submitting = true;
             // TODO: POST form data to backend
             break;
 
@@ -85,10 +84,14 @@ export function ReduxWrapper({children}: InferProps<typeof ReduxWrapper.propType
     if (isSurveyPath(window.location.pathname)) {
         axios.get(BACKEND_URL + getSurveyRootPath(window.location.pathname))
             .then((response: ConfigResponse) => {
-                store.dispatch(addConfig(response.data.config, {}));
+                setTimeout(() => {
+                    store.dispatch(addConfig(response.data.config, {}));
+                }, 1500);
             })
             .catch(() => {
-                store.dispatch(setInvalidSurveyId());
+                setTimeout(() => {
+                    store.dispatch(setInvalidSurveyId());
+                }, 1500);
             });
     } else {
         store.dispatch(setInvalidSurveyId());

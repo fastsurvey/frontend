@@ -37,7 +37,7 @@
     "no-console": [
       true,
       "log",
-      "error"
+      "debug"
     ],
     "no-duplicate-imports": true,
     "no-duplicate-super": true,

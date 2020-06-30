@@ -1,66 +1,86 @@
-
-import React from 'react';
-import PropTypes, { InferProps} from 'prop-types';
-import { ReduxStore} from '../functions/reduxInterfaces';
-import { connect} from 'react-redux';
+import * as React from 'react';
+import {ReduxStore} from '../functions/reduxInterfaces';
+import {connect} from 'react-redux';
 
 import RocketLogo from '../assets/branding/rocket.svg';
-import { getSurveyRootPath, isSurveyPath } from '../functions/pathFunctions';
+import {getSurveyRootPath, isSurveyPath} from '../functions/pathFunctions';
 import './ContentWrapper.scss';
+import '../styles/loader.scss';
+import { makeStyles } from '@material-ui/core/styles';
+
 import {Link} from 'react-router-dom';
 
-function ContentWrapperComponent(
-    { children, fetchingConfig, validSurveyId, submittingData }: InferProps<typeof ContentWrapperComponent.propTypes>
-) {
+import Fade from '@material-ui/core/Fade';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        height: 180,
+    },
+    container: {
+        display: 'flex',
+    },
+}));
+
+interface ContentWrapperComponentProps {
+    children: React.ReactChild;
+    fetching: boolean;
+    submitting: boolean;
+    validSurveyId: boolean;
+}
+
+function ContentWrapperComponent(props: ContentWrapperComponentProps) {
+
+    const classes = useStyles();
 
     const logoURL: string = isSurveyPath(window.location.pathname) ?
         getSurveyRootPath(window.location.pathname) :
         '/';
 
-    function Content() {
-        if ((!fetchingConfig && validSurveyId) || ['', '/'].includes(window.location.pathname)) {
-            return children;
-        } else if (fetchingConfig) {
-            return <div>Fetching</div>;
-        } else {
-            return <div>404</div>;
-        }
+    let content: React.ReactChild;
+
+    if (['', '/'].includes(window.location.pathname)) {
+        content = (
+            <main>Landing Page</main>
+        );
+    } else {
+        content = (
+            <div className={classes.container}>
+                <Fade in={props.fetching} timeout={200}>
+                    <main>
+                        <div className='lds-ripple'>
+                            <div/>
+                            <div/>
+                        </div>
+                    </main>
+                </Fade>
+                <Fade in={!props.fetching && props.validSurveyId} timeout={300} style={{transitionDelay: '200ms'}}>
+                    <main>{props.children}</main>
+                </Fade>
+                <Fade in={!props.fetching && !props.validSurveyId} timeout={300} style={{transitionDelay: '200ms'}}>
+                    <main>404</main>
+                </Fade>
+            </div>
+        );
     }
 
     return (
         <React.Fragment>
             <header>
-                {(!fetchingConfig && !submittingData) && (
-                    <div className='FastSurveyIcon' style={{cursor: 'pointer'}}>
-                        <Link to={logoURL}>
-                            <img src={RocketLogo} alt='FastSurvey Icon'/>
-                        </Link>
-                    </div>
-                )}
-                {(fetchingConfig || submittingData) && (
-                    <div className='FastSurveyIcon' style={{cursor: 'wait'}}>
+                <Link to={logoURL}>
+                    <div className='FastSurveyIcon'>
                         <img src={RocketLogo} alt='FastSurvey Icon'/>
                     </div>
-                )}
+                </Link>
             </header>
-            <main>
-                <Content/>
-            </main>
+            {content}
         </React.Fragment>
     );
 }
 
-ContentWrapperComponent.propTypes = {
-    children: PropTypes.element.isRequired,
-    fetchingConfig: PropTypes.bool,
-    validSurveyId: PropTypes.bool,
-    submittingData: PropTypes.bool,
-};
-
 const mapStateToProps = (state: ReduxStore) => ({
-    fetchingConfig: state.fetchingConfig,
+    fetching: state.fetching,
     validSurveyId: state.validSurveyId,
-    submittingData: state.submittingData,
+    submitting: state.submitting,
 });
 
 const ContentWrapper = connect(mapStateToProps, () => ({}))(ContentWrapperComponent);

@@ -2,7 +2,9 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import ContentWrapper from './ContentWrapper';
 
+
 function Router() {
+
     return (
         <BrowserRouter>
             <Route>
