@@ -2,16 +2,15 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import axios from 'axios';
-import {ReduxAction, ReduxStore} from '../utilities/reduxTypes';
-import { addConfig } from '../utilities/reduxActions';
-import { BACKEND_URL } from '../constants';
-import { isSurveyPath, getRootPath } from '../utilities/pathFunctions';
-import {ConfigResponse} from '../utilities/fieldTypes';
+import { ReduxAction, ReduxStore } from '../../utilities/reduxTypes';
+import { addConfig } from '../../utilities/reduxActions';
+import { BACKEND_URL } from '../../constants';
+import { isSurveyPath, getRootPath } from '../../utilities/pathFunctions';
+import { ConfigResponse } from '../../utilities/fieldTypes';
 
 function storeReducer(
     state = {
         fetching: true,
-        submitting: false,
 
         config: undefined,
         message: {
@@ -22,9 +21,8 @@ function storeReducer(
     action: ReduxAction
 ) {
 
-    let newState: ReduxStore = {
+    const newState: ReduxStore = {
         fetching: state.fetching,
-        submitting: state.submitting,
         config: state.config,
         message: state.message,
     };
@@ -52,7 +50,7 @@ function storeReducer(
 }
 
 // @ts-ignore
-let store = createStore(storeReducer);
+const store = createStore(storeReducer);
 
 interface ReduxWrapperProps {
     children: React.ReactChild;

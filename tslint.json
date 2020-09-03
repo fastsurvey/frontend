@@ -108,5 +108,6 @@
         120
       ]
     }
-  }
+  },
+  "isolated-modules": false
 }

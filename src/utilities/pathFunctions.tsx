@@ -1,14 +1,14 @@
 
+import { REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT } from './regexSnippets';
+
 export function isSurveyPath(path: string): boolean {
     return new RegExp(
-        '^/([a-z]|[A-Z]|[0-9]|-){3,20}/([a-z]|[A-Z]|[0-9]|-){3,20}(|/|/form|/verify|/success|/results)$'
+        '^' + REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX + '$'
     ).test(path);
 }
 
 export function getRootPath(path: string): string {
-    const rootMatch = path.match(
-        '/([a-z]|[A-Z]|[0-9]|-){3,20}/([a-z]|[A-Z]|[0-9]|-){3,20}'
-    );
+    const rootMatch = path.match(REGEX_SURVEY_ROOT);
 
     return rootMatch !== null ? rootMatch[0] : '/';
 }

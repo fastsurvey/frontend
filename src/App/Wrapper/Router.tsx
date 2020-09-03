@@ -1,9 +1,7 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import ContentWrapper from './ContentWrapper';
-
-
-const REGEX_SURVEY_ROOT = '/([a-zA-Z0-9-]{3,20})/([a-zA-Z0-9-]{3,20})';
+import {REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT} from '../../utilities/regexSnippets';
 
 function Router() {
 
@@ -17,7 +15,7 @@ function Router() {
                         </Route>
                         <Route
                             exact
-                            path={REGEX_SURVEY_ROOT + '(|/form|/verify|/success|/results)'}
+                            path={REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX}
                         >
                             <Switch>
                                 <Route exact path={REGEX_SURVEY_ROOT + ''}>
