@@ -1,39 +1,27 @@
+
 import * as React from 'react';
-import {ReduxStore} from '../functions/reduxInterfaces';
+import {ReduxStore} from '../utilities/reduxTypes';
 import {connect} from 'react-redux';
 
 import RocketLogo from '../assets/branding/rocket.svg';
-import {getSurveyRootPath, isSurveyPath} from '../functions/pathFunctions';
+import {getRootPath, isSurveyPath} from '../utilities/pathFunctions';
 import './ContentWrapper.scss';
 import '../styles/loader.scss';
-import { makeStyles } from '@material-ui/core/styles';
 
 import {Link} from 'react-router-dom';
-
-import Fade from '@material-ui/core/Fade';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        height: 180,
-    },
-    container: {
-        display: 'flex',
-    },
-}));
+import {ConfigInterface} from '../utilities/fieldTypes';
 
 interface ContentWrapperComponentProps {
     children: React.ReactChild;
     fetching: boolean;
     submitting: boolean;
-    validSurveyId: boolean;
+    config: ConfigInterface;
 }
 
 function ContentWrapperComponent(props: ContentWrapperComponentProps) {
 
-    const classes = useStyles();
-
     const logoURL: string = isSurveyPath(window.location.pathname) ?
-        getSurveyRootPath(window.location.pathname) :
+        getRootPath(window.location.pathname) :
         '/';
 
     let content: React.ReactChild;
@@ -44,21 +32,21 @@ function ContentWrapperComponent(props: ContentWrapperComponentProps) {
         );
     } else {
         content = (
-            <div className={classes.container}>
-                <Fade in={props.fetching} timeout={200}>
+            <div>
+                {props.fetching && (
                     <main>
                         <div className='lds-ripple'>
                             <div/>
                             <div/>
                         </div>
                     </main>
-                </Fade>
-                <Fade in={!props.fetching && props.validSurveyId} timeout={300} style={{transitionDelay: '200ms'}}>
+                )}
+                {(!props.fetching && props.config !== undefined) && (
                     <main>{props.children}</main>
-                </Fade>
-                <Fade in={!props.fetching && !props.validSurveyId} timeout={300} style={{transitionDelay: '200ms'}}>
+                )}
+                {(!props.fetching && props.config === undefined) && (
                     <main>404</main>
-                </Fade>
+                )}
             </div>
         );
     }
@@ -79,8 +67,8 @@ function ContentWrapperComponent(props: ContentWrapperComponentProps) {
 
 const mapStateToProps = (state: ReduxStore) => ({
     fetching: state.fetching,
-    validSurveyId: state.validSurveyId,
     submitting: state.submitting,
+    config: state.config
 });
 
 const ContentWrapper = connect(mapStateToProps, () => ({}))(ContentWrapperComponent);
