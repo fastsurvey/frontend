@@ -1,20 +1,21 @@
 
 import * as React from 'react';
-import { ReduxStore } from '../../utilities/reduxTypes';
 import { connect } from 'react-redux';
 
 import RocketLogo from '../../assets/branding/rocket.svg';
 import { getRootPath, isSurveyPath } from '../../utilities/pathFunctions';
-import './ContentWrapper.scss';
-import '../styles/loader.scss';
+import '../../styles/ContentWrapper.scss';
+import '../../styles/loader.scss';
 
 import { Link } from 'react-router-dom';
+
+import { ReduxStore } from '../../utilities/reduxTypes';
 import { ConfigInterface } from '../../utilities/fieldTypes';
 
 interface ContentWrapperComponentProps {
     children: React.ReactChild;
     fetching: boolean;
-    config: ConfigInterface;
+    config: ConfigInterface | undefined;
 }
 
 function ContentWrapperComponent(props: ContentWrapperComponentProps) {

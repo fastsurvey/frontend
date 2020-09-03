@@ -3,7 +3,7 @@ import {ConfigInterface} from './fieldTypes';
 
 export interface ReduxStore {
     fetching: boolean;
-    config: ConfigInterface;
+    config: ConfigInterface | undefined;
     message: StatusMessage;
 }
 
@@ -16,7 +16,7 @@ export type ReduxAction = AddConfigAction | OpenMessageAction | CloseMessageActi
 
 interface AddConfigAction {
     type: 'ADD_CONFIG';
-    config: ConfigInterface;
+    config: ConfigInterface | undefined;
 }
 
 interface OpenMessageAction {

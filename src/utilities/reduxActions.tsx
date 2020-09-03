@@ -2,7 +2,7 @@ import {ConfigInterface} from './fieldTypes';
 import {ReduxAction} from './reduxTypes';
 
 
-export const addConfig = (config: ConfigInterface): ReduxAction => ({
+export const addConfig = (config: ConfigInterface | undefined): ReduxAction => ({
     type: 'ADD_CONFIG',
     config,
 });

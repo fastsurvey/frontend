@@ -12,8 +12,9 @@ export type ConfigInterface = {
     readonly description: string;
     readonly start: number;
     readonly end: number;
+    readonly public: boolean;
     readonly fields: FieldConfig[];
-} | undefined;
+};
 
 export type FieldConfig = RadioFieldConfig | SelectionFieldConfig | TextFieldConfig;
 
@@ -21,7 +22,6 @@ interface RadioFieldConfig {
     type: 'Radio';
     title: string;
     description: string;
-    public: boolean;
     properties: {
         fields: OptionField[]
     };
@@ -31,7 +31,6 @@ interface SelectionFieldConfig {
     type: 'Selection';
     title: string;
     description: string;
-    public: boolean;
     properties: {
         min_select: number;
         max_select: number;
