@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import EmailField from './FormFields/EmailField';
 import RadioField from './FormFields/RadioField';
 import SelectionField from './FormFields/SelectionField';
+import TextField from './FormFields/TextField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -35,6 +36,14 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                     case 'Selection':
                         return (
                             <SelectionField
+                                key={fieldIndex}
+                                fieldConfig={fieldConfig}
+                                fieldIndex={fieldIndex}
+                            />
+                        );
+                    case 'Text':
+                        return (
+                            <TextField
                                 key={fieldIndex}
                                 fieldConfig={fieldConfig}
                                 fieldIndex={fieldIndex}
