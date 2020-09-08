@@ -4,6 +4,7 @@ import {REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT} from '../../utilities/regexSni
 import ReduxWrapper from './ReduxWrapper';
 import SurveyRouter from '../Survey/SurveyRouter';
 import PageWrapper from './PageWrapper';
+import SurveyIndex from '../Survey/SurveyIndex';
 
 function Router() {
 
@@ -23,7 +24,7 @@ function Router() {
                                 <SurveyRouter>
                                     <Switch>
                                         <Route exact path={REGEX_SURVEY_ROOT + ''}>
-                                            <div>Survey Index</div>
+                                            <SurveyIndex/>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/form'}>
                                             <div>Form</div>
