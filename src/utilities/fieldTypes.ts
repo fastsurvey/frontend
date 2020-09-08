@@ -19,7 +19,7 @@ export type ConfigInterface = {
 
 export type FieldConfig = RadioFieldConfig | SelectionFieldConfig | TextFieldConfig;
 
-interface RadioFieldConfig {
+export interface RadioFieldConfig {
     type: 'Radio';
     title: string;
     description: string;
@@ -28,7 +28,7 @@ interface RadioFieldConfig {
     };
 }
 
-interface SelectionFieldConfig {
+export interface SelectionFieldConfig {
     type: 'Selection';
     title: string;
     description: string;
@@ -39,7 +39,7 @@ interface SelectionFieldConfig {
     };
 }
 
-interface TextFieldConfig {
+export interface TextFieldConfig {
     type: 'Text';
     title: string;
     description: string;

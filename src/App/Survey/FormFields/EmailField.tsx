@@ -23,13 +23,13 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
     }
 
     return (
-        <React.Fragment>
+        <div className='display-block'>
             <TextField
                 label='Email'
                 value={props.formData.email}
                 onChange={handleChange}
             />
-        </React.Fragment>
+        </div>
     );
 }
 
