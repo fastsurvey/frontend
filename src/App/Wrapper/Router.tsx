@@ -1,16 +1,16 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import ContentWrapper from './ContentWrapper';
 import {REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT} from '../../utilities/regexSnippets';
 import ReduxWrapper from './ReduxWrapper';
-import FormWrapper from '../Survey/FormWrapper';
+import SurveyRouter from '../Survey/SurveyRouter';
+import PageWrapper from './PageWrapper';
 
 function Router() {
 
     return (
         <BrowserRouter>
             <Route>
-                <ContentWrapper>
+                <PageWrapper>
                     <Switch>
                         <Route exact path={'/'}>
                             <div>Landing Page</div>
@@ -20,7 +20,7 @@ function Router() {
                             path={REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX}
                         >
                             <ReduxWrapper>
-                                <FormWrapper>
+                                <SurveyRouter>
                                     <Switch>
                                         <Route exact path={REGEX_SURVEY_ROOT + ''}>
                                             <div>Survey Index</div>
@@ -40,14 +40,14 @@ function Router() {
                                             <div>Results</div>
                                         </Route>
                                     </Switch>
-                                </FormWrapper>
+                                </SurveyRouter>
                             </ReduxWrapper>
                         </Route>
                         <Route>
                             <div>404</div>
                         </Route>
                     </Switch>
-                </ContentWrapper>
+                </PageWrapper>
             </Route>
         </BrowserRouter>
     );

@@ -4,13 +4,13 @@ import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import '../../styles/loader.scss';
 
-interface FormWrapperProps {
+interface SurveyRouterProps {
     children: React.ReactChild;
     fetching: boolean;
     formConfig: ConfigInterface | undefined;
 }
 
-function FormWrapperComponent(props: FormWrapperProps) {
+function SurveyRouterComponent(props: SurveyRouterProps) {
     if (props.fetching) {
         return (
             <div className='lds-ripple'>
@@ -30,6 +30,6 @@ const mapStateToProps = (state: ReduxStore) => ({
     formConfig: state.formConfig,
 });
 
-const FormWrapper = connect(mapStateToProps, () => ({}))(FormWrapperComponent);
+const SurveyRouter = connect(mapStateToProps, () => ({}))(SurveyRouterComponent);
 
-export default FormWrapper;
+export default SurveyRouter;

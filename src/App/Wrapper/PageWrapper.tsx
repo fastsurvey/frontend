@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 
 import RocketLogo from '../../assets/branding/rocket.svg';
 import { getRootPath, isSurveyPath } from '../../utilities/pathFunctions';
-import '../../styles/ContentWrapper.scss';
+import '../../styles/PageWrapper.scss';
 import '../../styles/loader.scss';
 
 import { Link } from 'react-router-dom';
 
 import { ReduxStore } from '../../utilities/reduxTypes';
 
-interface ContentWrapperComponentProps {
+interface PageWrapperComponentProps {
     children: React.ReactChild;
 }
 
-function ContentWrapperComponent(props: ContentWrapperComponentProps) {
+function PageWrapperComponent(props: PageWrapperComponentProps) {
 
     const logoURL: string = isSurveyPath(window.location.pathname) ?
         getRootPath(window.location.pathname) :
@@ -42,6 +42,6 @@ const mapStateToProps = (state: ReduxStore) => ({
     formConfig: state.formConfig,
 });
 
-const ContentWrapper = connect(mapStateToProps, () => ({}))(ContentWrapperComponent);
+const PageWrapper = connect(mapStateToProps, () => ({}))(PageWrapperComponent);
 
-export default ContentWrapper;
+export default PageWrapper;
