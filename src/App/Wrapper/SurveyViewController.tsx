@@ -6,6 +6,7 @@ import '../../styles/loader.scss';
 import {modifyData} from '../../utilities/reduxActions';
 import {generateInitialFormData} from '../../utilities/communicationObjects';
 import assert from 'assert';
+import Loader from '../../Components/Loader';
 
 interface SurveyViewControllerComponentProps {
     children: React.ReactChild;
@@ -27,17 +28,8 @@ function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps
         }
     });
 
-    const loader = (
-        (
-            <div className='lds-ripple'>
-                <div/>
-                <div/>
-            </div>
-        )
-    );
-
     if (props.formData === undefined) {
-        return loader;
+        return <Loader/>;
     } else if (props.formConfig === undefined) {
         return <React.Fragment>Nothing here</React.Fragment>;
     }
