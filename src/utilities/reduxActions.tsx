@@ -7,6 +7,11 @@ export const addConfig = (formConfig: ConfigInterface | undefined): ReduxAction 
     formConfig,
 });
 
+export const modifyData = (formData: object): ReduxAction => ({
+    type: 'MODIFY_DATA',
+    formData,
+});
+
 export const openMessage = (text: string): ReduxAction => ({
     type: 'OPEN_MESSAGE',
     text,

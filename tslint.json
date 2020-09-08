@@ -29,15 +29,14 @@
       ]
     },
     "newline-before-return": false,
-    "no-any": true,
+    "no-any": false,
     "no-consecutive-blank-lines": [
       true,
       2
     ],
     "no-console": [
       true,
-      "log",
-      "debug"
+      "log"
     ],
     "no-duplicate-imports": true,
     "no-duplicate-super": true,

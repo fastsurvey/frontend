@@ -29,11 +29,9 @@ function Router() {
                                             <div>Form</div>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/verify'}>
-
                                             <div>Verify</div>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/success'}>
-
                                             <div>Success</div>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/results'}>
