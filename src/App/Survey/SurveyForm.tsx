@@ -3,7 +3,7 @@ import React from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import TextField from '../../Components/TextField';
+import EmailField from './FormFields/EmailField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -17,12 +17,7 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
 
     return (
         <React.Fragment>
-            {props.formConfig.email_validation && (
-                <TextField
-                    label='Email'
-                    value={props.formData.email}
-                />
-            )}
+            {props.formConfig.email_validation && <EmailField/>}
         </React.Fragment>
     );
 }

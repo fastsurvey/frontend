@@ -5,7 +5,7 @@ import assert from 'assert';
 interface TextFieldProps {
     label?: string;
     value: any;
-    onChange?(newValue: string): string;
+    onChange?(newValue: string): void;
 }
 
 function TextField(props: TextFieldProps) {
