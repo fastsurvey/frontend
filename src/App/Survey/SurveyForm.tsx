@@ -5,6 +5,7 @@ import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import EmailField from './FormFields/EmailField';
 import RadioField from './FormFields/RadioField';
+import SelectionField from './FormFields/SelectionField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -24,6 +25,14 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                     case 'Radio':
                         return (
                             <RadioField
+                                key={fieldIndex}
+                                fieldConfig={fieldConfig}
+                                fieldIndex={fieldIndex}
+                            />
+                        );
+                    case 'Selection':
+                        return (
+                            <SelectionField
                                 key={fieldIndex}
                                 fieldConfig={fieldConfig}
                                 fieldIndex={fieldIndex}
