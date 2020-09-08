@@ -10,12 +10,9 @@ import '../../styles/loader.scss';
 import { Link } from 'react-router-dom';
 
 import { ReduxStore } from '../../utilities/reduxTypes';
-import { ConfigInterface } from '../../utilities/fieldTypes';
 
 interface ContentWrapperComponentProps {
     children: React.ReactChild;
-    fetching: boolean;
-    config: ConfigInterface | undefined;
 }
 
 function ContentWrapperComponent(props: ContentWrapperComponentProps) {
@@ -23,33 +20,6 @@ function ContentWrapperComponent(props: ContentWrapperComponentProps) {
     const logoURL: string = isSurveyPath(window.location.pathname) ?
         getRootPath(window.location.pathname) :
         '/';
-
-    let content: React.ReactChild;
-
-    if (['', '/'].includes(window.location.pathname)) {
-        content = (
-            <main>Landing Page</main>
-        );
-    } else {
-        content = (
-            <div>
-                {props.fetching && (
-                    <main>
-                        <div className='lds-ripple'>
-                            <div/>
-                            <div/>
-                        </div>
-                    </main>
-                )}
-                {(!props.fetching && props.config !== undefined) && (
-                    <main>{props.children}</main>
-                )}
-                {(!props.fetching && props.config === undefined) && (
-                    <main>404</main>
-                )}
-            </div>
-        );
-    }
 
     return (
         <React.Fragment>
@@ -60,14 +30,16 @@ function ContentWrapperComponent(props: ContentWrapperComponentProps) {
                     </div>
                 </Link>
             </header>
-            {content}
+            <main>
+                {props.children}
+            </main>
         </React.Fragment>
     );
 }
 
 const mapStateToProps = (state: ReduxStore) => ({
     fetching: state.fetching,
-    config: state.config,
+    formConfig: state.formConfig,
 });
 
 const ContentWrapper = connect(mapStateToProps, () => ({}))(ContentWrapperComponent);

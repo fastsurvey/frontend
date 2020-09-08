@@ -3,7 +3,8 @@ import {ConfigInterface} from './fieldTypes';
 
 export interface ReduxStore {
     fetching: boolean;
-    config: ConfigInterface | undefined;
+    formConfig: ConfigInterface | undefined;
+    formData: object | undefined;
     message: StatusMessage;
 }
 
@@ -12,11 +13,16 @@ export interface StatusMessage {
     visible: boolean;
 }
 
-export type ReduxAction = AddConfigAction | OpenMessageAction | CloseMessageAction;
+export type ReduxAction = AddConfigAction | ModifyDataAction | OpenMessageAction | CloseMessageAction;
 
 interface AddConfigAction {
     type: 'ADD_CONFIG';
-    config: ConfigInterface | undefined;
+    formConfig: ConfigInterface | undefined;
+}
+
+interface ModifyDataAction {
+    type: 'MODIFY_DATA';
+    formData: object;
 }
 
 interface OpenMessageAction {

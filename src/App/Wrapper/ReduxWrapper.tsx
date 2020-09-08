@@ -12,7 +12,8 @@ function storeReducer(
     state = {
         fetching: true,
 
-        config: undefined,
+        formConfig: undefined,
+        formData: undefined,
         message: {
             text: '',
             visible: false,
@@ -23,14 +24,19 @@ function storeReducer(
 
     const newState: ReduxStore = {
         fetching: state.fetching,
-        config: state.config,
+        formConfig: state.formConfig,
+        formData: state.formData,
         message: state.message,
     };
 
     switch (action.type) {
         case 'ADD_CONFIG':
-            newState.config = action.config;
+            newState.formConfig = action.formConfig;
             newState.fetching = false;
+            break;
+
+        case 'MODIFY_DATA':
+            newState.formData = action.formData;
             break;
 
         case 'OPEN_MESSAGE':

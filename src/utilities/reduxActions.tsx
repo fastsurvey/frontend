@@ -2,9 +2,9 @@ import {ConfigInterface} from './fieldTypes';
 import {ReduxAction} from './reduxTypes';
 
 
-export const addConfig = (config: ConfigInterface | undefined): ReduxAction => ({
+export const addConfig = (formConfig: ConfigInterface | undefined): ReduxAction => ({
     type: 'ADD_CONFIG',
-    config,
+    formConfig,
 });
 
 export const openMessage = (text: string): ReduxAction => ({
