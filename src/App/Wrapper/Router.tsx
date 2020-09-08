@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import {REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT} from '../../utilities/regexSnippets';
 import ReduxWrapper from './ReduxWrapper';
-import SurveyRouter from '../Survey/SurveyRouter';
+import SurveyViewController from './SurveyViewController';
 import PageWrapper from './PageWrapper';
 import SurveyIndex from '../Survey/SurveyIndex';
 
@@ -21,7 +21,7 @@ function Router() {
                             path={REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX}
                         >
                             <ReduxWrapper>
-                                <SurveyRouter>
+                                <SurveyViewController>
                                     <Switch>
                                         <Route exact path={REGEX_SURVEY_ROOT + ''}>
                                             <SurveyIndex/>
@@ -39,7 +39,7 @@ function Router() {
                                             <div>Results</div>
                                         </Route>
                                     </Switch>
-                                </SurveyRouter>
+                                </SurveyViewController>
                             </ReduxWrapper>
                         </Route>
                         <Route>

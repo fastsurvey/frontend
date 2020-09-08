@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {ConfigInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
@@ -7,7 +7,7 @@ import {modifyData} from '../../utilities/reduxActions';
 import {generateInitialFormData} from '../../utilities/communicationObjects';
 import assert from 'assert';
 
-interface SurveyRouterProps {
+interface SurveyViewControllerComponentProps {
     children: React.ReactChild;
     fetching: boolean;
     formConfig: ConfigInterface | undefined;
@@ -15,7 +15,7 @@ interface SurveyRouterProps {
     modifyData(formData: object): any;
 }
 
-function SurveyRouterComponent(props: SurveyRouterProps) {
+function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps) {
 
     useEffect(() => {
         if (
@@ -46,7 +46,7 @@ function SurveyRouterComponent(props: SurveyRouterProps) {
     assert(props.formConfig !== undefined);
     assert(props.formData !== undefined);
 
-    console.log({formData: props.formData});
+    console.debug({formData: props.formData});
 
     return <React.Fragment>{props.children}</React.Fragment>;
 }
@@ -61,6 +61,6 @@ const mapDispatchToProps = (dispatch: any) => ({
     modifyData: (formData: object) => dispatch(modifyData(formData)),
 });
 
-const SurveyRouter = connect(mapStateToProps, mapDispatchToProps)(SurveyRouterComponent);
+const SurveyViewController = connect(mapStateToProps, mapDispatchToProps)(SurveyViewControllerComponent);
 
-export default SurveyRouter;
+export default SurveyViewController;
