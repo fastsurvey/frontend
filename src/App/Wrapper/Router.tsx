@@ -5,6 +5,7 @@ import ReduxWrapper from './ReduxWrapper';
 import SurveyViewController from './SurveyViewController';
 import PageWrapper from './PageWrapper';
 import SurveyIndex from '../Survey/SurveyIndex';
+import SurveyForm from '../Survey/SurveyForm';
 
 function Router() {
 
@@ -27,7 +28,7 @@ function Router() {
                                             <SurveyIndex/>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/form'}>
-                                            <div>Form</div>
+                                            <SurveyForm/>
                                         </Route>
                                         <Route exact path={REGEX_SURVEY_ROOT + '/verify'}>
                                             <div>Verify</div>
