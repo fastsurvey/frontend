@@ -28,10 +28,12 @@ function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps
         }
     });
 
-    if (props.formData === undefined) {
+    if (props.fetching) {
         return <Loader/>;
     } else if (props.formConfig === undefined) {
         return <React.Fragment>Nothing here</React.Fragment>;
+    } else if (props.formData === undefined) {
+        return <Loader/>;
     }
 
     assert(!props.fetching);
