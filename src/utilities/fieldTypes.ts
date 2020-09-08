@@ -13,6 +13,7 @@ export type ConfigInterface = {
     readonly start: number;
     readonly end: number;
     readonly public: boolean;
+    readonly email_validation: boolean;
     readonly fields: FieldConfig[];
 };
 
@@ -52,3 +53,9 @@ type OptionField = {
     type: 'Option';
     title: string;
 };
+
+export interface FormDataInterface {
+    [key: string]: {
+        [key: string]: boolean
+    } | boolean | string;
+}

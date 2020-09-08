@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ConfigInterface} from '../../utilities/fieldTypes';
+import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import '../../styles/loader.scss';
@@ -12,7 +12,7 @@ interface SurveyViewControllerComponentProps {
     children: React.ReactChild;
     fetching: boolean;
     formConfig: ConfigInterface | undefined;
-    formData: object | undefined;
+    formData: FormDataInterface | undefined;
     modifyData(formData: object): any;
 }
 
@@ -52,7 +52,7 @@ const mapStateToProps = (state: ReduxStore) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    modifyData: (formData: object) => dispatch(modifyData(formData)),
+    modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
 });
 
 const SurveyViewController = connect(mapStateToProps, mapDispatchToProps)(SurveyViewControllerComponent);

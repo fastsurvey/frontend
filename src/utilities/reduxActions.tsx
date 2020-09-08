@@ -1,4 +1,4 @@
-import {ConfigInterface} from './fieldTypes';
+import {ConfigInterface, FormDataInterface} from './fieldTypes';
 import {ReduxAction} from './reduxTypes';
 
 
@@ -7,7 +7,7 @@ export const addConfig = (formConfig: ConfigInterface | undefined): ReduxAction 
     formConfig,
 });
 
-export const modifyData = (formData: object): ReduxAction => ({
+export const modifyData = (formData: FormDataInterface): ReduxAction => ({
     type: 'MODIFY_DATA',
     formData,
 });
