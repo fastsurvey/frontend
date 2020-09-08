@@ -29,6 +29,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
             <h4>{props.fieldConfig.title}</h4>
             {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
                 <RadioOption
+                    key={optionIndex}
                     radioGroupId={props.fieldIndex}
                     label={optionField.title}
                     checked={props.formData

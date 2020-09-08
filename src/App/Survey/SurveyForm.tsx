@@ -4,6 +4,7 @@ import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import EmailField from './FormFields/EmailField';
+import RadioField from './FormFields/RadioField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -16,9 +17,23 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
     }
 
     return (
-        <React.Fragment>
+        <div className='display-block'>
             {props.formConfig.email_validation && <EmailField/>}
-        </React.Fragment>
+            {props.formConfig.fields.map((fieldConfig, fieldIndex) => {
+                switch (fieldConfig.type) {
+                    case 'Radio':
+                        return (
+                            <RadioField
+                                key={fieldIndex}
+                                fieldConfig={fieldConfig}
+                                fieldIndex={fieldIndex}
+                            />
+                        );
+                    default:
+                        return <React.Fragment key={fieldIndex}/>;
+                }
+            })}
+        </div>
     );
 }
 
