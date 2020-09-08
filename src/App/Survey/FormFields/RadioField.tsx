@@ -18,9 +18,16 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
-    function handleChange(optionIndex: number, newChecked: boolean) {
+    function handleChange(optionIndex: number) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
-        newFormData[(props.fieldIndex + 1).toString()][(optionIndex + 1).toString()] = newChecked;
+
+        Object.keys(newFormData[(props.fieldIndex + 1).toString()])
+            .forEach(radioOption => {
+                const i = (props.fieldIndex + 1).toString();
+                const j = radioOption;
+                newFormData[i][j] = (optionIndex + 1).toString() === j;
+        });
+
         props.modifyData(newFormData);
     }
 
@@ -36,7 +43,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
                         [(props.fieldIndex + 1).toString()]
                         [(optionIndex + 1).toString()]
                     }
-                    onChange={newChecked => handleChange(optionIndex, newChecked)}
+                    onChange={() => handleChange(optionIndex)}
                 />
             ))}
         </div>

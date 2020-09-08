@@ -17,6 +17,8 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
         return <React.Fragment/>;
     }
 
+    console.debug({formData: props.formData});
+
     return (
         <div className='display-block'>
             {props.formConfig.email_validation && <EmailField/>}
