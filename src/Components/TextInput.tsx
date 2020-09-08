@@ -2,13 +2,13 @@
 import React from 'react';
 import assert from 'assert';
 
-interface TextFieldProps {
+interface TextInputProps {
     label?: string;
     value: any;
     onChange?(newValue: string): void;
 }
 
-function TextField(props: TextFieldProps) {
+function TextInput(props: TextInputProps) {
 
     function handleChange(newValue: string) {
         if (props.onChange !== undefined) {
@@ -36,4 +36,4 @@ function TextField(props: TextFieldProps) {
     );
 }
 
-export default TextField;
+export default TextInput;

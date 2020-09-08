@@ -2,7 +2,7 @@
 import React from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import TextField from '../../../Components/TextField';
+import TextInput from '../../../Components/TextInput';
 import assert from 'assert';
 import {FormDataInterface} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
@@ -24,7 +24,7 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
 
     return (
         <div className='display-block'>
-            <TextField
+            <TextInput
                 label='Email'
                 value={props.formData.email}
                 onChange={handleChange}
