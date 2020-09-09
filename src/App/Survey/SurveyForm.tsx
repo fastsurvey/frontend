@@ -7,6 +7,8 @@ import EmailField from './FormFields/EmailField';
 import RadioField from './FormFields/RadioField';
 import SelectionField from './FormFields/SelectionField';
 import TextField from './FormFields/TextField';
+import Button from '../../Components/Button';
+import ButtonRow from '../../Components/ButtonRow';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -53,6 +55,9 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                         return <React.Fragment key={fieldIndex}/>;
                 }
             })}
+            <ButtonRow center>
+                <Button text='Submit'/>
+            </ButtonRow>
         </div>
     );
 }
