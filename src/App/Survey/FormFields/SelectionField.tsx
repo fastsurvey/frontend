@@ -26,7 +26,7 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4>{props.fieldConfig.title}</h4>
+            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
             {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
                 <CheckboxOption
                     key={optionIndex}

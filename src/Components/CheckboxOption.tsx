@@ -1,6 +1,9 @@
 
 import React from 'react';
 import assert from 'assert';
+import CheckboxIconUnchecked from '../assets/icons/check_box_outline_blank-24px.svg';
+import CheckboxIconChecked from '../assets/icons/check_box-24px.svg';
+
 
 interface CheckboxOptionProps {
     label: string;
@@ -24,13 +27,17 @@ function CheckboxOption(props: CheckboxOptionProps) {
     );
 
     return (
-        <div>
-            <input
-                type='checkbox'
-                checked={props.checked}
-                onChange={event => handleChange(event.target.checked)}
+        <div className='mb-2 flex flex-row justify-start items-center'>
+            <img
+                className='inline h-8 p-1 mr-1 cursor-pointer'
+                src={props.checked ? CheckboxIconChecked : CheckboxIconUnchecked}
+                onClick={() => handleChange(!props.checked)}
             />
-            <label>{props.label}</label>
+            <label
+                className='font-weight-500 text-lg'
+            >
+                {props.label}
+            </label>
         </div>
     );
 }
