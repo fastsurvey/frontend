@@ -24,10 +24,11 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4>Email</h4>
+            <h4 className='text-blue-500'>Email</h4>
             <TextInput
                 value={props.formData.email}
                 onChange={handleChange}
+                placeholder='Your email address ...'
             />
         </div>
     );

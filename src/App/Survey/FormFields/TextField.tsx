@@ -26,7 +26,7 @@ function TextFieldComponent(props: TextFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4>{props.fieldConfig.title}</h4>
+            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
             <TextInput
                 value={props.formData[(props.fieldIndex + 1).toString()]}
                 onChange={handleChange}
