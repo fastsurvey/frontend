@@ -3,6 +3,10 @@ import React from 'react';
 import { ConfigInterface } from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import Button from '../../Components/Button';
+import ButtonRow from '../../Components/ButtonRow';
+import {getRootPath} from '../../utilities/pathFunctions';
 
 interface SurveyIndexComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -14,9 +18,17 @@ function SurveyIndexComponent(props: SurveyIndexComponentProps) {
     }
 
     return (
-        <React.Fragment>
-            Survey Index
-        </React.Fragment>
+        <div>
+            <h2 className='mb-6 text-center'>{props.formConfig.title}</h2>
+
+            <p className='mb-8'>{props.formConfig.description}</p>
+
+            <Link to={getRootPath(window.location.pathname) + '/form'}>
+                <ButtonRow center>
+                    <Button text='Begin'/>
+                </ButtonRow>
+            </Link>
+        </div>
     );
 }
 
