@@ -23,9 +23,9 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
     }
 
     return (
-        <div className='display-block'>
+        <div className='block w-full mb-12'>
+            <h4>Email</h4>
             <TextInput
-                label='Email'
                 value={props.formData.email}
                 onChange={handleChange}
             />

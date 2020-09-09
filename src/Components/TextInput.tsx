@@ -26,9 +26,20 @@ function TextInput(props: TextInputProps) {
     return (
         <div>
             {props.label !== undefined && (
-                <label>{props.label}</label>
+                <label
+                    className='text-gray-800 text-lg font-weight-500 mr-4'
+                >
+                    {props.label}
+                </label>
             )}
             <input
+                className={
+                    'font-weight-500 text-lg w-full ' +
+                    'shadow border-0 rounded h-12 ' +
+                    'py-2 px-3 text-gray-800 ' +
+                    'focus:outline-none focus:shadow-outline'
+                }
+                placeholder='Search for keywords ...'
                 value={props.value}
                 onChange={event => handleChange(event.target.value)}
             />

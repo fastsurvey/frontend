@@ -25,12 +25,12 @@ function CheckboxOption(props: CheckboxOptionProps) {
 
     return (
         <div>
-            <label>{props.label}</label>
             <input
                 type='checkbox'
                 checked={props.checked}
                 onChange={event => handleChange(event.target.checked)}
             />
+            <label>{props.label}</label>
         </div>
     );
 }

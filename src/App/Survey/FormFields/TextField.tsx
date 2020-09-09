@@ -25,7 +25,7 @@ function TextFieldComponent(props: TextFieldComponentProps) {
     }
 
     return (
-        <div className='display-block'>
+        <div className='block w-full mb-12'>
             <h4>{props.fieldConfig.title}</h4>
             <TextInput
                 value={props.formData[(props.fieldIndex + 1).toString()]}

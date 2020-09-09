@@ -26,13 +26,13 @@ function RadioOption(props: RadioOptionProps) {
 
     return (
         <div>
-            <label>{props.label}</label>
             <input
                 type='radio'
                 checked={props.checked}
                 name={'RadioGroup-' + props.radioGroupId.toString()}
                 onChange={event => handleChange(event.target.checked)}
             />
+            <label>{props.label}</label>
         </div>
     );
 }

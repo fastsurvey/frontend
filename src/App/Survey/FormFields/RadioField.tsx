@@ -32,7 +32,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
     }
 
     return (
-        <div className='display-block'>
+        <div className='block w-full mb-12'>
             <h4>{props.fieldConfig.title}</h4>
             {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
                 <RadioOption
