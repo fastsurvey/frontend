@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ConfigInterface } from '../../utilities/fieldTypes';
+import {ConfigInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -23,11 +22,12 @@ function SurveyIndexComponent(props: SurveyIndexComponentProps) {
 
             <p className='mb-8'>{props.formConfig.description}</p>
 
-            <Link to={getRootPath(window.location.pathname) + '/form'}>
-                <ButtonRow center>
+
+            <ButtonRow center>
+                <Link to={getRootPath(window.location.pathname) + '/form'}>
                     <Button text='Begin'/>
-                </ButtonRow>
-            </Link>
+                </Link>
+            </ButtonRow>
         </div>
     );
 }
@@ -36,8 +36,7 @@ const mapStateToProps = (state: ReduxStore) => ({
     formConfig: state.formConfig,
 });
 
-const mapDispatchToProps = () => ({
-});
+const mapDispatchToProps = () => ({});
 
 const SurveyIndex = connect(mapStateToProps, mapDispatchToProps)(SurveyIndexComponent);
 

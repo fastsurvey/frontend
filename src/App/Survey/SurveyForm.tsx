@@ -9,6 +9,8 @@ import SelectionField from './FormFields/SelectionField';
 import TextField from './FormFields/TextField';
 import Button from '../../Components/Button';
 import ButtonRow from '../../Components/ButtonRow';
+import {getRootPath} from '../../utilities/pathFunctions';
+import {Link} from 'react-router-dom';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -56,7 +58,12 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                 }
             })}
             <ButtonRow center>
-                <Button text='Submit'/>
+                <Link to={
+                    getRootPath(window.location.pathname) +
+                    (props.formConfig.email_validation ? '/verify' : '/success')
+                }>
+                    <Button text='Submit'/>
+                </Link>
             </ButtonRow>
         </div>
     );
