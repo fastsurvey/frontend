@@ -18,14 +18,14 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
-    function handleChange(optionIndex: number) {
+    function handleChange(optionIndex: number, newValue: boolean) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
 
         Object.keys(newFormData[(props.fieldIndex + 1).toString()])
             .forEach(radioOption => {
                 const i = (props.fieldIndex + 1).toString();
                 const j = radioOption;
-                newFormData[i][j] = (optionIndex + 1).toString() === j;
+                newFormData[i][j] = ((optionIndex + 1).toString() === j) && newValue;
         });
 
         props.modifyData(newFormData);
@@ -33,7 +33,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4>{props.fieldConfig.title}</h4>
+            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
             {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
                 <RadioOption
                     key={optionIndex}
@@ -43,7 +43,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
                         [(props.fieldIndex + 1).toString()]
                         [(optionIndex + 1).toString()]
                     }
-                    onChange={() => handleChange(optionIndex)}
+                    onChange={(newValue) => handleChange(optionIndex, newValue)}
                 />
             ))}
         </div>

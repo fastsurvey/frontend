@@ -1,6 +1,9 @@
 
 import React from 'react';
 import assert from 'assert';
+import RadioIconUnchecked from '../assets/icons/radio_button_unchecked-24px.svg';
+import RadioIconChecked from '../assets/icons/radio_button_checked-24px.svg';
+
 
 interface RadioOptionProps {
     radioGroupId: string | number;
@@ -25,14 +28,17 @@ function RadioOption(props: RadioOptionProps) {
     );
 
     return (
-        <div>
-            <input
-                type='radio'
-                checked={props.checked}
-                name={'RadioGroup-' + props.radioGroupId.toString()}
-                onChange={event => handleChange(event.target.checked)}
+        <div className='mb-2 flex flex-row justify-start items-center'>
+            <img
+                className='inline h-8 p-1 mr-1 cursor-pointer'
+                src={props.checked ? RadioIconChecked : RadioIconUnchecked}
+                onClick={() => handleChange(!props.checked)}
             />
-            <label>{props.label}</label>
+            <label
+                className='font-weight-500 text-lg'
+            >
+                {props.label}
+            </label>
         </div>
     );
 }
