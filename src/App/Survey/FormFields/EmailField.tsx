@@ -6,6 +6,7 @@ import TextInput from '../../../Components/TextInput';
 import assert from 'assert';
 import {FormDataInterface} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
+import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 
 interface EmailFieldComponentProps {
     formData: any;
@@ -24,7 +25,10 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4 className='text-blue-500'>Email</h4>
+            <QuestionTitleBox
+                title='Email'
+                description=''
+            />
             <TextInput
                 value={props.formData.email}
                 onChange={handleChange}

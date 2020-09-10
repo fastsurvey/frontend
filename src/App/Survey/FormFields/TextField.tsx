@@ -6,6 +6,7 @@ import assert from 'assert';
 import {FormDataInterface, TextFieldConfig} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
 import TextInput from '../../../Components/TextInput';
+import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 
 interface TextFieldComponentProps {
     formData: any;
@@ -26,10 +27,14 @@ function TextFieldComponent(props: TextFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
+            <QuestionTitleBox
+                title={props.fieldConfig.title}
+                description={props.fieldConfig.description}
+            />
             <TextInput
                 value={props.formData[(props.fieldIndex + 1).toString()]}
                 onChange={handleChange}
+                placeholder={props.fieldConfig.description}
             />
         </div>
     );

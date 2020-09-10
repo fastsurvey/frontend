@@ -6,6 +6,7 @@ import assert from 'assert';
 import {FormDataInterface, SelectionFieldConfig} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
 import CheckboxOption from '../../../Components/CheckboxOption';
+import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 
 interface SelectionFieldComponentProps {
     formData: any;
@@ -26,18 +27,23 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
-            {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
-                <CheckboxOption
-                    key={optionIndex}
-                    label={optionField.title}
-                    checked={props.formData
-                        [(props.fieldIndex + 1).toString()]
-                        [(optionIndex + 1).toString()]
-                    }
-                    onChange={newChecked => handleChange(optionIndex, newChecked)}
-                />
-            ))}
+            <QuestionTitleBox
+                title={props.fieldConfig.title}
+                description={props.fieldConfig.description}
+            />
+            <div className='w-full block relative'>
+                {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
+                    <CheckboxOption
+                        key={optionIndex}
+                        label={optionField.title}
+                        checked={props.formData
+                            [(props.fieldIndex + 1).toString()]
+                            [(optionIndex + 1).toString()]
+                        }
+                        onChange={newChecked => handleChange(optionIndex, newChecked)}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

@@ -6,6 +6,7 @@ import assert from 'assert';
 import {FormDataInterface, RadioFieldConfig} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
 import RadioOption from '../../../Components/RadioOption';
+import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 
 interface RadioFieldComponentProps {
     formData: any;
@@ -33,7 +34,10 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
 
     return (
         <div className='block w-full mb-12'>
-            <h4 className='text-blue-500'>{props.fieldConfig.title}</h4>
+            <QuestionTitleBox
+                title={props.fieldConfig.title}
+                description={props.fieldConfig.description}
+            />
             {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
                 <RadioOption
                     key={optionIndex}
