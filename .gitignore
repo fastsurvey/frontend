@@ -1,23 +1,24 @@
 
 .idea
-
-
-
-
+**-lock.*
+tailwind.out.css
 
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+/v0.2-js/node_modules
+/v0.3-ts/node_modules
+/v0.2-js/.pnp
+/v0.3-ts/.pnp
 .pnp.js
 
 # testing
 /coverage
 
 # production
-/build
+/v0.2-js/build
+/v0.3-ts/build
 
 # misc
 .DS_Store
@@ -29,7 +30,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/src/secrets.js
+/v0.2-js/src/secrets.js
 
 
 # Created by https://www.gitignore.io/api/git,node,react,linux,macos,flask,python,pycharm,windows,intellij,webstorm
