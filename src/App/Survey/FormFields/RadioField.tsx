@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';
@@ -7,6 +7,7 @@ import {FormDataInterface, RadioFieldConfig} from '../../../utilities/fieldTypes
 import {modifyData} from '../../../utilities/reduxActions';
 import RadioOption from '../../../Components/RadioOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
+import HintBox from './FieldParts/HintBox';
 
 interface RadioFieldComponentProps {
     formData: any;
@@ -19,6 +20,8 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
+    const [hintVisible, setHintVisible] = useState(true);
+
     function handleChange(optionIndex: number, newValue: boolean) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
 
@@ -28,6 +31,8 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
                 const j = radioOption;
                 newFormData[i][j] = ((optionIndex + 1).toString() === j) && newValue;
         });
+
+        setHintVisible(!newValue);
 
         props.modifyData(newFormData);
     }
@@ -50,6 +55,10 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
                     onChange={(newValue) => handleChange(optionIndex, newValue)}
                 />
             ))}
+            <HintBox
+                text={`Please select an option.`}
+                visible={hintVisible}
+            />
         </div>
     );
 }

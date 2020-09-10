@@ -25,7 +25,7 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
     console.debug({formData: props.formData});
 
     return (
-        <div className='block w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4'>
+        <div className='block w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
             {props.formConfig.email_validation && <EmailField/>}
             {props.formConfig.fields.map((fieldConfig, fieldIndex) => {
                 switch (fieldConfig.type) {

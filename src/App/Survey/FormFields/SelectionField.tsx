@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';
@@ -7,6 +7,7 @@ import {FormDataInterface, SelectionFieldConfig} from '../../../utilities/fieldT
 import {modifyData} from '../../../utilities/reduxActions';
 import CheckboxOption from '../../../Components/CheckboxOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
+import HintBox from './FieldParts/HintBox';
 
 interface SelectionFieldComponentProps {
     formData: any;
@@ -19,11 +20,17 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
+    const [selectionCount, setSelectionCount] = useState(0);
+
     function handleChange(optionIndex: number, newChecked: boolean) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
         newFormData[(props.fieldIndex + 1).toString()][(optionIndex + 1).toString()] = newChecked;
         props.modifyData(newFormData);
+        setSelectionCount(selectionCount + (newChecked ? 1 : -1));
     }
+
+    const min_select: number = props.fieldConfig.properties.min_select;
+    const max_select: number = props.fieldConfig.properties.max_select;
 
     return (
         <div className='block w-full mb-12'>
@@ -44,6 +51,10 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
                     />
                 ))}
             </div>
+            <HintBox
+                text={`Choose between ${min_select} and ${max_select} options.`}
+                visible={(selectionCount < min_select) || (selectionCount > max_select)}
+            />
         </div>
     );
 }

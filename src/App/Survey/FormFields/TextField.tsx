@@ -7,6 +7,7 @@ import {FormDataInterface, TextFieldConfig} from '../../../utilities/fieldTypes'
 import {modifyData} from '../../../utilities/reduxActions';
 import TextInput from '../../../Components/TextInput';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
+import HintBox from './FieldParts/HintBox';
 
 interface TextFieldComponentProps {
     formData: any;
@@ -25,6 +26,10 @@ function TextFieldComponent(props: TextFieldComponentProps) {
         props.modifyData(newFormData);
     }
 
+    const value: string = props.formData[(props.fieldIndex + 1).toString()];
+    const min_chars: number = props.fieldConfig.properties.min_chars;
+    const max_chars: number = props.fieldConfig.properties.max_chars;
+
     return (
         <div className='block w-full mb-12'>
             <QuestionTitleBox
@@ -32,9 +37,13 @@ function TextFieldComponent(props: TextFieldComponentProps) {
                 description={props.fieldConfig.description}
             />
             <TextInput
-                value={props.formData[(props.fieldIndex + 1).toString()]}
+                value={value}
                 onChange={handleChange}
-                placeholder={props.fieldConfig.description}
+                placeholder='Your answer ...'
+            />
+            <HintBox
+                text={`Enter between ${min_chars} and ${max_chars} characters.`}
+                visible={((value.length < min_chars) || (value.length > max_chars))}
             />
         </div>
     );
