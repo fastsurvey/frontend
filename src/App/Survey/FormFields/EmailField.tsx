@@ -7,7 +7,10 @@ import assert from 'assert';
 import {FormDataInterface} from '../../../utilities/fieldTypes';
 import {modifyData} from '../../../utilities/reduxActions';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
+import HintBox from './FieldParts/HintBox';
 
+
+const EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$';
 interface EmailFieldComponentProps {
     formData: any;
     modifyData(formData: any): any;
@@ -33,6 +36,10 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
                 value={props.formData.email}
                 onChange={handleChange}
                 placeholder='Your email address ...'
+            />
+            <HintBox
+                text={`Enter a valid email address.`}
+                visible={!(new RegExp(EMAIL_REGEX).test(props.formData.email))}
             />
         </div>
     );

@@ -51,7 +51,7 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
                     />
                 ))}
             </div>
-            <div className='relative block h-6'>
+            <div className='relative block h-6 mb-1'>
                 <div className='absolute'>
                     <HintBox
                         text={`You can leave this empty if you want`}

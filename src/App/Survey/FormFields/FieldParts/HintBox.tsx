@@ -11,7 +11,7 @@ function HintBox(props: HintBoxProps) {
 
     return (
         <div className={
-                'w-full block relative ' +
+                'mt-1 w-full block relative ' +
                 'px-3 transition duration-300 ease-out transform ' +
                 'origin-top ' + (props.visible ? 'scale-y-100' : 'scale-y-0')
         }>
