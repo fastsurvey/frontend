@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
@@ -13,6 +12,7 @@ interface SelectionFieldComponentProps {
     formData: any;
     fieldIndex: number;
     fieldConfig: SelectionFieldConfig;
+
     modifyData(formData: any): any;
 }
 
@@ -51,10 +51,21 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
                     />
                 ))}
             </div>
-            <HintBox
-                text={`Choose between ${min_select} and ${max_select} options.`}
-                visible={(selectionCount < min_select) || (selectionCount > max_select)}
-            />
+            <div className='relative block h-6'>
+                <div className='absolute'>
+                    <HintBox
+                        text={`You can leave this empty if you want`}
+                        visible={(min_select === 0) && (selectionCount === 0)}
+                        hint
+                    />
+                </div>
+                <div className='absolute'>
+                    <HintBox
+                        text={`Choose between ${min_select} and ${max_select} options.`}
+                        visible={(selectionCount < min_select) || (selectionCount > max_select)}
+                    />
+                </div>
+            </div>
         </div>
     );
 }
