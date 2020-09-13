@@ -33,6 +33,7 @@ function RadioOption(props: RadioOptionProps) {
                 className='inline h-8 p-1 mr-1 cursor-pointer'
                 src={props.checked ? RadioIconChecked : RadioIconUnchecked}
                 onClick={() => handleChange(!props.checked)}
+                alt='Radio-Selection Icon'
             />
             <label
                 className='font-weight-500 text-lg'

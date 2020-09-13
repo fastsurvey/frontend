@@ -32,6 +32,7 @@ function CheckboxOption(props: CheckboxOptionProps) {
                 className='inline h-8 p-1 mr-1 cursor-pointer'
                 src={props.checked ? CheckboxIconChecked : CheckboxIconUnchecked}
                 onClick={() => handleChange(!props.checked)}
+                alt='Checkbox Icon'
             />
             <label
                 className='font-weight-500 text-lg'

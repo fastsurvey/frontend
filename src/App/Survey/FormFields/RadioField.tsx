@@ -10,9 +10,13 @@ import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import HintBox from './FieldParts/HintBox';
 
 interface RadioFieldComponentProps {
-    formData: any;
     fieldIndex: number;
+    visibleFieldIndex: number;
+    setVisibleFieldIndex(newIndex: number): void;
+
     fieldConfig: RadioFieldConfig;
+
+    formData: any;
     modifyData(formData: any): any;
 }
 

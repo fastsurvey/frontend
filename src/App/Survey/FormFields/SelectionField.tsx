@@ -9,10 +9,13 @@ import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import HintBox from './FieldParts/HintBox';
 
 interface SelectionFieldComponentProps {
-    formData: any;
     fieldIndex: number;
+    visibleFieldIndex: number;
+    setVisibleFieldIndex(newIndex: number): void;
+
     fieldConfig: SelectionFieldConfig;
 
+    formData: any;
     modifyData(formData: any): any;
 }
 
