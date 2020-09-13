@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';

@@ -81,19 +81,25 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                 <ButtonRow center>
                     <Button
                         text='Prev' onClick={previousField}
-                        className={!isFirstField() ? 'opacity-100' : 'opacity-0'}
+                        visible={!isFirstField()}
                     />
-                    <Link to={
-                        getRootPath(window.location.pathname) + '/success'
-                    }>
+                    {isLastField() ? (
+                        <Link to={
+                            getRootPath(window.location.pathname) + '/success'
+                        }>
+                            <Button
+                                text='Submit'
+                            />
+                        </Link>
+                    ) : (
                         <Button
                             text='Submit'
-                            className={isLastField() ? 'opacity-100' : 'opacity-0'}
+                            visible={false}
                         />
-                    </Link>
+                    )}
                     <Button
                         text='Next' onClick={nextField}
-                        className={!isLastField() ? 'opacity-100' : 'opacity-0'}
+                        visible={!isLastField()}
                     />
                 </ButtonRow>
             </div>
