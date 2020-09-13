@@ -1,98 +1,59 @@
 
 import React, {useState} from 'react';
-import {ReduxStore} from '../../../utilities/reduxTypes';
-import {connect} from 'react-redux';
-import assert from 'assert';
-import {FormDataInterface, RadioFieldConfig} from '../../../utilities/fieldTypes';
-import {modifyData} from '../../../utilities/reduxActions';
+import {RadioFieldConfig} from '../../../utilities/fieldTypes';
 import RadioOption from '../../../Components/RadioOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import HintBox from './FieldParts/HintBox';
 
-interface RadioFieldComponentProps {
-    fieldIndex: number;
-    visibleFieldIndex: number;
-    setVisibleFieldIndex(newIndex: number): void;
-
+interface RadioFieldProps {
+    manipulated: boolean;
     fieldConfig: RadioFieldConfig;
-
-    formData: any;
-    modifyData(formData: any): any;
+    fieldData: string;
+    modifyFieldData(newValue: boolean): void;
 }
 
-function RadioFieldComponent(props: RadioFieldComponentProps) {
-
-    assert(props.formData !== undefined);
+function RadioField(props: RadioFieldProps) {
 
     const [hintVisible, setHintVisible] = useState(true);
-    const [manipulated, setManipulated] = useState(false);
 
     function handleChange(optionIndex: number, newValue: boolean) {
-        const newFormData: any = JSON.parse(JSON.stringify(props.formData));
+        const newFieldData: any = JSON.parse(JSON.stringify(props.fieldData));
 
-        Object.keys(newFormData[(props.fieldIndex + 1).toString()])
+        Object.keys(newFieldData)
             .forEach(radioOption => {
-                const i = (props.fieldIndex + 1).toString();
-                const j = radioOption;
-                newFormData[i][j] = ((optionIndex + 1).toString() === j) && newValue;
+                newFieldData[radioOption] =
+                    ((optionIndex + 1).toString() === radioOption) &&
+                    newValue;
         });
 
         setHintVisible(!newValue);
-        setManipulated(true);
 
-        props.modifyData(newFormData);
+        props.modifyFieldData(newFieldData);
     }
 
-    let opacityClass = '';
-    if (props.fieldIndex > props.visibleFieldIndex) {
-        opacityClass = 'translate-y-100vh';
-    } else if (props.fieldIndex < props.visibleFieldIndex) {
-        opacityClass = '-translate-y-100vh';
-    }
-
-    const transitionClass = 'transition-transform duration-500';
+    // @ts-ignore
+    const optionValue = (optionIndex) => props.fieldData[(optionIndex + 1).toString()];
 
     return (
-        <div
-            className={
-                'block absolute top-0 left-0 w-full h-auto transform ' +
-                transitionClass + ' ' + opacityClass
-            }
-        >
-            <div className='transform -translate-y-1/2'>
-                <QuestionTitleBox
-                    title={props.fieldConfig.title}
-                    description={props.fieldConfig.description}
+        <React.Fragment>
+            <QuestionTitleBox
+                title={props.fieldConfig.title}
+                description={props.fieldConfig.description}
+            />
+            {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
+                <RadioOption
+                    key={optionIndex}
+                    label={optionField.title}
+                    checked={optionValue(optionIndex)}
+                    onChange={(newValue) => handleChange(optionIndex, newValue)}
                 />
-                {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
-                    <RadioOption
-                        key={optionIndex}
-                        radioGroupId={props.fieldIndex}
-                        label={optionField.title}
-                        checked={props.formData
-                            [(props.fieldIndex + 1).toString()]
-                            [(optionIndex + 1).toString()]
-                        }
-                        onChange={(newValue) => handleChange(optionIndex, newValue)}
-                    />
-                ))}
-                <HintBox
-                    text={`Please select an option.`}
-                    visible={manipulated && hintVisible}
-                />
-            </div>
-        </div>
+            ))}
+            <HintBox
+                text={`Please select an option.`}
+                visible={props.manipulated && hintVisible}
+            />
+        </React.Fragment>
     );
 }
-
-const mapStateToProps = (state: ReduxStore) => ({
-    formData: state.formData,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-    modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
-});
-
-const RadioField = connect(mapStateToProps, mapDispatchToProps)(RadioFieldComponent);
 
 export default RadioField;

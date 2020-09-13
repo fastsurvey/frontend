@@ -64,9 +64,8 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                     switch (fieldConfig.type) {
                         case 'Email':
                         case 'Option':
-                            return <FormField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Radio':
-                            return <RadioField fieldConfig={fieldConfig} {...commonProps}/>;
+                            return <FormField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Selection':
                             return <SelectionField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Text':
