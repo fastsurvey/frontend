@@ -16,7 +16,10 @@ export type ConfigInterface = {
     readonly fields: FieldConfig[];
 };
 
-export type FieldConfig = EmailFieldConfig | RadioFieldConfig | SelectionFieldConfig | TextFieldConfig;
+export type FieldConfig =
+    EmailFieldConfig | RadioFieldConfig |
+    SelectionFieldConfig | OptionFieldConfig |
+    TextFieldConfig;
 
 export interface EmailFieldConfig {
     type: 'Email';
@@ -46,6 +49,15 @@ export interface SelectionFieldConfig {
         min_select: number;
         max_select: number;
         fields: OptionField[];
+    };
+}
+
+export interface OptionFieldConfig {
+    type: 'Option';
+    title: string;
+    description: string;
+    properties: {
+        required: boolean;
     };
 }
 

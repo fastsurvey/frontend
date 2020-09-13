@@ -5,7 +5,7 @@ export function generateInitialFormData(config: ConfigInterface): object {
     const formData: object = {};
 
     config.fields.forEach((field, index) => {
-        let fieldData: object|string|undefined;
+        let fieldData: object|string|boolean|undefined;
         switch (field.type) {
             case 'Radio':
             case 'Selection':
@@ -19,6 +19,9 @@ export function generateInitialFormData(config: ConfigInterface): object {
             case 'Email':
             case 'Text':
                 fieldData = '';
+                break;
+            case 'Option':
+                fieldData = false;
                 break;
             default:
                 fieldData = undefined;

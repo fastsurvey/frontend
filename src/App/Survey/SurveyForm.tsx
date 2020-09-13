@@ -10,6 +10,7 @@ import Button from '../../Components/Button';
 import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
+import OptionField from './FormFields/OptionField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -69,6 +70,8 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                             return <SelectionField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Text':
                             return <TextField fieldConfig={fieldConfig} {...commonProps}/>;
+                        case 'Option':
+                            return <OptionField fieldConfig={fieldConfig} {...commonProps}/>;
                         default:
                             return <React.Fragment key={fieldIndex}/>;
                     }
