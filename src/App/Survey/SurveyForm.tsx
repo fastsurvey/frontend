@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import EmailField from './FormFields/EmailField';
 import RadioField from './FormFields/RadioField';
 import SelectionField from './FormFields/SelectionField';
 import TextField from './FormFields/TextField';
@@ -11,6 +10,7 @@ import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
 import OptionField from './FormFields/OptionField';
+import FormField from './FormFields/FormFieldWrapper';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -63,7 +63,7 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
 
                     switch (fieldConfig.type) {
                         case 'Email':
-                            return <EmailField fieldConfig={fieldConfig} {...commonProps}/>;
+                            return <FormField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Radio':
                             return <RadioField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Selection':

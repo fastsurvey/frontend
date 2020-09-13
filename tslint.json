@@ -63,6 +63,7 @@
     ],
     "no-var-requires": true,
     "no-require-imports": true,
+    "object-literal-shorthand": false,
     "prefer-const": true,
     "prefer-method-signature": true,
     "prefer-switch": [true, {"min-cases": 2}],
