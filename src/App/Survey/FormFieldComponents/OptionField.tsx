@@ -1,20 +1,17 @@
 import React from 'react';
-import {ReduxStore} from '../../../utilities/reduxTypes';
-import {connect} from 'react-redux';
-import {FormDataInterface, OptionFieldConfig} from '../../../utilities/fieldTypes';
-import {modifyData} from '../../../utilities/reduxActions';
+import {OptionFieldConfig} from '../../../utilities/fieldTypes';
 import CheckboxOption from '../../../Components/CheckboxOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import HintBox from './FieldParts/HintBox';
 
-interface OptionFieldComponentProps {
+interface OptionFieldProps {
     manipulated: boolean;
     fieldConfig: OptionFieldConfig;
-    fieldData: string;
+    fieldData: boolean;
     modifyFieldData(newValue: boolean): void;
 }
 
-function OptionFieldComponent(props: OptionFieldComponentProps) {
+function OptionField(props: OptionFieldProps) {
 
     function handleChange(newChecked: boolean) {
         props.modifyFieldData(newChecked);
@@ -53,15 +50,5 @@ function OptionFieldComponent(props: OptionFieldComponentProps) {
         </React.Fragment>
     );
 }
-
-const mapStateToProps = (state: ReduxStore) => ({
-    formData: state.formData,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-    modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
-});
-
-const OptionField = connect(mapStateToProps, mapDispatchToProps)(OptionFieldComponent);
 
 export default OptionField;

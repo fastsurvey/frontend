@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import {RadioFieldConfig} from '../../../utilities/fieldTypes';
+import {OptionListInterface, RadioFieldConfig} from '../../../utilities/fieldTypes';
 import RadioOption from '../../../Components/RadioOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import HintBox from './FieldParts/HintBox';
@@ -8,7 +8,7 @@ import HintBox from './FieldParts/HintBox';
 interface RadioFieldProps {
     manipulated: boolean;
     fieldConfig: RadioFieldConfig;
-    fieldData: string;
+    fieldData: OptionListInterface;
     modifyFieldData(newValue: boolean): void;
 }
 
@@ -31,9 +31,6 @@ function RadioField(props: RadioFieldProps) {
         props.modifyFieldData(newFieldData);
     }
 
-    // @ts-ignore
-    const optionValue = (optionIndex) => props.fieldData[(optionIndex + 1).toString()];
-
     return (
         <React.Fragment>
             <QuestionTitleBox
@@ -44,7 +41,7 @@ function RadioField(props: RadioFieldProps) {
                 <RadioOption
                     key={optionIndex}
                     label={optionField.title}
-                    checked={optionValue(optionIndex)}
+                    checked={props.fieldData[(optionIndex + 1).toString()]}
                     onChange={(newValue) => handleChange(optionIndex, newValue)}
                 />
             ))}

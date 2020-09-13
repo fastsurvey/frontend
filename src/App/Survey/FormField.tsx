@@ -66,12 +66,12 @@ function FormFieldComponent(props: FormFieldComponentProps) {
                 <RadioField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
-        /*
         case 'Selection':
             FieldComponent = (
                 <SelectionField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
+        /*
         case 'Text':
             FieldComponent = (
                 <TextField fieldConfig={props.fieldConfig} {...commonProps}/>
