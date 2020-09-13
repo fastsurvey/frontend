@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';
@@ -20,11 +20,14 @@ function TextFieldComponent(props: TextFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
+    const [manipulated, setManipulated] = useState(false);
+
     function handleChange(newValue: string) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
         newFormData[(props.fieldIndex + 1).toString()] = newValue;
         props.modifyData(newFormData);
-    }
+        setManipulated(true);
+;    }
 
     const value: string = props.formData[(props.fieldIndex + 1).toString()];
     const min_chars: number = props.fieldConfig.properties.min_chars;
@@ -43,7 +46,7 @@ function TextFieldComponent(props: TextFieldComponentProps) {
             />
             <HintBox
                 text={`Enter between ${min_chars} and ${max_chars} characters.`}
-                visible={((value.length < min_chars) || (value.length > max_chars))}
+                visible={manipulated && ((value.length < min_chars) || (value.length > max_chars))}
             />
         </div>
     );

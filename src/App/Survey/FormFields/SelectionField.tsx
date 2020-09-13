@@ -21,12 +21,14 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
     assert(props.formData !== undefined);
 
     const [selectionCount, setSelectionCount] = useState(0);
+    const [manipulated, setManipulated] = useState(false);
 
     function handleChange(optionIndex: number, newChecked: boolean) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
         newFormData[(props.fieldIndex + 1).toString()][(optionIndex + 1).toString()] = newChecked;
         props.modifyData(newFormData);
         setSelectionCount(selectionCount + (newChecked ? 1 : -1));
+        setManipulated(true);
     }
 
     const min_select: number = props.fieldConfig.properties.min_select;
@@ -62,7 +64,7 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
                 <div className='absolute'>
                     <HintBox
                         text={`Choose between ${min_select} and ${max_select} options.`}
-                        visible={(selectionCount < min_select) || (selectionCount > max_select)}
+                        visible={manipulated && ((selectionCount < min_select) || (selectionCount > max_select))}
                     />
                 </div>
             </div>

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ReduxStore} from '../../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import TextInput from '../../../Components/TextInput';
@@ -20,10 +20,13 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
 
     assert(props.formData !== undefined);
 
+    const [manipulated, setManipulated] = useState(false);
+
     function handleChange(newValue: string) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
         newFormData.email = newValue;
         props.modifyData(newFormData);
+        setManipulated(true);
     }
 
     return (
@@ -39,7 +42,7 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
             />
             <HintBox
                 text={`Enter a valid email address.`}
-                visible={!(new RegExp(EMAIL_REGEX).test(props.formData.email))}
+                visible={manipulated && !(new RegExp(EMAIL_REGEX).test(props.formData.email))}
             />
         </div>
     );

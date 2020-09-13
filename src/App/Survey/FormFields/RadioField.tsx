@@ -21,6 +21,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
     assert(props.formData !== undefined);
 
     const [hintVisible, setHintVisible] = useState(true);
+    const [manipulated, setManipulated] = useState(false);
 
     function handleChange(optionIndex: number, newValue: boolean) {
         const newFormData: any = JSON.parse(JSON.stringify(props.formData));
@@ -33,6 +34,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
         });
 
         setHintVisible(!newValue);
+        setManipulated(true);
 
         props.modifyData(newFormData);
     }
@@ -57,7 +59,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
             ))}
             <HintBox
                 text={`Please select an option.`}
-                visible={hintVisible}
+                visible={manipulated && hintVisible}
             />
         </div>
     );
