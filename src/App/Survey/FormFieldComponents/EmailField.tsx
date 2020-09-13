@@ -3,6 +3,7 @@ import React from 'react';
 import TextInput from '../../../Components/TextInput';
 import {EmailFieldConfig} from '../../../utilities/fieldTypes';
 import HintBox from './FieldParts/HintBox';
+import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 
 // const DEFAULT_EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@
 // [a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:
@@ -27,6 +28,10 @@ function EmailField(props: EmailFieldComponentProps) {
 
     return (
         <React.Fragment>
+            <QuestionTitleBox
+                title={props.fieldConfig.title}
+                description={props.fieldConfig.description}
+            />
             <TextInput
                 value={props.fieldData}
                 onChange={handleChange}

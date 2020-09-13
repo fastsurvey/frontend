@@ -63,6 +63,7 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
 
                     switch (fieldConfig.type) {
                         case 'Email':
+                        case 'Option':
                             return <FormField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Radio':
                             return <RadioField fieldConfig={fieldConfig} {...commonProps}/>;
@@ -70,8 +71,6 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
                             return <SelectionField fieldConfig={fieldConfig} {...commonProps}/>;
                         case 'Text':
                             return <TextField fieldConfig={fieldConfig} {...commonProps}/>;
-                        case 'Option':
-                            return <OptionField fieldConfig={fieldConfig} {...commonProps}/>;
                         default:
                             return <React.Fragment key={fieldIndex}/>;
                     }

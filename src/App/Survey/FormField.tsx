@@ -7,6 +7,10 @@ import {FieldConfig, FormDataInterface} from '../../utilities/fieldTypes';
 import {modifyData} from '../../utilities/reduxActions';
 import QuestionTitleBox from './FormFieldComponents/FieldParts/QuestionTitleBox';
 import EmailField from './FormFieldComponents/EmailField';
+import TextField from './FormFieldComponents/TextField';
+import SelectionField from './FormFieldComponents/SelectionField';
+import RadioField from './FormFieldComponents/RadioField';
+import OptionField from './FormFieldComponents/OptionField';
 
 
 interface FormFieldComponentProps {
@@ -40,18 +44,40 @@ function FormFieldComponent(props: FormFieldComponentProps) {
     }
 
     let FieldComponent: any;
+    const commonProps = {
+        fieldData: props.formData[(props.fieldIndex + 1).toString()],
+        modifyFieldData: modifyFieldData,
+        manipulated: manipulated,
+    };
 
     switch (props.fieldConfig.type) {
         case 'Email':
             FieldComponent = (
-                <EmailField
-                    fieldConfig={props.fieldConfig}
-                    fieldData={props.formData[(props.fieldIndex + 1).toString()]}
-                    modifyFieldData={modifyFieldData}
-                    manipulated={manipulated}
-                />
+                <EmailField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
+        case 'Option':
+            FieldComponent = (
+                <OptionField fieldConfig={props.fieldConfig} {...commonProps}/>
+            );
+            break;
+        /*
+        case 'Radio':
+            FieldComponent = (
+                <RadioField fieldConfig={props.fieldConfig} {...commonProps}/>
+            );
+            break;
+        case 'Selection':
+            FieldComponent = (
+                <SelectionField fieldConfig={props.fieldConfig} {...commonProps}/>
+            );
+            break;
+        case 'Text':
+            FieldComponent = (
+                <TextField fieldConfig={props.fieldConfig} {...commonProps}/>
+            );
+            break;
+        */
         default:
             FieldComponent = <React.Fragment/>;
             break;
@@ -65,10 +91,6 @@ function FormFieldComponent(props: FormFieldComponentProps) {
             }
         >
             <div className='transform -translate-y-1/2'>
-                <QuestionTitleBox
-                    title={props.fieldConfig.title}
-                    description={props.fieldConfig.description}
-                />
                 {FieldComponent}
             </div>
         </div>
