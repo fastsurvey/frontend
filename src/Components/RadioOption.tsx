@@ -6,7 +6,6 @@ import RadioIconChecked from '../assets/icons/radio_button_checked-24px.svg';
 
 
 interface RadioOptionProps {
-    radioGroupId: string | number;
     label: string;
     checked: any;
     onChange?(newValue: boolean): void;

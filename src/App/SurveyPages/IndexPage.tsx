@@ -7,11 +7,11 @@ import Button from '../../Components/Button';
 import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 
-interface SurveyIndexComponentProps {
+interface IndexPageComponentProps {
     formConfig: ConfigInterface | undefined;
 }
 
-function SurveyIndexComponent(props: SurveyIndexComponentProps) {
+function IndexPageComponent(props: IndexPageComponentProps) {
     if (props.formConfig === undefined) {
         return <React.Fragment/>;
     }
@@ -38,6 +38,6 @@ const mapStateToProps = (state: ReduxStore) => ({
 
 const mapDispatchToProps = () => ({});
 
-const SurveyIndex = connect(mapStateToProps, mapDispatchToProps)(SurveyIndexComponent);
+const IndexPage = connect(mapStateToProps, mapDispatchToProps)(IndexPageComponent);
 
-export default SurveyIndex;
+export default IndexPage;
