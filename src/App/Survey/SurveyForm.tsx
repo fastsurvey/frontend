@@ -52,27 +52,14 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
     return (
         <React.Fragment>
             <div className='block relative w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
-                {props.formConfig.fields.map((fieldConfig, fieldIndex) => {
-
-                    const commonProps = {
-                        key: fieldIndex,
-                        fieldIndex,
-                        visibleFieldIndex,
-                        setVisibleFieldIndex,
-                    };
-
-                    switch (fieldConfig.type) {
-                        case 'Email':
-                        case 'Option':
-                        case 'Radio':
-                        case 'Selection':
-                            return <FormField fieldConfig={fieldConfig} {...commonProps}/>;
-                        case 'Text':
-                            return <TextField fieldConfig={fieldConfig} {...commonProps}/>;
-                        default:
-                            return <React.Fragment key={fieldIndex}/>;
-                    }
-                })}
+                {props.formConfig.fields.map((fieldConfig, fieldIndex) => (
+                    <FormField
+                        key={fieldIndex}
+                        fieldConfig={fieldConfig}
+                        fieldIndex={fieldIndex}
+                        visibleFieldIndex={visibleFieldIndex}
+                    />
+                ))}
             </div>
             <div className='block absolute bottom-0 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-6'>
                 <ButtonRow center>

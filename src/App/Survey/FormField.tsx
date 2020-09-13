@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import assert from 'assert';
 import {FieldConfig, FormDataInterface} from '../../utilities/fieldTypes';
 import {modifyData} from '../../utilities/reduxActions';
-import QuestionTitleBox from './FormFieldComponents/FieldParts/QuestionTitleBox';
 import EmailField from './FormFieldComponents/EmailField';
 import TextField from './FormFieldComponents/TextField';
 import SelectionField from './FormFieldComponents/SelectionField';
@@ -71,16 +70,13 @@ function FormFieldComponent(props: FormFieldComponentProps) {
                 <SelectionField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
-        /*
         case 'Text':
             FieldComponent = (
                 <TextField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
-        */
         default:
-            FieldComponent = <React.Fragment/>;
-            break;
+            return <React.Fragment/>;
     }
 
     return (
