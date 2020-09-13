@@ -4,10 +4,6 @@ import { ConfigInterface } from './fieldTypes';
 export function generateInitialFormData(config: ConfigInterface): object {
     const formData: object = {};
 
-    if (config.email_validation) {
-        Object.assign(formData, {email: ''});
-    }
-
     config.fields.forEach((field, index) => {
         let fieldData: object|string|undefined;
         switch (field.type) {
@@ -20,6 +16,7 @@ export function generateInitialFormData(config: ConfigInterface): object {
                     });
                 });
                 break;
+            case 'Email':
             case 'Text':
                 fieldData = '';
                 break;

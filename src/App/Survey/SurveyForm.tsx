@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
@@ -25,14 +24,14 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
         return <React.Fragment/>;
     }
 
-    const fieldCount = props.formConfig?.fields.length + (props.formConfig.email_validation ? 1 : 0);
+    const fieldCount = props.formConfig.fields.length;
 
     function isFirstField() {
         return visibleFieldIndex === 0;
     }
 
     function isLastField() {
-        return visibleFieldIndex === fieldCount - 1;
+        return visibleFieldIndex === (fieldCount - 1);
     }
 
     function previousField() {
@@ -50,54 +49,52 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
     console.debug({formData: props.formData});
 
     return (
-        <div className='block relative w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
-            {props.formConfig.email_validation && (
-                <EmailField
-                    fieldIndex={0}
-                    visibleFieldIndex={visibleFieldIndex}
-                    setVisibleFieldIndex={setVisibleFieldIndex}
-                />
-            )}
-            {props.formConfig.fields.map((fieldConfig, fieldIndex) => {
+        <React.Fragment>
+            <div className='block relative w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
+                {props.formConfig.fields.map((fieldConfig, fieldIndex) => {
 
-                const commonProps = {
-                    key: fieldIndex,
-                    fieldIndex,
-                    visibleFieldIndex,
-                    setVisibleFieldIndex,
-                };
+                    const commonProps = {
+                        key: fieldIndex,
+                        fieldIndex,
+                        visibleFieldIndex,
+                        setVisibleFieldIndex,
+                    };
 
-                switch (fieldConfig.type) {
-                    case 'Radio':
-                        return <RadioField fieldConfig={fieldConfig} {...commonProps}/>;
-                    case 'Selection':
-                        return <SelectionField fieldConfig={fieldConfig} {...commonProps}/>;
-                    case 'Text':
-                        return <TextField fieldConfig={fieldConfig} {...commonProps}/>;
-                    default:
-                        return <React.Fragment key={fieldIndex}/>;
-                }
-            })}
-            <ButtonRow center>
-                <Button
-                    text='Prev' onClick={previousField}
-                    className={!isFirstField() ? 'opacity-100' : 'opacity-0'}
-                />
-                <Link to={
-                    getRootPath(window.location.pathname) +
-                    (props.formConfig.email_validation ? '/verify' : '/success')
-                }>
+                    switch (fieldConfig.type) {
+                        case 'Email':
+                            return <EmailField fieldConfig={fieldConfig} {...commonProps}/>;
+                        case 'Radio':
+                            return <RadioField fieldConfig={fieldConfig} {...commonProps}/>;
+                        case 'Selection':
+                            return <SelectionField fieldConfig={fieldConfig} {...commonProps}/>;
+                        case 'Text':
+                            return <TextField fieldConfig={fieldConfig} {...commonProps}/>;
+                        default:
+                            return <React.Fragment key={fieldIndex}/>;
+                    }
+                })}
+            </div>
+            <div className='block absolute bottom-0 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-6'>
+                <ButtonRow center>
                     <Button
-                        text='Submit'
-                        className={isLastField() ? 'opacity-100' : 'opacity-0'}
+                        text='Prev' onClick={previousField}
+                        className={!isFirstField() ? 'opacity-100' : 'opacity-0'}
                     />
-                </Link>
-                <Button
-                    text='Next' onClick={nextField}
-                    className={!isLastField() ? 'opacity-100' : 'opacity-0'}
-                />
-            </ButtonRow>
-        </div>
+                    <Link to={
+                        getRootPath(window.location.pathname) + '/success'
+                    }>
+                        <Button
+                            text='Submit'
+                            className={isLastField() ? 'opacity-100' : 'opacity-0'}
+                        />
+                    </Link>
+                    <Button
+                        text='Next' onClick={nextField}
+                        className={!isLastField() ? 'opacity-100' : 'opacity-0'}
+                    />
+                </ButtonRow>
+            </div>
+        </React.Fragment>
     );
 }
 
@@ -106,8 +103,7 @@ const mapStateToProps = (state: ReduxStore) => ({
     formData: state.formData,
 });
 
-const mapDispatchToProps = () => ({
-});
+const mapDispatchToProps = () => ({});
 
 const SurveyForm = connect(mapStateToProps, mapDispatchToProps)(SurveyFormComponent);
 

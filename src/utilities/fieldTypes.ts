@@ -13,11 +13,21 @@ export type ConfigInterface = {
     readonly start: number;
     readonly end: number;
     readonly public: boolean;
-    readonly email_validation: boolean;
     readonly fields: FieldConfig[];
 };
 
-export type FieldConfig = RadioFieldConfig | SelectionFieldConfig | TextFieldConfig;
+export type FieldConfig = EmailFieldConfig | RadioFieldConfig | SelectionFieldConfig | TextFieldConfig;
+
+export interface EmailFieldConfig {
+    type: 'Email';
+    title: string;
+    description: string;
+    properties: {
+        required: boolean;
+        verification_needed: boolean;
+        format_regex: string;
+    };
+}
 
 export interface RadioFieldConfig {
     type: 'Radio';

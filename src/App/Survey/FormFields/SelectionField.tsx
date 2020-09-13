@@ -37,38 +37,54 @@ function SelectionFieldComponent(props: SelectionFieldComponentProps) {
     const min_select: number = props.fieldConfig.properties.min_select;
     const max_select: number = props.fieldConfig.properties.max_select;
 
+    let opacityClass = '';
+    if (props.fieldIndex > props.visibleFieldIndex) {
+        opacityClass = 'translate-y-100vh';
+    } else if (props.fieldIndex < props.visibleFieldIndex) {
+        opacityClass = '-translate-y-100vh';
+    }
+
+    const transitionClass = 'transition-transform duration-500';
+
     return (
-        <div className='block absolute top-0 left-0 w-full mb-12'>
-            <QuestionTitleBox
-                title={props.fieldConfig.title}
-                description={props.fieldConfig.description}
-            />
-            <div className='w-full block relative'>
-                {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
-                    <CheckboxOption
-                        key={optionIndex}
-                        label={optionField.title}
-                        checked={props.formData
-                            [(props.fieldIndex + 1).toString()]
-                            [(optionIndex + 1).toString()]
-                        }
-                        onChange={newChecked => handleChange(optionIndex, newChecked)}
-                    />
-                ))}
-            </div>
-            <div className='relative block h-6 mb-1'>
-                <div className='absolute'>
-                    <HintBox
-                        text={`You can leave this empty if you want`}
-                        visible={(min_select === 0) && (selectionCount === 0)}
-                        hint
-                    />
+        <div
+            className={
+                'block absolute top-0 left-0 w-full h-auto transform ' +
+                transitionClass + ' ' + opacityClass
+            }
+        >
+            <div className='transform -translate-y-1/2'>
+                <QuestionTitleBox
+                    title={props.fieldConfig.title}
+                    description={props.fieldConfig.description}
+                />
+                <div className='w-full block relative'>
+                    {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
+                        <CheckboxOption
+                            key={optionIndex}
+                            label={optionField.title}
+                            checked={props.formData
+                                [(props.fieldIndex + 1).toString()]
+                                [(optionIndex + 1).toString()]
+                            }
+                            onChange={newChecked => handleChange(optionIndex, newChecked)}
+                        />
+                    ))}
                 </div>
-                <div className='absolute'>
-                    <HintBox
-                        text={`Choose between ${min_select} and ${max_select} options.`}
-                        visible={manipulated && ((selectionCount < min_select) || (selectionCount > max_select))}
-                    />
+                <div className='relative block h-6 mb-1'>
+                    <div className='absolute'>
+                        <HintBox
+                            text={`You can leave this empty if you want`}
+                            visible={(min_select === 0) && (selectionCount === 0)}
+                            hint
+                        />
+                    </div>
+                    <div className='absolute'>
+                        <HintBox
+                            text={`Choose between ${min_select} and ${max_select} options.`}
+                            visible={manipulated && ((selectionCount < min_select) || (selectionCount > max_select))}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

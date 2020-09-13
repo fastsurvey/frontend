@@ -31,27 +31,43 @@ function TextFieldComponent(props: TextFieldComponentProps) {
         newFormData[(props.fieldIndex + 1).toString()] = newValue;
         props.modifyData(newFormData);
         setManipulated(true);
-;    }
+    }
 
     const value: string = props.formData[(props.fieldIndex + 1).toString()];
     const min_chars: number = props.fieldConfig.properties.min_chars;
     const max_chars: number = props.fieldConfig.properties.max_chars;
 
+    let opacityClass = '';
+    if (props.fieldIndex > props.visibleFieldIndex) {
+        opacityClass = 'translate-y-100vh';
+    } else if (props.fieldIndex < props.visibleFieldIndex) {
+        opacityClass = '-translate-y-100vh';
+    }
+
+    const transitionClass = 'transition-transform duration-500';
+
     return (
-        <div className='block absolute top-0 left-0 w-full mb-12'>
-            <QuestionTitleBox
-                title={props.fieldConfig.title}
-                description={props.fieldConfig.description}
-            />
-            <TextInput
-                value={value}
-                onChange={handleChange}
-                placeholder='Your answer ...'
-            />
-            <HintBox
-                text={`Enter between ${min_chars} and ${max_chars} characters.`}
-                visible={manipulated && ((value.length < min_chars) || (value.length > max_chars))}
-            />
+        <div
+            className={
+                'block absolute top-0 left-0 w-full h-auto transform ' +
+                transitionClass + ' ' + opacityClass
+            }
+        >
+            <div className='transform -translate-y-1/2'>
+                <QuestionTitleBox
+                    title={props.fieldConfig.title}
+                    description={props.fieldConfig.description}
+                />
+                <TextInput
+                    value={value}
+                    onChange={handleChange}
+                    placeholder='Your answer ...'
+                />
+                <HintBox
+                    text={`Enter between ${min_chars} and ${max_chars} characters.`}
+                    visible={manipulated && ((value.length < min_chars) || (value.length > max_chars))}
+                />
+            </div>
         </div>
     );
 }

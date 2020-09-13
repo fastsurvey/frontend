@@ -43,28 +43,44 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
         props.modifyData(newFormData);
     }
 
+    let opacityClass = '';
+    if (props.fieldIndex > props.visibleFieldIndex) {
+        opacityClass = 'translate-y-100vh';
+    } else if (props.fieldIndex < props.visibleFieldIndex) {
+        opacityClass = '-translate-y-100vh';
+    }
+
+    const transitionClass = 'transition-transform duration-500';
+
     return (
-        <div className='block absolute top-0 left-0 w-full mb-12'>
-            <QuestionTitleBox
-                title={props.fieldConfig.title}
-                description={props.fieldConfig.description}
-            />
-            {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
-                <RadioOption
-                    key={optionIndex}
-                    radioGroupId={props.fieldIndex}
-                    label={optionField.title}
-                    checked={props.formData
-                        [(props.fieldIndex + 1).toString()]
-                        [(optionIndex + 1).toString()]
-                    }
-                    onChange={(newValue) => handleChange(optionIndex, newValue)}
+        <div
+            className={
+                'block absolute top-0 left-0 w-full h-auto transform ' +
+                transitionClass + ' ' + opacityClass
+            }
+        >
+            <div className='transform -translate-y-1/2'>
+                <QuestionTitleBox
+                    title={props.fieldConfig.title}
+                    description={props.fieldConfig.description}
                 />
-            ))}
-            <HintBox
-                text={`Please select an option.`}
-                visible={manipulated && hintVisible}
-            />
+                {props.fieldConfig.properties.fields.map((optionField, optionIndex) => (
+                    <RadioOption
+                        key={optionIndex}
+                        radioGroupId={props.fieldIndex}
+                        label={optionField.title}
+                        checked={props.formData
+                            [(props.fieldIndex + 1).toString()]
+                            [(optionIndex + 1).toString()]
+                        }
+                        onChange={(newValue) => handleChange(optionIndex, newValue)}
+                    />
+                ))}
+                <HintBox
+                    text={`Please select an option.`}
+                    visible={manipulated && hintVisible}
+                />
+            </div>
         </div>
     );
 }
