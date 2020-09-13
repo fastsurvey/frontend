@@ -82,7 +82,7 @@ function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
     return (
         <div
             className={
-                'block absolute top-0 left-0 w-full h-auto transform ' +
+                'block absolute top-40vh left-0 w-full h-auto transform ' +
                 'transition-transform duration-500 ' + opacityClass
             }
         >

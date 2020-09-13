@@ -8,6 +8,7 @@ import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
 import FormFieldWrapper from './FormFieldWrapper';
 import NavigationButtons from './Navigation/NavigationButtons';
+import './FormPage.scss';
 
 interface FormPageComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -47,8 +48,8 @@ function FormPageComponent(props: FormPageComponentProps) {
     console.debug({formData: props.formData});
 
     return (
-        <React.Fragment>
-            <div className='block relative w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
+        <div className='FormPage'>
+            <div className='FormFieldSection'>
                 {props.formConfig.fields.map((fieldConfig, fieldIndex) => (
                     <FormFieldWrapper
                         key={fieldIndex}
@@ -58,7 +59,7 @@ function FormPageComponent(props: FormPageComponentProps) {
                     />
                 ))}
             </div>
-            <div className='block absolute bottom-0 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-6'>
+            <div className='NavigationSection'>
                 <NavigationButtons
                     isFirst={isFirstField()} isLast={isLastField()}
                     onPrev={previousField} onNext={nextField}
@@ -80,7 +81,7 @@ function FormPageComponent(props: FormPageComponentProps) {
                     )}
                 </ButtonRow>
             </div>
-        </React.Fragment>
+        </div>
     );
 }
 
