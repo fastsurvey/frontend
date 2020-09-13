@@ -5,14 +5,14 @@ import {connect} from 'react-redux';
 import assert from 'assert';
 import {FieldConfig, FormDataInterface} from '../../utilities/fieldTypes';
 import {modifyData} from '../../utilities/reduxActions';
-import EmailField from './FormFieldComponents/EmailField';
-import TextField from './FormFieldComponents/TextField';
-import SelectionField from './FormFieldComponents/SelectionField';
-import RadioField from './FormFieldComponents/RadioField';
-import OptionField from './FormFieldComponents/OptionField';
+import EmailField from './FormFields/EmailField';
+import TextField from './FormFields/TextField';
+import SelectionField from './FormFields/SelectionField';
+import RadioField from './FormFields/RadioField';
+import OptionField from './FormFields/OptionField';
 
 
-interface FormFieldComponentProps {
+interface FormFieldWrapperComponentProps {
     fieldIndex: number;
     visibleFieldIndex: number;
 
@@ -22,7 +22,7 @@ interface FormFieldComponentProps {
     modifyData(formData: any): any;
 }
 
-function FormFieldComponent(props: FormFieldComponentProps) {
+function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
 
     assert(props.formData !== undefined);
 
@@ -101,6 +101,6 @@ const mapDispatchToProps = (dispatch: any) => ({
     modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
 });
 
-const FormField = connect(mapStateToProps, mapDispatchToProps)(FormFieldComponent);
+const FormFieldWrapper = connect(mapStateToProps, mapDispatchToProps)(FormFieldWrapperComponent);
 
-export default FormField;
+export default FormFieldWrapper;

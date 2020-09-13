@@ -2,22 +2,18 @@ import React, {useState} from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import RadioField from './FormFieldComponents/RadioField';
-import SelectionField from './FormFieldComponents/SelectionField';
-import TextField from './FormFieldComponents/TextField';
 import Button from '../../Components/Button';
 import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
-import OptionField from './FormFieldComponents/OptionField';
-import FormField from './FormField';
+import FormFieldWrapper from './FormFieldWrapper';
 
-interface SurveyFormComponentProps {
+interface FormPageComponentProps {
     formConfig: ConfigInterface | undefined;
     formData: FormDataInterface | undefined;
 }
 
-function SurveyFormComponent(props: SurveyFormComponentProps) {
+function FormPageComponent(props: FormPageComponentProps) {
 
     const [visibleFieldIndex, setVisibleFieldIndex] = useState(0);
 
@@ -53,7 +49,7 @@ function SurveyFormComponent(props: SurveyFormComponentProps) {
         <React.Fragment>
             <div className='block relative w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-24'>
                 {props.formConfig.fields.map((fieldConfig, fieldIndex) => (
-                    <FormField
+                    <FormFieldWrapper
                         key={fieldIndex}
                         fieldConfig={fieldConfig}
                         fieldIndex={fieldIndex}
@@ -98,6 +94,6 @@ const mapStateToProps = (state: ReduxStore) => ({
 
 const mapDispatchToProps = () => ({});
 
-const SurveyForm = connect(mapStateToProps, mapDispatchToProps)(SurveyFormComponent);
+const FormPage = connect(mapStateToProps, mapDispatchToProps)(FormPageComponent);
 
-export default SurveyForm;
+export default FormPage;
