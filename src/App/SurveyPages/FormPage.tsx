@@ -2,13 +2,10 @@ import React, {useState} from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import Button from '../../Components/Button';
-import ButtonRow from '../../Components/ButtonRow';
-import {getRootPath} from '../../utilities/pathFunctions';
-import {Link} from 'react-router-dom';
 import FormFieldWrapper from './FormFieldWrapper';
 import NavigationButtons from './Navigation/NavigationButtons';
 import './FormPage.scss';
+import SubmitButton from './Navigation/SubmitButton';
 
 interface FormPageComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -59,27 +56,16 @@ function FormPageComponent(props: FormPageComponentProps) {
                     />
                 ))}
             </div>
-            <div className='NavigationSection'>
+            <div className='NavigationSection flex flex-row items-start'>
                 <NavigationButtons
                     isFirst={isFirstField()} isLast={isLastField()}
                     onPrev={previousField} onNext={nextField}
                 />
-                <ButtonRow center>
-                    {isLastField() ? (
-                        <Link to={
-                            getRootPath(window.location.pathname) + '/success'
-                        }>
-                            <Button
-                                text='Submit'
-                            />
-                        </Link>
-                    ) : (
-                        <Button
-                            text='Submit'
-                            visible={false}
-                        />
-                    )}
-                </ButtonRow>
+                <div className='flex-1'/>
+                <SubmitButton
+                    clickable={isLastField()}
+                    onClick={() => console.info('Submitting')}
+                />
             </div>
         </div>
     );

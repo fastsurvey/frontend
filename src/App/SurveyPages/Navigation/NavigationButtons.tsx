@@ -11,7 +11,7 @@ interface NavigationButtonProps {
 function NavigationButtons(props: NavigationButtonProps) {
 
     const commonClass=
-        'no-selection relative inline-block text-lg ' +
+        'no-selection inline-block text-lg ' +
         'h-10 px-6 py-1 leading-8 font-weight-600 ' +
         'transition transition-colors duration-100 ' +
         'border-solid border-gray-300 ';
@@ -20,7 +20,7 @@ function NavigationButtons(props: NavigationButtonProps) {
     const disabledClass = 'bg-gray-300 text-gray-500 cursor-default';
 
     return (
-        <div className='inline-block shadow rounded'>
+        <div className='relative inline-block shadow rounded flex-none h-10'>
             <div
                 className={
                     commonClass + 'rounded-l border-r ' +
