@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
-import RadioField from './FormFields/RadioField';
-import SelectionField from './FormFields/SelectionField';
-import TextField from './FormFields/TextField';
+import RadioField from './FormFieldComponents/RadioField';
+import SelectionField from './FormFieldComponents/SelectionField';
+import TextField from './FormFieldComponents/TextField';
 import Button from '../../Components/Button';
 import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
-import OptionField from './FormFields/OptionField';
-import FormField from './FormFields/FormFieldWrapper';
+import OptionField from './FormFieldComponents/OptionField';
+import FormField from './FormField';
 
 interface SurveyFormComponentProps {
     formConfig: ConfigInterface | undefined;

@@ -1,12 +1,12 @@
 
 import React, {useState} from 'react';
-import {ReduxStore} from '../../../utilities/reduxTypes';
+import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';
-import {FieldConfig, FormDataInterface} from '../../../utilities/fieldTypes';
-import {modifyData} from '../../../utilities/reduxActions';
-import QuestionTitleBox from './FieldParts/QuestionTitleBox';
-import EmailField from './EmailField';
+import {FieldConfig, FormDataInterface} from '../../utilities/fieldTypes';
+import {modifyData} from '../../utilities/reduxActions';
+import QuestionTitleBox from './FormFieldComponents/FieldParts/QuestionTitleBox';
+import EmailField from './FormFieldComponents/EmailField';
 
 
 interface FormFieldComponentProps {
