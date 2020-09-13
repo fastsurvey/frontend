@@ -7,6 +7,7 @@ import ButtonRow from '../../Components/ButtonRow';
 import {getRootPath} from '../../utilities/pathFunctions';
 import {Link} from 'react-router-dom';
 import FormFieldWrapper from './FormFieldWrapper';
+import NavigationButtons from './Navigation/NavigationButtons';
 
 interface FormPageComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -58,11 +59,11 @@ function FormPageComponent(props: FormPageComponentProps) {
                 ))}
             </div>
             <div className='block absolute bottom-0 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 my-6'>
+                <NavigationButtons
+                    isFirst={isFirstField()} isLast={isLastField()}
+                    onPrev={previousField} onNext={nextField}
+                />
                 <ButtonRow center>
-                    <Button
-                        text='Prev' onClick={previousField}
-                        visible={!isFirstField()}
-                    />
                     {isLastField() ? (
                         <Link to={
                             getRootPath(window.location.pathname) + '/success'
@@ -77,10 +78,6 @@ function FormPageComponent(props: FormPageComponentProps) {
                             visible={false}
                         />
                     )}
-                    <Button
-                        text='Next' onClick={nextField}
-                        visible={!isLastField()}
-                    />
                 </ButtonRow>
             </div>
         </React.Fragment>
