@@ -44,7 +44,7 @@ function RadioFieldComponent(props: RadioFieldComponentProps) {
     }
 
     return (
-        <div className='block w-full mb-12'>
+        <div className='block absolute top-0 left-0 w-full mb-12'>
             <QuestionTitleBox
                 title={props.fieldConfig.title}
                 description={props.fieldConfig.description}

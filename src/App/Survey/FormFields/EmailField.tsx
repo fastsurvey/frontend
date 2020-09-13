@@ -12,9 +12,11 @@ import HintBox from './FieldParts/HintBox';
 
 const EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$';
 interface EmailFieldComponentProps {
-    formData: any;
+    fieldIndex: number;
     visibleFieldIndex: number;
     setVisibleFieldIndex(newIndex: number): void;
+
+    formData: any;
     modifyData(formData: any): any;
 }
 
@@ -32,7 +34,7 @@ function EmailFieldComponent(props: EmailFieldComponentProps) {
     }
 
     return (
-        <div className='block w-full mb-12'>
+        <div className='block absolute top-0 left-0 w-full mb-12'>
             <QuestionTitleBox
                 title='Email'
                 description=''

@@ -38,7 +38,7 @@ function TextFieldComponent(props: TextFieldComponentProps) {
     const max_chars: number = props.fieldConfig.properties.max_chars;
 
     return (
-        <div className='block w-full mb-12'>
+        <div className='block absolute top-0 left-0 w-full mb-12'>
             <QuestionTitleBox
                 title={props.fieldConfig.title}
                 description={props.fieldConfig.description}

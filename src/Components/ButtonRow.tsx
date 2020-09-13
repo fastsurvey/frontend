@@ -9,7 +9,7 @@ interface ButtonRowProps {
 function ButtonRow(props: ButtonRowProps) {
     return (
         <div className={
-            'relative flex flex-row items-center ' +
+            'relative gap-x-4 flex flex-row items-center ' +
             (props.center ? 'justify-center' : 'justify-start')
         }>
             {props.children}
