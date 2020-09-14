@@ -6,6 +6,7 @@ import FormFieldWrapper from './FormFieldWrapper';
 import NavigationButtons from './Navigation/NavigationButtons';
 import './FormPage.scss';
 import SubmitButton from './Navigation/SubmitButton';
+import Timeline from './Timeline/Timeline';
 
 interface FormPageComponentProps {
     formConfig: ConfigInterface | undefined;
@@ -43,29 +44,36 @@ function FormPageComponent(props: FormPageComponentProps) {
     }
 
     return (
-        <div className='FormPage'>
-            <div className='FormFieldSection'>
-                {props.formConfig.fields.map((fieldConfig, fieldIndex) => (
-                    <FormFieldWrapper
-                        key={fieldIndex}
-                        fieldConfig={fieldConfig}
-                        fieldIndex={fieldIndex}
-                        visibleFieldIndex={visibleFieldIndex}
+        <React.Fragment>
+            <div className='FormPage'>
+                <div className='FormFieldSection'>
+                    {props.formConfig.fields.map((fieldConfig, fieldIndex) => (
+                        <FormFieldWrapper
+                            key={fieldIndex}
+                            fieldConfig={fieldConfig}
+                            fieldIndex={fieldIndex}
+                            visibleFieldIndex={visibleFieldIndex}
+                        />
+                    ))}
+                </div>
+                <div className='NavigationSection flex flex-row items-start'>
+                    <NavigationButtons
+                        isFirst={isFirstField()} isLast={isLastField()}
+                        onPrev={previousField} onNext={nextField}
                     />
-                ))}
+                    <div className='flex-1'/>
+                    <SubmitButton
+                        clickable={isLastField()}
+                        onClick={() => console.info('Submitting')}
+                    />
+                </div>
             </div>
-            <div className='NavigationSection flex flex-row items-start'>
-                <NavigationButtons
-                    isFirst={isFirstField()} isLast={isLastField()}
-                    onPrev={previousField} onNext={nextField}
-                />
-                <div className='flex-1'/>
-                <SubmitButton
-                    clickable={isLastField()}
-                    onClick={() => console.info('Submitting')}
-                />
-            </div>
-        </div>
+            <Timeline
+                formConfig={props.formConfig}
+                visibleFieldIndex={visibleFieldIndex}
+                setFieldIndex={setVisibleFieldIndex}
+            />
+        </React.Fragment>
     );
 }
 
