@@ -14,6 +14,7 @@ function storeReducer(
 
         formConfig: undefined,
         formData: undefined,
+        formValidation: undefined,
         message: {
             text: '',
             visible: false,
@@ -26,6 +27,7 @@ function storeReducer(
         fetching: state.fetching,
         formConfig: state.formConfig,
         formData: state.formData,
+        formValidation: state.formValidation,
         message: state.message,
     };
 
@@ -37,6 +39,10 @@ function storeReducer(
 
         case 'MODIFY_DATA':
             newState.formData = action.formData;
+            break;
+
+        case 'MODIFY_VALIDATION':
+            newState.formValidation = action.formValidation;
             break;
 
         case 'OPEN_MESSAGE':

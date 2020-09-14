@@ -5,12 +5,8 @@ import {EmailFieldConfig} from '../../../utilities/fieldTypes';
 import HintBox from './FieldParts/HintBox';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
 import RegexHintBox from './FieldParts/RegexHintBox';
+import {DEFAULT_EMAIL_REGEX} from '../../../utilities/regexSnippets';
 
-const DEFAULT_EMAIL_REGEX =
-    '[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+' +
-    '@' +
-    '[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?' +
-    '(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+';
 
 interface EmailFieldComponentProps {
     manipulated: boolean;

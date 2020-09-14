@@ -82,6 +82,10 @@ export interface FormDataInterface {
     } | boolean | string;
 }
 
+export interface FormValidationInterface {
+    [key: string]: boolean;
+}
+
 export interface OptionListInterface {
         [key: string]: boolean;
 }
