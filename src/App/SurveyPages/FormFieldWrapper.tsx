@@ -53,19 +53,16 @@ function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
     let FieldComponent: any;
     const commonProps = {
         fieldData: props.formData[(props.fieldIndex + 1).toString()],
+        fieldValidation: props.formValidation[(props.fieldIndex + 1).toString()],
         modifyFieldData: modifyFieldData,
+        modifyFieldValidation: modifyFieldValidation,
         manipulated: manipulated,
     };
 
     switch (props.fieldConfig.type) {
         case 'Email':
             FieldComponent = (
-                <EmailField
-                    fieldConfig={props.fieldConfig}
-                    fieldValidation={props.formValidation[(props.fieldIndex + 1).toString()]}
-                    modifyFieldValidation={modifyFieldValidation}
-                    {...commonProps}
-                />
+                <EmailField fieldConfig={props.fieldConfig} {...commonProps}/>
             );
             break;
         case 'Option':

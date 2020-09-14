@@ -9,18 +9,24 @@ interface TextFieldProps {
     manipulated: boolean;
     fieldConfig: TextFieldConfig;
     fieldData: string;
+    fieldValidation: boolean;
     modifyFieldData(newValue: string): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function TextField(props: TextFieldProps) {
 
-    function handleChange(newValue: string) {
-        props.modifyFieldData(newValue);
-    }
-
     const value = props.fieldData;
     const min_chars: number = props.fieldConfig.properties.min_chars;
     const max_chars: number = props.fieldConfig.properties.max_chars;
+    function isValid(newValue: string) {
+        return (min_chars <= newValue.length) && (newValue.length <= max_chars);
+    }
+
+    function handleChange(newValue: string) {
+        props.modifyFieldData(newValue);
+        props.modifyFieldValidation(isValid(newValue));
+    }
 
     return (
         <React.Fragment>
@@ -35,7 +41,7 @@ function TextField(props: TextFieldProps) {
             />
             <HintBox
                 text={`Enter between ${min_chars} and ${max_chars} characters.`}
-                visible={props.manipulated && ((value.length < min_chars) || (value.length > max_chars))}
+                visible={props.manipulated && !props.fieldValidation}
             />
         </React.Fragment>
     );

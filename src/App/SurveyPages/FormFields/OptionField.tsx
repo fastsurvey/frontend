@@ -8,17 +8,20 @@ interface OptionFieldProps {
     manipulated: boolean;
     fieldConfig: OptionFieldConfig;
     fieldData: boolean;
+    fieldValidation: boolean;
     modifyFieldData(newValue: boolean): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function OptionField(props: OptionFieldProps) {
 
-    function handleChange(newChecked: boolean) {
-        props.modifyFieldData(newChecked);
-    }
-
     const value = props.fieldData;
     const isRequired = props.fieldConfig.properties.required;
+
+    function handleChange(newChecked: boolean) {
+        props.modifyFieldData(newChecked);
+        props.modifyFieldValidation(!isRequired || newChecked);
+    }
 
     return (
         <React.Fragment>
@@ -36,7 +39,7 @@ function OptionField(props: OptionFieldProps) {
                 {!isRequired && (
                     <HintBox
                         text={`You can leave this empty if you want`}
-                        visible
+                        visible={!value}
                         hint
                     />
                 )}
