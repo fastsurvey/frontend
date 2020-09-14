@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {ConfigInterface} from '../../../utilities/fieldTypes';
-import TimelineStep from './TimelineStep';
 
 interface TimelineProps {
     formConfig: ConfigInterface;
@@ -10,19 +9,23 @@ interface TimelineProps {
 }
 
 function Timeline(props: TimelineProps) {
+
+    const currentFraction = ((props.visibleFieldIndex + 1)/props.formConfig.fields.length);
+
     return (
         <div className={
-            'absolute left-0 ml-4 top-50vh transform ' +
-            'flex flex-col justify-center items-start'
+            'absolute left-0 bottom-0 h-2 block w-full'
         }>
-            {props.formConfig.fields.map((fieldConfig, index) => (
-               <TimelineStep
-                   title={fieldConfig.title}
-                   visibleFieldIndex={props.visibleFieldIndex}
-                   fieldIndex={index}
-                   setFieldIndex={props.setFieldIndex}
-               />
-            ))}
+            <div className={
+                'absolute left-0 bottom-0 h-2 w-full bg-gray-500'
+            }/>
+            <div
+                className={
+                    'absolute left-0 bottom-0 h-2 bg-gray-300 w-full ' +
+                    'transition transition-transform duration-300 ease-in-out transform origin-left'
+                }
+                style={{transform: 'scaleX(' + currentFraction.toString() + ')'}}
+            />
         </div>
     );
 }

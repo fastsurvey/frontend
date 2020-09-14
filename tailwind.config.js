@@ -12,6 +12,9 @@ module.exports = {
     },
     theme: {
         extend: {
+            transitionProperty: {
+                'width': 'width',
+            },
             boxShadow: {
                 outline: '0 0 0 3px #BEE3F8',
             },
@@ -26,7 +29,6 @@ module.exports = {
                 '50vw': '50vw',
                 '100vw': '100vw',
             }
-
         }
     }
 };
