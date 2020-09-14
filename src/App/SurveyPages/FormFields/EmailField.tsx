@@ -12,39 +12,43 @@ interface EmailFieldComponentProps {
     manipulated: boolean;
     fieldConfig: EmailFieldConfig;
     fieldData: string;
+    fieldValidation: boolean;
     modifyFieldData(newValue: string): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function EmailField(props: EmailFieldComponentProps) {
 
-    function handleChange(newValue: string) {
-        props.modifyFieldData(newValue);
-    }
-
-    const customRegex = (props.fieldConfig.properties.regex !== '*');
+    const hasCustomRegex = (props.fieldConfig.properties.regex !== '*');
 
     const formatTest = new RegExp('^' + (
-        customRegex ?
+        hasCustomRegex ?
                 props.fieldConfig.properties.regex :
                 DEFAULT_EMAIL_REGEX
         ) + '$');
 
     let hintBox: any;
+    const hintIsVisible = props.manipulated && !(props.fieldValidation);
 
-    if (customRegex) {
+    if (hasCustomRegex) {
         hintBox = (
             <RegexHintBox
                 regex={props.fieldConfig.properties.regex}
-                visible={props.manipulated && !(formatTest.test(props.fieldData))}
+                visible={hintIsVisible}
             />
         );
     } else {
         hintBox = (
             <HintBox
                 text='Enter a valid email address.'
-                visible={props.manipulated && !(formatTest.test(props.fieldData))}
+                visible={hintIsVisible}
             />
         );
+    }
+
+    function handleChange(newValue: string) {
+        props.modifyFieldData(newValue);
+        props.modifyFieldValidation(formatTest.test(newValue));
     }
 
     return (

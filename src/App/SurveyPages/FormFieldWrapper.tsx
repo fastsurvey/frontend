@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import assert from 'assert';
-import {FieldConfig, FormDataInterface} from '../../utilities/fieldTypes';
-import {modifyData} from '../../utilities/reduxActions';
+import {FieldConfig, FormDataInterface, FormValidationInterface} from '../../utilities/fieldTypes';
+import {modifyData, modifyValidation} from '../../utilities/reduxActions';
 import EmailField from './FormFields/EmailField';
 import TextField from './FormFields/TextField';
 import SelectionField from './FormFields/SelectionField';
@@ -19,7 +19,9 @@ interface FormFieldWrapperComponentProps {
     fieldConfig: FieldConfig;
 
     formData: any;
-    modifyData(formData: any): any;
+    formValidation: any;
+    modifyData(formData: any): void;
+    modifyValidation(formValidation: any): void;
 }
 
 function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
@@ -33,6 +35,12 @@ function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
         newFormData[(props.fieldIndex + 1).toString()] = newValue;
         props.modifyData(newFormData);
         setManipulated(true);
+    }
+
+    function modifyFieldValidation(newValue: boolean) {
+        const newFormValidation: any = JSON.parse(JSON.stringify(props.formValidation));
+        newFormValidation[(props.fieldIndex + 1).toString()] = newValue;
+        props.modifyValidation(newFormValidation);
     }
 
     let opacityClass = '';
@@ -52,7 +60,12 @@ function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
     switch (props.fieldConfig.type) {
         case 'Email':
             FieldComponent = (
-                <EmailField fieldConfig={props.fieldConfig} {...commonProps}/>
+                <EmailField
+                    fieldConfig={props.fieldConfig}
+                    fieldValidation={props.formValidation[(props.fieldIndex + 1).toString()]}
+                    modifyFieldValidation={modifyFieldValidation}
+                    {...commonProps}
+                />
             );
             break;
         case 'Option':
@@ -95,10 +108,12 @@ function FormFieldWrapperComponent(props: FormFieldWrapperComponentProps) {
 
 const mapStateToProps = (state: ReduxStore) => ({
     formData: state.formData,
+    formValidation: state.formValidation,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
     modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
+    modifyValidation: (formValidation: FormValidationInterface) => dispatch(modifyValidation(formValidation)),
 });
 
 const FormFieldWrapper = connect(mapStateToProps, mapDispatchToProps)(FormFieldWrapperComponent);
