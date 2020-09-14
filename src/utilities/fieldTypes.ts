@@ -27,13 +27,8 @@ export interface EmailFieldConfig {
     description: string;
     properties: {
         required: boolean;
-        verification_needed: boolean;
-        custom_regex: true;
+        verify: boolean;
         regex: string;
-    } | {
-        required: boolean;
-        verification_needed: boolean;
-        custom_regex: false;
     };
 }
 

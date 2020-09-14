@@ -25,15 +25,17 @@ function EmailField(props: EmailFieldComponentProps) {
         props.modifyFieldData(newValue);
     }
 
+    const customRegex = (props.fieldConfig.properties.regex !== '*');
+
     const formatTest = new RegExp('^' + (
-            props.fieldConfig.properties.custom_regex ?
+        customRegex ?
                 props.fieldConfig.properties.regex :
                 DEFAULT_EMAIL_REGEX
         ) + '$');
 
     let hintBox: any;
 
-    if (props.fieldConfig.properties.custom_regex) {
+    if (customRegex) {
         hintBox = (
             <RegexHintBox
                 regex={props.fieldConfig.properties.regex}
