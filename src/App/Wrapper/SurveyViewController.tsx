@@ -40,8 +40,6 @@ function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps
     assert(props.formConfig !== undefined);
     assert(props.formData !== undefined);
 
-    console.debug({formData: props.formData});
-
     return <React.Fragment>{props.children}</React.Fragment>;
 }
 

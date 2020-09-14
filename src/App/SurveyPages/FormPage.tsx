@@ -42,8 +42,6 @@ function FormPageComponent(props: FormPageComponentProps) {
         }
     }
 
-    console.debug({formData: props.formData});
-
     return (
         <div className='FormPage'>
             <div className='FormFieldSection'>
