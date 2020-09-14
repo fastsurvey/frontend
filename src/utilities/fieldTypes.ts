@@ -27,8 +27,8 @@ export interface EmailFieldConfig {
     description: string;
     properties: {
         required: boolean;
-        verification_needed: boolean;
-        format_regex: string;
+        verify: boolean;
+        regex: string;
     };
 }
 
@@ -80,6 +80,10 @@ export interface FormDataInterface {
     [key: string]: {
         [key: string]: boolean
     } | boolean | string;
+}
+
+export interface FormValidationInterface {
+    [key: string]: boolean;
 }
 
 export interface OptionListInterface {

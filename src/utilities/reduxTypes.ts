@@ -1,10 +1,11 @@
 
-import {ConfigInterface, FormDataInterface} from './fieldTypes';
+import {ConfigInterface, FormDataInterface, FormValidationInterface} from './fieldTypes';
 
 export interface ReduxStore {
     fetching: boolean;
     formConfig: ConfigInterface | undefined;
     formData: FormDataInterface | undefined;
+    formValidation: FormValidationInterface | undefined;
     message: StatusMessage;
 }
 
@@ -13,7 +14,10 @@ export interface StatusMessage {
     visible: boolean;
 }
 
-export type ReduxAction = AddConfigAction | ModifyDataAction | OpenMessageAction | CloseMessageAction;
+export type ReduxAction =
+    AddConfigAction | ModifyDataAction |
+    ModifyValidationAction | OpenMessageAction |
+    CloseMessageAction;
 
 interface AddConfigAction {
     type: 'ADD_CONFIG';
@@ -23,6 +27,11 @@ interface AddConfigAction {
 interface ModifyDataAction {
     type: 'MODIFY_DATA';
     formData: FormDataInterface;
+}
+
+interface ModifyValidationAction {
+    type: 'MODIFY_VALIDATION';
+    formValidation: FormValidationInterface;
 }
 
 interface OpenMessageAction {

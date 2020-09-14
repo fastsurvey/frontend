@@ -37,3 +37,39 @@ export function generateInitialFormData(config: ConfigInterface): object {
 
     return formData;
 }
+
+export function generateInitialFormValidation(config: ConfigInterface): object {
+    const formValidation: object = {};
+
+    config.fields.forEach((field, index) => {
+        let fieldValidation: boolean | undefined;
+        switch (field.type) {
+            case 'Radio':
+                fieldValidation = false;
+                break;
+            case 'Selection':
+                fieldValidation = (field.properties.min_select === 0);
+                break;
+            case 'Email':
+                fieldValidation = !field.properties.required;
+                break;
+            case 'Text':
+                fieldValidation = (field.properties.min_chars === 0);
+                break;
+            case 'Option':
+                fieldValidation = !field.properties.required;
+                break;
+            default:
+                fieldValidation = undefined;
+                break;
+        }
+
+        if (fieldValidation !== undefined) {
+            Object.assign(formValidation, {
+                [(index + 1).toString()]: fieldValidation,
+            });
+        }
+    });
+
+    return formValidation;
+}

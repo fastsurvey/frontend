@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React from 'react';
 import {OptionListInterface, RadioFieldConfig} from '../../../utilities/fieldTypes';
 import RadioOption from '../../../Components/RadioOption';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
@@ -9,12 +9,12 @@ interface RadioFieldProps {
     manipulated: boolean;
     fieldConfig: RadioFieldConfig;
     fieldData: OptionListInterface;
+    fieldValidation: boolean;
     modifyFieldData(newValue: boolean): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function RadioField(props: RadioFieldProps) {
-
-    const [hintVisible, setHintVisible] = useState(true);
 
     function handleChange(optionIndex: number, newValue: boolean) {
         const newFieldData: any = JSON.parse(JSON.stringify(props.fieldData));
@@ -26,9 +26,8 @@ function RadioField(props: RadioFieldProps) {
                     newValue;
         });
 
-        setHintVisible(!newValue);
-
         props.modifyFieldData(newFieldData);
+        props.modifyFieldValidation(newValue);
     }
 
     return (
@@ -47,7 +46,7 @@ function RadioField(props: RadioFieldProps) {
             ))}
             <HintBox
                 text={`Please select an option.`}
-                visible={props.manipulated && hintVisible}
+                visible={props.manipulated && !props.fieldValidation}
             />
         </React.Fragment>
     );

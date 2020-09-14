@@ -8,7 +8,9 @@ interface SelectionFieldProps {
     manipulated: boolean;
     fieldConfig: SelectionFieldConfig;
     fieldData: OptionListInterface;
+    fieldValidation: boolean;
     modifyFieldData(newValue: boolean): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function SelectionField(props: SelectionFieldProps) {
@@ -18,12 +20,18 @@ function SelectionField(props: SelectionFieldProps) {
     function handleChange(optionIndex: number, newChecked: boolean) {
         const newFieldData: any = JSON.parse(JSON.stringify(props.fieldData));
         newFieldData[(optionIndex + 1).toString()] = newChecked;
+
+        const newSelectionCount = selectionCount + (newChecked ? 1 : -1);
         props.modifyFieldData(newFieldData);
-        setSelectionCount(selectionCount + (newChecked ? 1 : -1));
+        props.modifyFieldValidation(isValid(newSelectionCount));
+        setSelectionCount(newSelectionCount);
     }
 
     const min_select: number = props.fieldConfig.properties.min_select;
     const max_select: number = props.fieldConfig.properties.max_select;
+    function isValid(count: number) {
+        return (min_select <= count) && (count <= max_select);
+    }
 
     return (
         <React.Fragment>
@@ -52,7 +60,7 @@ function SelectionField(props: SelectionFieldProps) {
                 <div className='absolute'>
                     <HintBox
                         text={`Choose between ${min_select} and ${max_select} options.`}
-                        visible={props.manipulated && ((selectionCount < min_select) || (selectionCount > max_select))}
+                        visible={props.manipulated && !props.fieldValidation}
                     />
                 </div>
             </div>

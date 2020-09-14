@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {ConfigInterface, FormDataInterface} from '../../utilities/fieldTypes';
+import {ConfigInterface, FormDataInterface, FormValidationInterface} from '../../utilities/fieldTypes';
 import {ReduxStore} from '../../utilities/reduxTypes';
 import {connect} from 'react-redux';
 import '../../styles/loader.scss';
-import {modifyData} from '../../utilities/reduxActions';
-import {generateInitialFormData} from '../../utilities/communicationObjects';
+import {modifyData, modifyValidation} from '../../utilities/reduxActions';
+import {generateInitialFormData, generateInitialFormValidation} from '../../utilities/communicationObjects';
 import assert from 'assert';
 import Loader from '../../Components/Loader';
 
@@ -13,7 +13,9 @@ interface SurveyViewControllerComponentProps {
     fetching: boolean;
     formConfig: ConfigInterface | undefined;
     formData: FormDataInterface | undefined;
-    modifyData(formData: object): any;
+    formValidation: FormValidationInterface | undefined;
+    modifyData(formData: object): void;
+    modifyValidation(formData: object): void;
 }
 
 function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps) {
@@ -22,9 +24,11 @@ function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps
         if (
             (!props.fetching) &&
             (props.formConfig !== undefined) &&
-            (props.formData === undefined)
+            (props.formData === undefined) &&
+            (props.formValidation === undefined)
         ) {
             props.modifyData(generateInitialFormData(props.formConfig));
+            props.modifyValidation(generateInitialFormValidation(props.formConfig));
         }
     });
 
@@ -32,15 +36,16 @@ function SurveyViewControllerComponent(props: SurveyViewControllerComponentProps
         return <Loader/>;
     } else if (props.formConfig === undefined) {
         return <React.Fragment>Nothing here</React.Fragment>;
-    } else if (props.formData === undefined) {
+    } else if ([props.formData, props.formValidation].includes(undefined)) {
         return <Loader/>;
     }
 
     assert(!props.fetching);
     assert(props.formConfig !== undefined);
     assert(props.formData !== undefined);
+    assert(props.formValidation !== undefined);
 
-    console.debug({formData: props.formData});
+    console.debug({formValidation: props.formValidation});
 
     return <React.Fragment>{props.children}</React.Fragment>;
 }
@@ -49,10 +54,12 @@ const mapStateToProps = (state: ReduxStore) => ({
     fetching: state.fetching,
     formConfig: state.formConfig,
     formData: state.formData,
+    formValidation: state.formValidation,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
     modifyData: (formData: FormDataInterface) => dispatch(modifyData(formData)),
+    modifyValidation: (formValidation: FormValidationInterface) => dispatch(modifyValidation(formValidation)),
 });
 
 const SurveyViewController = connect(mapStateToProps, mapDispatchToProps)(SurveyViewControllerComponent);

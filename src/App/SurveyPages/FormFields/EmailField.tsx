@@ -4,27 +4,52 @@ import TextInput from '../../../Components/TextInput';
 import {EmailFieldConfig} from '../../../utilities/fieldTypes';
 import HintBox from './FieldParts/HintBox';
 import QuestionTitleBox from './FieldParts/QuestionTitleBox';
+import RegexHintBox from './FieldParts/RegexHintBox';
+import {DEFAULT_EMAIL_REGEX} from '../../../utilities/regexSnippets';
 
-// const DEFAULT_EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@
-// [a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:
-// [a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$';
 
 interface EmailFieldComponentProps {
     manipulated: boolean;
     fieldConfig: EmailFieldConfig;
     fieldData: string;
+    fieldValidation: boolean;
     modifyFieldData(newValue: string): void;
+    modifyFieldValidation(newValue: boolean): void;
 }
 
 function EmailField(props: EmailFieldComponentProps) {
 
-    function handleChange(newValue: string) {
-        props.modifyFieldData(newValue);
+    const hasCustomRegex = (props.fieldConfig.properties.regex !== '*');
+
+    const formatTest = new RegExp('^' + (
+        hasCustomRegex ?
+                props.fieldConfig.properties.regex :
+                DEFAULT_EMAIL_REGEX
+        ) + '$');
+
+    let hintBox: any;
+    const hintIsVisible = props.manipulated && !(props.fieldValidation);
+
+    if (hasCustomRegex) {
+        hintBox = (
+            <RegexHintBox
+                regex={props.fieldConfig.properties.regex}
+                visible={hintIsVisible}
+            />
+        );
+    } else {
+        hintBox = (
+            <HintBox
+                text='Enter a valid email address.'
+                visible={hintIsVisible}
+            />
+        );
     }
 
-    const formatTest = new RegExp(
-        '^' + props.fieldConfig.properties.format_regex + '$'
-    );
+    function handleChange(newValue: string) {
+        props.modifyFieldData(newValue);
+        props.modifyFieldValidation(formatTest.test(newValue));
+    }
 
     return (
         <React.Fragment>
@@ -37,10 +62,7 @@ function EmailField(props: EmailFieldComponentProps) {
                 onChange={handleChange}
                 placeholder='Your email address ...'
             />
-            <HintBox
-                text={`Enter a valid email address.`}
-                visible={props.manipulated && !(formatTest.test(props.fieldData))}
-            />
+            {hintBox}
         </React.Fragment>
     );
 }

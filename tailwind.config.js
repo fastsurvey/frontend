@@ -12,16 +12,23 @@ module.exports = {
     },
     theme: {
         extend: {
+            transitionProperty: {
+                'width': 'width',
+            },
             boxShadow: {
                 outline: '0 0 0 3px #BEE3F8',
             },
+            inset: {
+                '37.5vh': '37.5vh',
+                '40vh': '40vh',
+            },
             spacing: {
+                '7': '1.75rem',
                 '50vh': '50vh',
                 '100vh': '100vh',
                 '50vw': '50vw',
                 '100vw': '100vw',
             }
-
         }
     }
 };
