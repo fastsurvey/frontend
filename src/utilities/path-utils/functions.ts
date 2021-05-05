@@ -1,9 +1,8 @@
-
-import { REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT } from './regexSnippets';
+import {REGEX_SURVEY_APPENDIX, REGEX_SURVEY_ROOT} from './regex';
 
 export function isSurveyPath(path: string): boolean {
     return new RegExp(
-        '^' + REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX + '$'
+        '^' + REGEX_SURVEY_ROOT + REGEX_SURVEY_APPENDIX + '$',
     ).test(path);
 }
 
