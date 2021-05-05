@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'styles/tailwind.out.css';
-import ReduxWrapper from './App/Wrapper/ReduxWrapper';
-import Router from './App/Wrapper/Router';
+
+import ReduxStore from 'redux-store';
+import PageRouter from 'page-router';
 
 ReactDOM.render(
     <React.StrictMode>
-        <ReduxWrapper>
-            <Router />
-        </ReduxWrapper>
+        <ReduxStore>
+            <PageRouter />
+        </ReduxStore>
     </React.StrictMode>,
     document.getElementById('root'),
 );
