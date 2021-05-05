@@ -1,17 +1,16 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {pathUtils} from 'utilities';
+import MainContent from './components/main-content/main-content';
 import ReduxStore from 'redux-store';
 import SurveyProvider from './pages/survey-provider';
-import PageWrapper from './App/Wrapper/PageWrapper';
-
-import {pathUtils} from 'utilities';
 import SurveyIndexPage from './pages/survey-page/index';
 
 function PageRouter() {
     return (
         <BrowserRouter>
             <Route>
-                <PageWrapper>
+                <MainContent>
                     <Switch>
                         <Route exact path={'/'}>
                             <div>Landing Page</div>
@@ -65,7 +64,7 @@ function PageRouter() {
                             <div>404</div>
                         </Route>
                     </Switch>
-                </PageWrapper>
+                </MainContent>
             </Route>
         </BrowserRouter>
     );

@@ -13,70 +13,123 @@
     padding: 0;
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    @apply text-gray-900;
 }
 
-.font-weight-300 {
-    font-weight: 300;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
-.font-weight-400 {
-    font-weight: 400;
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
-.font-weight-500 {
-    font-weight: 500;
+@layer utilities {
+    .font-weight-300 {
+        font-weight: 300;
+    }
+
+    .font-weight-400 {
+        font-weight: 400;
+    }
+
+    .font-weight-500 {
+        font-weight: 500;
+    }
+
+    .font-weight-600 {
+        font-weight: 600;
+    }
+
+    .font-weight-700 {
+        font-weight: 700;
+    }
 }
 
-.font-weight-600 {
-    font-weight: 600;
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-weight-600;
+        @apply w-full;
+        @apply block;
+    }
+
+    p {
+        @apply text-lg;
+    }
+
+    h1 {
+        @apply text-5xl;
+        @apply mb-3;
+    }
+
+    h2 {
+        @apply text-4xl;
+        @apply mb-3;
+    }
+
+    h3 {
+        @apply text-3xl;
+        @apply mb-2;
+    }
+
+    h4 {
+        @apply text-2xl;
+        @apply mb-2;
+    }
+
+    h5 {
+        @apply text-xl;
+        @apply mb-1;
+    }
+
+    h6 {
+        @apply text-lg;
+        @apply mb-1;
+    }
+
+    svg {
+        fill: currentColor;
+        height: 100%;
+        width: 100%;
+    }
 }
 
-.font-weight-700 {
-    font-weight: 700;
+.center-content {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @apply font-weight-600;
-    @apply w-full;
-    @apply block;
+.centering-row {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-center;
 }
 
-p {
-    @apply text-lg;
+.centering-col {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
 }
 
-h1 {
-    @apply text-5xl;
-    @apply mb-3;
+.text-magenta {
+    color: #fd0948;
 }
 
-h2 {
-    @apply text-4xl;
-    @apply mb-3;
+.bg-magenta {
+    background-color: #fd0948;
 }
 
-h3 {
-    @apply text-3xl;
-    @apply mb-2;
-}
-
-h4 {
-    @apply text-2xl;
-    @apply mb-2;
-}
-
-h5 {
-    @apply text-xl;
-    @apply mb-1;
-}
-
-h6 {
-    @apply text-lg;
-    @apply mb-1;
+.flex-max {
+    @apply self-stretch;
+    @apply flex-grow;
 }

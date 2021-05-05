@@ -30,6 +30,7 @@ function SurveyProvider(props: {
                 dataUtils.initializeFormValidation(formConfig),
             );
         }
+        // eslint-disable-next-line
     }, [fetching, formConfig]);
 
     if (!fetching && !formConfig) {
