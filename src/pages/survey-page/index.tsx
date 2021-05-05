@@ -1,7 +1,7 @@
 import React from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
-import VisualTextCard from 'components/text-card/visual-text-card';
+import VisualUserTextCard from 'components/text-card/visual-user-text-card';
 import VisualInfoCard from '../../components/info-card/visual-info-card';
 import TimePill from 'components/time-pill/time-pill';
 import {pathUtils} from 'utilities';
@@ -17,7 +17,10 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualTextCard title={config.title} text={config.description} />
+            <VisualUserTextCard
+                title={config.title}
+                text={config.description}
+            />
             {config.authentication !== 'email' && (
                 <VisualInfoCard variant='email-auth' />
             )}

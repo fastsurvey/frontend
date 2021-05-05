@@ -3,10 +3,6 @@ import {types} from 'types';
 import {connect} from 'react-redux';
 import VisualTextCard from 'components/text-card/visual-text-card';
 import VisualInfoCard from '../../components/info-card/visual-info-card';
-import TimePill from 'components/time-pill/time-pill';
-import {pathUtils} from 'utilities';
-import {Link} from 'react-router-dom';
-import Button from 'components/button/button';
 
 function SurveyVerifyPage(props: {formConfig: types.SurveyConfig | undefined}) {
     if (!props.formConfig) {
@@ -17,7 +13,10 @@ function SurveyVerifyPage(props: {formConfig: types.SurveyConfig | undefined}) {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualTextCard title={config.title} text={'Please'} />
+            <VisualTextCard title={'Verify now!'}>
+                Please log into your email account and click on the verification
+                link in the email <strong>"FastSurvey Submission"</strong>.
+            </VisualTextCard>
             <VisualInfoCard variant='change-later' />
         </div>
     );
