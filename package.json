@@ -1,57 +1,64 @@
 {
-  "name": "FastSurveyFrontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.19.2",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5"
-  },
-  "scripts": {
-    "start": "node app.js",
-    "start-dev": "react-scripts start",
-    "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.out.css",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "tslint 'src/**/*.{ts,tsx,js}'",
-    "deploy": "tailwind build src/tailwind.css -o src/tailwind.out.css && npm run build && gcloud app deploy"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "tailwindcss": "^1.8.6",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/lodash.clonedeep": "^4.5.6",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux": "^3.6.0",
-    "ts-jest": "^26.3.0",
-    "tslint": "^6.1.2",
-    "typescript": "^3.9.5"
-  }
+    "name": "fastsurvey-frontend",
+    "version": "0.3.0",
+    "author": {
+        "name": "Moritz Makowski",
+        "email": "moritz@dostuffthatmatters.dev",
+        "url": "https://dostuffthatmatters.dev/"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "lodash": "^4.17.21",
+        "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-redux": "^7.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "3.4.1",
+        "redux": "^4.0.5"
+    },
+    "scripts": {
+        "develop": "react-scripts start",
+        "develop:tailwind": "NODE_ENV=development postcss src/styles/tailwind.css -o src/styles/tailwind.out.css -w",
+        "build": "react-scripts build",
+        "build:tailwind": "NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/tailwind.out.css",
+        "serve": "node app.js",
+        "lint": "tslint 'src/**/*.{ts,tsx,js}'"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@tailwindcss/jit": "^0.1.18",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "@types/jest": "^24.0.0",
+        "@types/lodash": "^4.14.168",
+        "@types/node": "^12.0.0",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.9.0",
+        "@types/react-redux": "^7.1.9",
+        "@types/react-router-dom": "^5.1.5",
+        "@types/redux": "^3.6.0",
+        "autoprefixer": "^10.2.5",
+        "postcss": "^8.2.13",
+        "postcss-cli": "^8.3.1",
+        "tailwindcss": "^2.1.2",
+        "ts-jest": "^26.3.0",
+        "tslint": "^6.1.2",
+        "typescript": "^3.9.5"
+    }
 }
