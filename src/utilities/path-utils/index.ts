@@ -1,8 +1,9 @@
-import {getRootPath, isSurveyPath} from './functions';
+import {getRootPath, getPathId, isSurveyPath} from './functions';
 import {regex} from './regex';
 
 const pathUtils = {
     isSurveyPath,
+    getPathId,
     getRootPath,
     regex,
 };

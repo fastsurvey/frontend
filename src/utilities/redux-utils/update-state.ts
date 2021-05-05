@@ -11,6 +11,10 @@ function updateState(state: types.ReduxState, action: types.ReduxAction) {
             newState.fetching = false;
             break;
 
+        case 'ABORT_FETCH':
+            newState.fetching = false;
+            break;
+
         case 'MODIFY_DATA':
             newState.formData = action.formData;
             break;

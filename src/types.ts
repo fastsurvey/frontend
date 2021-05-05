@@ -94,6 +94,9 @@ export declare namespace types {
               formConfig: types.SurveyConfig | undefined;
           }
         | {
+              type: 'ABORT_FETCH';
+          }
+        | {
               type: 'MODIFY_DATA';
               formData: types.FormData;
           }
