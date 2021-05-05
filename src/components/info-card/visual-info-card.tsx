@@ -1,7 +1,7 @@
 import React from 'react';
 import {icons} from '../../assets/icons/index';
 
-function VisualInfoCard(props: {variant: 'email-auth'}) {
+function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
     let content: React.ReactNode;
 
     switch (props.variant) {
@@ -19,6 +19,14 @@ function VisualInfoCard(props: {variant: 'email-auth'}) {
                         submission you will receive an email with a link to
                         verify your submission.
                     </div>
+                </>
+            );
+            break;
+        case 'change-later':
+            content = (
+                <>
+                    If you want to change your submission later, just fill out
+                    the survey again using the same email address.
                 </>
             );
             break;
