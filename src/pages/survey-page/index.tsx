@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import VisualTextCard from 'components/text-card/visual-text-card';
 import VisualInfoCard from '../../components/info-card/visual-info-card';
 import TimePill from 'components/time-pill/time-pill';
+import {pathUtils} from 'utilities';
+import {Link} from 'react-router-dom';
+import Button from 'components/button/button';
 
 const LIPSUM =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut placerat orci nulla pellentesque dignissim enim sit amet venenatis.\n Interdum velit euismod in pellentesque. Suspendisse interdum consectetur libero id faucibus. Commodo nulla facilisi nullam.';
@@ -24,6 +27,14 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
             <div className='centering-row'>
                 <TimePill config={config} />
                 <div className='flex-max' />
+                <Link
+                    to={
+                        pathUtils.getRootPath(window.location.pathname) +
+                        '/form'
+                    }
+                >
+                    <Button text='Start' />
+                </Link>
             </div>
         </div>
     );
