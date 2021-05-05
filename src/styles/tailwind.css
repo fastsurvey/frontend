@@ -48,65 +48,6 @@
     }
 }
 
-@layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-weight-600;
-        @apply w-full;
-        @apply block;
-    }
-
-    p {
-        @apply text-lg;
-    }
-
-    h1 {
-        @apply text-5xl;
-        @apply mb-3;
-    }
-
-    h2 {
-        @apply text-4xl;
-        @apply mb-3;
-    }
-
-    h3 {
-        @apply text-3xl;
-        @apply mb-2;
-    }
-
-    h4 {
-        @apply text-2xl;
-        @apply mb-2;
-    }
-
-    h5 {
-        @apply text-xl;
-        @apply mb-1;
-    }
-
-    h6 {
-        @apply text-lg;
-        @apply mb-1;
-    }
-
-    svg {
-        fill: currentColor;
-        height: 100%;
-        width: 100%;
-    }
-}
-
-.center-content {
-    @apply flex;
-    @apply items-center;
-    @apply justify-center;
-}
-
 .centering-row {
     @apply flex;
     @apply flex-row;
@@ -121,15 +62,22 @@
     @apply justify-center;
 }
 
-.text-magenta {
-    color: #fd0948;
-}
-
-.bg-magenta {
-    background-color: #fd0948;
+.flex-row-top {
+    @apply flex;
+    @apply flex-row;
+    @apply items-start;
+    @apply justify-center;
 }
 
 .flex-max {
     @apply self-stretch;
     @apply flex-grow;
+}
+
+.icon-grey .primary {
+    fill: #bcccdc;
+}
+
+.icon-grey .secondary {
+    fill: #829ab1;
 }

@@ -1,13 +1,37 @@
 import React from 'react';
+import {icons} from '../../assets/icons/index';
 
-function VisualInfoCard(props: {
-    title: string;
-    children: React.ReactNode | string;
-}) {
+function VisualInfoCard(props: {variant: 'email-auth'}) {
+    let content: React.ReactNode;
+
+    switch (props.variant) {
+        case 'email-auth':
+            content = (
+                <>
+                    <div className='mb-3'>
+                        This survey requires you to{' '}
+                        <strong className='font-weight-600 text-grey-700'>
+                            verify your identity via an email confirmation.
+                        </strong>
+                    </div>
+                    <div>
+                        You will be asked to enter your email. After your
+                        submission you will receive an email with a link to
+                        verify your submission.
+                    </div>
+                </>
+            );
+            break;
+    }
     return (
-        <div>
-            <div>icon here</div>
-            <div>{props.children}</div>
+        <div
+            className={
+                'w-full p-4 pr-6 text-justify flex-row-top space-x-2 ' +
+                'rounded shadow-md bg-grey-050 text-grey-600'
+            }
+        >
+            <div className='w-12 h-12 icon-grey'>{icons.info}</div>
+            <div className='text-md font-weight-500'>{content}</div>
         </div>
     );
 }

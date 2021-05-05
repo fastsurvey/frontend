@@ -5,13 +5,13 @@ import 'styles/markdown.css';
 
 function VisualTextCard(props: {title: string; text: string}) {
     return (
-        <div className='w-full p-6 bg-white rounded shadow centering-col'>
+        <div className='w-full p-6 bg-white rounded shadow-md centering-col'>
             <div className='text-2xl text-black font-weight-600'>
                 {props.title}
             </div>
             {props.text.replace(/\s*/, '').length > 0 && (
                 <div
-                    className='mt-3 text-base text-gray-900 opacity-70 markdown font-weight-500'
+                    className='mt-3 text-grey-900 markdown font-weight-500'
                     dangerouslySetInnerHTML={{
                         __html: ''.concat(
                             ...props.text

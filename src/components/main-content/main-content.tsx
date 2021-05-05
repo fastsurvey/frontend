@@ -19,13 +19,13 @@ function MainContent(props: {children: React.ReactChild}) {
                             alt='FastSurvey Icon'
                             className='w-16 h-16 p-2'
                         />
-                        <div className='ml-2 text-2xl text-gray-600 font-weight-700'>
+                        <div className='ml-2 text-2xl text-blue-900 font-weight-700'>
                             FastSurvey
                         </div>
                     </div>
                 </Link>
             </header>
-            <main className='w-screen min-h-screen bg-gray-200 centering-col'>
+            <main className='w-screen min-h-screen bg-grey-100 centering-col'>
                 {props.children}
             </main>
         </React.Fragment>
