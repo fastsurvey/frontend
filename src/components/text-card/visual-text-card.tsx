@@ -11,7 +11,7 @@ function VisualTextCard(props: {title: string; text: string}) {
             </div>
             {props.text.replace(/\s*/, '').length > 0 && (
                 <div
-                    className='mt-3 text-grey-900 markdown font-weight-500'
+                    className='w-full mt-3 text-grey-900 markdown font-weight-500'
                     dangerouslySetInnerHTML={{
                         __html: ''.concat(
                             ...props.text

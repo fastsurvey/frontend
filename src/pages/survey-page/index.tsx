@@ -8,9 +8,6 @@ import {pathUtils} from 'utilities';
 import {Link} from 'react-router-dom';
 import Button from 'components/button/button';
 
-const LIPSUM =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut placerat orci nulla pellentesque dignissim enim sit amet venenatis.\n Interdum velit euismod in pellentesque. Suspendisse interdum consectetur libero id faucibus. Commodo nulla facilisi nullam.';
-
 function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
     if (!props.formConfig) {
         return <div />;
@@ -20,7 +17,7 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualTextCard title={config.title} text={LIPSUM} />
+            <VisualTextCard title={config.title} text={config.description} />
             {config.authentication !== 'email' && (
                 <VisualInfoCard variant='email-auth' />
             )}
