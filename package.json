@@ -23,7 +23,8 @@
         "build": "react-scripts build",
         "build:tailwind": "NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/tailwind.out.css",
         "serve": "node app.js",
-        "lint": "tslint 'src/**/*.{ts,tsx,js}'"
+        "lint": "tslint 'src/**/*.{ts,tsx,js}'",
+        "test": "react-scripts test"
     },
     "eslintConfig": {
         "extends": "react-app"
