@@ -68,4 +68,38 @@ export declare namespace types {
     }
 
     export type Color = 'red' | 'orange' | 'yellow' | 'green' | 'teal' | 'gray';
+
+    export interface ReduxState {
+        fetching: boolean;
+        formConfig: SurveyConfig | undefined;
+        formData: FormData | undefined;
+        formValidation: FormValidation | undefined;
+    }
+
+    export interface FormData {
+        [key: string]:
+            | {
+                  [key: string]: boolean;
+              }
+            | boolean
+            | string;
+    }
+
+    export interface FormValidation {
+        [key: string]: boolean;
+    }
+
+    export type ReduxAction =
+        | {
+              type: 'ADD_CONFIG';
+              formConfig: types.SurveyConfig | undefined;
+          }
+        | {
+              type: 'MODIFY_DATA';
+              formData: types.FormData;
+          }
+        | {
+              type: 'MODIFY_VALIDATION';
+              formValidation: types.FormValidation;
+          };
 }
