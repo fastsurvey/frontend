@@ -3,10 +3,9 @@ import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import ReduxStore from 'redux-store';
 import SurveyProvider from './pages/survey-provider';
 import PageWrapper from './App/Wrapper/PageWrapper';
-import IndexPage from './App/SurveyPages/IndexPage';
-import FormPage from './App/SurveyPages/FormPage';
 
 import {pathUtils} from 'utilities';
+import SurveyIndexPage from './pages/survey-page/index';
 
 function PageRouter() {
     return (
@@ -32,36 +31,32 @@ function PageRouter() {
                                             path={
                                                 pathUtils.regex.surveyRoot + ''
                                             }
-                                        >
-                                            <IndexPage />
-                                        </Route>
+                                            component={SurveyIndexPage}
+                                        />
                                         <Route
                                             exact
                                             path={
                                                 pathUtils.regex.surveyRoot +
                                                 '/form'
                                             }
-                                        >
-                                            <FormPage />
-                                        </Route>
+                                            component={SurveyIndexPage}
+                                        />
                                         <Route
                                             exact
                                             path={
                                                 pathUtils.regex.surveyRoot +
                                                 '/verify'
                                             }
-                                        >
-                                            <div>Verify</div>
-                                        </Route>
+                                            component={SurveyIndexPage}
+                                        />
                                         <Route
                                             exact
                                             path={
                                                 pathUtils.regex.surveyRoot +
                                                 '/success'
                                             }
-                                        >
-                                            <div>Success</div>
-                                        </Route>
+                                            component={SurveyIndexPage}
+                                        />
                                     </Switch>
                                 </SurveyProvider>
                             </ReduxStore>
