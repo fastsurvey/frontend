@@ -1,8 +1,10 @@
 import {getRootPath, isSurveyPath} from './functions';
 import {regex} from './regex';
 
-export const pathUtils = {
+const pathUtils = {
     isSurveyPath,
     getRootPath,
     regex,
 };
+
+export default pathUtils;
