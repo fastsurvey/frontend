@@ -1,6 +1,6 @@
 import {types} from 'types';
 
-export function initializeFormData(config: types.SurveyConfig): object {
+export function initializeFormData(config: types.SurveyConfig): types.FormData {
     const formData: object = {};
 
     config.fields.forEach((field, index) => {
@@ -34,5 +34,6 @@ export function initializeFormData(config: types.SurveyConfig): object {
         }
     });
 
+    // @ts-ignore
     return formData;
 }

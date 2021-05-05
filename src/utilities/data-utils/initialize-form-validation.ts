@@ -1,6 +1,8 @@
 import {types} from 'types';
 
-export function initializeFormValidation(config: types.SurveyConfig): object {
+export function initializeFormValidation(
+    config: types.SurveyConfig,
+): types.FormValidation {
     const formValidation: object = {};
 
     config.fields.forEach((field, index) => {
@@ -33,5 +35,6 @@ export function initializeFormValidation(config: types.SurveyConfig): object {
         }
     });
 
+    // @ts-ignore
     return formValidation;
 }

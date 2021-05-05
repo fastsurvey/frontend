@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import ReduxWrapper from './App/Wrapper/ReduxWrapper';
-import SurveyViewController from './App/Wrapper/SurveyViewController';
+import ReduxStore from 'redux-store';
+import SurveyProvider from './pages/survey-provider';
 import PageWrapper from './App/Wrapper/PageWrapper';
 import IndexPage from './App/SurveyPages/IndexPage';
 import FormPage from './App/SurveyPages/FormPage';
@@ -24,8 +24,8 @@ function PageRouter() {
                                 pathUtils.regex.surveyAppendix
                             }
                         >
-                            <ReduxWrapper>
-                                <SurveyViewController>
+                            <ReduxStore>
+                                <SurveyProvider>
                                     <Switch>
                                         <Route
                                             exact
@@ -63,8 +63,8 @@ function PageRouter() {
                                             <div>Success</div>
                                         </Route>
                                     </Switch>
-                                </SurveyViewController>
-                            </ReduxWrapper>
+                                </SurveyProvider>
+                            </ReduxStore>
                         </Route>
                         <Route>
                             <div>404</div>
