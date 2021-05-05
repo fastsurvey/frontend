@@ -6,6 +6,7 @@ import ReduxStore from 'redux-store';
 import SurveyProvider from './pages/survey-provider';
 import SurveyIndexPage from './pages/survey-page/index';
 import SurveyVerifyPage from './pages/survey-page/verify';
+import SurveySuccessPage from './pages/survey-page/success';
 
 function PageRouter() {
     return (
@@ -55,7 +56,7 @@ function PageRouter() {
                                                 pathUtils.regex.surveyRoot +
                                                 '/success'
                                             }
-                                            component={SurveyIndexPage}
+                                            component={SurveySuccessPage}
                                         />
                                     </Switch>
                                 </SurveyProvider>

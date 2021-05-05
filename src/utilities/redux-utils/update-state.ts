@@ -3,7 +3,6 @@ import {types} from 'types';
 
 function updateState(state: types.ReduxState, action: types.ReduxAction) {
     const newState = cloneDeep(state);
-    console.debug(action);
 
     switch (action.type) {
         case 'ADD_CONFIG':
