@@ -22,20 +22,20 @@ function OptionForm(props: {
             <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            <div className='w-full mt-1 space-x-2 flex-row-left no-selection'>
-                <button
-                    className={
-                        'flex-shrink-0 w-8 h-8 p-1 cursor-pointer ' +
-                        'focus:outline-none ring ring-transparent focus:ring-gray-300 rounded'
-                    }
-                    onClick={toggle}
-                >
+            <button
+                className={
+                    'w-full mt-1 space-x-2 flex-row-left no-selection ' +
+                    'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
+                }
+                onClick={toggle}
+            >
+                <div className={'flex-shrink-0 w-8 h-8 p-1 cursor-pointer'}>
                     {fieldData ? icons.checkboxFilled : icons.checkboxEmpty}
-                </button>
-                <div className='w-full text-grey-900 markdown font-weight-500'>
+                </div>
+                <div className='w-full leading-tight text-justify text-grey-900 markdown font-weight-500 flex-row-left'>
                     {fieldConfig.description}
                 </div>
-            </div>
+            </button>
         </>
     );
 }

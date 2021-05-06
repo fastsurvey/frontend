@@ -44,13 +44,14 @@ function RadioForm(props: {
             )}
             {fieldConfig.fields.map((fieldOption, optionIndex: number) => (
                 <button
+                    key={optionIndex}
                     onClick={toggle(optionIndex)}
                     className={
-                        'w-full mt-2 focus:outline-none ' +
-                        'ring hover:bg-grey-050 rounded ' +
+                        'w-full mt-2 focus:outline-none focus:ring-blue-300 ' +
+                        'ring hover:bg-grey-100 bg-grey-050 rounded ' +
                         (fieldData[optionIndex + 1]
-                            ? 'ring-blue-300 focus:ring-blue-500 text-gray-900 '
-                            : 'ring-grey-100 focus:ring-grey-300 text-gray-500 ')
+                            ? 'ring-grey-300 focus:bg-grey-100 text-gray-900 '
+                            : 'ring-transparent focus:ring-blue-300 text-gray-500 ')
                     }
                 >
                     <div

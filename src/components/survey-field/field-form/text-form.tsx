@@ -38,7 +38,7 @@ function TextForm(props: {
                     'w-full px-3 py-2 mt-2 rounded font-weight-500 ' +
                     'bg-grey-050 focus:bg-grey-050 ' +
                     'text-gray-700 focus:text-gray-900 ' +
-                    'outline-none ring ring-grey-100 focus:ring-blue-300 ' +
+                    'outline-none ring ring-transparent focus:ring-blue-300 ' +
                     'transition-colors duration-100 leading-6'
                 }
                 style={{minHeight: '5rem'}}
@@ -48,7 +48,7 @@ function TextForm(props: {
                         e.target.blur();
                     }
                 }}
-                placeholder='Your answer here ...'
+                placeholder='Type here ...'
                 rows={3}
             />
         </>
