@@ -7,11 +7,13 @@ import Button from 'components/button/button';
 import SurveyField from 'components/survey-field';
 import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
+import reduxUtils from '../../utilities/redux-utils/index';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;
     formData: types.FormData | undefined;
     formValidation: types.FormValidation | undefined;
+    openMessage(message: types.Message): void;
 }) {
     const {formConfig, formData, formValidation} = props;
     const history = useHistory();
@@ -34,6 +36,10 @@ function SurveyFormPage(props: {
 
         const error = () => {
             // TODO: Think about error scenarios
+            props.openMessage({
+                text: 'Backend error',
+                variant: 'error',
+            });
         };
 
         if (submittable) {
@@ -89,6 +95,8 @@ const mapStateToProps = (state: types.ReduxState) => ({
     formValidation: state.formValidation,
 });
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+    openMessage: reduxUtils.dispatchers.openMessage(dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SurveyFormPage);

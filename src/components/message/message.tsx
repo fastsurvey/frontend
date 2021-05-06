@@ -15,7 +15,7 @@ function Message(props: {
         <div
             className={
                 'fixed bottom-4 left-4 shadow-md centering-row ' +
-                'rounded pl-4 pr-2 py-4 shadow-md box-content ' +
+                'rounded pl-4 pr-2 py-2 shadow-md box-content ' +
                 'text-lg font-weight-600 max-w-lg ' +
                 (props.message.variant === 'error'
                     ? 'text-red-400 bg-red-050 '
