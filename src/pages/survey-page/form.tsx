@@ -18,7 +18,7 @@ function SurveyFormPage(props: {
     }
 
     return (
-        <div className='w-full max-w-xl space-y-4'>
+        <div className='w-full max-w-xl space-y-8'>
             {formConfig.fields.map(
                 (fieldConfig: types.SurveyField, fieldIndex: number) => (
                     <div key={fieldIndex}>

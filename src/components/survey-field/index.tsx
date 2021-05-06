@@ -67,9 +67,10 @@ function SurveyField(props: {
             <div
                 className={
                     'w-full p-3 pr-6 text-justify flex-row-top space-x-2 ' +
+                    'border-t-[3px] ' +
                     (formValidation[fieldIndex + 1]
-                        ? 'text-green-600 bg-green-100 '
-                        : 'text-red-600 bg-red-100')
+                        ? 'text-green-500 bg-green-050 border-green-100 '
+                        : 'text-red-400 bg-red-050 border-red-100 ')
                 }
             >
                 <div
