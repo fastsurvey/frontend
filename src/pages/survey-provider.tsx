@@ -4,7 +4,7 @@ import {formUtils, reduxUtils} from 'utilities';
 import assert from 'assert';
 import {types} from 'types';
 import LoadingText from 'components/loading-text/loading-text';
-import Survey404Text from 'components/survey-404-text';
+import Survey404Text from 'components/survey-404-text/survey-404-text';
 
 /*
 This component manages the different view states on a survey page:
