@@ -23,7 +23,7 @@ const diffToPhrase = (diff: number): string => {
 };
 
 function TimePill(props: {config: types.SurveyConfig}) {
-    let now: number = new Date().getTime() / 1000;
+    const now: number = new Date().getTime() / 1000;
 
     if (props.config.start > now) {
         const phrase = `Starting in ${diffToPhrase(props.config.start - now)}`;

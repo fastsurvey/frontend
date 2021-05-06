@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
 import TimePill from 'components/time-pill/time-pill';
@@ -16,7 +16,14 @@ function SurveyFormPage(props: {
     openMessage(message: types.Message): void;
 }) {
     const {formConfig, formData, formValidation} = props;
+    const renderable = formConfig && formData && formValidation;
     const history = useHistory();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [renderable]);
+
+    // duplicate expression necessary for typescript inference
     if (!formConfig || !formData || !formValidation) {
         return <div />;
     }
