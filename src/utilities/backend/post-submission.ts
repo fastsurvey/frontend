@@ -12,7 +12,7 @@ export async function postSubmission(
 ) {
     try {
         await axios.post(
-            API_URL + `/users/${username}/surveys/${survey_name}`,
+            API_URL + `/users/${username}/surveys/${survey_name}/submissions`,
             JSON.stringify(formData),
         );
 
