@@ -12,7 +12,7 @@ const store = createStore(
 );
 
 interface Props {
-    children: React.ReactChild;
+    children: React.ReactNode;
 }
 export function ReduxStore(props: Props) {
     function addConfig(config: types.SurveyConfig) {

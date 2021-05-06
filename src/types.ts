@@ -1,4 +1,8 @@
 export declare namespace types {
+    export type Message = {
+        text: string;
+        variant: 'success' | 'error';
+    };
     export interface SurveyConfig {
         survey_name: string;
         start: number;
@@ -73,6 +77,7 @@ export declare namespace types {
         formConfig: SurveyConfig | undefined;
         formData: FormData | undefined;
         formValidation: FormValidation | undefined;
+        message: types.Message | undefined;
     }
 
     export interface FormData {

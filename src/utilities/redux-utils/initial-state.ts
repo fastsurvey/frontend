@@ -5,6 +5,10 @@ const initialState: types.ReduxState = {
     formConfig: undefined,
     formData: undefined,
     formValidation: undefined,
+    message: {
+        text: 'Please fill out all the fields',
+        variant: 'error',
+    },
 };
 
 export default initialState;

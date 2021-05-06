@@ -4,7 +4,7 @@ import {pathUtils} from 'utilities';
 
 import {Link} from 'react-router-dom';
 
-function MainContent(props: {children: React.ReactChild}) {
+function MainContent(props: {children: React.ReactNode}) {
     const logoURL: string = pathUtils.isSurveyPath(window.location.pathname)
         ? pathUtils.getRootPath(window.location.pathname)
         : '/';
