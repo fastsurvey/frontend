@@ -1,7 +1,5 @@
 // prettier-ignore
 
-const colors = require('tailwindcss/colors')
-
 module.exports = {
     mode: 'jit',
     purge: [
@@ -10,6 +8,18 @@ module.exports = {
       ],
     theme: {
         extend: {
+            fill: {
+                "blue-050": "#DCEEFB",
+                "blue-100": "#B6E0FE",
+                "blue-200": "#84C5F4",
+                "blue-300": "#62B0E8",
+                "blue-400": "#4098D7",
+                "blue-500": "#2680C2",
+                "blue-600": "#186FAF",
+                "blue-700": "#0F609B",
+                "blue-800": "#0A558C",
+                "blue-900": "#003E6B",
+            },
             colors: {
                 // Primary
                 "blue-050": "#DCEEFB",
