@@ -69,6 +69,13 @@
     @apply justify-center;
 }
 
+.flex-row-left {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-start;
+}
+
 .flex-max {
     @apply self-stretch;
     @apply flex-grow;
