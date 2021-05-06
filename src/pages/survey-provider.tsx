@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {dataUtils, reduxUtils} from 'utilities';
+import {formUtils, reduxUtils} from 'utilities';
 import assert from 'assert';
 import {types} from 'types';
 
@@ -25,9 +25,9 @@ function SurveyProvider(props: {
 
     useEffect(() => {
         if (!fetching && formConfig && !formData && !formValidation) {
-            props.modifyData(dataUtils.initializeFormData(formConfig));
+            props.modifyData(formUtils.initializeFormData(formConfig));
             props.modifyValidation(
-                dataUtils.initializeFormValidation(formConfig),
+                formUtils.initializeFormValidation(formConfig),
             );
         }
         // eslint-disable-next-line

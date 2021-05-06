@@ -2,6 +2,7 @@ import {icons} from 'assets/icons';
 import React from 'react';
 import {types} from 'types';
 import OptionForm from './field-form/option-form';
+import {formUtils} from 'utilities';
 
 function SurveyField(props: {
     fieldConfig: types.SurveyField;
@@ -55,7 +56,10 @@ function SurveyField(props: {
                     {formValidation[fieldIndex + 1] ? icons.check : icons.close}
                 </div>
                 <div className='text-left flex-max font-weight-600 text-md'>
-                    Hello there
+                    {formUtils.getFieldValidationMessage(
+                        fieldConfig,
+                        formData[fieldIndex + 1],
+                    )}
                 </div>
             </div>
         </div>
