@@ -3,6 +3,7 @@ import React from 'react';
 import {types} from 'types';
 import OptionForm from './field-form/option-form';
 import {formUtils} from 'utilities';
+import RadioForm from './field-form/radio-form';
 
 function SurveyField(props: {
     fieldConfig: types.SurveyField;
@@ -27,6 +28,17 @@ function SurveyField(props: {
             <div className='w-full p-6 bg-white centering-col'>
                 {fieldConfig.type === 'option' && (
                     <OptionForm
+                        {...{
+                            fieldConfig,
+                            fieldIndex,
+                            formData,
+                            modifyFieldData,
+                            modifyFieldValidation,
+                        }}
+                    />
+                )}
+                {fieldConfig.type === 'radio' && (
+                    <RadioForm
                         {...{
                             fieldConfig,
                             fieldIndex,

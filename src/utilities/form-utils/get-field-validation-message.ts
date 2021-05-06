@@ -16,7 +16,7 @@ export function getFieldValidationMessage(
                 return (
                     'Does not match the desired format.' +
                     (fieldConfig.hint.length > 0
-                        ? `Hint: ${fieldConfig.hint}`
+                        ? ` Hint: ${fieldConfig.hint}`
                         : '')
                 );
             }

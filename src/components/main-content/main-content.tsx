@@ -13,7 +13,7 @@ function MainContent(props: {children: React.ReactChild}) {
         <React.Fragment>
             <header>
                 <Link to={logoURL}>
-                    <div className='absolute top-0 left-0 h-16 m-4 centering-row'>
+                    <div className='fixed top-0 left-0 h-16 m-4 centering-row'>
                         <img
                             src={RocketLogo}
                             alt='FastSurvey Icon'
@@ -25,7 +25,7 @@ function MainContent(props: {children: React.ReactChild}) {
                     </div>
                 </Link>
             </header>
-            <main className='w-screen min-h-screen bg-grey-100 centering-col'>
+            <main className='w-screen min-h-screen px-2 pt-16 pb-32 bg-grey-100 centering-col'>
                 {props.children}
             </main>
         </React.Fragment>
