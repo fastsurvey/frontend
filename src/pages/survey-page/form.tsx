@@ -5,6 +5,7 @@ import TimePill from 'components/time-pill/time-pill';
 import {pathUtils} from 'utilities';
 import {Link} from 'react-router-dom';
 import Button from 'components/button/button';
+import SurveyField from 'components/survey-field/survey-field';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;
@@ -18,6 +19,20 @@ function SurveyFormPage(props: {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
+            {formConfig.fields.map(
+                (fieldConfig: types.SurveyField, fieldIndex: number) => (
+                    <div key={fieldIndex}>
+                        <SurveyField
+                            {...{
+                                fieldConfig,
+                                fieldIndex,
+                                formData,
+                                formValidation,
+                            }}
+                        />
+                    </div>
+                ),
+            )}
             <div className='centering-row'>
                 <TimePill config={formConfig} />
                 <div className='flex-max' />
