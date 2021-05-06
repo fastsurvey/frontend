@@ -108,5 +108,12 @@ export declare namespace types {
         | {
               type: 'MODIFY_VALIDATION';
               formValidation: types.FormValidation;
+          }
+        | {
+              type: 'OPEN_MESSAGE';
+              message: types.Message;
+          }
+        | {
+              type: 'CLOSE_MESSAGE';
           };
 }

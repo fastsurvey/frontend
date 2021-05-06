@@ -22,6 +22,14 @@ function updateState(state: types.ReduxState, action: types.ReduxAction) {
             newState.formValidation = action.formValidation;
             break;
 
+        case 'OPEN_MESSAGE':
+            newState.message = action.message;
+            break;
+
+        case 'CLOSE_MESSAGE':
+            newState.message = undefined;
+            break;
+
         default:
             break;
     }

@@ -2,8 +2,12 @@ import React from 'react';
 import {icons} from 'assets/icons';
 import {types} from 'types';
 import {connect} from 'react-redux';
+import reduxUtils from '../../utilities/redux-utils/index';
 
-function Message(props: {message: types.Message | undefined}) {
+function Message(props: {
+    message: types.Message | undefined;
+    closeMessage(): void;
+}) {
     if (!props.message) {
         return <div className='hidden' />;
     }
@@ -33,6 +37,7 @@ function Message(props: {message: types.Message | undefined}) {
                         ? 'icon-green hover:bg-green-100 focus:bg-green-100 '
                         : '')
                 }
+                onClick={props.closeMessage}
             >
                 {icons.close}
             </button>
@@ -44,6 +49,8 @@ const mapStateToProps = (state: types.ReduxState) => ({
     message: state.message,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+    closeMessage: reduxUtils.dispatchers.closeMessage(dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Message);
