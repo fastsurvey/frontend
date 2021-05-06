@@ -6,16 +6,25 @@ function OptionForm(props: {
     fieldConfig: types.SurveyField;
     fieldIndex: number;
     formData: types.FormData;
+
+    modifyFieldData(newFieldData: any): void;
 }) {
     const {fieldConfig, fieldIndex, formData} = props;
+
+    function toggle() {
+        props.modifyFieldData(!formData[fieldIndex + 1]);
+    }
 
     return (
         <>
             <div className='w-full text-2xl text-left text-black font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            <div className='w-full mt-3 space-x-2 flex-row-left'>
-                <div className='flex-shrink-0 w-10 h-10 p-1.5 cursor-pointer'>
+            <div className='w-full mt-3 space-x-2 flex-row-left no-selection'>
+                <div
+                    className='flex-shrink-0 w-8 h-8 p-1 cursor-pointer'
+                    onClick={toggle}
+                >
                     {formData[fieldIndex + 1]
                         ? icons.checkboxFilled
                         : icons.checkboxEmpty}

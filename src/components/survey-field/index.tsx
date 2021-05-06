@@ -8,14 +8,29 @@ function SurveyField(props: {
     fieldIndex: number;
     formData: types.FormData;
     formValidation: types.FormValidation;
+
+    modifyFieldData(newFieldData: any): void;
 }) {
-    const {fieldConfig, fieldIndex, formData, formValidation} = props;
+    const {
+        fieldConfig,
+        fieldIndex,
+        formData,
+        formValidation,
+        modifyFieldData,
+    } = props;
 
     return (
         <div className='w-full overflow-hidden rounded shadow-md centering-col'>
             <div className='w-full p-6 bg-white centering-col'>
                 {fieldConfig.type == 'option' && (
-                    <OptionForm {...{fieldConfig, fieldIndex, formData}} />
+                    <OptionForm
+                        {...{
+                            fieldConfig,
+                            fieldIndex,
+                            formData,
+                            modifyFieldData,
+                        }}
+                    />
                 )}
             </div>
             <div
