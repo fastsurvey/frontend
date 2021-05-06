@@ -1,5 +1,4 @@
 import VisualTimePill from 'components/time-pill/visual-time-pill';
-import {config} from 'process';
 import React from 'react';
 import {types} from 'types';
 

@@ -1,18 +1,22 @@
 import React from 'react';
 import {types} from 'types';
-import {icons} from '../../../assets/icons/index';
+import {icons} from 'assets/icons/index';
 
 function OptionForm(props: {
-    fieldConfig: types.SurveyField;
+    fieldConfig: types.OptionField;
     fieldIndex: number;
     formData: types.FormData;
 
     modifyFieldData(newFieldData: any): void;
+    modifyFieldValidation(valid: boolean): void;
 }) {
     const {fieldConfig, fieldIndex, formData} = props;
 
     function toggle() {
         props.modifyFieldData(!formData[fieldIndex + 1]);
+        props.modifyFieldValidation(
+            !formData[fieldIndex + 1] || !fieldConfig.required,
+        );
     }
 
     return (

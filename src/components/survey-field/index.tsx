@@ -10,6 +10,7 @@ function SurveyField(props: {
     formValidation: types.FormValidation;
 
     modifyFieldData(newFieldData: any): void;
+    modifyFieldValidation(valid: boolean): void;
 }) {
     const {
         fieldConfig,
@@ -17,18 +18,20 @@ function SurveyField(props: {
         formData,
         formValidation,
         modifyFieldData,
+        modifyFieldValidation,
     } = props;
 
     return (
         <div className='w-full overflow-hidden rounded shadow-md centering-col'>
             <div className='w-full p-6 bg-white centering-col'>
-                {fieldConfig.type == 'option' && (
+                {fieldConfig.type === 'option' && (
                     <OptionForm
                         {...{
                             fieldConfig,
                             fieldIndex,
                             formData,
                             modifyFieldData,
+                            modifyFieldValidation,
                         }}
                     />
                 )}
