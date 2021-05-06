@@ -5,7 +5,7 @@ import TimePill from 'components/time-pill/time-pill';
 import {pathUtils} from 'utilities';
 import {Link} from 'react-router-dom';
 import Button from 'components/button/button';
-import SurveyField from 'components/survey-field/survey-field';
+import SurveyField from 'components/survey-field';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;
