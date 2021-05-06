@@ -11,8 +11,8 @@ function Message(props: {message: types.Message | undefined}) {
         <div
             className={
                 'fixed bottom-4 left-4 shadow-md centering-row ' +
-                'h-10 rounded leading-10 px-3 py-3 shadow-md ' +
-                'text-lg font-weight-600 ' +
+                'rounded pl-4 pr-2 py-4 shadow-md box-content ' +
+                'text-lg font-weight-600 max-w-lg ' +
                 (props.message.variant === 'error'
                     ? 'text-red-400 bg-red-050 '
                     : '') +
@@ -21,16 +21,21 @@ function Message(props: {message: types.Message | undefined}) {
                     : '')
             }
         >
-            <div
+            <div className='leading-normal text-md'>{props.message.text}</div>
+            <button
                 className={
-                    'flex-shrink-0 w-6 h-6 mr-2 ' +
-                    (props.message.variant === 'error' ? 'icon-red ' : '') +
-                    (props.message.variant === 'success' ? 'icon-green ' : '')
+                    'flex-shrink-0 w-9 h-9 p-1.5 ml-2 cursor-pointer rounded-full ' +
+                    'focus:outline-none ring ring-transparent focus:ring-blue-300 ' +
+                    (props.message.variant === 'error'
+                        ? 'icon-red hover:bg-red-100 focus:bg-red-100 '
+                        : '') +
+                    (props.message.variant === 'success'
+                        ? 'icon-green hover:bg-green-100 focus:bg-green-100 '
+                        : '')
                 }
             >
-                {icons.info}
-            </div>
-            <div className='text-md'>{props.message.text}</div>
+                {icons.close}
+            </button>
         </div>
     );
 }

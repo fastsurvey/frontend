@@ -6,7 +6,8 @@ const initialState: types.ReduxState = {
     formData: undefined,
     formValidation: undefined,
     message: {
-        text: 'Please fill out all the fields',
+        text:
+            'Please fill out all the fields Please fill out all the fields Please fill out all the fields Please fill out all the fields Please fill out all the fields Please fill out all the fields Please fill out all the fields',
         variant: 'error',
     },
 };
