@@ -4,6 +4,7 @@ import {types} from 'types';
 import OptionForm from './field-form/option-form';
 import {formUtils} from 'utilities';
 import RadioForm from './field-form/radio-form';
+import SelectionForm from './field-form/selection-form';
 
 function SurveyField(props: {
     fieldConfig: types.SurveyField;
@@ -39,6 +40,17 @@ function SurveyField(props: {
                 )}
                 {fieldConfig.type === 'radio' && (
                     <RadioForm
+                        {...{
+                            fieldConfig,
+                            fieldIndex,
+                            formData,
+                            modifyFieldData,
+                            modifyFieldValidation,
+                        }}
+                    />
+                )}
+                {fieldConfig.type === 'selection' && (
+                    <SelectionForm
                         {...{
                             fieldConfig,
                             fieldIndex,
