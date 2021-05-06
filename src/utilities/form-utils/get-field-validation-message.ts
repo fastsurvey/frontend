@@ -7,9 +7,9 @@ export function getFieldValidationMessage(
 ): string {
     switch (fieldConfig.type) {
         case 'email':
-            const valid: boolean = new RegExp('^' + fieldData.regex + '$').test(
-                fieldData,
-            );
+            const valid: boolean = new RegExp(
+                '^' + fieldConfig.regex + '$',
+            ).test(fieldData);
             if (valid) {
                 return 'Valid';
             } else {

@@ -6,6 +6,7 @@ import {formUtils} from 'utilities';
 import RadioForm from './field-form/radio-form';
 import SelectionForm from './field-form/selection-form';
 import TextForm from './field-form/text-form';
+import EmailForm from './field-form/email-form';
 
 function SurveyField(props: {
     fieldConfig: types.SurveyField;
@@ -28,6 +29,17 @@ function SurveyField(props: {
     return (
         <div className='w-full overflow-hidden rounded shadow-md centering-col'>
             <div className='w-full p-6 bg-white centering-col'>
+                {fieldConfig.type === 'email' && (
+                    <EmailForm
+                        {...{
+                            fieldConfig,
+                            fieldIndex,
+                            formData,
+                            modifyFieldData,
+                            modifyFieldValidation,
+                        }}
+                    />
+                )}
                 {fieldConfig.type === 'option' && (
                     <OptionForm
                         {...{
