@@ -1,39 +1,35 @@
 import React from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
-import VisualUserTextCard from 'components/text-card/visual-user-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
 import TimePill from 'components/time-pill/time-pill';
 import {pathUtils} from 'utilities';
 import {Link} from 'react-router-dom';
 import Button from 'components/button/button';
 
-function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
-    if (!props.formConfig) {
+function SurveyFormPage(props: {
+    formConfig: types.SurveyConfig | undefined;
+    formData: types.FormData | undefined;
+    formValidation: types.FormValidation | undefined;
+}) {
+    const {formConfig, formData, formValidation} = props;
+    if (!formConfig || !formData || !formValidation) {
         return <div />;
     }
 
-    const config: types.SurveyConfig = props.formConfig;
-
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualUserTextCard
-                title={config.title}
-                text={config.description}
-            />
-            {config.authentication !== 'open' && (
-                <VisualInfoCard variant='email-auth' />
-            )}
             <div className='centering-row'>
-                <TimePill config={config} />
+                <TimePill config={formConfig} />
                 <div className='flex-max' />
                 <Link
                     to={
                         pathUtils.getRootPath(window.location.pathname) +
-                        '/form'
+                        (formConfig.authentication === 'email'
+                            ? '/verify'
+                            : '/success')
                     }
                 >
-                    <Button text='Start' />
+                    <Button text='Submit' />
                 </Link>
             </div>
         </div>
@@ -42,8 +38,10 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
 
 const mapStateToProps = (state: types.ReduxState) => ({
     formConfig: state.formConfig,
+    formData: state.formData,
+    formValidation: state.formValidation,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SurveyIndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SurveyFormPage);
