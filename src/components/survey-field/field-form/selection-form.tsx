@@ -5,18 +5,17 @@ import {filter} from 'lodash';
 function SelectionForm(props: {
     fieldConfig: types.SelectionField;
     fieldIndex: number;
-    formData: any;
+    fieldData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, formData} = props;
+    const {fieldConfig, fieldIndex, fieldData} = props;
 
     const toggle = (optionIndex: number) => () => {
-        const oldFieldData: any = formData[fieldIndex + 1];
         let newFieldData: any = {
-            ...oldFieldData,
-            [optionIndex + 1]: !oldFieldData[optionIndex + 1],
+            ...fieldData,
+            [optionIndex + 1]: !fieldData[optionIndex + 1],
         };
 
         const newSelectionCount: number = filter(newFieldData).length;
@@ -34,7 +33,7 @@ function SelectionForm(props: {
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <div className='w-full mb-2 text-base text-left text-gray-600 font-weight-600'>
-                Selection between {fieldConfig.min_select} and{' '}
+                Select between {fieldConfig.min_select} and{' '}
                 {fieldConfig.max_select} options.
             </div>
             {fieldConfig.fields.map((fieldOption, optionIndex: number) => (
@@ -43,7 +42,7 @@ function SelectionForm(props: {
                     className={
                         'w-full mt-3 focus:outline-none ' +
                         'ring hover:bg-grey-050 rounded ' +
-                        (formData[fieldIndex + 1][optionIndex + 1]
+                        (fieldData[optionIndex + 1]
                             ? 'ring-blue-300 focus:ring-blue-500 text-gray-900 '
                             : 'ring-grey-100 focus:ring-grey-300 text-gray-500 ')
                     }

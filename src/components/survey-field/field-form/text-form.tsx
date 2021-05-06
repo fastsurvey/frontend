@@ -4,12 +4,12 @@ import {types} from 'types';
 function TextForm(props: {
     fieldConfig: types.TextField;
     fieldIndex: number;
-    formData: any;
+    fieldData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, formData} = props;
+    const {fieldConfig, fieldIndex, fieldData} = props;
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
         const newValue = event.target.value;
@@ -27,7 +27,7 @@ function TextForm(props: {
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <textarea
-                value={formData[fieldIndex + 1]}
+                value={fieldData}
                 onChange={handleChange}
                 className={
                     'w-full px-3 py-2 rounded font-weight-500 ' +

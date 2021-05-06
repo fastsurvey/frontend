@@ -3,13 +3,13 @@ import {types} from 'types';
 
 function EmailForm(props: {
     fieldConfig: types.EmailField;
+    fieldData: any;
     fieldIndex: number;
-    formData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, formData} = props;
+    const {fieldConfig, fieldData, fieldIndex} = props;
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const newValue = event.target.value;
@@ -26,7 +26,7 @@ function EmailForm(props: {
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <input
-                value={formData[fieldIndex + 1]}
+                value={fieldData}
                 onChange={handleChange}
                 className={
                     'w-full px-3 py-2 rounded font-weight-500 ' +

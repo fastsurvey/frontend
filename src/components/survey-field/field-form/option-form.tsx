@@ -5,18 +5,16 @@ import {icons} from 'assets/icons/index';
 function OptionForm(props: {
     fieldConfig: types.OptionField;
     fieldIndex: number;
-    formData: types.FormData;
+    fieldData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, formData} = props;
+    const {fieldConfig, fieldIndex, fieldData} = props;
 
     function toggle() {
-        props.modifyFieldData(!formData[fieldIndex + 1]);
-        props.modifyFieldValidation(
-            !formData[fieldIndex + 1] || !fieldConfig.required,
-        );
+        props.modifyFieldData(!fieldData);
+        props.modifyFieldValidation(!fieldData || !fieldConfig.required);
     }
 
     return (
@@ -32,9 +30,7 @@ function OptionForm(props: {
                     }
                     onClick={toggle}
                 >
-                    {formData[fieldIndex + 1]
-                        ? icons.checkboxFilled
-                        : icons.checkboxEmpty}
+                    {fieldData ? icons.checkboxFilled : icons.checkboxEmpty}
                 </button>
                 <div className='w-full text-grey-900 markdown font-weight-500'>
                     {fieldConfig.description}

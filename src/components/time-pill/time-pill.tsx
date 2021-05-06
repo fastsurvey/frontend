@@ -3,8 +3,6 @@ import React from 'react';
 import {types} from 'types';
 
 const diffToPhrase = (diff: number): string => {
-    console.log(diff);
-
     const ranges: any = [
         [31536000, 'year'],
         [2628000, 'month'],

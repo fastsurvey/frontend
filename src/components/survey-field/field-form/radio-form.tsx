@@ -5,26 +5,25 @@ import {filter, mapValues} from 'lodash';
 function RadioForm(props: {
     fieldConfig: types.RadioField;
     fieldIndex: number;
-    formData: any;
+    fieldData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, formData} = props;
+    const {fieldConfig, fieldIndex, fieldData} = props;
 
     const toggle = (optionIndex: number) => () => {
-        const oldFieldData: any = formData[fieldIndex + 1];
-        const newValue: boolean = !oldFieldData[optionIndex + 1];
+        const newValue: boolean = !fieldData[optionIndex + 1];
         let newFieldData: any;
 
         if (newValue) {
             newFieldData = {
-                ...mapValues(oldFieldData, () => false),
+                ...mapValues(fieldData, () => false),
                 [optionIndex + 1]: true,
             };
         } else {
             newFieldData = {
-                ...oldFieldData,
+                ...fieldData,
                 [optionIndex + 1]: false,
             };
         }
@@ -44,7 +43,7 @@ function RadioForm(props: {
                     className={
                         'w-full mt-3 focus:outline-none ' +
                         'ring hover:bg-grey-050 rounded ' +
-                        (formData[fieldIndex + 1][optionIndex + 1]
+                        (fieldData[optionIndex + 1]
                             ? 'ring-blue-300 focus:ring-blue-500 text-gray-900 '
                             : 'ring-grey-100 focus:ring-grey-300 text-gray-500 ')
                     }
