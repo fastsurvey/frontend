@@ -75,9 +75,25 @@
 }
 
 .icon-grey .primary {
-    fill: #bcccdc;
+    fill: #bcccdc; /* 200 */
 }
 
 .icon-grey .secondary {
-    fill: #829ab1;
+    fill: #627d98; /* 500 */
+}
+
+.icon-green .primary {
+    fill: #8eedd1; /* 200 */
+}
+
+.icon-green .secondary {
+    fill: #079a82; /* 600 */
+}
+
+.icon-red .primary {
+    fill: #f29b9b; /* 200 */
+}
+
+.icon-red .secondary {
+    fill: #ba2525; /* 500 */
 }
