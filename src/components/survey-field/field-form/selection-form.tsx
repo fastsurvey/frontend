@@ -29,10 +29,15 @@ function SelectionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-1 text-2xl text-left text-black font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            <div className='w-full mb-2 text-base text-left text-gray-600 font-weight-600'>
+            {fieldConfig.description.length > 0 && (
+                <div className='w-full mb-4 text-base text-justify text-gray-500 font-weight-500'>
+                    {fieldConfig.description}
+                </div>
+            )}
+            <div className='w-full mt-1 text-base leading-tight text-left text-gray-500 font-weight-600'>
                 Select between {fieldConfig.min_select} and{' '}
                 {fieldConfig.max_select} options.
             </div>

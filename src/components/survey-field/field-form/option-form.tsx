@@ -19,10 +19,10 @@ function OptionForm(props: {
 
     return (
         <>
-            <div className='w-full text-2xl text-left text-black font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            <div className='w-full mt-3 space-x-2 flex-row-left no-selection'>
+            <div className='w-full mt-1 space-x-2 flex-row-left no-selection'>
                 <button
                     className={
                         'flex-shrink-0 w-8 h-8 p-1 cursor-pointer ' +

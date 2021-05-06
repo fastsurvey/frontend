@@ -34,14 +34,19 @@ function RadioForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-2xl text-left text-black font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
+            {fieldConfig.description.length > 0 && (
+                <div className='w-full mb-4 text-base text-left text-gray-500 font-weight-500'>
+                    {fieldConfig.description}
+                </div>
+            )}
             {fieldConfig.fields.map((fieldOption, optionIndex: number) => (
                 <button
                     onClick={toggle(optionIndex)}
                     className={
-                        'w-full mt-3 focus:outline-none ' +
+                        'w-full mt-2 focus:outline-none ' +
                         'ring hover:bg-grey-050 rounded ' +
                         (fieldData[optionIndex + 1]
                             ? 'ring-blue-300 focus:ring-blue-500 text-gray-900 '

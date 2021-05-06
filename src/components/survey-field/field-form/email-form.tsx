@@ -22,14 +22,19 @@ function EmailForm(props: {
 
     return (
         <>
-            <div className='w-full mb-4 text-2xl text-left text-black font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
+            {fieldConfig.description.length > 0 && (
+                <div className='w-full mb-4 text-base text-justify text-gray-500 font-weight-500'>
+                    {fieldConfig.description}
+                </div>
+            )}
             <input
                 value={fieldData}
                 onChange={handleChange}
                 className={
-                    'w-full px-3 py-2 rounded font-weight-500 ' +
+                    'w-full mt-2 px-3 py-2 rounded font-weight-500 ' +
                     'bg-grey-050 focus:bg-grey-050 ' +
                     'text-gray-700 focus:text-gray-900 ' +
                     'outline-none ring ring-grey-100 focus:ring-blue-300 ' +
