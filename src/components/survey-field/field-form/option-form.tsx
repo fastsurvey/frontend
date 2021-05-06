@@ -25,14 +25,17 @@ function OptionForm(props: {
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <div className='w-full mt-3 space-x-2 flex-row-left no-selection'>
-                <div
-                    className='flex-shrink-0 w-8 h-8 p-1 cursor-pointer'
+                <button
+                    className={
+                        'flex-shrink-0 w-8 h-8 p-1 cursor-pointer ' +
+                        'focus:outline-none ring ring-transparent focus:ring-gray-300 rounded'
+                    }
                     onClick={toggle}
                 >
                     {formData[fieldIndex + 1]
                         ? icons.checkboxFilled
                         : icons.checkboxEmpty}
-                </div>
+                </button>
                 <div className='w-full text-grey-900 markdown font-weight-500'>
                     {fieldConfig.description}
                 </div>

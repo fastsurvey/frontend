@@ -32,6 +32,9 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                         pathUtils.getRootPath(window.location.pathname) +
                         '/form'
                     }
+                    className={
+                        'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
+                    }
                 >
                     <Button text='Start' />
                 </Link>

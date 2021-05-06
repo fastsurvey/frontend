@@ -66,6 +66,9 @@ function SurveyFormPage(props: {
                             ? '/verify'
                             : '/success')
                     }
+                    className={
+                        'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
+                    }
                 >
                     <Button text='Submit' />
                 </Link>
