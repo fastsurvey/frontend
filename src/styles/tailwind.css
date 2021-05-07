@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-selection {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+@layer utilities {
+    .font-weight-300 {
+        font-weight: 300;
+    }
+
+    .font-weight-400 {
+        font-weight: 400;
+    }
+
+    .font-weight-500 {
+        font-weight: 500;
+    }
+
+    .font-weight-600 {
+        font-weight: 600;
+    }
+
+    .font-weight-700 {
+        font-weight: 700;
+    }
+}
+
+.centering-row {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-center;
+}
+
+.centering-col {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+}
+
+.flex-row-top {
+    @apply flex;
+    @apply flex-row;
+    @apply items-start;
+    @apply justify-center;
+}
+
+.flex-row-left {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-start;
+}
+
+.flex-max {
+    @apply self-stretch;
+    @apply flex-grow;
+}
+
+.icon-grey .primary {
+    fill: #bcccdc; /* 200 */
+}
+
+.icon-grey .secondary {
+    fill: #627d98; /* 500 */
+}
+
+.icon-green .primary {
+    @apply fill-green-100;
+}
+
+.icon-green .secondary {
+    @apply fill-green-500;
+}
+
+.icon-red .primary {
+    @apply fill-red-100;
+}
+
+.icon-red .secondary {
+    @apply fill-red-400;
+}
+
+.icon-red-dark .primary {
+    @apply fill-red-400;
+}
+
+.icon-red-dark .secondary {
+    @apply fill-red-050;
+}
+
+.icon-green-dark .primary {
+    @apply fill-green-500;
+}
+
+.icon-green-dark .secondary {
+    @apply fill-green-050;
+}

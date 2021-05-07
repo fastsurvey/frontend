@@ -1,18 +1,21 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './tailwind.out.css';
-import * as serviceWorker from './serviceWorker';
-import ReduxWrapper from './App/Wrapper/ReduxWrapper';
-import Router from './App/Wrapper/Router';
+import 'styles/tailwind.out.css';
+import PageRouter from 'page-router';
 
 ReactDOM.render(
     <React.StrictMode>
-        <ReduxWrapper>
-            <Router/>
-        </ReduxWrapper>
+        <PageRouter />
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
 
-serviceWorker.unregister();
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready
+        .then((registration) => {
+            registration.unregister();
+        })
+        .catch((error) => {
+            console.error(error.message);
+        });
+}
