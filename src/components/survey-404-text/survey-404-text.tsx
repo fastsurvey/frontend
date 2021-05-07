@@ -1,7 +1,6 @@
 import React from 'react';
 import {icons} from 'assets/icons';
 import Button from 'components/button/button';
-import {Link} from 'react-router-dom';
 
 function Survey404Text() {
     return (
@@ -15,14 +14,15 @@ function Survey404Text() {
                 <div className='w-8 h-8 mr-2 icon-grey'>{icons.error}</div>
                 <div>Survey not found. Invalid link!</div>
             </div>
-            <Link
-                to='/'
+            <a
+                href='/'
+                target='_self'
                 className={
                     'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
                 }
             >
                 <Button text='Back to Main Page' />
-            </Link>
+            </a>
         </>
     );
 }

@@ -12,7 +12,7 @@ function MainContent(props: {children: React.ReactNode}) {
     return (
         <React.Fragment>
             <header>
-                <div className='fixed top-0 left-0 h-16 m-4'>
+                <div className='absolute top-0 left-0 h-12 m-4 lg:h-16'>
                     <Link
                         to={logoURL}
                         className={
@@ -22,15 +22,15 @@ function MainContent(props: {children: React.ReactNode}) {
                         <img
                             src={RocketLogo}
                             alt='FastSurvey Icon'
-                            className='w-16 h-16 p-2'
+                            className='w-12 h-12 p-1 lg:w-16 lg:h-16 lg:p-2'
                         />
-                        <div className='mx-2 text-2xl text-blue-900 font-weight-700'>
+                        <div className='mx-2 text-xl text-grey-900 lg:text-2xl font-weight-700'>
                             FastSurvey
                         </div>
                     </Link>
                 </div>
             </header>
-            <main className='w-screen min-h-screen px-2 pt-16 pb-32 bg-grey-100 centering-col'>
+            <main className='w-screen min-h-screen px-2 pt-24 pb-20 xl:pb-32 xl:pt-16 bg-grey-100 centering-col'>
                 {props.children}
             </main>
         </React.Fragment>

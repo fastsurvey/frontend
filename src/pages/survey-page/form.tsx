@@ -15,14 +15,12 @@ function SurveyFormPage(props: {
     openMessage(message: types.Message): void;
 }) {
     const {formConfig, formData, formValidation} = props;
-    const renderable = formConfig && formData && formValidation;
     const history = useHistory();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [renderable]);
+    }, []);
 
-    // duplicate expression necessary for typescript inference
     if (!formConfig || !formData || !formValidation) {
         return <div />;
     }
@@ -60,7 +58,10 @@ function SurveyFormPage(props: {
                 error,
             );
         } else {
-            // TODO: Show error message -> "Fill out all fields"
+            props.openMessage({
+                text: 'Please fill out all the fields first!',
+                variant: 'error',
+            });
         }
     };
 

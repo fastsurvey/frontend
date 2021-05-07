@@ -55,7 +55,7 @@ function SurveyField(props: {
 
     return (
         <div className='w-full overflow-hidden rounded shadow-md centering-col'>
-            <div className='w-full p-6 bg-white centering-col'>
+            <div className='w-full p-4 bg-white lg:p-6 centering-col'>
                 <Component
                     fieldIndex={fieldIndex}
                     fieldConfig={fieldConfig}

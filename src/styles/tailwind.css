@@ -104,3 +104,19 @@
 .icon-red .secondary {
     @apply fill-red-400;
 }
+
+.icon-red-dark .primary {
+    @apply fill-red-400;
+}
+
+.icon-red-dark .secondary {
+    @apply fill-red-050;
+}
+
+.icon-green-dark .primary {
+    @apply fill-green-500;
+}
+
+.icon-green-dark .secondary {
+    @apply fill-green-050;
+}

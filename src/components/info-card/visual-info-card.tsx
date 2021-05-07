@@ -34,7 +34,7 @@ function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
     return (
         <div
             className={
-                'w-full p-3 pr-6 text-justify flex-row-top space-x-2 ' +
+                'w-full p-3 pr-4 lg:pr-6 text-justify flex-row-top space-x-2 ' +
                 'rounded shadow-md bg-grey-050 text-grey-600'
             }
         >
