@@ -1,6 +1,9 @@
+import 'styles/tailwind.out.css';
+import 'typeface-rubik';
+import 'typeface-montserrat';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'styles/tailwind.out.css';
 import PageRouter from 'page-router';
 
 ReactDOM.render(

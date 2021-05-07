@@ -9,23 +9,24 @@ import SurveyFormPage from './pages/survey-page/form';
 import SurveyVerifyPage from './pages/survey-page/verify';
 import SurveySuccessPage from './pages/survey-page/success';
 import Message from 'components/message/message';
+import LandingPage from 'pages/landing-page/landing-page';
 
 function PageRouter() {
     return (
         <BrowserRouter>
             <Route>
-                <MainContent>
-                    <Switch>
-                        <Route exact path={'/'}>
-                            <div>Landing Page</div>
-                        </Route>
-                        <Route
-                            exact
-                            path={
-                                pathUtils.regex.surveyRoot +
-                                pathUtils.regex.surveyAppendix
-                            }
-                        >
+                <Switch>
+                    <Route exact path={'/'}>
+                        <LandingPage />
+                    </Route>
+                    <Route
+                        exact
+                        path={
+                            pathUtils.regex.surveyRoot +
+                            pathUtils.regex.surveyAppendix
+                        }
+                    >
+                        <MainContent>
                             <ReduxStore>
                                 <Message />
                                 <SurveyProvider>
@@ -64,12 +65,14 @@ function PageRouter() {
                                     </Switch>
                                 </SurveyProvider>
                             </ReduxStore>
-                        </Route>
-                        <Route>
+                        </MainContent>
+                    </Route>
+                    <Route>
+                        <MainContent>
                             <div>404</div>
-                        </Route>
-                    </Switch>
-                </MainContent>
+                        </MainContent>
+                    </Route>
+                </Switch>
             </Route>
         </BrowserRouter>
     );

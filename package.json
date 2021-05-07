@@ -16,7 +16,9 @@
         "react-redux": "^7.2.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.1",
-        "redux": "^4.0.5"
+        "redux": "^4.0.5",
+        "typeface-montserrat": "^1.1.13",
+        "typeface-rubik": "^1.1.13"
     },
     "scripts": {
         "develop": "react-scripts start",

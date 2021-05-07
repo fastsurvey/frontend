@@ -9,10 +9,16 @@
     user-select: none;
 }
 
+/* TODO: Add fallback fonts */
+
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rubik {
+    font-family: 'Rubik', sans-serif;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -31,6 +37,10 @@
         font-weight: 300;
     }
 
+    .font-weight-200 {
+        font-weight: 200;
+    }
+
     .font-weight-400 {
         font-weight: 400;
     }
@@ -46,6 +56,14 @@
     .font-weight-700 {
         font-weight: 700;
     }
+
+    .font-weight-800 {
+        font-weight: 800;
+    }
+
+    .font-weight-900 {
+        font-weight: 900;
+    }
 }
 
 .centering-row {
@@ -59,6 +77,13 @@
     @apply flex;
     @apply flex-col;
     @apply items-center;
+    @apply justify-center;
+}
+
+.flex-col-left {
+    @apply flex;
+    @apply flex-col;
+    @apply items-start;
     @apply justify-center;
 }
 
