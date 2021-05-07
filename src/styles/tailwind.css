@@ -145,3 +145,11 @@
 .icon-green-dark .secondary {
     @apply fill-green-050;
 }
+
+.icon-blue .primary {
+    @apply fill-blue-300;
+}
+
+.icon-blue .secondary {
+    @apply fill-blue-900;
+}
