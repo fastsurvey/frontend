@@ -19,7 +19,7 @@ function OptionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-grey-800 rubik font-weight-600'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <button
@@ -32,7 +32,7 @@ function OptionForm(props: {
                 <div className={'flex-shrink-0 w-8 h-8 p-1 cursor-pointer'}>
                     {fieldData ? icons.checkboxFilled : icons.checkboxEmpty}
                 </div>
-                <div className='w-full leading-tight text-justify text-grey-900 markdown font-weight-500 flex-row-left'>
+                <div className='w-full leading-tight text-justify text-grey-900 markdown font-weight-400 flex-row-left'>
                     {fieldConfig.description}
                 </div>
             </button>

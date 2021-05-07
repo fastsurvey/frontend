@@ -19,7 +19,7 @@ function VisualTimePill(props: {
     return (
         <div
             className={
-                'rounded-full px-3 py-1 font-weight-600 text-sm shadow-md ' +
+                'rounded-full px-3 py-1 font-weight-500 text-sm shadow-md ' +
                 colorClasses
             }
         >

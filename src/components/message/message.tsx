@@ -17,7 +17,7 @@ function Message(props: {
                 className={
                     'shadow-md centering-row ' +
                     'rounded pl-4 pr-2 py-1.5 md:py-2 shadow-md box-content ' +
-                    'text-lg font-weight-600 ' +
+                    'text-lg font-weight-500 ' +
                     (props.message.variant === 'error'
                         ? 'text-red-050 lg:text-red-400 bg-red-400 lg:bg-red-050 '
                         : '') +
@@ -26,7 +26,7 @@ function Message(props: {
                         : '')
                 }
             >
-                <div className='leading-normal text-md'>
+                <div className='text-base leading-normal '>
                     {props.message.text}
                 </div>
                 <button

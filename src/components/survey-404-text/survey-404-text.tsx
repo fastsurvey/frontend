@@ -7,8 +7,8 @@ function Survey404Text() {
         <>
             <div
                 className={
-                    'centering-row font-weight-600 text-xl text-gray-600 ' +
-                    'no-selection mb-4'
+                    'centering-row font-weight-400 text-lg text-grey-600 ' +
+                    'no-selection mb-6'
                 }
             >
                 <div className='w-8 h-8 mr-2 icon-grey'>{icons.error}</div>

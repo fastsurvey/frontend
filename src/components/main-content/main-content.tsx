@@ -24,7 +24,7 @@ function MainContent(props: {children: React.ReactNode}) {
                             alt='FastSurvey Icon'
                             className='w-12 h-12 p-1 lg:w-16 lg:h-16 lg:p-2'
                         />
-                        <div className='mx-2 text-xl text-grey-900 lg:text-2xl font-weight-700'>
+                        <div className='mx-2 text-xl text-grey-500 lg:text-2xl font-weight-700 rubik'>
                             FastSurvey
                         </div>
                     </Link>

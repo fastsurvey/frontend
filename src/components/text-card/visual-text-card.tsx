@@ -6,10 +6,10 @@ import 'styles/markdown.css';
 function VisualTextCard(props: {title: string; children: React.ReactNode}) {
     return (
         <div className='w-full p-4 bg-white rounded shadow-md lg:p-6 centering-col'>
-            <div className='text-2xl text-black font-weight-600'>
+            <div className='text-2xl text-grey-900 rubik font-weight-600'>
                 {props.title}
             </div>
-            <div className='w-full mt-2 lg:mt-3 text-grey-900 markdown font-weight-500'>
+            <div className='w-full mt-2 lg:mt-3 text-grey-900 markdown font-weight-400'>
                 {props.children}
             </div>
         </div>
