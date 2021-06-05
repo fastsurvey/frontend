@@ -19,7 +19,7 @@ function OptionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-grey-800 rubik font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-grey-900 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             <button

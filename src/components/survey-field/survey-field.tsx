@@ -83,7 +83,7 @@ function SurveyField(props: {
                 >
                     {formValidation[fieldIndex + 1] ? icons.check : icons.error}
                 </div>
-                <div className='text-base text-left flex-max font-weight-400'>
+                <div className='text-base text-left flex-max font-weight-500'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
                         formData[fieldIndex + 1],

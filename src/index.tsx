@@ -1,6 +1,6 @@
 import 'styles/tailwind.out.css';
+import 'typeface-lato';
 import 'typeface-rubik';
-import 'typeface-montserrat';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

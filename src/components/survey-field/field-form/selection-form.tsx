@@ -29,7 +29,7 @@ function SelectionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-grey-800 rubik font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-grey-900 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.length > 0 && (
@@ -37,7 +37,7 @@ function SelectionForm(props: {
                     {fieldConfig.description}
                 </div>
             )}
-            <div className='w-full mt-1 mb-1 text-base leading-tight text-left text-grey-600 font-weight-400'>
+            <div className='w-full mt-0 mb-3 text-base leading-tight text-left text-grey-400 font-weight-500'>
                 Select between {fieldConfig.min_select} and{' '}
                 {fieldConfig.max_select} options.
             </div>

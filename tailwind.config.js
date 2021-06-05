@@ -33,6 +33,7 @@ module.exports = {
 
                 "green-050": "#F0FCF9",
                 "green-100": "#C6F7E9",
+                "green-150": "#AAF2DD",
                 "green-200": "#8EEDD1",
                 "green-300": "#5FE3C0",
                 "green-400": "#2DCCA7",
@@ -44,6 +45,7 @@ module.exports = {
               
                 "red-050": "#FFEEEE",
                 "red-100": "#FACDCD",
+                "red-150": "#F6B4B4",
                 "red-200": "#F29B9B",
                 "red-300": "#E66A6A",
                 "red-400": "#D64545",
@@ -92,6 +94,7 @@ module.exports = {
                 // Supporting
                 "green-050": "#F0FCF9",
                 "green-100": "#C6F7E9",
+                "green-150": "#AAF2DD",
                 "green-200": "#8EEDD1",
                 "green-300": "#5FE3C0",
                 "green-400": "#2DCCA7",
@@ -103,6 +106,7 @@ module.exports = {
               
                 "red-050": "#FFEEEE",
                 "red-100": "#FACDCD",
+                "red-150": "#F6B4B4",
                 "red-200": "#F29B9B",
                 "red-300": "#E66A6A",
                 "red-400": "#D64545",

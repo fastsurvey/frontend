@@ -6,13 +6,13 @@ import {Link} from 'react-router-dom';
 
 const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
     <div className='relative inline-block'>
-        <div className='relative z-10 block text-black font-weight-500'>
+        <div className='relative z-10 block font-weight-700'>
             {props.children}
         </div>
         <div
             className={
-                'absolute block bottom-[0.3125rem] left-0 z-0 w-full h-1.5 ' +
-                (props.good ? 'bg-green-100 ' : 'bg-red-100 ')
+                'absolute block bottom-[0.25rem] left-0 z-0 w-full h-1.5 ' +
+                (props.good ? 'bg-green-150 ' : 'bg-red-150 ')
             }
         />
     </div>
@@ -27,22 +27,19 @@ function LandingPage() {
                             <div className='w-16 h-16 mr-4'>
                                 <img src={RocketLogo} />
                             </div>
-                            <div className='font-weight-700 flex-col-left'>
+                            <div className='font-weight-900 flex-col-left'>
                                 <div className='text-3xl text-grey-800 rubik'>
                                     Fastsurvey
                                 </div>
-                                <div className='text-lg tracking-wider uppercase text-grey-300 rubik'>
+                                <div className='text-lg tracking-wide uppercase text-grey-400 rubik'>
                                     The swiss army knife of data collection
                                 </div>
                             </div>
                         </div>
-                        <div className='mb-8 text-lg text-grey-900'>
-                            <p className='mb-4 font-weight-400'>
-                                There are <em>a ton</em> of{' '}
-                                <span className='text-black font-weight-500'>
-                                    survey tools
-                                </span>
-                                . <em>However</em>, existing solutions push
+                        <div className='mb-8 text-lg text-grey-900 font-weight-500'>
+                            <p className='mb-4'>
+                                There are a ton of survey tools.{' '}
+                                <em>However</em>, existing solutions push
                                 <ColoredText>
                                     inflexible monthly pricing
                                 </ColoredText>
@@ -57,8 +54,8 @@ function LandingPage() {
                                 prioritizes <em>you</em>, the survey creator,
                                 and{' '}
                                 <ColoredText good>
-                                    only <em>charges</em> for what you{' '}
-                                    <em>actually</em> use
+                                    only charges for what you <em>actually</em>{' '}
+                                    use
                                 </ColoredText>
                                 .
                             </p>

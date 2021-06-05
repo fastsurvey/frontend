@@ -23,7 +23,7 @@ function TextForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-grey-800 rubik font-weight-600'>
+            <div className='w-full mb-2 text-xl text-left text-grey-900 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.length > 0 && (
@@ -37,7 +37,7 @@ function TextForm(props: {
                 className={
                     'w-full px-3 py-2 mt-2 rounded font-weight-400 ' +
                     'bg-grey-050 focus:bg-grey-050 ' +
-                    'text-grey-700 focus:text-grey-900 ' +
+                    'text-grey-700 focus:text-grey-900 placeholder-grey-400 ' +
                     'outline-none ring ring-transparent focus:ring-blue-300 ' +
                     'transition-colors duration-100 leading-6'
                 }
