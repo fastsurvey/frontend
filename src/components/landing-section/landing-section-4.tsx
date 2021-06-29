@@ -1,5 +1,5 @@
 import React from 'react';
-import Gif from 'assets/gifs/money.webp';
+import Gif from 'assets/gifs/computer.webp';
 import LandingPageSection from 'components/layout/landing-page-section';
 import {icons} from 'assets/icons/index';
 
@@ -9,25 +9,31 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
 );
-export default function LandingSection3() {
+export default function LandingSection4() {
     return (
         <LandingPageSection
             leftChild={
                 <div className='space-y-5 flex-col-left'>
                     <div className='text-xl text-blue-100 uppercase'>
-                        <strong>Pricing</strong> should be transparent ...
+                        <strong>The Product</strong> should sell itself!
                     </div>
                     <div className='space-y-3 text-base text-gray-100 flex-col-left'>
                         <div>
-                            As many surveys as you want - billing per survey:
+                            We do not have a big marketing and sales team that
+                            focuses on selling you a product. Instead, we focus
+                            on:
                         </div>
                         <BulletPoint
-                            icon={icons.discount}
-                            text='The first 100 submissions of any survey are free'
+                            icon={icons.launch}
+                            text='developing good software'
                         />
                         <BulletPoint
-                            icon={icons.currencyEuro}
-                            text='4ct. per submission beyond the free tier'
+                            icon={icons.chat}
+                            text='providing concise documentation and support'
+                        />
+                        <BulletPoint
+                            icon={icons.light}
+                            text='improving FastSurvey upon your feedback'
                         />
                     </div>
                 </div>

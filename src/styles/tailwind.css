@@ -119,7 +119,7 @@
 }
 
 .icon-red-dark .secondary {
-    @apply fill-red-050;
+    @apply fill-red-50;
 }
 
 .icon-green-dark .primary {
@@ -127,7 +127,7 @@
 }
 
 .icon-green-dark .secondary {
-    @apply fill-green-050;
+    @apply fill-green-50;
 }
 
 .icon-blue .primary {
@@ -136,4 +136,12 @@
 
 .icon-blue .secondary {
     @apply fill-blue-900;
+}
+
+.icon-landing-bullet .primary {
+    @apply fill-gray-300;
+}
+
+.icon-landing-bullet .secondary {
+    @apply fill-green-600;
 }
