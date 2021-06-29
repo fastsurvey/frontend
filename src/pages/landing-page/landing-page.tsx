@@ -1,64 +1,48 @@
 import React from 'react';
-import RocketLogo from 'assets/branding/rocket.svg';
+import RocketLogoLight from 'assets/branding/rocket-light.svg';
 import IconButton from 'components/icon-button/icon-button';
-import {icons} from '../../assets/icons/index';
-import {Link} from 'react-router-dom';
+import LandingPageSection from 'components/layout/landing-page-section';
 
-const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
+const ColoredText = (props: {
+    children: React.ReactNode;
+    good?: boolean;
+    pr?: boolean;
+}) => (
     <div className='relative inline-block'>
-        <div className='relative z-10 block font-weight-700'>
+        <div
+            className={
+                'relative z-10 block font-weight-700 ' +
+                (props.pr ? 'pr-1.5 ' : '')
+            }
+        >
             {props.children}
         </div>
         <div
             className={
                 'absolute block bottom-[0.25rem] left-0 z-0 w-full h-1.5 ' +
-                (props.good ? 'bg-green-150 ' : 'bg-red-150 ')
+                (props.good ? 'bg-green-800 ' : 'bg-red-800 ')
             }
         />
     </div>
 );
 function LandingPage() {
     return (
-        <div className='w-full centering-col'>
-            <div className='grid w-full min-h-[80vh] grid-cols-2 border-t-[6px] border-blue-100'>
-                <div className='w-full centering-col'>
-                    <div className='max-w-xl py-24 flex-col-left'>
+        <div className='w-full bg-gray-900 centering-col'>
+            <LandingPageSection
+                leftChild={
+                    <div className='space-y-2 flex-col-left'>
                         <div className='mb-4 font-bold centering-row'>
                             <div className='w-16 h-16 mr-4'>
-                                <img src={RocketLogo} />
+                                <img src={RocketLogoLight} />
                             </div>
-                            <div className='font-weight-900 flex-col-left'>
-                                <div className='text-3xl text-grey-800 rubik'>
+                            <div className='flex-col-left gap-y-1'>
+                                <div className='text-3xl text-blue-100 font-weight-700 '>
                                     Fastsurvey
                                 </div>
-                                <div className='text-lg tracking-wide uppercase text-grey-400 rubik'>
+                                <div className='text-lg tracking-wide text-gray-100 uppercase font-weight-400 '>
                                     The swiss army knife of data collection
                                 </div>
                             </div>
-                        </div>
-                        <div className='mb-8 text-lg text-grey-900 font-weight-500'>
-                            <p className='mb-4'>
-                                There are a ton of survey tools.{' '}
-                                <em>However</em>, existing solutions push
-                                <ColoredText>
-                                    inflexible monthly pricing
-                                </ColoredText>
-                                , are <ColoredText>hard too use</ColoredText>{' '}
-                                and are <em>blackboxes</em> when it comes to{' '}
-                                <ColoredText>data-privacy</ColoredText>.
-                            </p>
-                            <p>
-                                <ColoredText good>FastSurvey</ColoredText>{' '}
-                                solves these issues: it is{' '}
-                                <ColoredText good>open source</ColoredText>,
-                                prioritizes <em>you</em>, the survey creator,
-                                and{' '}
-                                <ColoredText good>
-                                    only charges for what you <em>actually</em>{' '}
-                                    use
-                                </ColoredText>
-                                .
-                            </p>
                         </div>
                         <div className='space-x-2 centering-row'>
                             <a
@@ -67,27 +51,54 @@ function LandingPage() {
                                 className='rounded focus:outline-none ring ring-transparent focus:ring-blue-300'
                             >
                                 <IconButton
-                                    icon={icons.addUser}
                                     text='Sign up'
+                                    variant='light-on-dark'
                                 />
                             </a>
                             <a
                                 href='https://console.dev.fastsurvey.io/login'
                                 target='_self'
-                                className={
-                                    'h-10 px-3 leading-10 rounded hover:bg-grey-100 ' +
-                                    'text-grey-900 font-weight-500 ' +
-                                    'focus:outline-none ring ring-transparent focus:ring-blue-300'
-                                }
+                                className='rounded focus:outline-none ring ring-transparent focus:ring-blue-300'
                             >
-                                Log in
+                                <IconButton
+                                    text='Log in'
+                                    variant='dark-on-dark'
+                                />
                             </a>
                         </div>
                     </div>
-                </div>
-                <div className='w-full centering-col'></div>
-            </div>
-            <div className='w-full h-screen bg-blue-050 border-t-[6px] border-blue-100'></div>
+                }
+                rightChild={
+                    <div className='mb-8 text-lg text-gray-300 font-weight-500'>
+                        <p className='mb-4'>
+                            There are a ton of survey tools. <em>However</em>,
+                            existing solutions push{' '}
+                            <ColoredText>
+                                inflexible monthly pricing
+                            </ColoredText>
+                            , are <ColoredText>hard too use</ColoredText> and
+                            are <em>blackboxes</em> when it comes to{' '}
+                            <ColoredText>data-privacy</ColoredText>.
+                        </p>
+                        <p>
+                            <ColoredText good>FastSurvey</ColoredText> solves
+                            these issues: it is{' '}
+                            <ColoredText good>open source</ColoredText>,
+                            prioritizes <em>you</em>, the survey creator, and{' '}
+                            <ColoredText good pr>
+                                only charges
+                            </ColoredText>
+                            <ColoredText good pr>
+                                for what you
+                            </ColoredText>
+                            <ColoredText good>
+                                <em>actually</em> use
+                            </ColoredText>
+                            .
+                        </p>
+                    </div>
+                }
+            />
         </div>
     );
 }
