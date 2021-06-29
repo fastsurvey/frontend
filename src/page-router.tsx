@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import {pathUtils} from 'utilities';
-import MainContent from './components/main-content/main-content';
+import MainContent from './components/layout/main-content';
 import ReduxStore from 'redux-store';
 import SurveyProvider from './pages/survey-provider';
 import SurveyIndexPage from './pages/survey-page/index';
