@@ -17,15 +17,15 @@
     font-family: Quicksand, sans-serif;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 @layer utilities {
@@ -90,11 +90,11 @@
     @apply flex-grow;
 }
 
-.icon-grey .primary {
+.icon-gray .primary {
     fill: #bcccdc; /* 200 */
 }
 
-.icon-grey .secondary {
+.icon-gray .secondary {
     fill: #627d98; /* 500 */
 }
 
@@ -143,5 +143,5 @@
 }
 
 .icon-landing-bullet .secondary {
-    @apply fill-green-600;
+    @apply fill-green-700;
 }
