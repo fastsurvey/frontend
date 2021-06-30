@@ -40,7 +40,11 @@ export default function LandingSection4() {
             }
             rightChild={
                 <div className='w-full max-w-md mx-auto overflow-hidden rounded-lg'>
-                    <img src={Gif} className='w-full h-auto' />
+                    <img
+                        src={Gif}
+                        className='w-full h-auto'
+                        alt='Monkey with a computer'
+                    />
                 </div>
             }
         />

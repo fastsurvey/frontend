@@ -32,7 +32,7 @@ export default function LandingSection1() {
                 <div className='space-y-2 flex-col-left'>
                     <div className='mb-4 font-bold centering-row'>
                         <div className='w-16 h-16 mr-4'>
-                            <img src={RocketLogoLight} />
+                            <img src={RocketLogoLight} alt='FastSurvey Logo' />
                         </div>
                         <div className='flex-col-left gap-y-1'>
                             <div className='text-3xl text-blue-100 font-weight-700 '>
@@ -66,15 +66,15 @@ export default function LandingSection1() {
             }
             rightChild={
                 <div className='text-lg text-gray-300 font-weight-500'>
-                    <p className='mb-4'>
+                    <div className='mb-4'>
                         There are a ton of survey tools. <em>However</em>,
                         existing solutions push{' '}
                         <ColoredText>inflexible monthly pricing</ColoredText>,
                         are <ColoredText>hard too use</ColoredText> and are{' '}
                         <em>blackboxes</em> when it comes to{' '}
                         <ColoredText>data-privacy</ColoredText>.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <ColoredText good>FastSurvey</ColoredText> solves these
                         issues: it is{' '}
                         <ColoredText good>open source</ColoredText>, prioritizes{' '}
@@ -89,7 +89,7 @@ export default function LandingSection1() {
                             <em>actually</em> use
                         </ColoredText>
                         .
-                    </p>
+                    </div>
                 </div>
             }
         />

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
 import VisualUserTextCard from 'components/text-card/visual-user-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
+import VisualInfoCard from 'components/info-card/visual-info-card';
 import TimePill from 'components/time-pill/time-pill';
 import {pathUtils} from 'utilities';
 import {Link} from 'react-router-dom';

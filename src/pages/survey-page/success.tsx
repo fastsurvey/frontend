@@ -2,21 +2,7 @@ import React from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
 import VisualTextCard from 'components/text-card/visual-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
-
-const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
-    <div className='relative inline-block'>
-        <div className='relative z-10 block text-black font-weight-500'>
-            {props.children}
-        </div>
-        <div
-            className={
-                'absolute block bottom-[0.3125rem] left-0 z-0 w-full h-1.5 ' +
-                (props.good ? 'bg-green-100 ' : 'bg-red-100 ')
-            }
-        />
-    </div>
-);
+import VisualInfoCard from 'components/info-card/visual-info-card';
 
 function SurveySuccessPage(props: {
     formConfig: types.SurveyConfig | undefined;
