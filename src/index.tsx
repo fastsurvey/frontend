@@ -1,4 +1,4 @@
-import 'styles/tailwind.out.css';
+import 'styles/tailwind.css';
 import 'typeface-quicksand';
 
 import React from 'react';

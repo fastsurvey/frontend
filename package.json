@@ -7,27 +7,25 @@
         "url": "https://dostuffthatmatters.dev/"
     },
     "dependencies": {
-        "axios": "^0.19.2",
+        "@craco/craco": "^6.1.2",
+        "axios": "^0.21.1",
         "express": "^4.17.1",
         "lodash": "^4.17.21",
         "node-sass": "^4.14.1",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-redux": "^7.2.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.4",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1",
-        "redux": "^4.0.5",
-        "typeface-montserrat": "^1.1.13",
+        "react-scripts": "^4.0.3",
+        "redux": "^4.1.0",
         "typeface-quicksand": "^1.1.13"
     },
     "scripts": {
-        "develop": "react-scripts start",
-        "develop:tailwind": "NODE_ENV=development postcss src/styles/tailwind.css -o src/styles/tailwind.out.css -w",
-        "build": "react-scripts build",
-        "build:tailwind": "NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/tailwind.out.css",
+        "develop": "craco start",
+        "build": "craco build",
         "serve": "node app.js",
         "lint": "tslint 'src/**/*.{ts,tsx,js}'",
-        "test": "react-scripts test"
+        "test": "craco test"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -45,7 +43,6 @@
         ]
     },
     "devDependencies": {
-        "@tailwindcss/jit": "^0.1.18",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -57,10 +54,9 @@
         "@types/react-redux": "^7.1.9",
         "@types/react-router-dom": "^5.1.5",
         "@types/redux": "^3.6.0",
-        "autoprefixer": "^10.2.5",
-        "postcss": "^8.2.13",
-        "postcss-cli": "^8.3.1",
-        "tailwindcss": "^2.1.2",
+        "autoprefixer": "^9",
+        "postcss": "^7",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat",
         "ts-jest": "^26.3.0",
         "tslint": "^6.1.2",
         "typescript": "^3.9.5"
