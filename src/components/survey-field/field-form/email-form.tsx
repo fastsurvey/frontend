@@ -1,5 +1,5 @@
 import React from 'react';
-import {types} from 'types';
+import {types} from '@types';
 
 function EmailForm(props: {
     fieldConfig: types.EmailField;

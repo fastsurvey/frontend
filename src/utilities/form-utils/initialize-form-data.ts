@@ -1,4 +1,4 @@
-import {types} from 'types';
+import {types} from '@types';
 
 export function initializeFormData(config: types.SurveyConfig): types.FormData {
     const formData: object = {};

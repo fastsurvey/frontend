@@ -1,8 +1,7 @@
-import * as React from 'react';
-import RocketLogo from 'assets/branding/rocket.svg';
-import {pathUtils} from 'utilities';
-
+import React from 'react';
 import {Link} from 'react-router-dom';
+import RocketLogo from '@assets/branding/rocket.svg';
+import {pathUtils} from '@utilities';
 
 function MainContent(props: {children: React.ReactNode}) {
     const logoURL: string = pathUtils.isSurveyPath(window.location.pathname)

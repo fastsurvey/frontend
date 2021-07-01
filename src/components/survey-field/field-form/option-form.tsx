@@ -1,6 +1,6 @@
 import React from 'react';
-import {types} from 'types';
-import {icons} from 'assets/icons/index';
+import {types} from '@types';
+import {icons} from '@assets/icons/index';
 
 function OptionForm(props: {
     fieldConfig: types.OptionField;

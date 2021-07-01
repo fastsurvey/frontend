@@ -1,6 +1,6 @@
 import React from 'react';
-import {icons} from 'assets/icons';
-import Button from 'components/button/button';
+import {icons} from '@assets/icons';
+import {Button} from '@components';
 
 function Survey404Text() {
     return (
