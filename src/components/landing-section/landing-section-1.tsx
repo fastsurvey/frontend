@@ -1,7 +1,7 @@
 import React from 'react';
-import RocketLogoLight from 'assets/branding/rocket-light.svg';
-import IconButton from 'components/icon-button/icon-button';
-import LandingPageSection from 'components/layout/landing-page-section';
+import RocketLogoLight from '../../assets/branding/rocket-light.svg';
+import IconButton from '../../components/icon-button/icon-button';
+import LandingPageSection from '../../components/layout/landing-page-section';
 
 const ColoredText = (props: {
     children: React.ReactNode;

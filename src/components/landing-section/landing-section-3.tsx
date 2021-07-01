@@ -1,7 +1,6 @@
 import React from 'react';
-import Gif from 'assets/gifs/money.webp';
-import LandingPageSection from 'components/layout/landing-page-section';
-import {icons} from 'assets/icons/index';
+import Gif from '../../assets/gifs/money.webp';
+import {icons} from '../../assets/icons/index';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     <div className='w-full flex-row-left gap-x-2'>
@@ -11,7 +10,7 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
 );
 export default function LandingSection3() {
     return (
-        <div className='w-full min-h-[200vh] border-b-4 border-gray-800 centering-col'>
+        <div className='w-full min-h-[110vh] border-b-4 border-gray-800 centering-col'>
             <div
                 className={
                     'grid w-full px-8 py-16 ' +

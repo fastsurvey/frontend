@@ -1,6 +1,6 @@
 import * as React from 'react';
-import RocketLogo from 'assets/branding/rocket.svg';
-import {pathUtils} from 'utilities';
+import RocketLogo from '../../assets/branding/rocket.svg';
+import {pathUtils} from '../../utilities';
 
 import {Link} from 'react-router-dom';
 

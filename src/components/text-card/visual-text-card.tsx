@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/markdown.css';
+import '../../styles/markdown.css';
 
 // TODO: Replace links in text as well (starting with https:// or www.)
 

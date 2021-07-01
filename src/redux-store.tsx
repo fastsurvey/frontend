@@ -1,14 +1,14 @@
 import React from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import {reduxUtils, pathUtils, backend} from 'utilities';
-import {types} from 'types';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { reduxUtils, pathUtils, backend } from './utilities';
+import { types } from './types';
 
 const store = createStore(
     (
         state: types.ReduxState = reduxUtils.initialState,
-        action: types.ReduxAction,
-    ) => reduxUtils.updateState(state, action),
+        action: types.ReduxAction
+    ) => reduxUtils.updateState(state, action)
 );
 
 interface Props {
@@ -16,16 +16,16 @@ interface Props {
 }
 export function ReduxStore(props: Props) {
     function addConfig(config: types.SurveyConfig) {
-        store.dispatch({type: 'ADD_CONFIG', formConfig: config});
+        store.dispatch({ type: 'ADD_CONFIG', formConfig: config });
     }
 
     function abortFetch() {
-        store.dispatch({type: 'ABORT_FETCH'});
+        store.dispatch({ type: 'ABORT_FETCH' });
     }
 
     if (pathUtils.isSurveyPath(window.location.pathname)) {
-        const {username, survey_name} = pathUtils.getPathId(
-            window.location.pathname,
+        const { username, survey_name } = pathUtils.getPathId(
+            window.location.pathname
         );
         backend.fetchConfig(username, survey_name, addConfig, abortFetch);
     } else {

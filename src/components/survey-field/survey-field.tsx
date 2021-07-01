@@ -1,8 +1,8 @@
-import {icons} from 'assets/icons';
+import {icons} from '../../assets/icons';
 import React from 'react';
-import {types} from 'types';
+import {types} from '../../types';
 import OptionForm from './field-form/option-form';
-import {formUtils, reduxUtils} from 'utilities';
+import {formUtils, reduxUtils} from '../../utilities';
 import RadioForm from './field-form/radio-form';
 import SelectionForm from './field-form/selection-form';
 import TextForm from './field-form/text-form';

@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {formUtils, reduxUtils} from 'utilities';
-import assert from 'assert';
-import {types} from 'types';
-import LoadingText from 'components/loading-text/loading-text';
-import Survey404Text from 'components/survey-404-text/survey-404-text';
+import {formUtils, reduxUtils} from '../utilities';
+import {types} from '../types';
+import LoadingText from '../components/loading-text/loading-text';
+import Survey404Text from '../components/survey-404-text/survey-404-text';
 
 /*
 This component manages the different view states on a survey page:
@@ -43,10 +42,9 @@ function SurveyProvider(props: {
         return <LoadingText />;
     }
 
-    assert(!fetching);
-    assert(formConfig !== undefined);
-    assert(formData !== undefined);
-    assert(formValidation !== undefined);
+    if (fetching || !formConfig || !formData || !formValidation) {
+        return <div />;
+    }
 
     return <React.Fragment>{props.children}</React.Fragment>;
 }

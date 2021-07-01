@@ -1,8 +1,8 @@
 import React from 'react';
 import {types} from 'types';
 import {connect} from 'react-redux';
-import VisualTextCard from 'components/text-card/visual-text-card';
-import VisualInfoCard from 'components/info-card/visual-info-card';
+import VisualTextCard from './../../components/text-card/visual-text-card';
+import VisualInfoCard from './../../components/info-card/visual-info-card';
 
 function SurveySuccessPage(props: {
     formConfig: types.SurveyConfig | undefined;

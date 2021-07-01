@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {types} from 'types';
+import {types} from '../../types';
 import {connect} from 'react-redux';
-import TimePill from 'components/time-pill/time-pill';
-import {pathUtils, backend, reduxUtils} from 'utilities';
-import Button from 'components/button/button';
-import SurveyField from 'components/survey-field/survey-field';
+import TimePill from '../../components/time-pill/time-pill';
+import {pathUtils, backend, reduxUtils} from '../../utilities';
+import Button from '../../components/button/button';
+import SurveyField from '../../components/survey-field/survey-field';
 import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
 
