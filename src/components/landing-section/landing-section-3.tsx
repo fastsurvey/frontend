@@ -9,6 +9,47 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
 );
+
+const PricingText1 = () => (
+    <>
+        <div className='text-xl text-blue-100 uppercase'>
+            <strong>Pricing</strong> should be transparent ...
+        </div>
+        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
+            <div>As many surveys as you want - billing per survey:</div>
+            <BulletPoint
+                icon={icons.discount}
+                text='The first 100 submissions of any survey are free'
+            />
+            <BulletPoint
+                icon={icons.currencyEuro}
+                text='4ct. per submission beyond the free tier'
+            />
+        </div>
+    </>
+);
+
+const PricingText2 = () => (
+    <>
+        <div className='text-xl text-blue-100 uppercase'>... and fair!</div>
+        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
+            <div>As ma</div>
+            <BulletPoint
+                icon={icons.discount}
+                text='The first 100 submissions of any survey are free'
+            />
+            <BulletPoint
+                icon={icons.currencyEuro}
+                text='4ct. per submission beyond the free tier'
+            />
+        </div>
+    </>
+);
+
+const MonkeyGif = () => (
+    <img src={Gif} className='w-full h-auto' alt='Monkey with a cash' />
+);
+
 export default function LandingSection3() {
     const ref = useRef<HTMLDivElement>(null);
     const [scrollState, setScrollState] = useState<
@@ -30,64 +71,61 @@ export default function LandingSection3() {
     useEvent('scroll', handleScroll);
 
     return (
-        <div
-            className='w-full h-[200vh] border-b-4 border-gray-800 centering-col'
-            ref={ref}
-        >
+        <div className='w-full h-[200vh] centering-col' ref={ref}>
             <div
                 className={
-                    'grid w-full px-8 ' +
-                    'grid-cols-1 gap-x-0 gap-y-8 ' +
-                    'lg:gap-y-0 lg:grid-cols-2 lg:gap-x-8 ' +
+                    'hidden lg:grid w-full px-8 ' +
+                    'gap-y-0 gap-x-8 grid-cols-2 ' +
                     'xl:gap-x-12'
                 }
             >
                 <div className='w-full ml-auto lg:max-w-lg flex-col-left'>
-                    <div className='space-y-5 flex-col-left'>
-                        <div className='text-xl text-blue-100 uppercase'>
-                            <strong>Pricing</strong> should be transparent ...
-                        </div>
-                        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-                            <div>
-                                As many surveys as you want - billing per
-                                survey:
-                            </div>
-                            <BulletPoint
-                                icon={icons.discount}
-                                text='The first 100 submissions of any survey are free'
-                            />
-                            <BulletPoint
-                                icon={icons.currencyEuro}
-                                text='4ct. per submission beyond the free tier'
-                            />
-                        </div>
+                    <div className='h-[100vh] space-y-5 flex-col-left'>
+                        <PricingText1 />
                     </div>
-                    <div className='space-y-5 flex-col-left'>
-                        <div className='text-xl text-blue-100 uppercase'>
-                            <strong>Pricing</strong> should be transparent ...
-                        </div>
-                        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-                            <div>As ma</div>
-                            <BulletPoint
-                                icon={icons.discount}
-                                text='The first 100 submissions of any survey are free'
-                            />
-                            <BulletPoint
-                                icon={icons.currencyEuro}
-                                text='4ct. per submission beyond the free tier'
-                            />
-                        </div>
+                    <div className='h-[100vh] space-y-5 flex-col-left'>
+                        <PricingText2 />
                     </div>
                 </div>
-                <div className='w-full mr-auto lg:max-w-lg flex-col-left'>
-                    <div className='w-full max-w-md mx-auto overflow-hidden rounded-lg'>
-                        <img
-                            src={Gif}
-                            className='w-full h-auto'
-                            alt='Monkey with a cash'
-                        />
+                {scrollState === 'above' && (
+                    <div className='relative block w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left'>
+                        <div
+                            className={
+                                'w-full max-w-md mx-auto overflow-hidden rounded-lg '
+                            }
+                        >
+                            <MonkeyGif />
+                        </div>
                     </div>
-                </div>
+                )}
+                {scrollState === 'within' && (
+                    <div className='relative w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left'>
+                        <div
+                            className={
+                                'w-full max-w-md mx-auto overflow-hidden rounded-lg ' +
+                                'fixed top-1/2 transform -translate-y-1/2 translate-x-8'
+                            }
+                        >
+                            <MonkeyGif />
+                        </div>
+                    </div>
+                )}
+                {scrollState === 'below' && (
+                    <div
+                        className={
+                            'relative block w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left ' +
+                            'transform translate-y-full'
+                        }
+                    >
+                        <div
+                            className={
+                                'w-full max-w-md mx-auto overflow-hidden rounded-lg '
+                            }
+                        >
+                            <MonkeyGif />
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
