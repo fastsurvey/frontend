@@ -1,8 +1,8 @@
 import React from 'react';
-import {icons} from '../../assets/icons';
-import {types} from '../../types';
+import {icons} from '@assets/icons';
+import {types} from '@types';
 import {connect} from 'react-redux';
-import reduxUtils from '../../utilities/redux-utils/index';
+import reduxUtils from '@utilities/redux-utils/index';
 
 function Message(props: {
     message: types.Message | undefined;

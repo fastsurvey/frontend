@@ -1,6 +1,6 @@
-import VisualTimePill from '../../components/time-pill/visual-time-pill';
+import VisualTimePill from '@components/time-pill/visual-time-pill';
 import React from 'react';
-import {types} from '../../types';
+import {types} from '@types';
 
 const diffToPhrase = (diff: number): string => {
     const ranges: any = [

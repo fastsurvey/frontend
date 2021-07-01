@@ -1,5 +1,5 @@
 import React from 'react';
-import {icons} from '../../assets/icons';
+import {icons} from '@assets/icons';
 
 function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
     let content: React.ReactNode;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {icons} from '../../assets/icons';
+import {icons} from '@assets/icons';
 
 function LoadingText() {
     return (

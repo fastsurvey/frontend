@@ -1,6 +1,6 @@
 import React from 'react';
-import VisualTextCard from '../../components/text-card/visual-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
+import VisualTextCard from '@components/text-card/visual-text-card';
+import VisualInfoCard from '@components/info-card/visual-info-card';
 
 function SurveyVerifyPage() {
     return (

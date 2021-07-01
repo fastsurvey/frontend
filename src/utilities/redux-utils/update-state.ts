@@ -1,5 +1,5 @@
 import {cloneDeep} from 'lodash';
-import {types} from 'types';
+import {types} from '@types';
 
 function updateState(state: types.ReduxState, action: types.ReduxAction) {
     const newState = cloneDeep(state);

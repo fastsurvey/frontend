@@ -16,7 +16,16 @@
         "jsx": "react",
         "downlevelIteration": true,
         "baseUrl": "src",
-        "noFallthroughCasesInSwitch": true // added by craco
+        "paths": {
+            "@assets/*": ["assets/*"],
+            "@components/*": ["components/*"],
+            "@pages/*": ["pages/*"],
+            "@styles/*": ["styles/*"],
+            "@utilities/*": ["utilities/*"],
+
+            "@types": ["types.ts"],
+            "@utilities": ["utilities"]
+        }
     },
     "include": ["src"],
     "exclude": ["node_modules", "public", "build"]

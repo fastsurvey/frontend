@@ -1,6 +1,6 @@
 import React from 'react';
-import Gif from '../../assets/gifs/money.webp';
-import {icons} from '../../assets/icons/index';
+import Gif from '@assets/gifs/money.webp';
+import {icons} from '@assets/icons';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     <div className='w-full flex-row-left gap-x-2'>

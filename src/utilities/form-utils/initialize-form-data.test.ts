@@ -1,5 +1,5 @@
 import {initializeFormData} from './initialize-form-data';
-import {types} from 'types';
+import {types} from '@types';
 
 describe('initializeFormData', () => {
     test('sample config 1', () => {
