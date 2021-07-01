@@ -20,7 +20,7 @@ export default function LandingSection4() {
                     <div className='space-y-3 text-base text-gray-100 flex-col-left'>
                         <div>
                             We do not have a big marketing and sales team that
-                            focuses on selling you a product. Instead, we focus
+                            focuses on selling you something. Instead, we focus
                             on:
                         </div>
                         <BulletPoint

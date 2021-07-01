@@ -5,7 +5,9 @@ import useEvent from '../../utilities/event-utils/use-event';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     <div className='w-full flex-row-left gap-x-2'>
-        <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>{props.icon}</div>
+        <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
+            {props.icon}
+        </div>
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
 );
@@ -33,14 +35,21 @@ const PricingText2 = () => (
     <>
         <div className='text-xl text-blue-100 uppercase'>... and fair!</div>
         <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-            <div>As ma</div>
             <BulletPoint
-                icon={icons.discount}
-                text='The first 100 submissions of any survey are free'
+                icon={icons.package}
+                text='All features are included in any survey (paid or free)'
             />
             <BulletPoint
-                icon={icons.currencyEuro}
-                text='4ct. per submission beyond the free tier'
+                icon={icons.calculator}
+                text='No active survey = no cost for you'
+            />
+            <BulletPoint
+                icon={icons.creditCard}
+                text='No need for payment information when using the free tier. You can use the free tier forever.'
+            />
+            <BulletPoint
+                icon={icons.security}
+                text="We don't sell any data! We make money by selling submissions."
             />
         </div>
     </>
@@ -71,7 +80,10 @@ export default function LandingSection3() {
     useEvent('scroll', handleScroll);
 
     return (
-        <div className='w-full h-[200vh] centering-col' ref={ref}>
+        <div
+            className='w-full h-[200vh] border-b-4 border-blue-200 border-opacity-60 centering-col'
+            ref={ref}
+        >
             <div
                 className={
                     'hidden lg:grid w-full px-8 ' +
@@ -87,45 +99,26 @@ export default function LandingSection3() {
                         <PricingText2 />
                     </div>
                 </div>
-                {scrollState === 'above' && (
-                    <div className='relative block w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left'>
-                        <div
-                            className={
-                                'w-full max-w-md mx-auto overflow-hidden rounded-lg '
-                            }
-                        >
-                            <MonkeyGif />
-                        </div>
-                    </div>
-                )}
-                {scrollState === 'within' && (
-                    <div className='relative w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left'>
-                        <div
-                            className={
-                                'w-full max-w-md mx-auto overflow-hidden rounded-lg ' +
-                                'fixed top-1/2 transform -translate-y-1/2 translate-x-8'
-                            }
-                        >
-                            <MonkeyGif />
-                        </div>
-                    </div>
-                )}
-                {scrollState === 'below' && (
+                <div
+                    className={
+                        'relative block w-full h-[100vh] ' +
+                        'mr-auto lg:max-w-lg flex-col-left ' +
+                        (scrollState === 'below'
+                            ? 'transform translate-y-full '
+                            : '')
+                    }
+                >
                     <div
                         className={
-                            'relative block w-full h-[100vh] mr-auto lg:max-w-lg flex-col-left ' +
-                            'transform translate-y-full'
+                            'w-full max-w-md mx-auto overflow-hidden rounded-lg ' +
+                            (scrollState === 'within'
+                                ? 'fixed top-1/2 transform -translate-y-1/2 translate-x-8 '
+                                : ' ')
                         }
                     >
-                        <div
-                            className={
-                                'w-full max-w-md mx-auto overflow-hidden rounded-lg '
-                            }
-                        >
-                            <MonkeyGif />
-                        </div>
+                        <MonkeyGif />
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
