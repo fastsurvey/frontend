@@ -24,7 +24,8 @@
             "@utilities/*": ["utilities/*"],
 
             "@types": ["types.ts"],
-            "@utilities": ["utilities"]
+            "@utilities": ["utilities"],
+            "@components": ["components"]
         }
     },
     "include": ["src"],

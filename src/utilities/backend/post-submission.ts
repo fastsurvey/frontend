@@ -1,5 +1,5 @@
-import {types} from '@types';
 import axios from 'axios';
+import {types} from '@types';
 
 const API_URL = 'https://backend.dev.fastsurvey.io';
 

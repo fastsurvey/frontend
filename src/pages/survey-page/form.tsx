@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
-import {types} from '@types';
 import {connect} from 'react-redux';
-import TimePill from '@components/time-pill/time-pill';
-import {pathUtils, backend, reduxUtils} from '@utilities';
-import Button from '@components/button/button';
-import SurveyField from '@components/survey-field/survey-field';
 import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
+import {types} from '@types';
+
+import {TimePill, Button, SurveyField} from '@components';
+import {pathUtils, backend, reduxUtils} from '@utilities';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;

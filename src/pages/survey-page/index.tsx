@@ -1,12 +1,15 @@
 import React, {useEffect} from 'react';
-import {types} from '@types';
-import {connect} from 'react-redux';
-import VisualUserTextCard from '@components/text-card/visual-user-text-card';
-import VisualInfoCard from '@components/info-card/visual-info-card';
-import TimePill from '@components/time-pill/time-pill';
-import {pathUtils} from '@utilities';
 import {Link} from 'react-router-dom';
-import Button from '@components/button/button';
+import {connect} from 'react-redux';
+import {types} from '@types';
+
+import {
+    VisualUserTextCard,
+    VisualInfoCard,
+    TimePill,
+    Button,
+} from '@components';
+import {pathUtils} from '@utilities';
 
 function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
     const renderable = props.formConfig !== undefined;
