@@ -59,7 +59,7 @@ const MonkeyGif = () => (
     <img src={Gif} className='w-full h-auto' alt='Monkey with a cash' />
 );
 
-export default function LandingSection3() {
+export default function LandingSection3Pricing() {
     const ref = useRef<HTMLDivElement>(null);
     const [scrollState, setScrollState] = useState<
         'above' | 'within' | 'below'

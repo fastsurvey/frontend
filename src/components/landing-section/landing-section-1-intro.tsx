@@ -25,7 +25,7 @@ const ColoredText = (props: {
         />
     </div>
 );
-export default function LandingSection1() {
+export default function LandingSection1Intro() {
     return (
         <LandingPageSection
             leftChild={

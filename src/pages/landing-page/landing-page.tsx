@@ -1,12 +1,18 @@
 import React from 'react';
-import {LandingSection1, LandingSection3, LandingSection4} from '@components';
+import {
+    LandingSection1Intro,
+    LandingSection2Demo,
+    LandingSection3Pricing,
+    LandingSection4Philosophy,
+} from '@components';
 
 function LandingPage() {
     return (
         <div className='w-full bg-gray-900 centering-col'>
-            <LandingSection1 />
-            <LandingSection3 />
-            <LandingSection4 />
+            <LandingSection1Intro />
+            <LandingSection2Demo />
+            <LandingSection3Pricing />
+            <LandingSection4Philosophy />
         </div>
     );
 }

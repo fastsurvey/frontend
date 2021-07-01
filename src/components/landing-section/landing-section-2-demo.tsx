@@ -9,7 +9,7 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
 );
-export default function LandingSection4() {
+export default function LandingSection2Demo() {
     return (
         <LandingPageSection
             leftChild={
