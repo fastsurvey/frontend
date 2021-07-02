@@ -11,7 +11,7 @@ const BulletPoint = (props: {
 }) => (
     <button
         className={
-            'w-full px-1 py-1.5 rounded ' +
+            'w-full px-1 py-1.5 my-1 rounded ringable ' +
             (props.active ? 'bg-gray-700 ' : ' ')
         }
         onClick={props.onClick}
@@ -48,19 +48,19 @@ export default function LandingSection2Demo() {
                             active={imageIndex === 0}
                             onClick={() => setImageIndex(0)}
                             icon={icons.widgetAdd}
-                            text='Create your survey'
+                            text='1. Create your survey'
                         />
                         <BulletPoint
                             active={imageIndex === 1}
                             onClick={() => setImageIndex(1)}
                             icon={icons.globe}
-                            text='Share a link/embed it and collect submissions'
+                            text='2. Share a link/embed it and collect submissions'
                         />
                         <BulletPoint
                             active={imageIndex === 2}
                             onClick={() => setImageIndex(2)}
                             icon={icons.chart}
-                            text='Analyze and export your results'
+                            text='3. Analyze and export your results'
                         />
                     </div>
                 </div>

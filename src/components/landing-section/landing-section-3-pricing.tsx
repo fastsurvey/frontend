@@ -15,7 +15,8 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
 const PricingText1 = () => (
     <>
         <div className='text-xl text-blue-100 uppercase'>
-            <strong>Pricing</strong> should be transparent ...
+            <strong>Pricing</strong> should be{' '}
+            <span className='whitespace-nowrap'>transparent ...</span>
         </div>
         <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
             <div className='mb-2'>
@@ -83,9 +84,26 @@ export default function LandingSection3Pricing() {
 
     return (
         <div
-            className='w-full h-[200vh] border-b-4 border-green-700 centering-col'
+            className='w-full lg:h-[200vh] border-b-4 border-green-700 centering-col'
             ref={ref}
         >
+            <div className={'gap-y-8 grid-cols-1 lg:hidden w-full px-6 py-16'}>
+                <div className='w-full max-w-lg mx-auto space-y-12 flex-col-left'>
+                    <div className='space-y-5 flex-col-left'>
+                        <PricingText1 />
+                    </div>
+                    <div className='space-y-5 flex-col-left'>
+                        <PricingText2 />
+                    </div>
+                    <div
+                        className={
+                            'w-full max-w-lg mx-auto overflow-hidden rounded-lg '
+                        }
+                    >
+                        <MonkeyGif />
+                    </div>
+                </div>
+            </div>
             <div
                 className={
                     'hidden lg:grid w-full px-8 ' +

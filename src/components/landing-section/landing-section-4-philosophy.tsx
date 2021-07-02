@@ -15,7 +15,8 @@ export default function LandingSection4Philosophy() {
             leftChild={
                 <div className='space-y-5 flex-col-left'>
                     <div className='text-xl text-blue-100 uppercase'>
-                        <strong>The Product</strong> should sell itself!
+                        <strong>The Product</strong> should{' '}
+                        <span className='whitespace-nowrap'>sell itself!</span>
                     </div>
                     <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
                         <div className='mb-2'>

@@ -39,7 +39,10 @@ export default function LandingSection1Intro() {
                                 Fastsurvey
                             </div>
                             <div className='text-lg tracking-wide text-gray-100 uppercase font-weight-400 '>
-                                The swiss army knife of data collection
+                                The swiss army knife of{' '}
+                                <span className='whitespace-nowrap'>
+                                    data collection
+                                </span>
                             </div>
                         </div>
                     </div>
