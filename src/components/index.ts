@@ -11,6 +11,7 @@ export {default as LandingSection1Intro} from './landing-section/landing-section
 export {default as LandingSection2Demo} from './landing-section/landing-section-2-demo';
 export {default as LandingSection3Pricing} from './landing-section/landing-section-3-pricing';
 export {default as LandingSection4Philosophy} from './landing-section/landing-section-4-philosophy';
+export {default as LandingSection5Sitemap} from './landing-section/landing-section-5-sitemap';
 
 export {default as LoadingText} from './loading-text/loading-text';
 export {default as Survey404Text} from './survey-404-text/survey-404-text';

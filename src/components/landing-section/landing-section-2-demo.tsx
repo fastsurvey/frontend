@@ -12,7 +12,7 @@ const BulletPoint = (props: {
     <button
         className={
             'w-full px-1 py-1.5 my-1 rounded ringable ' +
-            (props.active ? 'bg-gray-700 ' : ' ')
+            (props.active ? 'bg-gray-800 text-white ' : 'text-gray-300 ')
         }
         onClick={props.onClick}
     >
