@@ -17,7 +17,7 @@ const BulletPoint = (props: {
         onClick={props.onClick}
     >
         <div className='w-full space-x-3 flex-row-left'>
-            <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>
+            <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
                 {props.icon}
             </div>
             <div

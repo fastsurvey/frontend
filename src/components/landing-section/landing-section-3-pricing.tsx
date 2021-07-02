@@ -20,7 +20,8 @@ const PricingText1 = () => (
         </div>
         <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
             <div className='mb-2'>
-                As many surveys as you want - billing per survey:
+                As many surveys as you want -{' '}
+                <span className='whitespace-nowrap'>billing per survey:</span>
             </div>
             <BulletPoint
                 icon={icons.discount}

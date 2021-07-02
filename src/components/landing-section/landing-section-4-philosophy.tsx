@@ -5,7 +5,9 @@ import LandingPageSection from './section';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     <div className='w-full px-1 py-1.5 space-x-3 flex-row-left'>
-        <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>{props.icon}</div>
+        <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
+            {props.icon}
+        </div>
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
 );
