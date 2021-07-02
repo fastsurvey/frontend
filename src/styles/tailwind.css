@@ -48,6 +48,13 @@
     .font-weight-700 {
         font-weight: 700;
     }
+
+    .ringable {
+        @apply ring-[2.5px];
+        @apply ring-transparent;
+        @apply focus:outline-none;
+        @apply focus:ring-blue-200;
+    }
 }
 
 .centering-row {

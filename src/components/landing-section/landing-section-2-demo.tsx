@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Gif from '@assets/gifs/computer.webp';
 import {icons} from '@assets/icons/index';
 import LandingPageSection from './section';
@@ -10,6 +10,11 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     </div>
 );
 export default function LandingSection2Demo() {
+    const [imageIndex, setImageIndex] = useState<number>(0);
+
+    const chevronButtonStyle =
+        'absolute bottom-0 w-8 h-8 p-1 m-2 rounded icon-landing-bullet ringable';
+
     return (
         <LandingPageSection
             leftChild={
@@ -21,7 +26,7 @@ export default function LandingSection2Demo() {
                         <div>
                             We do not have a big marketing and sales team that
                             focuses on selling you something. Instead, we focus
-                            on:
+                            on: {imageIndex}
                         </div>
                         <BulletPoint
                             icon={icons.launch}
@@ -39,12 +44,30 @@ export default function LandingSection2Demo() {
                 </div>
             }
             rightChild={
-                <div className='w-full max-w-md mx-auto overflow-hidden rounded-lg'>
-                    <img
-                        src={Gif}
-                        className='w-full h-auto'
-                        alt='Monkey with a computer'
-                    />
+                <div className='relative w-full max-w-xl mx-auto overflow-hidden rounded-lg'>
+                    <div className='relative w-full h-0 pt-[calc((9/16)*100%)]'>
+                        <div className='absolute top-0 w-full h-full bg-gray-50' />
+                        <button
+                            className={chevronButtonStyle + ' right-10'}
+                            onClick={() => {
+                                setImageIndex(
+                                    imageIndex === 0 ? 2 : imageIndex - 1,
+                                );
+                            }}
+                        >
+                            {icons.chevronLeftCircle}
+                        </button>
+                        <button
+                            className={chevronButtonStyle + ' right-0'}
+                            onClick={() => {
+                                setImageIndex(
+                                    imageIndex === 2 ? 0 : imageIndex + 1,
+                                );
+                            }}
+                        >
+                            {icons.chevronRightCircle}
+                        </button>
+                    </div>
                 </div>
             }
         />

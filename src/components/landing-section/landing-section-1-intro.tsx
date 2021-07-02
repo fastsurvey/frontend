@@ -47,7 +47,7 @@ export default function LandingSection1Intro() {
                         <a
                             href='https://console.dev.fastsurvey.io/register'
                             target='_self'
-                            className='rounded focus:outline-none ring ring-transparent focus:ring-blue-300'
+                            className='rounded ringable'
                         >
                             <IconButton
                                 text='Sign up'
@@ -57,7 +57,7 @@ export default function LandingSection1Intro() {
                         <a
                             href='https://console.dev.fastsurvey.io/login'
                             target='_self'
-                            className='rounded focus:outline-none ring ring-transparent focus:ring-blue-300'
+                            className='rounded ringable'
                         >
                             <IconButton text='Log in' variant='dark-on-dark' />
                         </a>
