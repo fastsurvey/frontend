@@ -4,7 +4,7 @@ import {icons} from '@assets/icons/index';
 import LandingPageSection from './section';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
-    <div className='w-full flex-row-left gap-x-2'>
+    <div className='w-full px-1 py-1.5 space-x-3 flex-row-left'>
         <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>{props.icon}</div>
         <div className={'flex-max leading-6'}>{props.text}</div>
     </div>
@@ -17,23 +17,23 @@ export default function LandingSection4Philosophy() {
                     <div className='text-xl text-blue-100 uppercase'>
                         <strong>The Product</strong> should sell itself!
                     </div>
-                    <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-                        <div>
+                    <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
+                        <div className='mb-2'>
                             We do not have a big marketing and sales team that
                             focuses on selling you something. Instead, we focus
                             on:
                         </div>
                         <BulletPoint
                             icon={icons.launch}
-                            text='developing good software'
+                            text='Developing good software'
                         />
                         <BulletPoint
                             icon={icons.chat}
-                            text='providing concise documentation and support'
+                            text='Providing concise documentation and support'
                         />
                         <BulletPoint
                             icon={icons.light}
-                            text='improving FastSurvey upon your feedback'
+                            text='Improving FastSurvey upon your feedback'
                         />
                     </div>
                 </div>

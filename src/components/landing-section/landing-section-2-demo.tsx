@@ -3,11 +3,32 @@ import Gif from '@assets/gifs/computer.webp';
 import {icons} from '@assets/icons/index';
 import LandingPageSection from './section';
 
-const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
-    <div className='w-full flex-row-left gap-x-2'>
-        <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>{props.icon}</div>
-        <div className={'flex-max leading-6'}>{props.text}</div>
-    </div>
+const BulletPoint = (props: {
+    icon: React.ReactNode;
+    text: string;
+    active: boolean;
+    onClick(): void;
+}) => (
+    <button
+        className={
+            'w-full px-1 py-1.5 rounded ' +
+            (props.active ? 'bg-gray-700 ' : ' ')
+        }
+        onClick={props.onClick}
+    >
+        <div className='w-full space-x-3 flex-row-left'>
+            <div className={'w-6 h-6 p-0.5 icon-landing-bullet'}>
+                {props.icon}
+            </div>
+            <div
+                className={
+                    'flex-max leading-6 text-left font-weight-600 pr-1.5'
+                }
+            >
+                {props.text}
+            </div>
+        </div>
+    </button>
 );
 export default function LandingSection2Demo() {
     const [imageIndex, setImageIndex] = useState<number>(0);
@@ -20,25 +41,26 @@ export default function LandingSection2Demo() {
             leftChild={
                 <div className='space-y-5 flex-col-left'>
                     <div className='text-xl text-blue-100 uppercase'>
-                        <strong>The Product</strong> should sell itself!
+                        <strong>How</strong> does it work?
                     </div>
-                    <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-                        <div>
-                            We do not have a big marketing and sales team that
-                            focuses on selling you something. Instead, we focus
-                            on: {imageIndex}
-                        </div>
+                    <div className='space-y-1 text-base text-gray-100 flex-col-left'>
                         <BulletPoint
-                            icon={icons.launch}
-                            text='developing good software'
+                            active={imageIndex === 0}
+                            onClick={() => setImageIndex(0)}
+                            icon={icons.widgetAdd}
+                            text='Create your survey'
                         />
                         <BulletPoint
-                            icon={icons.chat}
-                            text='providing concise documentation and support'
+                            active={imageIndex === 1}
+                            onClick={() => setImageIndex(1)}
+                            icon={icons.globe}
+                            text='Share a link/embed it and collect submissions'
                         />
                         <BulletPoint
-                            icon={icons.light}
-                            text='improving FastSurvey upon your feedback'
+                            active={imageIndex === 2}
+                            onClick={() => setImageIndex(2)}
+                            icon={icons.chart}
+                            text='Analyze and export your results'
                         />
                     </div>
                 </div>
@@ -46,7 +68,7 @@ export default function LandingSection2Demo() {
             rightChild={
                 <div className='relative w-full max-w-xl mx-auto overflow-hidden rounded-lg'>
                     <div className='relative w-full h-0 pt-[calc((9/16)*100%)]'>
-                        <div className='absolute top-0 w-full h-full bg-gray-50' />
+                        <div className='absolute top-0 w-full h-full bg-gray-600' />
                         <button
                             className={chevronButtonStyle + ' right-10'}
                             onClick={() => {

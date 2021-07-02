@@ -4,7 +4,7 @@ import {icons} from '@assets/icons';
 import useEvent from '../../utilities/event-utils/use-event';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
-    <div className='w-full flex-row-left gap-x-2'>
+    <div className='w-full px-1 py-1.5 flex-row-left space-x-3'>
         <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
             {props.icon}
         </div>
@@ -17,8 +17,10 @@ const PricingText1 = () => (
         <div className='text-xl text-blue-100 uppercase'>
             <strong>Pricing</strong> should be transparent ...
         </div>
-        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
-            <div>As many surveys as you want - billing per survey:</div>
+        <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
+            <div className='mb-2'>
+                As many surveys as you want - billing per survey:
+            </div>
             <BulletPoint
                 icon={icons.discount}
                 text='The first 100 submissions of any survey are free'
@@ -34,7 +36,7 @@ const PricingText1 = () => (
 const PricingText2 = () => (
     <>
         <div className='text-xl text-blue-100 uppercase'>... and fair!</div>
-        <div className='space-y-3 text-base text-gray-100 flex-col-left'>
+        <div className='space-y-1 text-base text-gray-100 flex-col-left'>
             <BulletPoint
                 icon={icons.package}
                 text='All features are included in any survey (paid or free)'
@@ -81,7 +83,7 @@ export default function LandingSection3Pricing() {
 
     return (
         <div
-            className='w-full h-[200vh] border-b-4 border-blue-200 border-opacity-60 centering-col'
+            className='w-full h-[200vh] border-b-4 border-green-700 centering-col'
             ref={ref}
         >
             <div
