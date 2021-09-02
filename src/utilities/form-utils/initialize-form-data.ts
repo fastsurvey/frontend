@@ -7,13 +7,10 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
         let fieldData: object | string | boolean | undefined;
         switch (field.type) {
             case 'radio':
+                fieldData = '';
+                break;
             case 'selection':
-                fieldData = {};
-                field.fields.forEach((option, innerIndex) => {
-                    Object.assign(fieldData, {
-                        [innerIndex.toString()]: false,
-                    });
-                });
+                fieldData = [];
                 break;
             case 'email':
             case 'text':

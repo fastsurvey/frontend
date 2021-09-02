@@ -10,7 +10,7 @@ export function initializeFormValidation(
         let fieldValidation: boolean | undefined;
         switch (field.type) {
             case 'radio':
-                fieldValidation = true;
+                fieldValidation = false;
                 break;
             case 'selection':
                 fieldValidation = field.min_select === 0;

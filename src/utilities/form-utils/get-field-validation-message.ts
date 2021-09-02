@@ -29,7 +29,7 @@ export function getFieldValidationMessage(
             }
 
         case 'radio':
-            if (filter(fieldData).length !== 1) {
+            if (fieldData === '') {
                 return 'Please choose one';
             } else {
                 return 'Valid';

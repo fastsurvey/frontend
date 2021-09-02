@@ -1,6 +1,7 @@
 import React from 'react';
 import {types} from '@types';
-import {filter} from 'lodash';
+import {without} from 'lodash';
+import {icons} from '../../../assets/icons/index';
 
 function SelectionForm(props: {
     fieldConfig: types.SelectionField;
@@ -12,18 +13,21 @@ function SelectionForm(props: {
 }) {
     const {fieldConfig, fieldIndex, fieldData} = props;
 
-    const toggle = (optionIndex: number) => () => {
-        let newFieldData: any = {
-            ...fieldData,
-            [optionIndex + 1]: !fieldData[optionIndex + 1],
-        };
+    const toggle = (fieldOption: string) => () => {
+        let newFieldData: any = fieldData;
 
-        const newSelectionCount: number = filter(newFieldData).length;
+        if (fieldData.includes(fieldOption)) {
+            newFieldData = newFieldData.filter(
+                (f: string) => f !== fieldOption,
+            );
+        } else {
+            newFieldData.push(fieldOption);
+        }
 
         props.modifyFieldData(newFieldData);
         props.modifyFieldValidation(
-            newSelectionCount >= fieldConfig.min_select &&
-                newSelectionCount <= fieldConfig.max_select,
+            newFieldData.length >= fieldConfig.min_select &&
+                newFieldData.length <= fieldConfig.max_select,
         );
     };
 
@@ -33,34 +37,39 @@ function SelectionForm(props: {
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.length > 0 && (
-                <div className='w-full mb-4 text-base text-justify text-grey-500 font-weight-500'>
+                <div className='w-full mt-1 mb-2 text-sm text-justify text-gray-700 font-weight-500'>
                     {fieldConfig.description}
                 </div>
             )}
-            <div className='w-full mt-0 mb-3 text-base leading-tight text-left text-grey-400 font-weight-500'>
+            <div className='w-full mt-0 mb-3 text-sm leading-tight text-left text-gray-600 font-weight-500'>
                 Select between {fieldConfig.min_select} and{' '}
                 {fieldConfig.max_select} options.
             </div>
-            {fieldConfig.fields.map((fieldOption, optionIndex: number) => (
+            {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button
                     key={optionIndex}
-                    onClick={toggle(optionIndex)}
+                    onClick={toggle(fieldOption)}
                     className={
-                        'w-full mt-2 focus:outline-none focus:ring-blue-300 ' +
-                        'ring hover:bg-grey-100 bg-grey-050 rounded ' +
-                        (fieldData[optionIndex + 1]
-                            ? 'ring-grey-300 focus:bg-grey-100 text-grey-900 '
-                            : 'ring-transparent focus:ring-blue-300 text-grey-500 ')
+                        'w-full mt-2 ringable rounded ' +
+                        (fieldData.includes(fieldOption)
+                            ? 'bg-gray-100 text-gray-900 '
+                            : 'bg-gray-200 text-gray-500 ')
                     }
                 >
                     <div
                         className={
                             'w-full flex-row-left no-selection ' +
-                            'px-4 py-2 cursor-pointer ' +
-                            'font-weight-400 text-base '
+                            'pl-3 pr-2 py-2 cursor-pointer ' +
+                            'font-weight-600 text-sm '
                         }
                     >
-                        {fieldOption.title}
+                        {fieldOption}
+                        <div className='flex-grow' />
+                        {fieldData.includes(fieldOption) && (
+                            <div className='w-5 h-5 icon-blue'>
+                                {icons.check}
+                            </div>
+                        )}
                     </div>
                 </button>
             ))}
