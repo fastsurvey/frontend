@@ -24,14 +24,14 @@ function SurveyField(props: {
     const modifyFieldData = (index: number) => (newFieldData: any) => {
         props.modifyData({
             ...formData,
-            [index + 1]: newFieldData,
+            [index]: newFieldData,
         });
     };
 
     const modifyFieldValidation = (index: number) => (valid: boolean) => {
         props.modifyValidation({
             ...formValidation,
-            [index + 1]: valid,
+            [index]: valid,
         });
     };
 
@@ -60,7 +60,7 @@ function SurveyField(props: {
                 <Component
                     fieldIndex={fieldIndex}
                     fieldConfig={fieldConfig}
-                    fieldData={formData[fieldIndex + 1]}
+                    fieldData={formData[fieldIndex]}
                     modifyFieldData={modifyFieldData(fieldIndex)}
                     modifyFieldValidation={modifyFieldValidation(fieldIndex)}
                 />
@@ -69,7 +69,7 @@ function SurveyField(props: {
                 className={
                     'w-full px-3 text-justify flex-row-left space-x-2 ' +
                     'border-t-2 h-10 rounded-b bg-gray-50 border-gray-200 ' +
-                    (formValidation[fieldIndex + 1]
+                    (formValidation[fieldIndex]
                         ? 'text-green-900 '
                         : 'text-red-900 ')
                 }
@@ -77,17 +77,17 @@ function SurveyField(props: {
                 <div
                     className={
                         'flex-shrink-0 w-5 h-5 ' +
-                        (formValidation[fieldIndex + 1]
+                        (formValidation[fieldIndex]
                             ? 'icon-dark-green '
                             : 'icon-dark-red ')
                     }
                 >
-                    {formValidation[fieldIndex + 1] ? icons.check : icons.error}
+                    {formValidation[fieldIndex] ? icons.check : icons.error}
                 </div>
                 <div className='text-sm text-left font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
-                        formData[fieldIndex + 1],
+                        formData[fieldIndex],
                     )}
                 </div>
             </div>

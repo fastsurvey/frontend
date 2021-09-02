@@ -11,7 +11,7 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
                 fieldData = {};
                 field.fields.forEach((option, innerIndex) => {
                     Object.assign(fieldData, {
-                        [(innerIndex + 1).toString()]: false,
+                        [innerIndex.toString()]: false,
                     });
                 });
                 break;
@@ -29,7 +29,7 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
 
         if (fieldData !== undefined) {
             Object.assign(formData, {
-                [(index + 1).toString()]: fieldData,
+                [index.toString()]: fieldData,
             });
         }
     });

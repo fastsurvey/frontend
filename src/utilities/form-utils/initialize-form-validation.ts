@@ -1,4 +1,5 @@
 import {types} from '@types';
+import {formUtils} from '@utilities';
 
 export function initializeFormValidation(
     config: types.SurveyConfig,
@@ -9,13 +10,14 @@ export function initializeFormValidation(
         let fieldValidation: boolean | undefined;
         switch (field.type) {
             case 'radio':
-                fieldValidation = false;
+                fieldValidation = true;
                 break;
             case 'selection':
                 fieldValidation = field.min_select === 0;
                 break;
             case 'email':
-                fieldValidation = false;
+                fieldValidation =
+                    formUtils.getFieldValidationMessage(field, '') === 'Valid';
                 break;
             case 'text':
                 fieldValidation = field.min_chars === 0;
@@ -30,7 +32,7 @@ export function initializeFormValidation(
 
         if (fieldValidation !== undefined) {
             Object.assign(formValidation, {
-                [(index + 1).toString()]: fieldValidation,
+                [index.toString()]: fieldValidation,
             });
         }
     });

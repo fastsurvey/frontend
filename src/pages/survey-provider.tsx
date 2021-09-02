@@ -23,6 +23,7 @@ function SurveyProvider(props: {
     modifyValidation(formData: types.FormValidation): void;
 }) {
     const {fetching, formConfig, formData, formValidation} = props;
+    console.log(formValidation);
 
     useEffect(() => {
         if (!fetching && formConfig && !formData && !formValidation) {

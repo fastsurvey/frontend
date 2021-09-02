@@ -14,6 +14,11 @@ export async function postSubmission(
         await axios.post(
             API_URL + `/users/${username}/surveys/${survey_name}/submissions`,
             JSON.stringify(formData),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            },
         );
 
         success();
