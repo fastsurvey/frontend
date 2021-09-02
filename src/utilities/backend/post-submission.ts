@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {types} from '@types';
 
-const API_URL = 'https://backend.dev.fastsurvey.io';
+const API_URL = 'https://api.dev.fastsurvey.de';
 
 export async function postSubmission(
     username: string,

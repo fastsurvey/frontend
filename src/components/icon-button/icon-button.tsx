@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function IconButton(props: {
     text: string;
@@ -6,8 +7,9 @@ export default function IconButton(props: {
     onClick?(): void;
     variant?: 'flat-light-blue' | 'light-on-dark' | 'dark-on-dark';
     disabled?: boolean;
+    to?: string;
 }) {
-    const {text, icon, onClick, variant, disabled} = props;
+    const {text, icon, onClick, variant, disabled, to} = props;
 
     let variantClasses: string;
     switch (variant) {
@@ -30,18 +32,34 @@ export default function IconButton(props: {
             break;
     }
 
-    return (
-        <button
-            className={
-                'p-0.5 rounded centering-row h-8 ' +
-                'no-selection ' +
-                variantClasses
-            }
-            onClick={onClick && !disabled ? onClick : () => {}}
-            disabled={disabled === true || !onClick}
-        >
-            {icon && <div className='p-1 -mr-1.5 w-7 h-7'>{icon}</div>}
-            <div className={'font-weight-600 px-2 text-sm'}>{text}</div>
-        </button>
-    );
+    if (to !== undefined) {
+        return (
+            <Link
+                to={to}
+                className={
+                    'p-0.5 rounded centering-row h-8 ' +
+                    'no-selection ' +
+                    variantClasses
+                }
+            >
+                {icon && <div className='p-1 -mr-1.5 w-7 h-7'>{icon}</div>}
+                <div className={'font-weight-600 px-2 text-sm'}>{text}</div>
+            </Link>
+        );
+    } else {
+        return (
+            <button
+                className={
+                    'p-0.5 rounded centering-row h-8 ' +
+                    'no-selection ' +
+                    variantClasses
+                }
+                onClick={onClick && !disabled ? onClick : () => {}}
+                disabled={disabled === true || !onClick}
+            >
+                {icon && <div className='p-1 -mr-1.5 w-7 h-7'>{icon}</div>}
+                <div className={'font-weight-600 px-2 text-sm'}>{text}</div>
+            </button>
+        );
+    }
 }

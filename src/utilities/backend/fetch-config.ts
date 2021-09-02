@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {types} from '@types';
 
-const API_URL: string = 'https://backend.dev.fastsurvey.io';
+const API_URL: string = 'https://api.dev.fastsurvey.de';
 
 export async function fetchConfig(
     username: string,
