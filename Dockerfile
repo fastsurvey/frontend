@@ -6,7 +6,7 @@ COPY yarn.lock yarn.lock
 RUN yarn install --production=true
 
 COPY server.js server.js
-COPY build build
+COPY dist dist
 
 EXPOSE 8080
 CMD [ "node", "server.js" ]
