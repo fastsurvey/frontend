@@ -11,15 +11,15 @@ const faqs = [
     },
     {
         question: 'Will prices be increased in the future?',
-        answer: 'Definitely not! We will never limit an existing feature to any premium plan. If we change anything about the prices we will only decrease them either for everyone, or for survey/accounts with a many submissions.',
+        answer: 'Definitely not! We will never limit an existing feature to any premium plan. If we change anything about the prices we will only decrease them either for everyone, or for surveys/accounts with a many submissions.',
     },
     {
         question: 'What features are planned in the future?',
-        answer: 'We have a lot of exciting stuff planned. In September/October 2021 we will realease a public roadmap, where you can see all of our ideas, comment on them and vote for your favorite.',
+        answer: 'We have a lot of exciting stuff planned. In September/October 2021 we will release a public roadmap, where you can see all of our ideas, comment on them and vote for your favorite.',
     },
     {
         question: 'Why is your free plan so generous?',
-        answer: 'In our opinion, it is not great behavior to make users pay for something before they had time to thouroughly test it. Limiting features to expensive plans or having a very tiny "trial"-version are exactly the things we want avoid.',
+        answer: 'In our opinion, it is not great behavior to make users pay for something before they had time to extensively test it. Limiting features to expensive plans or having a very tiny "trial"-version are exactly the things we strongly oppose.',
     },
 ];
 
@@ -46,7 +46,8 @@ export default function LandingSectionFAQ() {
                 </div>
                 <div className='-m-4 p-4 mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-[calc(100%+2rem)]'>
                     <h3 className='text-base leading-6 text-white font-weight-600'>
-                        Any further questions? Something is not working?
+                        Any further questions? Something is not working? Missing
+                        an important feature?
                     </h3>
                     <div className='mt-2 text-sm text-gray-200 font-weight-400'>
                         Please drop us a line under{' '}
@@ -58,8 +59,8 @@ export default function LandingSectionFAQ() {
                         >
                             info@fastsurvey.de
                         </a>
-                        . We will help you and possibly fix any bugs as soon as
-                        possible!
+                        . We will help you and possibly fix any bugs as quickly
+                        as we can!
                     </div>
                 </div>
             </div>

@@ -60,7 +60,7 @@ const LinkButton = (props: {
                     className={
                         'flex-row-center text-transparent group-hover:text-white ' +
                         'absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-25 ' +
-                        'group-hover:backdrop-filter group-hover:backdrop-blur-sm z-10 ' +
+                        'group-hover:backdrop-filter group-hover:backdrop-blur-[2.5px] z-10 ' +
                         'font-weight-600 text-white rounded-sm'
                     }
                 >
@@ -83,11 +83,8 @@ export default function LandingSectionLinks() {
                             <div className='text-3xl text-blue-100 font-weight-700 '>
                                 Fastsurvey
                             </div>
-                            <div className='text-lg tracking-wide text-gray-100 uppercase font-weight-400 '>
-                                The swiss army knife of{' '}
-                                <span className='whitespace-nowrap'>
-                                    data collection
-                                </span>
+                            <div className='text-lg tracking-wide text-gray-200 uppercase font-weight-400 '>
+                                Never assume anymore
                             </div>
                         </div>
                     </div>
