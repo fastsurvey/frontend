@@ -25,12 +25,12 @@ const faqs = [
 
 export default function LandingSectionFAQ() {
     return (
-        <div className='py-16 bg-gray-900 border-b-[2px] last:border-b-0 border-gray-700 w-full'>
+        <div className='px-4 py-8 md:px-8 md:py-16 bg-gray-900 border-b-[2px] last:border-b-0 border-gray-700 w-full'>
             <div className='mx-auto lg:max-w-[66rem] xl:max-w-[67rem] flex-col-center'>
                 <h2 className='text-xl text-blue-100 uppercase'>
                     Frequently asked <strong>questions</strong>
                 </h2>
-                <div className='mt-12'>
+                <div className='mt-6 md:mt-12'>
                     <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3'>
                         {faqs.map((faq, index) => (
                             <div key={index}>
@@ -44,7 +44,7 @@ export default function LandingSectionFAQ() {
                         ))}
                     </dl>
                 </div>
-                <div className='-m-4 p-4 mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-[calc(100%+2rem)]'>
+                <div className='p-4 md:-m-4 md:p-4 !mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-full md:w-[calc(100%+2rem)]'>
                     <h3 className='text-base leading-6 text-white font-weight-600'>
                         Any further questions? Something is not working? Missing
                         an important feature?
