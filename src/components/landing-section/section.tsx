@@ -5,7 +5,7 @@ export default function LandingPageSection(props: {
     rightChild: React.ReactChild;
 }) {
     return (
-        <div className='w-full border-b-4 last:border-b-0 border-gray-700 lg:min-h-[60vh] centering-col'>
+        <div className='w-full border-b-[2px] last:border-b-0 border-gray-700 lg:min-h-[60vh] centering-col'>
             <div
                 className={
                     'grid w-full px-8 py-16 ' +
