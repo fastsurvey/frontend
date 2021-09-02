@@ -55,6 +55,15 @@
         @apply focus:outline-none;
         @apply focus:ring-blue-200;
     }
+
+    .ringable-light {
+        @apply ring-[2.5px];
+        @apply ring-transparent;
+        @apply focus:outline-none;
+        @apply group-focus:outline-none;
+        @apply focus:ring-blue-100;
+        @apply group-focus:ring-blue-100;
+    }
 }
 
 .centering-row {
@@ -157,6 +166,14 @@
 
 .icon-blue .secondary {
     @apply fill-blue-900;
+}
+
+.icon-light-blue .primary {
+    @apply fill-blue-100;
+}
+
+.icon-light-blue .secondary {
+    @apply fill-blue-500;
 }
 
 .icon-landing-bullet .primary {

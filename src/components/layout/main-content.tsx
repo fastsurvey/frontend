@@ -14,9 +14,7 @@ function MainContent(props: {children: React.ReactNode}) {
                 <div className='absolute top-0 left-0 h-12 m-4 lg:h-16'>
                     <Link
                         to={logoURL}
-                        className={
-                            'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded centering-row'
-                        }
+                        className={'ringable rounded centering-row'}
                     >
                         <img
                             src={RocketLogo}
@@ -29,7 +27,7 @@ function MainContent(props: {children: React.ReactNode}) {
                     </Link>
                 </div>
             </header>
-            <main className='w-screen min-h-screen px-2 pt-24 pb-20 xl:pb-32 xl:pt-16 bg-grey-100 centering-col'>
+            <main className='w-screen min-h-screen px-2 pt-24 pb-20 bg-gray-100 xl:pb-32 xl:pt-16 centering-col'>
                 {props.children}
             </main>
         </React.Fragment>
