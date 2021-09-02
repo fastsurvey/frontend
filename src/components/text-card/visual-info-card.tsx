@@ -38,9 +38,7 @@ function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
                 'rounded shadow bg-gray-50 text-grey-600'
             }
         >
-            <div className='flex-shrink-0 w-5 h-5 icon-light-blue'>
-                {icons.info}
-            </div>
+            <div className='flex-shrink-0 w-5 h-5 icon-blue'>{icons.info}</div>
             <div className='text-sm font-weight-500'>{content}</div>
         </div>
     );

@@ -12,7 +12,9 @@ function SurveySuccessPage(props: {
 
     const config: types.SurveyConfig = props.formConfig;
 
-    if (config.authentication === 'email') {
+    if (
+        config.fields.filter((f) => f.type === 'email' && f.verify).length > 0
+    ) {
         return (
             <div className='w-full max-w-xl space-y-4'>
                 <VisualTextCard title={'Success!'}>

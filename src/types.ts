@@ -7,7 +7,6 @@ export declare namespace types {
         survey_name: string;
         start: number;
         end: number;
-        authentication: 'email' | 'open';
         draft: boolean;
         limit: number;
         title: string;
@@ -33,6 +32,7 @@ export declare namespace types {
         type: 'email';
         regex: string;
         hint: string;
+        verify: boolean;
     }
 
     export interface OptionField extends GeneralSurveyField {

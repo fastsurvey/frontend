@@ -31,7 +31,9 @@ function SurveyFormPage(props: {
         const success = () => {
             history.push(
                 pathUtils.getRootPath(window.location.pathname) +
-                    (formConfig.authentication === 'email'
+                    (formConfig.fields.filter(
+                        (f) => f.type === 'email' && f.verify,
+                    ).length > 0
                         ? '/verify'
                         : '/success'),
             );

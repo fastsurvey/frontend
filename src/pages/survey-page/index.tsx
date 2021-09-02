@@ -33,9 +33,8 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                 title={config.title}
                 text={config.description}
             />
-            {config.authentication !== 'open' && (
-                <VisualInfoCard variant='email-auth' />
-            )}
+            {config.fields.filter((f) => f.type === 'email' && f.verify)
+                .length > 0 && <VisualInfoCard variant='email-auth' />}
             <div className='flex-row-top'>
                 <TimePill config={config} />
                 <div className='flex-max' />
