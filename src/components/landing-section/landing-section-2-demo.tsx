@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Gif from '@assets/gifs/computer.webp';
 import {icons} from '@assets/icons/index';
 import LandingPageSection from './section';
 
@@ -11,12 +10,12 @@ const BulletPoint = (props: {
 }) => (
     <button
         className={
-            'w-full px-1 py-1.5 my-1 rounded ringable ' +
+            'w-full my-1 rounded ringable ' +
             (props.active ? 'bg-gray-800 text-white ' : 'text-gray-300 ')
         }
         onClick={props.onClick}
     >
-        <div className='w-full space-x-3 flex-row-left'>
+        <div className='w-full space-x-3 px-1 py-1.5 flex-row-left'>
             <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
                 {props.icon}
             </div>

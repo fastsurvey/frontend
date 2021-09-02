@@ -1,7 +1,7 @@
-import React, {MouseEvent, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Gif from '@assets/gifs/money.webp';
 import {icons} from '@assets/icons';
-import useEvent from '../../utilities/event-utils/use-event';
+import useEvent from '@utilities/event-utils/use-event';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
     <div className='w-full px-1 py-1.5 flex-row-left space-x-3'>
@@ -18,7 +18,7 @@ const PricingText1 = () => (
             <strong>Pricing</strong> should be{' '}
             <span className='whitespace-nowrap'>transparent ...</span>
         </div>
-        <div className='space-y-1 text-base text-gray-200 font-weight-500 flex-col-left'>
+        <div className='space-y-1 text-base text-gray-300 font-weight-500 flex-col-left'>
             <div className='mb-2'>
                 As many surveys as you want -{' '}
                 <span className='whitespace-nowrap'>billing per survey:</span>
@@ -38,7 +38,7 @@ const PricingText1 = () => (
 const PricingText2 = () => (
     <>
         <div className='text-xl text-blue-100 uppercase'>... and fair!</div>
-        <div className='space-y-1 text-base text-gray-100 flex-col-left'>
+        <div className='space-y-1 text-base text-gray-300 font-weight-500 flex-col-left'>
             <BulletPoint
                 icon={icons.package}
                 text='All features are included in any survey (paid or free)'
@@ -69,7 +69,7 @@ export default function LandingSection3Pricing() {
         'above' | 'within' | 'below'
     >('above');
 
-    function handleScroll(e: Event) {
+    function handleScroll() {
         if (ref.current) {
             const {y, height} = ref.current.getBoundingClientRect();
             if (y > 0) {
