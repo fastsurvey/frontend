@@ -279,4 +279,13 @@ export const icons = {
             />
         </SVG>
     ),
+    time: (
+        <SVG>
+            <circle cx='12' cy='12' r='10' className='primary' />
+            <path
+                className='secondary'
+                d='M13 11.59l3.2 3.2a1 1 0 0 1-1.4 1.42l-3.5-3.5A1 1 0 0 1 11 12V7a1 1 0 0 1 2 0v4.59z'
+            />
+        </SVG>
+    ),
 };

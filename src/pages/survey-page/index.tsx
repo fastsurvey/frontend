@@ -8,6 +8,7 @@ import {
     VisualInfoCard,
     TimePill,
     Button,
+    IconButton,
 } from '@components';
 import {pathUtils} from '@utilities';
 
@@ -35,31 +36,19 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
             {config.authentication !== 'open' && (
                 <VisualInfoCard variant='email-auth' />
             )}
-            <div className='centering-row'>
+            <div className='flex-row-top'>
                 <TimePill config={config} />
                 <div className='flex-max' />
                 {isOpen && (
-                    <Link
+                    <IconButton
+                        text='Start'
                         to={
                             pathUtils.getRootPath(window.location.pathname) +
                             '/form'
                         }
-                        className={
-                            'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
-                        }
-                    >
-                        <Button text='Start' />
-                    </Link>
+                    />
                 )}
-                {!isOpen && (
-                    <button
-                        className={
-                            'focus:outline-none ring ring-transparent focus:ring-grey-300 rounded'
-                        }
-                    >
-                        <Button text='Start' notAllowed />
-                    </button>
-                )}
+                {!isOpen && <IconButton text='Start' disabled />}
             </div>
         </div>
     );

@@ -108,11 +108,25 @@
     @apply justify-center;
 }
 
+.flex-row-bottom {
+    @apply flex;
+    @apply flex-row;
+    @apply items-end;
+    @apply justify-center;
+}
+
 .flex-row-left {
     @apply flex;
     @apply flex-row;
     @apply items-center;
     @apply justify-start;
+}
+
+.flex-row-right {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-end;
 }
 
 .flex-max {
@@ -121,27 +135,43 @@
 }
 
 .icon-gray .primary {
-    fill: #bcccdc; /* 200 */
+    @apply fill-gray-200;
 }
 
 .icon-gray .secondary {
-    fill: #627d98; /* 500 */
+    @apply fill-gray-500;
 }
 
 .icon-green .primary {
-    @apply fill-green-100;
+    @apply fill-green-200;
 }
 
 .icon-green .secondary {
     @apply fill-green-500;
 }
 
+.icon-dark-green .primary {
+    @apply fill-green-300;
+}
+
+.icon-dark-green .secondary {
+    @apply fill-green-600;
+}
+
 .icon-red .primary {
-    @apply fill-red-100;
+    @apply fill-red-200;
 }
 
 .icon-red .secondary {
-    @apply fill-red-400;
+    @apply fill-red-600;
+}
+
+.icon-yellow .secondary {
+    @apply fill-yellow-200;
+}
+
+.icon-yellow .primary {
+    @apply fill-yellow-600;
 }
 
 .icon-red-dark .primary {

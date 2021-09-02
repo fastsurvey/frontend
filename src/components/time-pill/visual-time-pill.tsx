@@ -1,4 +1,5 @@
 import React from 'react';
+import {icons} from '../../assets/icons/index';
 
 function VisualTimePill(props: {
     variant: 'pending' | 'running' | 'finished';
@@ -7,20 +8,22 @@ function VisualTimePill(props: {
     let colorClasses: string;
     switch (props.variant) {
         case 'pending':
-            colorClasses = 'bg-yellow-100 text-yellow-800 ';
+            colorClasses = 'bg-yellow-100 text-yellow-800 ring-yellow-200 ';
             break;
         case 'running':
-            colorClasses = 'bg-green-100 text-green-800 ';
+            colorClasses = 'bg-green-100 text-green-700 ring-green-200 ';
             break;
         case 'finished':
-            colorClasses = 'bg-grey-400 text-grey-900 ';
+        default:
+            colorClasses = 'bg-gray-200 text-gray-600 ring-gray-200 ';
             break;
     }
     return (
         <div
             className={
-                'rounded-full px-3 py-1 font-weight-500 text-sm shadow-md ' +
-                colorClasses
+                'rounded px-3 py-0.5 font-weight-600 text-sm shadow ' +
+                colorClasses +
+                ' flex-row-center'
             }
         >
             {props.phrase}
