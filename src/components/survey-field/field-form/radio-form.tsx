@@ -34,7 +34,7 @@ function RadioForm(props: {
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-grey-900 font-weight-700'>
+            <div className='w-full mb-1 text-lg text-left text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.length > 0 && (
