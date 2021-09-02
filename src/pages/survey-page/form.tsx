@@ -4,7 +4,7 @@ import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '@types';
 
-import {TimePill, Button, SurveyField} from '@components';
+import {TimePill, Button, SurveyField, IconButton} from '@components';
 import {pathUtils, backend, reduxUtils} from '@utilities';
 
 function SurveyFormPage(props: {
@@ -65,7 +65,7 @@ function SurveyFormPage(props: {
     };
 
     return (
-        <div className='w-full max-w-xl space-y-8'>
+        <div className='w-full max-w-xl space-y-4'>
             {formConfig.fields.map(
                 (fieldConfig: types.SurveyField, fieldIndex: number) => (
                     <div key={fieldIndex}>
@@ -79,17 +79,7 @@ function SurveyFormPage(props: {
             <div className='centering-row'>
                 <TimePill config={formConfig} />
                 <div className='flex-max' />
-                <button
-                    className={
-                        'focus:outline-none ring ring-transparent rounded ' +
-                        (submittable
-                            ? 'focus:ring-blue-300 '
-                            : 'focus:ring-grey-300 ')
-                    }
-                    onClick={onSubmit}
-                >
-                    <Button text='Submit' notAllowed={!submittable} />
-                </button>
+                <IconButton text='Submit' onClick={onSubmit} />
             </div>
         </div>
     );
