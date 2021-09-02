@@ -5,37 +5,55 @@ import {icons} from '@assets/icons';
 import {Link} from 'react-router-dom';
 import LandingPageSection from './section';
 
-const LinkButton = (props: {text: React.ReactChild; to: string}) => {
+const LinkButton = (props: {
+    text: React.ReactChild;
+    to: string;
+    exists?: boolean;
+}) => {
     const content = (
         <div className='w-full space-x-3 centering-row'>
-            <div className={' text-left text-gray-300 font-weight-500 pl-2'}>
+            <div className={' text-left font-weight-500 pl-2'}>
                 {props.text}
             </div>
             <div className='flex-max' />
-            <div className={'w-9 h-9 p-2 icon-landing-bullet flex-shrink-0'}>
+            <div
+                className={
+                    'w-9 h-9 p-2 icon-landing-bullet flex-shrink-0 ' +
+                    (props.exists ? '' : 'opacity-60')
+                }
+            >
                 {icons.chevronRightCircle}
             </div>
         </div>
     );
-    const linkCSS = 'w-full px-1 py-2 my-1 rounded ringable bg-gray-800';
+    let linkCSS =
+        'w-full px-1 py-2 my-1 rounded ringable bg-gray-800 hover:bg-gray-700 text-gray-100';
+    if (!props.exists) {
+        linkCSS =
+            'w-full px-1 py-2 my-1 rounded border-2 border-dashed border-gray-700 text-gray-400';
+    }
 
-    if (props.to.startsWith('https://')) {
-        return (
-            <a
-                href={props.to}
-                className={linkCSS}
-                target='_blank'
-                rel='noopener noreferrer'
-            >
-                {content}
-            </a>
-        );
+    if (props.exists) {
+        if (props.to.startsWith('https://')) {
+            return (
+                <a
+                    href={props.to}
+                    className={linkCSS}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    {content}
+                </a>
+            );
+        } else {
+            return (
+                <Link to={props.to} className={linkCSS}>
+                    {content}
+                </Link>
+            );
+        }
     } else {
-        return (
-            <Link to={props.to} className={linkCSS}>
-                {content}
-            </Link>
-        );
+        return <div className={linkCSS}>{content}</div>;
     }
 };
 export default function LandingSectionLinks() {
@@ -81,13 +99,37 @@ export default function LandingSectionLinks() {
                 </div>
             }
             rightChild={
-                <div className='text-base text-gray-100 gap-y-1 flex-col-left'>
+                <div className='text-base gap-y-1 flex-col-left'>
+                    <LinkButton
+                        to='https://docs.fastsurvey.io/'
+                        exists
+                        text={
+                            <>
+                                Troubleshooting: Read our{' '}
+                                <strong className='text-white'>
+                                    documentation
+                                </strong>
+                            </>
+                        }
+                    />
+                    <LinkButton
+                        to='https://github.com/fastsurvey'
+                        exists
+                        text={
+                            <>
+                                FastSurvey is fully open source on{' '}
+                                <strong className='text-white'>Github</strong>!
+                            </>
+                        }
+                    />
                     <LinkButton
                         to='/features'
                         text={
                             <>
                                 More about our{' '}
-                                <strong className='text-white'>features</strong>
+                                <strong className='text-gray-300'>
+                                    features
+                                </strong>
                                 : Field types, authentication methods, full API
                                 reference,{' '}
                                 <span className='whitespace-nowrap'>
@@ -101,31 +143,10 @@ export default function LandingSectionLinks() {
                         text={
                             <>
                                 Competitor-
-                                <strong className='text-white'>
+                                <strong className='text-gray-300'>
                                     comparison
                                 </strong>
                                 : Why FastSurvey?
-                            </>
-                        }
-                    />
-                    <LinkButton
-                        to='https://docs.fastsurvey.io/'
-                        text={
-                            <>
-                                Troubleshooting: Read our{' '}
-                                <strong className='text-white'>
-                                    documentation
-                                </strong>
-                            </>
-                        }
-                    />
-                    <LinkButton
-                        to='https://github.com/fastsurvey'
-                        text={
-                            <>
-                                FastSurvey under the hood: We are fully open
-                                source on{' '}
-                                <strong className='text-white'>Github</strong>!
                             </>
                         }
                     />

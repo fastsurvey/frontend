@@ -146,9 +146,9 @@
 }
 
 .icon-landing-bullet .primary {
-    @apply fill-gray-300;
+    @apply fill-gray-500;
 }
 
 .icon-landing-bullet .secondary {
-    @apply fill-green-700;
+    @apply fill-blue-100;
 }
