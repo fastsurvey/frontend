@@ -18,10 +18,11 @@ export default function IconButton(props: {
             break;
         case 'light-on-dark':
             variantClasses =
-                'bg-gray-200 hover:bg-gray-200 shadow text-gray-900 icon-blue';
+                'bg-gray-200 hover:bg-white shadow text-gray-800 hover:text-gray-900 icon-blue';
             break;
         case 'dark-on-dark':
-            variantClasses = 'hover:bg-gray-800 text-gray-200 icon-blue';
+            variantClasses =
+                'hover:bg-gray-700 text-gray-200 hover:text-white icon-blue';
             break;
         default:
             variantClasses =

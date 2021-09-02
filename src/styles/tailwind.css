@@ -64,6 +64,20 @@
     @apply justify-center;
 }
 
+.flex-col-center {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+}
+
+.flex-row-center {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-center;
+}
+
 .centering-col {
     @apply flex;
     @apply flex-col;

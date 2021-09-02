@@ -11,7 +11,7 @@ const BulletPoint = (props: {
     <button
         className={
             'w-full my-1 rounded ringable ' +
-            (props.active ? 'bg-gray-800 text-white ' : 'text-gray-300 ')
+            (props.active ? 'bg-gray-700 text-white ' : 'text-gray-300 ')
         }
         onClick={props.onClick}
     >
@@ -21,7 +21,7 @@ const BulletPoint = (props: {
             </div>
             <div
                 className={
-                    'flex-max leading-6 text-left font-weight-600 pr-1.5'
+                    'flex-max leading-6 text-left pr-1.5 font-weight-500 '
                 }
             >
                 {props.text}
@@ -38,7 +38,7 @@ export default function LandingSection2Demo() {
     return (
         <LandingPageSection
             leftChild={
-                <div className='space-y-5 flex-col-left'>
+                <div className='space-y-4 flex-col-left'>
                     <div className='text-xl text-blue-100 uppercase'>
                         <strong>How</strong> does it work?
                     </div>

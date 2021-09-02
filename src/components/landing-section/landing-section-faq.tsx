@@ -34,27 +34,27 @@ export default function LandingSectionFAQ() {
                     <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3'>
                         {faqs.map((faq, index) => (
                             <div key={index}>
-                                <dt className='text-lg font-medium leading-6 text-gray-100'>
+                                <dt className='text-base leading-6 text-white font-weight-600'>
                                     {faq.question}
                                 </dt>
-                                <dd className='mt-2 text-base text-gray-300'>
+                                <dd className='mt-2 text-sm text-gray-200 font-weight-400'>
                                     {faq.answer}
                                 </dd>
                             </div>
                         ))}
                     </dl>
                 </div>
-                <div className='-m-4 p-4 mt-12 border-[2px] border-dashed border-gray-700 rounded-lg'>
-                    <h3 className='text-lg font-medium leading-6 text-gray-100'>
+                <div className='-m-4 p-4 mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-[calc(100%+2rem)]'>
+                    <h3 className='text-base leading-6 text-white font-weight-600'>
                         Any further questions? Something is not working?
                     </h3>
-                    <div className='mt-2 text-base text-gray-300'>
+                    <div className='mt-2 text-sm text-gray-200 font-weight-400'>
                         Please drop us a line under{' '}
                         <a
                             href='mailto:info@fastsurvey.de'
                             target='blank'
                             rel='noopener noreferrer'
-                            className='text-blue-200 underline font-weight-600'
+                            className='text-blue-100 underline font-weight-600'
                         >
                             info@fastsurvey.de
                         </a>

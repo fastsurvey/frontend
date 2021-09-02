@@ -1,7 +1,6 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import Gif from '@assets/gifs/money.webp';
 import {icons} from '@assets/icons';
-import useEvent from '@utilities/event-utils/use-event';
 import LandingPageSection from './section';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
@@ -19,8 +18,8 @@ const PricingText = () => (
             <strong>Pricing</strong> should be{' '}
             <span className='whitespace-nowrap'>transparent and fair</span>
         </div>
-        <div className='mt-4 space-y-1 text-base text-gray-300 font-weight-400 flex-col-left'>
-            <div className='pb-2 text-gray-100 font-weight-600'>
+        <div className='mt-4 space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
+            <div className='pb-2 text-base text-white font-weight-600'>
                 As many surveys as you want -{' '}
                 <span className='whitespace-nowrap'>billing per survey:</span>
             </div>
@@ -32,7 +31,7 @@ const PricingText = () => (
                 icon={icons.currencyEuro}
                 text='4ct. per submission beyond the free tier'
             />
-            <div className='pt-8 pb-2 text-gray-100 font-weight-600'>
+            <div className='pt-8 pb-2 text-base text-white font-weight-600'>
                 No hidden fees or dark patterns:
             </div>
             <BulletPoint

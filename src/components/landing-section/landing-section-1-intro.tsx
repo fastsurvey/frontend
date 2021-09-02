@@ -35,10 +35,10 @@ export default function LandingSection1Intro() {
                             <img src={RocketLogoLight} alt='FastSurvey Logo' />
                         </div>
                         <div className='flex-col-left gap-y-1'>
-                            <div className='text-3xl text-blue-100 font-weight-700 '>
+                            <div className='text-3xl text-blue-100 font-weight-600 '>
                                 Fastsurvey
                             </div>
-                            <div className='text-lg tracking-wide text-gray-100 uppercase font-weight-400 '>
+                            <div className='text-lg tracking-wide text-gray-200 uppercase font-weight-400 '>
                                 The swiss army knife of{' '}
                                 <span className='whitespace-nowrap'>
                                     data collection
