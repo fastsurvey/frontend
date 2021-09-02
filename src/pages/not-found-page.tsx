@@ -1,10 +1,10 @@
+import {IconButton} from '@components';
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
-import {IconButton} from '@components';
 import {icons} from '@assets/icons';
 import {useHistory} from 'react-router';
 
-function Survey404Text() {
+export default function NotFoundPage() {
     const history = useHistory();
     return (
         <>
@@ -14,7 +14,7 @@ function Survey404Text() {
                     'no-selection mb-3'
                 }
             >
-                404: Survey not found
+                404: Page not found
             </h1>
             <div className='w-full max-w-md mx-auto mb-5 overflow-hidden rounded-lg shadow-md'>
                 <img
@@ -33,5 +33,3 @@ function Survey404Text() {
         </>
     );
 }
-
-export default Survey404Text;

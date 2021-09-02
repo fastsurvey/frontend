@@ -11,6 +11,7 @@ import SurveyFormPage from '@pages/survey-page/form';
 import SurveyVerifyPage from '@pages/survey-page/verify';
 import SurveySuccessPage from '@pages/survey-page/success';
 import LandingPage from '@pages/landing-page/landing-page';
+import NotFoundPage from './pages/not-found-page';
 
 function PageRouter() {
     return (
@@ -70,7 +71,7 @@ function PageRouter() {
                     </Route>
                     <Route>
                         <MainContent>
-                            <div>404</div>
+                            <NotFoundPage />
                         </MainContent>
                     </Route>
                 </Switch>

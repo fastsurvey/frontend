@@ -28,7 +28,7 @@ export default function IconButton(props: {
             break;
         default:
             variantClasses =
-                'bg-white hover:bg-gray-100 shadow text-gray-900 icon-light-blue ringable';
+                'bg-white hover:bg-gray-100 shadow text-gray-900 icon-blue ringable';
             break;
     }
 
