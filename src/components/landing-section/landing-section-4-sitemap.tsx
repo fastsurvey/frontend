@@ -38,7 +38,7 @@ const LinkButton = (props: {text: React.ReactChild; to: string}) => {
         );
     }
 };
-export default function LandingSection5Sitemap() {
+export default function LandingSection4Sitemap() {
     return (
         <LandingPageSection
             leftChild={

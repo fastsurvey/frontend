@@ -3,8 +3,7 @@ import {
     LandingSection1Intro,
     LandingSection2Demo,
     LandingSection3Pricing,
-    LandingSection4Philosophy,
-    LandingSection5Sitemap,
+    LandingSection4Sitemap,
 } from '@components';
 
 function LandingPage() {
@@ -13,8 +12,7 @@ function LandingPage() {
             <LandingSection1Intro />
             <LandingSection2Demo />
             <LandingSection3Pricing />
-            <LandingSection4Philosophy />
-            <LandingSection5Sitemap />
+            <LandingSection4Sitemap />
         </div>
     );
 }

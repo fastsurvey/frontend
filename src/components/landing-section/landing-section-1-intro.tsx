@@ -11,7 +11,7 @@ const ColoredText = (props: {
     <div className='relative inline-block'>
         <div
             className={
-                'relative z-10 block font-weight-700 ' +
+                'relative z-10 block font-weight-700 text-gray-200 ' +
                 (props.pr ? 'pr-1.5 ' : '')
             }
         >
