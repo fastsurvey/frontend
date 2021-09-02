@@ -134,76 +134,36 @@
     @apply flex-grow;
 }
 
-.icon-gray .primary {
-    @apply fill-gray-200;
-}
-
-.icon-gray .secondary {
-    @apply fill-gray-500;
-}
-
 .icon-green .primary {
-    @apply fill-green-200;
+    @apply fill-green-100;
 }
 
 .icon-green .secondary {
     @apply fill-green-500;
 }
 
-.icon-dark-green .primary {
-    @apply fill-green-300;
-}
-
-.icon-dark-green .secondary {
-    @apply fill-green-600;
-}
-
 .icon-red .primary {
-    @apply fill-red-200;
+    @apply fill-red-100;
 }
 
 .icon-red .secondary {
-    @apply fill-red-600;
-}
-
-.icon-yellow .secondary {
-    @apply fill-yellow-200;
-}
-
-.icon-yellow .primary {
-    @apply fill-yellow-600;
-}
-
-.icon-red-dark .primary {
     @apply fill-red-400;
 }
 
-.icon-red-dark .secondary {
-    @apply fill-red-50;
+.icon-dark-green .primary {
+    @apply fill-green-400;
 }
 
-.icon-green-dark .primary {
-    @apply fill-green-500;
+.icon-dark-green .secondary {
+    @apply fill-green-800;
 }
 
-.icon-green-dark .secondary {
-    @apply fill-green-50;
+.icon-dark-red .primary {
+    @apply fill-red-300;
 }
 
-.icon-blue .primary {
-    @apply fill-blue-300;
-}
-
-.icon-blue .secondary {
-    @apply fill-blue-900;
-}
-
-.icon-light-blue .primary {
-    @apply fill-blue-100;
-}
-
-.icon-light-blue .secondary {
-    @apply fill-blue-500;
+.icon-dark-red .secondary {
+    @apply fill-red-800;
 }
 
 .icon-landing-bullet .primary {

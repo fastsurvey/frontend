@@ -67,24 +67,24 @@ function SurveyField(props: {
             </div>
             <div
                 className={
-                    'w-full p-3 pr-6 text-justify flex-row-top space-x-2 ' +
-                    'border-t-[3px] ' +
+                    'w-full px-3 text-justify flex-row-left space-x-2 ' +
+                    'border-t-2 h-10 rounded-b bg-gray-50 border-gray-200 ' +
                     (formValidation[fieldIndex + 1]
-                        ? 'text-green-500 bg-green-050 border-green-100 '
-                        : 'text-red-400 bg-red-050 border-red-100 ')
+                        ? 'text-green-900 '
+                        : 'text-red-900 ')
                 }
             >
                 <div
                     className={
-                        'flex-shrink-0 w-6 h-6 ' +
+                        'flex-shrink-0 w-5 h-5 ' +
                         (formValidation[fieldIndex + 1]
-                            ? 'icon-green '
-                            : 'icon-red ')
+                            ? 'icon-dark-green '
+                            : 'icon-dark-red ')
                     }
                 >
                     {formValidation[fieldIndex + 1] ? icons.check : icons.error}
                 </div>
-                <div className='text-base text-left flex-max font-weight-500'>
+                <div className='text-sm text-left font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
                         formData[fieldIndex + 1],
