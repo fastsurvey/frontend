@@ -8,7 +8,7 @@ export async function postSubmission(
     survey_name: string,
     formData: types.FormData,
     success: () => void,
-    error: () => void,
+    error: (type?: 'regex') => void,
 ) {
     try {
         await axios.post(
@@ -22,8 +22,17 @@ export async function postSubmission(
         );
 
         success();
-    } catch {
+    } catch (e: any) {
         // 400 - Survey is closed
-        error();
+        try {
+            JSON.stringify(e.response.data.detail);
+            if (JSON.stringify(e.response.data.detail).includes('regex')) {
+                error('regex');
+            } else {
+                error();
+            }
+        } catch {
+            error();
+        }
     }
 }

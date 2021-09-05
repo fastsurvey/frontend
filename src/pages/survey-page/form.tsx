@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
@@ -15,6 +15,7 @@ function SurveyFormPage(props: {
 }) {
     const {formConfig, formData, formValidation} = props;
     const history = useHistory();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -28,7 +29,10 @@ function SurveyFormPage(props: {
         filter(props.formValidation, (x: boolean) => !x).length === 0;
 
     const onSubmit = () => {
+        setIsSubmitting(true);
+
         const success = () => {
+            setIsSubmitting(false);
             history.push(
                 pathUtils.getRootPath(window.location.pathname) +
                     (formConfig.fields.filter(
@@ -39,12 +43,20 @@ function SurveyFormPage(props: {
             );
         };
 
-        const error = () => {
+        const error = (type?: 'regex') => {
             // TODO: Think about error scenarios
-            props.openMessage({
-                text: 'Backend error',
-                variant: 'error',
-            });
+            if (type === 'regex') {
+                props.openMessage({
+                    text: 'Email format invalid',
+                    variant: 'error',
+                });
+            } else {
+                props.openMessage({
+                    text: 'Backend error',
+                    variant: 'error',
+                });
+            }
+            setIsSubmitting(false);
         };
 
         if (submittable) {
@@ -81,7 +93,11 @@ function SurveyFormPage(props: {
             <div className='centering-row'>
                 <TimePill config={formConfig} />
                 <div className='flex-max' />
-                <Button text='Submit' onClick={onSubmit} />
+                <Button
+                    text='Submit'
+                    onClick={onSubmit}
+                    loading={isSubmitting}
+                />
             </div>
         </div>
     );

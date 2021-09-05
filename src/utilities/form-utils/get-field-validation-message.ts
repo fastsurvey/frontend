@@ -7,18 +7,19 @@ export function getFieldValidationMessage(
 ): string {
     switch (fieldConfig.type) {
         case 'email':
-            const valid: boolean = new RegExp(
-                '^' + fieldConfig.regex + '$',
-            ).test(fieldData);
-            if (valid) {
-                return 'Valid';
-            } else {
+            // const valid1 = new RegExp('(?=^.+@.+$)(?=.*)').test(fieldData);
+            const valid2 = new RegExp('^' + fieldConfig.regex + '$').test(
+                fieldData,
+            );
+            if (!valid2) {
                 return (
                     'Does not match the desired format.' +
                     (fieldConfig.hint.length > 0
                         ? ` Hint: ${fieldConfig.hint}`
                         : '')
                 );
+            } else {
+                return 'Valid';
             }
 
         case 'option':
