@@ -4,7 +4,7 @@ import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '@types';
 
-import {TimePill, Button, SurveyField, IconButton} from '@components';
+import {TimePill, SurveyField, IconButton} from '@components';
 import {pathUtils, backend, reduxUtils} from '@utilities';
 
 function SurveyFormPage(props: {

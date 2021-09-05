@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {types} from '@types';
 
@@ -7,7 +6,6 @@ import {
     VisualUserTextCard,
     VisualInfoCard,
     TimePill,
-    Button,
     IconButton,
 } from '@components';
 import {pathUtils} from '@utilities';
