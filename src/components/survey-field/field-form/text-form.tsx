@@ -23,11 +23,11 @@ function TextForm(props: {
 
     return (
         <>
-            <div className='w-full mb-1 text-lg text-left text-gray-700 font-weight-700'>
+            <div className='w-full mb-0.5 text-lg text-left text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            {fieldConfig.description.length > 0 && (
-                <div className='w-full mt-1 mb-2 text-sm text-justify text-gray-700 font-weight-500'>
+            {fieldConfig.description.replace(' ', '').length > 0 && (
+                <div className='w-full mt-0.5 mb-2 text-sm leading-tight text-justify text-gray-700 font-weight-500'>
                     {fieldConfig.description}
                 </div>
             )}

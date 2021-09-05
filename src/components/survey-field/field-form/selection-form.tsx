@@ -33,17 +33,17 @@ function SelectionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-1 text-lg text-left text-gray-700 font-weight-700'>
+            <div className='w-full mb-0.5 text-lg text-left text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            {fieldConfig.description.length > 0 && (
-                <div className='w-full mt-1 mb-2 text-sm text-justify text-gray-700 font-weight-500'>
+            {fieldConfig.description.replace(' ', '').length > 0 && (
+                <div className='w-full mt-0.5 mb-2 text-sm leading-tight text-justify text-gray-700 font-weight-500'>
                     {fieldConfig.description}
                 </div>
             )}
-            <div className='w-full mt-0 mb-3 text-sm leading-tight text-left text-gray-600 font-weight-500'>
+            <div className='w-full mt-2 text-sm leading-tight text-left text-blue-800 font-weight-600'>
                 Select between {fieldConfig.min_select} and{' '}
-                {fieldConfig.max_select} options.
+                {fieldConfig.max_select} options
             </div>
             {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button

@@ -28,14 +28,17 @@ function RadioForm(props: {
 
     return (
         <>
-            <div className='w-full mb-1 text-lg text-left text-gray-700 font-weight-700'>
+            <div className='w-full mb-0.5 text-lg text-left text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            {fieldConfig.description.length > 0 && (
-                <div className='w-full mb-4 text-base text-left text-grey-500 font-weight-500'>
+            {fieldConfig.description.replace(' ', '').length > 0 && (
+                <div className='w-full mt-0.5 mb-2 text-sm leading-tight text-justify text-gray-700 font-weight-500'>
                     {fieldConfig.description}
                 </div>
             )}
+            <div className='w-full mt-2 text-sm leading-tight text-left text-blue-800 font-weight-600'>
+                Select 1 option
+            </div>
             {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button
                     key={optionIndex}

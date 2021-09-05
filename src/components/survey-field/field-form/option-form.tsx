@@ -32,8 +32,10 @@ function OptionForm(props: {
                 <div className={'flex-shrink-0 w-8 h-8 p-1 cursor-pointer'}>
                     {fieldData ? icons.checkboxFilled : icons.checkboxEmpty}
                 </div>
-                <div className='w-full text-sm leading-tight text-justify text-gray-900 markdown font-weight-600 flex-row-left'>
-                    {fieldConfig.description}
+                <div className='w-full text-sm leading-tight text-justify text-gray-900 markdown font-weight-500 flex-row-left'>
+                    {fieldConfig.description.replace(' ', '').length === 0
+                        ? 'Yes'
+                        : fieldConfig.description}
                 </div>
             </button>
         </>
