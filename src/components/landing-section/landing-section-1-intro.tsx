@@ -1,6 +1,6 @@
 import React from 'react';
 import RocketLogoLight from '@assets/branding/rocket-light.svg';
-import {IconButton} from '@components';
+import {Button} from '@components';
 import LandingPageSection from './section';
 
 const ColoredText = (props: {
@@ -49,17 +49,14 @@ export default function LandingSection1Intro() {
                             target='_self'
                             className='rounded ringable'
                         >
-                            <IconButton
-                                text='Sign up'
-                                variant='light-on-dark'
-                            />
+                            <Button text='Sign up' variant='light-on-dark' />
                         </a>
                         <a
                             href='https://console.dev.fastsurvey.io/login'
                             target='_self'
                             className='rounded ringable'
                         >
-                            <IconButton text='Log in' variant='dark-on-dark' />
+                            <Button text='Log in' variant='dark-on-dark' />
                         </a>
                     </div>
                 </div>

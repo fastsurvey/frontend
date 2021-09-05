@@ -1,6 +1,6 @@
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
-import {IconButton} from '@components';
+import {Button} from '@components';
 import {icons} from '@assets/icons';
 import {useHistory} from 'react-router';
 
@@ -23,7 +23,7 @@ function Survey404Text() {
                     alt='Monkey with a cash'
                 />
             </div>
-            <IconButton
+            <Button
                 text='Back to Landing Page'
                 icon={icons.chevronLeftCircle}
                 onClick={() => {

@@ -1,4 +1,4 @@
-import {IconButton} from '@components';
+import {Button} from '@components';
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
 import {icons} from '@assets/icons';
@@ -23,7 +23,7 @@ export default function NotFoundPage() {
                     alt='Monkey with a cash'
                 />
             </div>
-            <IconButton
+            <Button
                 text='Back to Landing Page'
                 icon={icons.chevronLeftCircle}
                 onClick={() => {

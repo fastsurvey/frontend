@@ -4,7 +4,7 @@ import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '@types';
 
-import {TimePill, SurveyField, IconButton} from '@components';
+import {TimePill, SurveyField, Button} from '@components';
 import {pathUtils, backend, reduxUtils} from '@utilities';
 
 function SurveyFormPage(props: {
@@ -81,7 +81,7 @@ function SurveyFormPage(props: {
             <div className='centering-row'>
                 <TimePill config={formConfig} />
                 <div className='flex-max' />
-                <IconButton text='Submit' onClick={onSubmit} />
+                <Button text='Submit' onClick={onSubmit} />
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import {
     VisualUserTextCard,
     VisualInfoCard,
     TimePill,
-    IconButton,
+    Button,
 } from '@components';
 import {pathUtils} from '@utilities';
 
@@ -37,7 +37,7 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                 <TimePill config={config} />
                 <div className='flex-max' />
                 {isOpen && (
-                    <IconButton
+                    <Button
                         text='Start'
                         to={
                             pathUtils.getRootPath(window.location.pathname) +
@@ -45,7 +45,7 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                         }
                     />
                 )}
-                {!isOpen && <IconButton text='Start' disabled />}
+                {!isOpen && <Button text='Start' disabled />}
             </div>
         </div>
     );

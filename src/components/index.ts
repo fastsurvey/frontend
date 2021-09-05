@@ -1,5 +1,5 @@
 export {default as SurveyField} from './survey-field/survey-field';
-export {default as IconButton} from './icon-button/icon-button';
+export {default as Button} from './button/button';
 export {default as TimePill} from './time-pill/time-pill';
 
 export {default as VisualUserTextCard} from './text-card/visual-user-text-card';
