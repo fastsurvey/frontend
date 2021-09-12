@@ -18,7 +18,7 @@ const LinkButton = (props: {
             <div className='flex-max' />
             <div
                 className={
-                    'w-9 h-9 p-2 icon-landing-bullet flex-shrink-0 ' +
+                    'w-12 md:w-9 h-12 md:h-9 p-3 md:p-2 icon-landing-bullet flex-shrink-0 ' +
                     (props.exists ? '' : 'opacity-60')
                 }
             >
@@ -74,7 +74,7 @@ export default function LandingSectionLinks() {
     return (
         <LandingPageSection
             leftChild={
-                <div className='space-y-2 flex-col-left'>
+                <div className='py-6 space-y-2 flex-col-left md:py-0'>
                     <div className='mb-4 font-bold centering-row'>
                         <div className='w-16 h-16 mr-4'>
                             <img src={RocketLogoLight} alt='FastSurvey Logo' />
@@ -115,7 +115,7 @@ export default function LandingSectionLinks() {
                             <>
                                 Troubleshooting: Read our{' '}
                                 <strong className='text-white'>
-                                    documentation
+                                    do&shy;cumen&shy;ta&shy;tion
                                 </strong>
                             </>
                         }
@@ -138,10 +138,10 @@ export default function LandingSectionLinks() {
                                 <strong className='text-gray-300'>
                                     features
                                 </strong>
-                                : Field types, authentication methods, full API
-                                reference,{' '}
+                                : Field types, authen&shy;ti&shy;cation methods,
+                                full API re&shy;ference,{' '}
                                 <span className='whitespace-nowrap'>
-                                    feature roadmap, ...
+                                    feature road&shy;map, ...
                                 </span>
                             </>
                         }

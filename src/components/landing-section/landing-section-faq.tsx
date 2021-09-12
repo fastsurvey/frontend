@@ -17,7 +17,8 @@ const faqs = [
                 <a className='underline cursor-not-allowed'>
                     fastsurvey.de/{'<your-username>/<survey-identifier>'}
                 </a>{' '}
-                , this is the link you can share with your respondents.
+                - the latter is the link, which you can share with your
+                respondents.
             </>
         ),
     },

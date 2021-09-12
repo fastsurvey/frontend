@@ -15,7 +15,7 @@ const BulletPoint = (props: {
         }
         onClick={props.onClick}
     >
-        <div className='w-full space-x-3 px-1 py-1.5 flex-row-left'>
+        <div className='w-full space-x-3 px-1 py-2 md:py-1.5 flex-row-left'>
             <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
                 {props.icon}
             </div>
@@ -33,7 +33,7 @@ export default function LandingSection2Demo() {
     const [imageIndex, setImageIndex] = useState<number>(0);
 
     const chevronButtonStyle =
-        'absolute bottom-0 w-8 h-8 p-1 m-2 rounded icon-landing-bullet ringable';
+        'absolute bottom-0 w-11 md:w-8 h-11 md:h-8 p-2 md:p-1 m-2 rounded icon-landing-bullet ringable';
 
     return (
         <LandingPageSection
@@ -69,7 +69,9 @@ export default function LandingSection2Demo() {
                     <div className='relative w-full h-0 pt-[calc((9/16)*100%)]'>
                         <div className='absolute top-0 w-full h-full bg-gray-600' />
                         <button
-                            className={chevronButtonStyle + ' right-10'}
+                            className={
+                                chevronButtonStyle + ' right-12 md:right-10'
+                            }
                             onClick={() => {
                                 setImageIndex(
                                     imageIndex === 0 ? 2 : imageIndex - 1,
