@@ -75,6 +75,7 @@ function SurveyFormPage(props: {
                 text: 'Please fill out all the fields first!',
                 variant: 'error',
             });
+            setIsSubmitting(false);
         }
     };
 

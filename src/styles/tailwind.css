@@ -64,18 +64,24 @@
         @apply focus:ring-blue-100;
         @apply group-focus:ring-blue-100;
     }
+
+    .flex-col-center {
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply justify-center;
+    }
+    .flex-col-top {
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply justify-start;
+    }
 }
 
 .centering-row {
     @apply flex;
     @apply flex-row;
-    @apply items-center;
-    @apply justify-center;
-}
-
-.flex-col-center {
-    @apply flex;
-    @apply flex-col;
     @apply items-center;
     @apply justify-center;
 }

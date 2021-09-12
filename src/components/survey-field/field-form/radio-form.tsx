@@ -28,7 +28,7 @@ function RadioForm(props: {
 
     return (
         <>
-            <div className='w-full mb-0.5 text-lg text-left text-gray-700 font-weight-700'>
+            <div className='w-full mb-0.5 text-lg text-left text-black md:text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.replace(' ', '').length > 0 && (
@@ -36,9 +36,6 @@ function RadioForm(props: {
                     {fieldConfig.description}
                 </div>
             )}
-            <div className='w-full mt-2 text-sm leading-tight text-left text-blue-800 font-weight-600'>
-                Select 1 option
-            </div>
             {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button
                     key={optionIndex}
@@ -46,15 +43,15 @@ function RadioForm(props: {
                     className={
                         'w-full mt-2 ringable rounded ' +
                         (fieldData === fieldOption
-                            ? 'bg-gray-100 text-gray-900 '
-                            : 'bg-gray-200 text-gray-500 ')
+                            ? 'bg-gray-100 text-black font-weight-700 '
+                            : 'bg-gray-200 text-gray-500 font-weight-600 ')
                     }
                 >
                     <div
                         className={
                             'w-full flex-row-left no-selection ' +
                             'pl-3 pr-2 py-2 cursor-pointer ' +
-                            'font-weight-600 text-sm '
+                            'text-base leading-7 md:leading-6 md:text-sm '
                         }
                     >
                         {fieldOption}

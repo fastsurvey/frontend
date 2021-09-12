@@ -68,7 +68,7 @@ function SurveyField(props: {
             <div
                 className={
                     'w-full px-3 text-justify flex-row-left space-x-2 ' +
-                    'border-t-2 h-10 rounded-b bg-gray-50 border-gray-200 ' +
+                    'border-t-2 h-12 md:h-10 rounded-b bg-gray-50 border-gray-200 ' +
                     (formValidation[fieldIndex]
                         ? 'text-green-900 '
                         : 'text-red-900 ')
@@ -84,7 +84,7 @@ function SurveyField(props: {
                 >
                     {formValidation[fieldIndex] ? icons.check : icons.error}
                 </div>
-                <div className='text-sm text-left font-weight-600'>
+                <div className='text-base text-left md:text-sm font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
                         formData[fieldIndex],

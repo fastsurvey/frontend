@@ -10,8 +10,8 @@ function MainContent(props: {children: React.ReactNode}) {
 
     return (
         <React.Fragment>
-            <header>
-                <div className='absolute top-0 left-0 h-12 m-4 lg:h-16'>
+            <header className='relative top-0 left-0 w-full bg-gray-200 md:absolute flex-row-left'>
+                <div className='h-12 m-4 lg:h-16'>
                     <Link
                         to={logoURL}
                         className={'ringable rounded centering-row'}
@@ -19,15 +19,21 @@ function MainContent(props: {children: React.ReactNode}) {
                         <img
                             src={RocketLogo}
                             alt='FastSurvey Icon'
-                            className='w-12 h-12 p-1 lg:w-16 lg:h-16 lg:p-2'
+                            className='w-16 h-16 p-2'
                         />
-                        <div className='mx-2 text-xl text-grey-500 lg:text-2xl font-weight-700 rubik'>
+                        <div className='mx-2 text-2xl text-gray-900 lg:text-2xl font-weight-700 lg:font-weigh-600'>
                             FastSurvey
                         </div>
                     </Link>
                 </div>
             </header>
-            <main className='w-screen min-h-screen px-2 pt-24 pb-20 bg-gray-100 xl:pb-32 xl:pt-16 centering-col'>
+            <main
+                className={
+                    'w-screen min-h-screen px-2 bg-gray-200 ' +
+                    'pb-12 pt-4 md:pb-26 ' +
+                    'flex-col-top'
+                }
+            >
                 {props.children}
             </main>
         </React.Fragment>

@@ -39,24 +39,24 @@ export function getFieldValidationMessage(
         case 'selection':
             const selectionCount = filter(fieldData).length;
             if (selectionCount < fieldConfig.min_select) {
-                return `Invalid: Select at least ${
-                    fieldConfig.min_select
-                } option${fieldConfig.min_select !== 1 ? 's' : ''}`;
+                return `Select at least ${fieldConfig.min_select} option${
+                    fieldConfig.min_select !== 1 ? 's' : ''
+                }`;
             } else if (selectionCount > fieldConfig.max_select) {
-                return `Invalid: Select at most ${
-                    fieldConfig.max_select
-                } option${fieldConfig.max_select !== 1 ? 's' : ''}`;
+                return `Select at most ${fieldConfig.max_select} option${
+                    fieldConfig.max_select !== 1 ? 's' : ''
+                }`;
             } else {
                 return 'Valid';
             }
 
         case 'text':
             if (fieldData.length < fieldConfig.min_chars) {
-                return `Invalid: ${
+                return `${
                     fieldConfig.min_chars - fieldData.length
                 } characters below minimum (${fieldConfig.min_chars})`;
             } else if (fieldData.length > fieldConfig.max_chars) {
-                return `Invalid: ${
+                return `${
                     fieldData.length - fieldConfig.max_chars
                 } characters over maximum (${fieldConfig.max_chars})`;
             } else {

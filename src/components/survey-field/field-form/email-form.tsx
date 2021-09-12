@@ -22,7 +22,7 @@ function EmailForm(props: {
 
     return (
         <>
-            <div className='w-full mb-0.5 text-lg text-left text-gray-700 font-weight-700'>
+            <div className='w-full mb-1 text-lg text-left text-black md:text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
             {fieldConfig.description.replace(' ', '').length > 0 && (
@@ -35,10 +35,10 @@ function EmailForm(props: {
                 onChange={handleChange}
                 className={
                     'w-full mt-2 px-3 py-2 rounded font-weight-600 ' +
-                    'bg-gray-100 focus:bg-gray-50 text-sm ' +
+                    'bg-gray-100 focus:bg-gray-50 text-base md:text-sm ' +
                     'text-gray-700 focus:text-gray-900 placeholder-gray-400 ' +
                     'outline-none ring ring-transparent focus:ring-blue-200 ' +
-                    'transition-colors duration-100 leading-6'
+                    'transition-colors duration-100 leading-7 md:leading-6'
                 }
                 onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                     if (e.key === 'Escape') {
