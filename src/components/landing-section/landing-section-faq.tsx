@@ -2,8 +2,28 @@ import React from 'react';
 
 const faqs = [
     {
+        question: 'Where can I find my surveys?',
+        answer: (
+            <>
+                You can manage all of your surveys on{' '}
+                <a
+                    href='https://console.fastsurvey.de/'
+                    target='_blank'
+                    className='px-1 py-0.5 -my-0.5 rounded ringable font-weight-600 text-blue-100 underline'
+                >
+                    console.fastsurvey.de
+                </a>
+                - The survey itself can be found on{' '}
+                <a className='underline cursor-not-allowed'>
+                    fastsurvey.de/{'<your-username>/<survey-identifier>'}
+                </a>{' '}
+                , this is the link you can share with your respondents.
+            </>
+        ),
+    },
+    {
         question: 'Where can I add payment information?',
-        answer: 'Right now, our tool is still completely free to use. We want to see how people use it and implement important features before spending time on implementing payment logic.',
+        answer: 'Right now, our tool is still completely free to use: No need to pay anything yet.',
     },
     {
         question: 'When it is currently free, how do you make money?',
@@ -11,11 +31,11 @@ const faqs = [
     },
     {
         question: 'Will prices be increased in the future?',
-        answer: 'Definitely not! We will never limit an existing feature to any premium plan. If we change anything about the prices we will only decrease them either for everyone, or for surveys/accounts with a many submissions.',
+        answer: 'Definitely not! We will never limit an existing feature to any premium plan. If we change anything about the prices, we will only decrease them - either for everyone or for surveys/accounts with a lot of submissions.',
     },
     {
         question: 'What features are planned in the future?',
-        answer: 'We have a lot of exciting stuff planned. In September/October 2021 we will release a public roadmap, where you can see all of our ideas, comment on them and vote for your favorite.',
+        answer: 'We have a lot of exciting stuff planned. In October 2021 we will release a public roadmap, where you can see all of our ideas, comment and vote for your favorite ones.',
     },
     {
         question: 'Why is your free plan so generous?',

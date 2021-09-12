@@ -107,9 +107,9 @@ export default function LandingSectionLinks() {
                 </div>
             }
             rightChild={
-                <div className='text-base gap-y-1 flex-col-left'>
+                <div className='text-sm gap-y-1 flex-col-left'>
                     <LinkButton
-                        to='https://docs.fastsurvey.io/'
+                        to='https://docs.fastsurvey.de/'
                         exists
                         text={
                             <>

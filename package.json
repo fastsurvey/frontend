@@ -7,7 +7,7 @@
         "url": "https://dostuffthatmatters.dev/"
     },
     "scripts": {
-        "develop": "vite",
+        "develop": "vite --host",
         "build": "tsc && vite build",
         "serve": "vite preview"
     },

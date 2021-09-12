@@ -40,7 +40,8 @@ export default function Button(props: {
 
     function Linker(props: {children: React.ReactNode}) {
         const classNames =
-            'p-0.5 rounded flex-row-center h-8 ' +
+            'p-0.5 rounded flex-row-center ' +
+            'text-lg md:text-sm h-10 sm:h-8 md:h-7' +
             'no-selection ringable relative overflow-hidden ' +
             variantClasses;
         if (to !== undefined) {
@@ -76,7 +77,9 @@ export default function Button(props: {
                     ...
                 </div>
             )}
-            <div className={'font-weight-600 px-2.5 z-0'}>{text}</div>
+            <div className={'font-weight-600 px-5 sm:px-4 md:px-2.5 z-0'}>
+                {text}
+            </div>
         </Linker>
     );
 }

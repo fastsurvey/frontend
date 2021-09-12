@@ -19,7 +19,7 @@ const ColoredText = (props: {
         </div>
         <div
             className={
-                'absolute block bottom-[0.25rem] left-0 z-0 w-full h-1.5 ' +
+                'absolute block bottom-[0.325rem] left-0 z-0 w-full h-1 ' +
                 (props.good ? 'bg-green-800 ' : 'bg-red-800 ')
             }
         />
@@ -45,14 +45,14 @@ export default function LandingSection1Intro() {
                     </div>
                     <div className='space-x-2 centering-row'>
                         <a
-                            href='https://console.dev.fastsurvey.io/register'
+                            href='https://console.fastsurvey.de/register'
                             target='_self'
                             className='rounded ringable'
                         >
                             <Button text='Sign up' variant='light-on-dark' />
                         </a>
                         <a
-                            href='https://console.dev.fastsurvey.io/login'
+                            href='https://console.fastsurvey.de/login'
                             target='_self'
                             className='rounded ringable'
                         >

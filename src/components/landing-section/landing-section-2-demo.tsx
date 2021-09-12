@@ -21,7 +21,7 @@ const BulletPoint = (props: {
             </div>
             <div
                 className={
-                    'flex-max leading-6 text-left pr-1.5 font-weight-500 '
+                    'flex-max leading-6 text-left pr-1.5 font-weight-600 text-base '
                 }
             >
                 {props.text}

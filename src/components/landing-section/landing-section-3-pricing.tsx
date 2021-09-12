@@ -60,6 +60,19 @@ export default function LandingSection3Pricing() {
             leftChild={
                 <div className='w-full py-8 ml-auto lg:max-w-lg flex-col-left'>
                     <PricingText />
+                    <div
+                        className={
+                            'mt-10 w-full rounded-lg p-4 text-gray-400 text-sm font-weight-400 ' +
+                            'border-2 border-dashed border-gray-700'
+                        }
+                    >
+                        <span className='text-gray-300 font-weight-600'>
+                            Right now, our tool is still completely free to use.
+                        </span>{' '}
+                        We want to see how people use it and implement important
+                        features before spending time on implementing payment
+                        logic.
+                    </div>
                 </div>
             }
             rightChild={
