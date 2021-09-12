@@ -10,7 +10,7 @@ function MainContent(props: {children: React.ReactNode}) {
 
     return (
         <React.Fragment>
-            <header className='relative top-0 left-0 w-full bg-gray-200 md:absolute flex-row-left'>
+            <header className='relative top-0 left-0 w-full bg-gray-200 md:bg-transparent md:absolute flex-row-left'>
                 <div className='h-12 m-4 lg:h-16'>
                     <Link
                         to={logoURL}
@@ -30,8 +30,8 @@ function MainContent(props: {children: React.ReactNode}) {
             <main
                 className={
                     'w-screen min-h-screen px-2 bg-gray-200 ' +
-                    'pb-12 pt-4 md:pb-26 ' +
-                    'flex-col-top'
+                    'pb-12 pt-4 md:pt-12 flex flex-col items-center ' +
+                    'justify-start md:justify-center'
                 }
             >
                 {props.children}
