@@ -1,13 +1,14 @@
-import {icons} from 'assets/icons';
 import React from 'react';
-import {types} from 'types';
+import {connect} from 'react-redux';
+import {types} from '@types';
+import {icons} from '@assets/icons';
+import {formUtils, reduxUtils} from '@utilities';
+
 import OptionForm from './field-form/option-form';
-import {formUtils, reduxUtils} from 'utilities';
 import RadioForm from './field-form/radio-form';
 import SelectionForm from './field-form/selection-form';
 import TextForm from './field-form/text-form';
 import EmailForm from './field-form/email-form';
-import {connect} from 'react-redux';
 
 function SurveyField(props: {
     fieldConfig: types.SurveyField;
@@ -23,14 +24,14 @@ function SurveyField(props: {
     const modifyFieldData = (index: number) => (newFieldData: any) => {
         props.modifyData({
             ...formData,
-            [index + 1]: newFieldData,
+            [index]: newFieldData,
         });
     };
 
     const modifyFieldValidation = (index: number) => (valid: boolean) => {
         props.modifyValidation({
             ...formValidation,
-            [index + 1]: valid,
+            [index]: valid,
         });
     };
 
@@ -54,39 +55,39 @@ function SurveyField(props: {
     }
 
     return (
-        <div className='w-full overflow-hidden rounded shadow-md centering-col'>
+        <div className='w-full overflow-hidden rounded shadow centering-col'>
             <div className='w-full p-4 bg-white lg:p-6 centering-col'>
                 <Component
                     fieldIndex={fieldIndex}
                     fieldConfig={fieldConfig}
-                    fieldData={formData[fieldIndex + 1]}
+                    fieldData={formData[fieldIndex]}
                     modifyFieldData={modifyFieldData(fieldIndex)}
                     modifyFieldValidation={modifyFieldValidation(fieldIndex)}
                 />
             </div>
             <div
                 className={
-                    'w-full p-3 pr-6 text-justify flex-row-top space-x-2 ' +
-                    'border-t-[3px] ' +
-                    (formValidation[fieldIndex + 1]
-                        ? 'text-green-500 bg-green-050 border-green-100 '
-                        : 'text-red-400 bg-red-050 border-red-100 ')
+                    'w-full px-3 text-justify flex-row-left space-x-2 ' +
+                    'border-t-2 h-12 md:h-10 rounded-b bg-gray-50 border-gray-200 ' +
+                    (formValidation[fieldIndex]
+                        ? 'text-green-900 '
+                        : 'text-red-900 ')
                 }
             >
                 <div
                     className={
-                        'flex-shrink-0 w-6 h-6 ' +
-                        (formValidation[fieldIndex + 1]
-                            ? 'icon-green '
-                            : 'icon-red ')
+                        'flex-shrink-0 w-5 h-5 ' +
+                        (formValidation[fieldIndex]
+                            ? 'icon-dark-green '
+                            : 'icon-dark-red ')
                     }
                 >
-                    {formValidation[fieldIndex + 1] ? icons.check : icons.error}
+                    {formValidation[fieldIndex] ? icons.check : icons.error}
                 </div>
-                <div className='text-left flex-max font-weight-600 text-md'>
+                <div className='text-base text-left md:text-sm font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
-                        formData[fieldIndex + 1],
+                        formData[fieldIndex],
                     )}
                 </div>
             </div>

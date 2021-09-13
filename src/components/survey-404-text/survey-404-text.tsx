@@ -1,28 +1,35 @@
 import React from 'react';
-import {icons} from 'assets/icons';
-import Button from 'components/button/button';
+import Gif from '@assets/gifs/computer.webp';
+import {Button} from '@components';
+import {icons} from '@assets/icons';
+import {useHistory} from 'react-router';
 
 function Survey404Text() {
+    const history = useHistory();
     return (
         <>
-            <div
+            <h1
                 className={
-                    'centering-row font-weight-600 text-xl text-gray-600 ' +
-                    'no-selection mb-4'
+                    'centering-row font-weight-600 text-lg text-gray-900 ' +
+                    'no-selection mb-3'
                 }
             >
-                <div className='w-8 h-8 mr-2 icon-grey'>{icons.error}</div>
-                <div>Survey not found. Invalid link!</div>
+                404: Survey not found
+            </h1>
+            <div className='w-full max-w-md mx-auto mb-5 overflow-hidden rounded-lg shadow-md'>
+                <img
+                    src={Gif}
+                    className='w-full h-auto'
+                    alt='Monkey with a cash'
+                />
             </div>
-            <a
-                href='/'
-                target='_self'
-                className={
-                    'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
-                }
-            >
-                <Button text='Back to Main Page' />
-            </a>
+            <Button
+                text='Back to Landing Page'
+                icon={icons.chevronLeftCircle}
+                onClick={() => {
+                    history.push('/');
+                }}
+            />
         </>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import {types} from 'types';
-import {filter} from 'lodash';
+import {types} from '@types';
+import {icons} from '@assets/icons/index';
 
 function SelectionForm(props: {
     fieldConfig: types.SelectionField;
@@ -12,55 +12,59 @@ function SelectionForm(props: {
 }) {
     const {fieldConfig, fieldIndex, fieldData} = props;
 
-    const toggle = (optionIndex: number) => () => {
-        let newFieldData: any = {
-            ...fieldData,
-            [optionIndex + 1]: !fieldData[optionIndex + 1],
-        };
+    const toggle = (fieldOption: string) => () => {
+        let newFieldData: any = fieldData;
 
-        const newSelectionCount: number = filter(newFieldData).length;
+        if (fieldData.includes(fieldOption)) {
+            newFieldData = newFieldData.filter(
+                (f: string) => f !== fieldOption,
+            );
+        } else {
+            newFieldData.push(fieldOption);
+        }
 
         props.modifyFieldData(newFieldData);
         props.modifyFieldValidation(
-            newSelectionCount >= fieldConfig.min_select &&
-                newSelectionCount <= fieldConfig.max_select,
+            newFieldData.length >= fieldConfig.min_select &&
+                newFieldData.length <= fieldConfig.max_select,
         );
     };
 
     return (
         <>
-            <div className='w-full mb-2 text-xl text-left text-gray-900 font-weight-600'>
+            <div className='w-full mb-0.5 text-lg text-left text-black md:text-gray-700 font-weight-700'>
                 {fieldIndex + 1}. {fieldConfig.title}
             </div>
-            {fieldConfig.description.length > 0 && (
-                <div className='w-full mb-4 text-base text-justify text-gray-500 font-weight-500'>
+            {fieldConfig.description.replace(' ', '').length > 0 && (
+                <div className='w-full mt-0.5 mb-2 text-sm leading-tight text-justify text-gray-700 font-weight-500'>
                     {fieldConfig.description}
                 </div>
             )}
-            <div className='w-full mt-1 mb-1 text-base leading-tight text-left text-gray-500 font-weight-600'>
-                Select between {fieldConfig.min_select} and{' '}
-                {fieldConfig.max_select} options.
-            </div>
-            {fieldConfig.fields.map((fieldOption, optionIndex: number) => (
+            {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button
                     key={optionIndex}
-                    onClick={toggle(optionIndex)}
+                    onClick={toggle(fieldOption)}
                     className={
-                        'w-full mt-2 focus:outline-none focus:ring-blue-300 ' +
-                        'ring hover:bg-grey-100 bg-grey-050 rounded ' +
-                        (fieldData[optionIndex + 1]
-                            ? 'ring-grey-300 focus:bg-grey-100 text-gray-900 '
-                            : 'ring-transparent focus:ring-blue-300 text-gray-500 ')
+                        'w-full mt-2 ringable rounded ' +
+                        (fieldData.includes(fieldOption)
+                            ? 'bg-gray-100 text-black font-weight-700 '
+                            : 'bg-gray-200 text-gray-500 font-weight-600 ')
                     }
                 >
                     <div
                         className={
                             'w-full flex-row-left no-selection ' +
-                            'px-4 py-2 cursor-pointer ' +
-                            'font-weight-600 text-base '
+                            'pl-3 pr-2 py-2 cursor-pointer ' +
+                            'text-base leading-7 md:leading-6 md:text-sm '
                         }
                     >
-                        {fieldOption.title}
+                        {fieldOption}
+                        <div className='flex-grow' />
+                        {fieldData.includes(fieldOption) && (
+                            <div className='w-5 h-5 icon-blue'>
+                                {icons.check}
+                            </div>
+                        )}
                     </div>
                 </button>
             ))}

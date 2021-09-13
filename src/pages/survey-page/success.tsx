@@ -1,8 +1,7 @@
 import React from 'react';
-import {types} from 'types';
+import {types} from '@types';
 import {connect} from 'react-redux';
-import VisualTextCard from 'components/text-card/visual-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
+import {VisualTextCard, VisualInfoCard} from '@components';
 
 function SurveySuccessPage(props: {
     formConfig: types.SurveyConfig | undefined;
@@ -13,12 +12,14 @@ function SurveySuccessPage(props: {
 
     const config: types.SurveyConfig = props.formConfig;
 
-    if (config.authentication === 'email') {
+    if (
+        config.fields.filter((f) => f.type === 'email' && f.verify).length > 0
+    ) {
         return (
             <div className='w-full max-w-xl space-y-4'>
                 <VisualTextCard title={'Success!'}>
                     Your submission is now verified. Thank you for using{' '}
-                    <strong>FastSurvey!</strong>
+                    <strong className='font-weight-600'>FastSurvey!</strong>
                 </VisualTextCard>
                 <VisualInfoCard variant='change-later' />
             </div>

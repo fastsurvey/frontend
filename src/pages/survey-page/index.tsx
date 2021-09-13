@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react';
-import {types} from 'types';
 import {connect} from 'react-redux';
-import VisualUserTextCard from 'components/text-card/visual-user-text-card';
-import VisualInfoCard from '../../components/info-card/visual-info-card';
-import TimePill from 'components/time-pill/time-pill';
-import {pathUtils} from 'utilities';
-import {Link} from 'react-router-dom';
-import Button from 'components/button/button';
+import {types} from '@types';
+
+import {
+    VisualUserTextCard,
+    VisualInfoCard,
+    TimePill,
+    Button,
+} from '@components';
+import {pathUtils} from '@utilities';
 
 function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
     const renderable = props.formConfig !== undefined;
@@ -29,34 +31,21 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                 title={config.title}
                 text={config.description}
             />
-            {config.authentication !== 'open' && (
-                <VisualInfoCard variant='email-auth' />
-            )}
-            <div className='centering-row'>
+            {config.fields.filter((f) => f.type === 'email' && f.verify)
+                .length > 0 && <VisualInfoCard variant='email-auth' />}
+            <div className='flex-row-top'>
                 <TimePill config={config} />
                 <div className='flex-max' />
                 {isOpen && (
-                    <Link
+                    <Button
+                        text='Start'
                         to={
                             pathUtils.getRootPath(window.location.pathname) +
                             '/form'
                         }
-                        className={
-                            'focus:outline-none ring ring-transparent focus:ring-blue-300 rounded'
-                        }
-                    >
-                        <Button text='Start' />
-                    </Link>
+                    />
                 )}
-                {!isOpen && (
-                    <button
-                        className={
-                            'focus:outline-none ring ring-transparent focus:ring-grey-300 rounded'
-                        }
-                    >
-                        <Button text='Start' notAllowed />
-                    </button>
-                )}
+                {!isOpen && <Button text='Start' disabled />}
             </div>
         </div>
     );

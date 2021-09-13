@@ -1,4 +1,4 @@
-import {types} from 'types';
+import {types} from '@types';
 
 export function initializeFormData(config: types.SurveyConfig): types.FormData {
     const formData: object = {};
@@ -7,13 +7,10 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
         let fieldData: object | string | boolean | undefined;
         switch (field.type) {
             case 'radio':
+                fieldData = '';
+                break;
             case 'selection':
-                fieldData = {};
-                field.fields.forEach((option, innerIndex) => {
-                    Object.assign(fieldData, {
-                        [(innerIndex + 1).toString()]: false,
-                    });
-                });
+                fieldData = [];
                 break;
             case 'email':
             case 'text':
@@ -29,7 +26,7 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
 
         if (fieldData !== undefined) {
             Object.assign(formData, {
-                [(index + 1).toString()]: fieldData,
+                [index.toString()]: fieldData,
             });
         }
     });

@@ -1,11 +1,10 @@
 import {initializeFormData} from './initialize-form-data';
-import {types} from 'types';
+import {types} from '@types';
 
 describe('initializeFormData', () => {
     test('sample config 1', () => {
         const sampleConfig: types.SurveyConfig = {
             survey_name: '3123',
-            authentication: 'email',
             limit: 100,
             title: '',
             description: '',
@@ -23,7 +22,6 @@ describe('initializeFormData', () => {
     test('sample config 2', () => {
         const sampleConfig: types.SurveyConfig = {
             survey_name: '3123',
-            authentication: 'email',
             limit: 100,
             title: '',
             description: '',
@@ -35,7 +33,7 @@ describe('initializeFormData', () => {
                     type: 'radio',
                     title: '',
                     description: '',
-                    fields: [],
+                    options: [],
                 },
             ],
         };
@@ -51,7 +49,6 @@ describe('initializeFormData', () => {
     test('sample config 3', () => {
         const sampleConfig: types.SurveyConfig = {
             survey_name: '3123',
-            authentication: 'email',
             limit: 100,
             title: '',
             description: '',
@@ -63,20 +60,7 @@ describe('initializeFormData', () => {
                     type: 'radio',
                     title: '',
                     description: '',
-                    fields: [
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                    ],
+                    options: ['', '', ''],
                 },
             ],
         };
@@ -92,7 +76,6 @@ describe('initializeFormData', () => {
     test('sample config 4', () => {
         const sampleConfig: types.SurveyConfig = {
             survey_name: '3123',
-            authentication: 'email',
             limit: 100,
             title: '',
             description: '',
@@ -104,20 +87,7 @@ describe('initializeFormData', () => {
                     type: 'radio',
                     title: '',
                     description: '',
-                    fields: [
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                    ],
+                    options: ['', '', ''],
                 },
                 {
                     type: 'selection',
@@ -125,26 +95,7 @@ describe('initializeFormData', () => {
                     description: '',
                     min_select: 0,
                     max_select: 0,
-                    fields: [
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                        {
-                            type: 'option',
-                            title: '',
-                            description: '',
-                            required: false,
-                        },
-                    ],
+                    options: ['', '', ''],
                 },
                 {
                     type: 'text',
