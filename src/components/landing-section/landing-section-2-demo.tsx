@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {icons} from '@assets/icons/index';
 import LandingPageSection from './section';
+import DemoImage1 from '@assets/images/image-01-create.png';
+import DemoImage2 from '@assets/images/image-02-collect.png';
+import DemoImage3 from '@assets/images/image-03-analyze.png';
 
 const BulletPoint = (props: {
     icon: React.ReactNode;
@@ -68,6 +71,12 @@ export default function LandingSection2Demo() {
                 <div className='relative w-full max-w-xl mx-auto overflow-hidden rounded-lg'>
                     <div className='relative w-full h-0 pt-[calc((9/16)*100%)]'>
                         <div className='absolute top-0 w-full h-full bg-gray-600' />
+                        <img
+                            className='absolute top-0 w-full h-full'
+                            src={
+                                [DemoImage1, DemoImage2, DemoImage3][imageIndex]
+                            }
+                        />
                         <button
                             className={
                                 chevronButtonStyle + ' right-12 md:right-10'
