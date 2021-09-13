@@ -90,14 +90,14 @@ export default function LandingSectionLinks() {
                     </div>
                     <div className='space-x-2 centering-row'>
                         <a
-                            href='https://console.dev.fastsurvey.io/register'
+                            href='https://console.fastsurvey.de/register'
                             target='_self'
                             className='rounded ringable'
                         >
                             <Button text='Sign up' variant='light-on-dark' />
                         </a>
                         <a
-                            href='https://console.dev.fastsurvey.io/login'
+                            href='https://console.fastsurvey.de/login'
                             target='_self'
                             className='rounded ringable'
                         >
