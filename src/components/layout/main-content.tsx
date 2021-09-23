@@ -32,10 +32,10 @@ function MainContent(props: {children: React.ReactNode}) {
                 <footer className='absolute bottom-0 left-0 z-0 w-full flex-row-center'>
                     <div className='py-1 text-sm text-gray-400 font-weight-500'>
                         {import.meta.env.MODE === 'development' && (
-                            <>development build</>
+                            <>development</>
                         )}
                         {import.meta.env.MODE === 'production' && (
-                            <>version - {import.meta.env.VITE_COMMIT_SHA}</>
+                            <>version {import.meta.env.VITE_COMMIT_SHA}</>
                         )}
                     </div>
                 </footer>
