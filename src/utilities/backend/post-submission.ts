@@ -1,7 +1,15 @@
 import axios from 'axios';
 import {types} from '@types';
 
-const API_URL = 'https://api.fastsurvey.de';
+let API_URL: string;
+switch (import.meta.env.MODE) {
+    case 'development':
+        API_URL = 'https://api.dev.fastsurvey.de';
+        break;
+    case 'production':
+        API_URL = 'https://api.fastsurvey.de';
+        break;
+}
 
 export async function postSubmission(
     username: string,

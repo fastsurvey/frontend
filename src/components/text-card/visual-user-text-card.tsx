@@ -16,8 +16,10 @@ function VisualUserTextCard(props: {title: string; text: string}) {
                         __html: ''.concat(
                             ...props.text
                                 .replaceAll(/<[^>]*>/g, '')
-                                .split('\n')
-                                .map((s) => `<p>${s}</p>`),
+                                .split('\n\n')
+                                .map(
+                                    (s) => `<p>${s.replace('\n', '<br/>')}</p>`,
+                                ),
                         ),
                     }}
                 />

@@ -1,8 +1,14 @@
 import React from 'react';
 import {icons} from '@assets/icons';
+import {pathUtils} from '@utilities';
+import {Link} from 'react-router-dom';
 
-function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
+function VisualInfoCard(props: {
+    variant: 'email-auth' | 'change-later';
+    email?: string;
+}) {
     let content: React.ReactNode;
+    const logoURL = pathUtils.getRootPath(window.location.pathname);
 
     switch (props.variant) {
         case 'email-auth':
@@ -25,8 +31,22 @@ function VisualInfoCard(props: {variant: 'email-auth' | 'change-later'}) {
         case 'change-later':
             content = (
                 <>
-                    If you want to change your submission later, just fill out
-                    the survey again using the same email address.
+                    If there is a typo in your email
+                    {props.email && (
+                        <>
+                            {' '}
+                            (<strong>{props.email}</strong>)
+                        </>
+                    )}
+                    , or you want to change your answers, just fill out the form
+                    again{' '}
+                    <Link
+                        to={`${logoURL}/form`}
+                        className='text-blue-600 underline'
+                    >
+                        here
+                    </Link>
+                    .
                 </>
             );
             break;
