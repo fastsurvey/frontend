@@ -4,18 +4,11 @@ import RocketLogo from '@assets/branding/rocket.svg';
 import {pathUtils} from '@utilities';
 
 function MainContent(props: {children: React.ReactNode}) {
-    const logoURL: string = pathUtils.isSurveyPath(window.location.pathname)
-        ? pathUtils.getRootPath(window.location.pathname)
-        : '/';
-
     return (
         <React.Fragment>
             <header className='relative top-0 left-0 w-full bg-gray-200 md:bg-transparent md:absolute flex-row-left'>
                 <div className='h-12 m-4 lg:h-16'>
-                    <Link
-                        to={logoURL}
-                        className={'ringable rounded centering-row'}
-                    >
+                    <Link to='/' className={'ringable rounded centering-row'}>
                         <img
                             src={RocketLogo}
                             alt='FastSurvey Icon'
