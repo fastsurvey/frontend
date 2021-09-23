@@ -30,7 +30,7 @@ const LinkButton = (props: {
         'w-full px-1 py-2 my-1 rounded ringable bg-gray-800 hover:bg-gray-700 text-gray-100';
     if (!props.exists) {
         linkCSS =
-            'w-full px-1 py-2 my-1 rounded border-2 group border-dashed hover:border-transparent border-gray-700 text-gray-400';
+            'w-full px-1 py-2 my-1 rounded border-2 group border-dashed border-gray-700 text-gray-400';
     }
 
     if (props.exists) {
@@ -55,12 +55,11 @@ const LinkButton = (props: {
     } else {
         return (
             <div className={`${linkCSS} relative cursor-not-allowed`}>
-                {content}
+                <div className='group-hover:opacity-0 '>{content}</div>
                 <div
                     className={
                         'flex-row-center text-transparent group-hover:text-white ' +
-                        'absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-25 ' +
-                        'group-hover:backdrop-filter group-hover:backdrop-blur-[2.5px] z-10 ' +
+                        'absolute top-0 left-0 w-full h-full z-10 ' +
                         'font-weight-600 text-white rounded-sm'
                     }
                 >
