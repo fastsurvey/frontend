@@ -14,7 +14,7 @@ function VisualTimePill(props: {
             break;
         case 'finished':
         default:
-            colorClasses = 'bg-gray-200 text-gray-600 ring-gray-200 ';
+            colorClasses = 'bg-gray-100 text-gray-600 ring-gray-200 ';
             break;
     }
     return (

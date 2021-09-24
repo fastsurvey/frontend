@@ -8,7 +8,7 @@ function LoadingText() {
                 'centering-row font-weight-600 text-sm text-grey-900 animate-pulse'
             }
         >
-            <div className='w-5 h-5 mr-2 icon-light-blue'>{icons.download}</div>
+            <div className='w-5 h-5 mr-2 icon-dark-blue'>{icons.download}</div>
             <div>Fetching Survey</div>
         </div>
     );

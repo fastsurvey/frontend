@@ -164,6 +164,14 @@
     @apply fill-blue-400;
 }
 
+.icon-dark-blue .primary {
+    @apply fill-blue-400;
+}
+
+.icon-dark-blue .secondary {
+    @apply fill-blue-800;
+}
+
 .icon-dark-green .primary {
     @apply fill-green-400;
 }
