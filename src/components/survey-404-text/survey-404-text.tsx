@@ -10,7 +10,7 @@ function Survey404Text() {
             <h1
                 className={
                     'flex-row-center font-weight-600 text-lg ' +
-                    'no-selection mb-3 ' +
+                    'no-selection mb-3 mt-4 ' +
                     'text-gray-900 dark:text-gray-100'
                 }
             >

@@ -45,7 +45,11 @@ function MainContent(props: {
                         </div>
                     </Link>
                 </div>
-                <div className={'absolute top-0 right-0 h-7 m-2 group'}>
+                <div
+                    className={
+                        'hidden md:block absolute top-0 right-0 h-7 m-2 group'
+                    }
+                >
                     <div
                         className={
                             'hidden group-hover:flex flex-row relative ' +
@@ -89,7 +93,7 @@ function MainContent(props: {
                 <main
                     className={
                         'w-screen min-h-screen px-2 ' +
-                        'pb-12 pt-4 md:pt-12 flex flex-col items-center ' +
+                        'pb-12 pt-20 md:pt-12 flex flex-col items-center ' +
                         'justify-start md:justify-center z-10 ' +
                         'bg-gray-100 dark:bg-gray-900 '
                     }
