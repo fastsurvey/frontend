@@ -10,5 +10,4 @@ docker push gcr.io/fastsurvey-infrastructure/frontend-dev:latest
 gcloud run deploy frontend-dev \
     --image=gcr.io/fastsurvey-infrastructure/frontend-dev:latest \
     --platform managed \
-    --no-traffic \
     --tag "commit-$VITE_COMMIT_SHA"
