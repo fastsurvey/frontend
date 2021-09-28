@@ -3,12 +3,12 @@
 export VITE_COMMIT_SHA="$(git rev-parse --short --verify HEAD)"
 yarn build
 
-docker build -t gcr.io/fastsurvey-infrastructure/frontend .
-docker push gcr.io/fastsurvey-infrastructure/frontend:latest
+docker build -t gcr.io/fastsurvey-infrastructure/frontend-dev .
+docker push gcr.io/fastsurvey-infrastructure/frontend-dev:latest
 
 # https://codelabs.developers.google.com/codelabs/cloud-run-deploy/index.html
-gcloud run deploy frontend \
-    --image=gcr.io/fastsurvey-infrastructure/frontend:latest \
+gcloud run deploy frontend-dev \
+    --image=gcr.io/fastsurvey-infrastructure/frontend-dev:latest \
     --platform managed \
     --no-traffic \
     --tag "commit-$VITE_COMMIT_SHA"
