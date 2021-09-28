@@ -1,9 +1,68 @@
-import React from 'react';
-import {VisualTextCard, VisualInfoCard} from '@components';
+import React, {useState} from 'react';
+import {VisualTextCard, VisualInfoCard, Button} from '@components';
+import {pathUtils, backend, reduxUtils} from '@utilities';
+import {useHistory} from 'react-router-dom';
+import {types} from 'types';
+import {connect} from 'react-redux';
 
-function SurveyVerifyPage() {
+function SurveyVerifyPage(props: {openMessage(m: types.Message): void}) {
     const email = new URLSearchParams(window.location.search).get('email');
+    const token = new URLSearchParams(window.location.search).get('token');
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const history = useHistory();
+
+    const submitVerification = () => {
+        setIsSubmitting(true);
+
+        const success = () => {
+            setIsSubmitting(false);
+            history.push(
+                pathUtils.getRootPath(window.location.pathname) + '/success',
+            );
+        };
+
+        const error = (cose: 401 | 500) => {
+            if (cose === 401) {
+                props.openMessage({
+                    text: 'Verification token invalid',
+                    variant: 'error',
+                });
+            } else {
+                props.openMessage({
+                    text: 'Backend error',
+                    variant: 'error',
+                });
+            }
+            setIsSubmitting(false);
+        };
+
+        const {username, survey_name} = pathUtils.getPathId(
+            window.location.pathname,
+        );
+        if (token !== null) {
+            backend.postVerification(
+                username,
+                survey_name,
+                token,
+                success,
+                error,
+            );
+        }
+    };
+
+    if (token !== null) {
+        return (
+            <div className='w-full max-w-xl space-y-4 flex-col-center '>
+                <Button
+                    text='verify submission'
+                    variant='flat-light-blue'
+                    onClick={submitVerification}
+                    loading={isSubmitting}
+                />
+            </div>
+        );
+    }
     return (
         <div className='w-full max-w-xl space-y-4'>
             <VisualTextCard title={'Verify now!'}>
@@ -11,11 +70,15 @@ function SurveyVerifyPage() {
                 link in the email named <strong>"FastSurvey Submission"</strong>
             </VisualTextCard>
             <VisualInfoCard
-                variant='change-later'
+                variant='verify'
                 email={email === null ? undefined : email}
             />
         </div>
     );
 }
 
-export default SurveyVerifyPage;
+const mapStateToProps = (state: types.ReduxState) => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+    openMessage: reduxUtils.dispatchers.openMessage(dispatch),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SurveyVerifyPage);
