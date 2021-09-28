@@ -9,8 +9,12 @@ import {
     Button,
 } from '@components';
 import {pathUtils} from '@utilities';
+import reduxUtils from '../../utilities/redux-utils/index';
 
-function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
+function SurveyIndexPage(props: {
+    formConfig: types.SurveyConfig | undefined;
+    openMessage(m: types.Message): void;
+}) {
     const renderable = props.formConfig !== undefined;
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -45,7 +49,17 @@ function SurveyIndexPage(props: {formConfig: types.SurveyConfig | undefined}) {
                         }
                     />
                 )}
-                {!isOpen && <Button text='Start' disabled />}
+                {!isOpen && (
+                    <Button
+                        text='Start'
+                        onClick={() =>
+                            props.openMessage({
+                                text: 'The survey is currently not open for submissions',
+                                variant: 'error',
+                            })
+                        }
+                    />
+                )}
             </div>
         </div>
     );
@@ -55,6 +69,8 @@ const mapStateToProps = (state: types.ReduxState) => ({
     formConfig: state.formConfig,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+    openMessage: reduxUtils.dispatchers.openMessage(dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SurveyIndexPage);
