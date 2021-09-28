@@ -1,8 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import RocketLogo from '@assets/branding/rocket.svg';
+import {types} from 'types';
 
-function MainContent(props: {children: React.ReactNode}) {
+function MainContent(props: {
+    children: React.ReactNode;
+    darkModeToggle: types.darkModeSetting;
+    setDarkModeToggle(t: types.darkModeSetting): void;
+    darkMode: boolean;
+}) {
     return (
         <React.Fragment>
             <header className='relative top-0 left-0 z-40'>
@@ -41,6 +47,7 @@ function MainContent(props: {children: React.ReactNode}) {
                             <>version {import.meta.env.VITE_COMMIT_SHA}</>
                         )}
                     </div>
+                    <div className='absolute bottom-0 right-0 w-24 h-8 m-2 bg-gray-300 rounded'></div>
                 </footer>
             </div>
         </React.Fragment>

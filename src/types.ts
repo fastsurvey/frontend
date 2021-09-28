@@ -1,4 +1,6 @@
 export declare namespace types {
+    export type darkModeSetting = 'light' | 'auto' | 'dark';
+
     export type Message = {
         text: string;
         variant: 'success' | 'error';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import ReduxStore from './redux-store';
 
@@ -12,8 +12,40 @@ import SurveyVerifyPage from '@pages/survey-page/verify';
 import SurveySuccessPage from '@pages/survey-page/success';
 import LandingPage from '@pages/landing-page/landing-page';
 import NotFoundPage from './pages/not-found-page';
+import {useEffect} from 'react';
+import Cookies from 'js-cookie';
+import {types} from 'types';
 
 function PageRouter() {
+    function systemIsDark() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    const toggleCookie: string | undefined = Cookies.get('darkModeToggle');
+    const [darkModeToggle, setDarkModeToggle] = useState<types.darkModeSetting>(
+        toggleCookie === 'light' || toggleCookie === 'dark'
+            ? toggleCookie
+            : 'auto',
+    );
+    const [darkMode, setDarkMode] = useState(true);
+
+    useEffect(() => {
+        // Switching between dark/light theme in html
+        setDarkMode(
+            darkModeToggle === 'dark' ||
+                (darkModeToggle === 'auto' && systemIsDark()),
+        );
+
+        // Store preferred setting in cookie
+        Cookies.set('darkModeToggle', darkModeToggle, {expires: 365});
+    }, [darkModeToggle]);
+
+    const darkModeAttributes = {
+        darkModeToggle,
+        setDarkModeToggle,
+        darkMode,
+    };
+
     return (
         <BrowserRouter>
             <Route>
@@ -28,7 +60,7 @@ function PageRouter() {
                             pathUtils.regex.surveyAppendix
                         }
                     >
-                        <MainContent>
+                        <MainContent {...darkModeAttributes}>
                             <ReduxStore>
                                 <Message />
                                 <SurveyProvider>
@@ -70,7 +102,7 @@ function PageRouter() {
                         </MainContent>
                     </Route>
                     <Route>
-                        <MainContent>
+                        <MainContent {...darkModeAttributes}>
                             <NotFoundPage />
                         </MainContent>
                     </Route>
