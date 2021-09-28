@@ -26,7 +26,7 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
 
         if (fieldData !== undefined) {
             Object.assign(formData, {
-                [index.toString()]: fieldData,
+                [field.identifier]: fieldData,
             });
         }
     });

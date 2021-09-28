@@ -21,17 +21,17 @@ function SurveyField(props: {
 }) {
     const {fieldConfig, fieldIndex, formData, formValidation} = props;
 
-    const modifyFieldData = (index: number) => (newFieldData: any) => {
+    const modifyFieldData = (newFieldData: any) => {
         props.modifyData({
             ...formData,
-            [index]: newFieldData,
+            [fieldConfig.identifier]: newFieldData,
         });
     };
 
-    const modifyFieldValidation = (index: number) => (valid: boolean) => {
+    const modifyFieldValidation = (valid: boolean) => {
         props.modifyValidation({
             ...formValidation,
-            [index]: valid,
+            [fieldConfig.identifier]: valid,
         });
     };
 
@@ -60,16 +60,16 @@ function SurveyField(props: {
                 <Component
                     fieldIndex={fieldIndex}
                     fieldConfig={fieldConfig}
-                    fieldData={formData[fieldIndex]}
-                    modifyFieldData={modifyFieldData(fieldIndex)}
-                    modifyFieldValidation={modifyFieldValidation(fieldIndex)}
+                    fieldData={formData[fieldConfig.identifier]}
+                    modifyFieldData={modifyFieldData}
+                    modifyFieldValidation={modifyFieldValidation}
                 />
             </div>
             <div
                 className={
                     'w-full px-3 text-justify flex-row-left space-x-2 ' +
                     'border-t-2 h-12 md:h-10 rounded-b bg-gray-50 border-gray-200 ' +
-                    (formValidation[fieldIndex]
+                    (formValidation[fieldConfig.identifier]
                         ? 'text-green-900 '
                         : 'text-red-900 ')
                 }
@@ -77,17 +77,19 @@ function SurveyField(props: {
                 <div
                     className={
                         'flex-shrink-0 w-5 h-5 ' +
-                        (formValidation[fieldIndex]
+                        (formValidation[fieldConfig.identifier]
                             ? 'icon-dark-green '
                             : 'icon-dark-red ')
                     }
                 >
-                    {formValidation[fieldIndex] ? icons.check : icons.error}
+                    {formValidation[fieldConfig.identifier]
+                        ? icons.check
+                        : icons.error}
                 </div>
                 <div className='text-base text-left md:text-sm font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
-                        formData[fieldIndex],
+                        formData[fieldConfig.identifier],
                     )}
                 </div>
             </div>

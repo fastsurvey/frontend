@@ -24,6 +24,7 @@ export declare namespace types {
     interface GeneralSurveyField {
         title: string;
         description: string;
+        identifier: number;
     }
 
     export type FieldType = 'email' | 'option' | 'radio' | 'selection' | 'text';
