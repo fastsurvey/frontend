@@ -165,11 +165,11 @@
 }
 
 .icon-dark-blue .primary {
-    @apply fill-blue-400;
+    @apply fill-blue-300;
 }
 
 .icon-dark-blue .secondary {
-    @apply fill-blue-800;
+    @apply fill-blue-700;
 }
 
 .icon-dark-green .primary {

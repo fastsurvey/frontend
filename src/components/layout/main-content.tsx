@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import RocketLogo from '@assets/branding/rocket.svg';
 import {types} from 'types';
+import {icons} from '../../assets/icons/index';
 
 function MainContent(props: {
     children: React.ReactNode;
@@ -32,28 +33,34 @@ function MainContent(props: {
                         </div>
                     </Link>
                 </div>
-                <div
-                    className={
-                        'absolute top-0 right-0 h-7 m-2 ' +
-                        'flex-row-center flex-nowrap ' +
-                        'bg-gray-200 rounded text-gray-700 ' +
-                        'text-sm overflow-hidden '
-                    }
-                >
-                    {['light', 'auto', 'dark'].map((m: any) => (
-                        <button
-                            onClick={() => props.setDarkModeToggle(m)}
-                            className={
-                                'first:pl-3 last:pr-3 px-3 font-weight-700 ' +
-                                'h-full flex-row-center rounded-sm ' +
-                                (props.darkModeToggle === m
-                                    ? 'text-blue-900 bg-blue-100 '
-                                    : '')
-                            }
-                        >
-                            {m}
-                        </button>
-                    ))}
+                <div className={'absolute top-0 right-0 h-7 m-2 group'}>
+                    <div
+                        className={
+                            'hidden group-hover:flex flex-row relative ' +
+                            'items-center justify-center flex-nowrap ' +
+                            'bg-gray-200 rounded text-gray-700 ' +
+                            'text-sm overflow-hidden h-full '
+                        }
+                    >
+                        {['light', 'auto', 'dark'].map((m: any) => (
+                            <button
+                                key={m}
+                                onClick={() => props.setDarkModeToggle(m)}
+                                className={
+                                    'first:pl-3 last:pr-3 px-3 font-weight-700 ' +
+                                    'h-full flex-row-center rounded-sm ' +
+                                    (props.darkModeToggle === m
+                                        ? 'text-blue-900 bg-blue-100 '
+                                        : '')
+                                }
+                            >
+                                {m}
+                            </button>
+                        ))}
+                    </div>
+                    <div className='absolute top-0 right-0 p-1 w-7 h-7 icon-dark-blue group-hover:hidden'>
+                        {icons.light}
+                    </div>
                 </div>
             </header>
             <div className={'relative ' + (props.darkMode ? 'dark ' : ' ')}>
