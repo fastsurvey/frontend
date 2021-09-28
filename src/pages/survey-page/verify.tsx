@@ -1,6 +1,5 @@
 import React from 'react';
 import {VisualTextCard, VisualInfoCard} from '@components';
-import {Link} from 'react-router-dom';
 
 function SurveyVerifyPage() {
     const email = new URLSearchParams(window.location.search).get('email');

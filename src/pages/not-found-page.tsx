@@ -1,7 +1,6 @@
 import {Button} from '@components';
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
-import {icons} from '@assets/icons';
 import {useHistory} from 'react-router';
 
 export default function NotFoundPage() {
@@ -10,7 +9,7 @@ export default function NotFoundPage() {
         <>
             <h1
                 className={
-                    'centering-row font-weight-600 text-lg text-gray-900 ' +
+                    'centering-row font-weight-600 text-lg text-gray-900 dark:text-gray-100 ' +
                     'no-selection mb-3'
                 }
             >
@@ -25,7 +24,6 @@ export default function NotFoundPage() {
             </div>
             <Button
                 text='Back to Landing Page'
-                icon={icons.chevronLeftCircle}
                 onClick={() => {
                     history.push('/');
                 }}

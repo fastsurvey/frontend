@@ -65,6 +65,7 @@ const customColors = {
 
 module.exports = {
     mode: 'jit',
+    darkMode: 'class',
     purge: [
         './public/**/*.html',
         './src/**/*.{js,jsx,ts,tsx}',

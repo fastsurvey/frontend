@@ -33,7 +33,9 @@ export default function Button(props: {
             break;
         default:
             variantClasses =
-                'bg-white hover:bg-gray-100 shadow text-gray-900 icon-blue ringable ';
+                'shadow icon-blue ringable ' +
+                'bg-white hover:bg-gray-100 text-gray-900 hover:text-black ' +
+                'dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 dark:hover:text-gray-100 ';
             loadingClasses = 'bg-gray-50 shadow text-blue-900 icon-blue ';
             break;
     }

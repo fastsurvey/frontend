@@ -4,13 +4,12 @@ import {icons} from '@assets/icons/index';
 
 function SelectionForm(props: {
     fieldConfig: types.SelectionField;
-    fieldIndex: number;
     fieldData: any;
 
     modifyFieldData(newFieldData: any): void;
     modifyFieldValidation(valid: boolean): void;
 }) {
-    const {fieldConfig, fieldIndex, fieldData} = props;
+    const {fieldConfig, fieldData} = props;
 
     const toggle = (fieldOption: string) => () => {
         let newFieldData: any = fieldData;
@@ -32,14 +31,6 @@ function SelectionForm(props: {
 
     return (
         <>
-            <div className='w-full mb-0.5 text-lg text-left text-black md:text-gray-700 font-weight-700'>
-                {fieldIndex + 1}. {fieldConfig.title}
-            </div>
-            {fieldConfig.description.replace(' ', '').length > 0 && (
-                <div className='w-full mt-0.5 mb-2 text-sm leading-tight text-justify text-gray-700 font-weight-500'>
-                    {fieldConfig.description}
-                </div>
-            )}
             {fieldConfig.options.map((fieldOption, optionIndex: number) => (
                 <button
                     key={optionIndex}
@@ -47,8 +38,8 @@ function SelectionForm(props: {
                     className={
                         'w-full mt-2 ringable rounded ' +
                         (fieldData.includes(fieldOption)
-                            ? 'bg-gray-100 text-black font-weight-700 '
-                            : 'bg-gray-200 text-gray-500 font-weight-600 ')
+                            ? 'font-weight-700 bg-gray-100 text-black dark:bg-gray-800 dark:text-white '
+                            : 'font-weight-600 bg-gray-200 text-gray-500 dark:bg-gray-600 dark:text-gray-100 ')
                     }
                 >
                     <div
@@ -61,7 +52,7 @@ function SelectionForm(props: {
                         {fieldOption}
                         <div className='flex-grow' />
                         {fieldData.includes(fieldOption) && (
-                            <div className='w-5 h-5 icon-blue'>
+                            <div className='w-5 h-5 icon-dark-blue'>
                                 {icons.check}
                             </div>
                         )}

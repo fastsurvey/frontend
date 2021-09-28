@@ -77,6 +77,22 @@
         @apply items-center;
         @apply justify-start;
     }
+
+    .icon-blue .primary {
+        @apply fill-blue-100;
+    }
+
+    .icon-blue .secondary {
+        @apply fill-blue-400;
+    }
+
+    .icon-dark-blue .primary {
+        @apply fill-blue-300;
+    }
+
+    .icon-dark-blue .secondary {
+        @apply fill-blue-900;
+    }
 }
 
 .centering-row {
@@ -156,28 +172,12 @@
     @apply fill-red-400;
 }
 
-.icon-blue .primary {
-    @apply fill-blue-100;
-}
-
-.icon-blue .secondary {
-    @apply fill-blue-400;
-}
-
-.icon-dark-blue .primary {
-    @apply fill-blue-300;
-}
-
-.icon-dark-blue .secondary {
-    @apply fill-blue-700;
-}
-
 .icon-dark-green .primary {
-    @apply fill-green-400;
+    @apply fill-green-300;
 }
 
 .icon-dark-green .secondary {
-    @apply fill-green-800;
+    @apply fill-green-900;
 }
 
 .icon-dark-red .primary {
@@ -185,7 +185,7 @@
 }
 
 .icon-dark-red .secondary {
-    @apply fill-red-800;
+    @apply fill-red-900;
 }
 
 .icon-landing-bullet .primary {

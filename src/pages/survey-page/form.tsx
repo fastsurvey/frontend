@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {filter, range, zip} from 'lodash';
+import {filter} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '@types';
 
@@ -34,15 +34,15 @@ function SurveyFormPage(props: {
         const success = () => {
             setIsSubmitting(false);
 
-            const emailField: any = zip(
-                formConfig.fields,
-                range(formConfig.fields.length),
-            ).filter((f: any) => f[0].type === 'email' && f[0].verify)[0];
+            const emailField: types.SurveyField | undefined =
+                formConfig.fields.filter(
+                    (f) => f.type === 'email' && f.verify,
+                )[0];
 
             history.push(
                 pathUtils.getRootPath(window.location.pathname) +
                     (emailField !== undefined
-                        ? `/verify?email=${formData[emailField[1]]}`
+                        ? `/verify?email=${formData[emailField.identifier]}`
                         : '/success'),
             );
         };

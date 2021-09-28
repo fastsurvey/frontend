@@ -42,7 +42,7 @@ function VisualInfoCard(props: {
                     again{' '}
                     <Link
                         to={`${logoURL}/form`}
-                        className='text-blue-600 underline'
+                        className='text-blue-600 underline dark:text-blue-300'
                     >
                         here
                     </Link>
@@ -55,10 +55,11 @@ function VisualInfoCard(props: {
         <div
             className={
                 'w-full p-3 pr-4 lg:pr-6 text-justify flex-row-top space-x-2 ' +
-                'rounded shadow bg-gray-50 text-gray-800'
+                'rounded shadow bg-gray-50 text-gray-800 ' +
+                'dark:bg-gray-800 dark:text-gray-300'
             }
         >
-            <div className='flex-shrink-0 w-6 h-6 mr-0.5 md:mr-0 md:w-5 md:h-5 icon-blue'>
+            <div className='flex-shrink-0 w-6 h-6 mr-0.5 md:mr-0 md:w-5 md:h-5 icon-dark-blue'>
                 {icons.info}
             </div>
             <div className='text-base md:text-sm font-weight-500'>
