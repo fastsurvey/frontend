@@ -6,7 +6,7 @@ export async function postSubmission(
     survey_name: string,
     formData: types.FormData,
     success: () => void,
-    error: (type?: 'regex') => void,
+    error: (type?: 'regex' | 'config') => void,
 ) {
     try {
         await httpPost(
@@ -20,6 +20,8 @@ export async function postSubmission(
             JSON.stringify(e.response.data.detail);
             if (JSON.stringify(e.response.data.detail).includes('regex')) {
                 error('regex');
+            } else if (e.response.status === 422) {
+                error('config');
             } else {
                 error();
             }
