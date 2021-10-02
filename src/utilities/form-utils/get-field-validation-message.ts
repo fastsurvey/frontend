@@ -7,20 +7,20 @@ export function getFieldValidationMessage(
 ): string {
     switch (fieldConfig.type) {
         case 'email':
-            // const valid1 = new RegExp('(?=^.+@.+$)(?=.*)').test(fieldData);
-            const valid2 = new RegExp('^' + fieldConfig.regex + '$').test(
-                fieldData,
-            );
-            if (!valid2) {
+            if (!new RegExp('^.+@.+$').test(fieldData)) {
+                return 'Not a valid email';
+            }
+
+            if (!new RegExp('^' + fieldConfig.regex + '$').test(fieldData)) {
                 return (
                     'Does not match the desired format.' +
                     (fieldConfig.hint.length > 0
                         ? ` Hint: ${fieldConfig.hint}`
                         : '')
                 );
-            } else {
-                return 'Valid';
             }
+
+            return 'Valid';
 
         case 'option':
             if (fieldData || !fieldConfig.required) {

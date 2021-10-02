@@ -49,12 +49,7 @@ function SurveyFormPage(props: {
 
         const error = (type?: 'regex' | 'config') => {
             // TODO: Think about error scenarios
-            if (type === 'regex') {
-                props.openMessage({
-                    text: 'Email format invalid',
-                    variant: 'error',
-                });
-            } else if (type === 'config') {
+            if (type === 'config') {
                 props.openMessage({
                     text: 'Survey has been modified, please reload the page',
                     variant: 'error',

@@ -1,5 +1,6 @@
 import React from 'react';
 import {types} from '@types';
+import {formUtils} from '@utilities';
 
 function EmailForm(props: {
     fieldConfig: types.EmailField;
@@ -14,9 +15,11 @@ function EmailForm(props: {
         const newValue = event.target.value;
 
         props.modifyFieldData(newValue);
-        props.modifyFieldValidation(
-            new RegExp('^' + fieldConfig.regex + '$').test(newValue),
+        const newValidationMessage = formUtils.getFieldValidationMessage(
+            fieldConfig,
+            newValue,
         );
+        props.modifyFieldValidation(newValidationMessage.startsWith('Valid'));
     }
 
     return (
