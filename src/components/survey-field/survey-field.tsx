@@ -89,8 +89,8 @@ function SurveyField(props: {
                     'border-t-2 h-12 md:h-10 rounded-b ' +
                     'bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-600 ' +
                     (formValidation[fieldConfig.identifier]
-                        ? 'text-green-900 dark:text-green-200 '
-                        : 'text-red-900 dark:text-red-200 ')
+                        ? 'text-green-900 dark:text-green-50 '
+                        : 'text-red-900 dark:text-red-50 ')
                 }
             >
                 <div
