@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import RocketLogo from '@assets/branding/rocket.svg';
 import RocketLogoLight from '@assets/branding/rocket-light.svg';
 import {types} from 'types';
-import {icons} from '../../assets/icons/index';
+import {icons} from '@assets/icons';
 
 function MainContent(props: {
     children: React.ReactNode;

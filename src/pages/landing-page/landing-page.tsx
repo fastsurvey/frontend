@@ -7,15 +7,19 @@ import {
     LandingSectionFAQ,
 } from '@components';
 
+const VITE_ENV = import.meta.env.VITE_ENV;
+let baseUrl =
+    VITE_ENV === 'development' ? 'dev.fastsurvey.de' : 'fastsurvey.de';
+
 function LandingPage() {
     return (
         <div className='relative'>
             <main className='w-full bg-gray-900 centering-col'>
-                <LandingSection1Intro />
+                <LandingSection1Intro baseUrl={baseUrl} />
                 <LandingSection2Demo />
                 <LandingSection3Pricing />
                 <LandingSectionFAQ />
-                <LandingSectionLinks />
+                <LandingSectionLinks baseUrl={baseUrl} />
             </main>
             <footer className='absolute bottom-0 left-0 z-0 w-full flex-row-center'>
                 <div className='py-1 text-sm text-gray-500 font-weight-500'>

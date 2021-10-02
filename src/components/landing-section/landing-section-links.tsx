@@ -69,7 +69,7 @@ const LinkButton = (props: {
         );
     }
 };
-export default function LandingSectionLinks() {
+export default function LandingSectionLinks(props: {baseUrl: string}) {
     return (
         <LandingPageSection
             leftChild={
@@ -89,14 +89,14 @@ export default function LandingSectionLinks() {
                     </div>
                     <div className='space-x-2 centering-row'>
                         <a
-                            href='https://console.fastsurvey.de/register'
+                            href={`https://console.${props.baseUrl}/register`}
                             target='_self'
                             className='rounded ringable'
                         >
                             <Button text='Sign up' variant='light-on-dark' />
                         </a>
                         <a
-                            href='https://console.fastsurvey.de/login'
+                            href={`https://console.${props.baseUrl}/login`}
                             target='_self'
                             className='rounded ringable'
                         >
