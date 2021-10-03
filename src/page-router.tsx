@@ -15,6 +15,7 @@ import NotFoundPage from './pages/not-found-page';
 import {useEffect} from 'react';
 import Cookies from 'js-cookie';
 import {types} from 'types';
+import MaintenancePage from './components/layout/maintenance-page';
 
 function PageRouter() {
     function systemIsDark() {
@@ -45,71 +46,79 @@ function PageRouter() {
         setDarkModeToggle,
         darkMode,
     };
-
-    return (
-        <BrowserRouter>
-            <Route>
-                <Switch>
-                    <Route exact path={'/'}>
-                        <LandingPage />
-                    </Route>
-                    <Route
-                        exact
-                        path={
-                            pathUtils.regex.surveyRoot +
-                            pathUtils.regex.surveyAppendix
-                        }
-                    >
-                        <MainContent {...darkModeAttributes}>
-                            <ReduxStore>
-                                <Message />
-                                <SurveyProvider>
-                                    <Switch>
-                                        <Route
-                                            exact
-                                            path={
-                                                pathUtils.regex.surveyRoot + ''
-                                            }
-                                            component={SurveyIndexPage}
-                                        />
-                                        <Route
-                                            exact
-                                            path={
-                                                pathUtils.regex.surveyRoot +
-                                                '/form'
-                                            }
-                                            component={SurveyFormPage}
-                                        />
-                                        <Route
-                                            exact
-                                            path={
-                                                pathUtils.regex.surveyRoot +
-                                                '/verify'
-                                            }
-                                            component={SurveyVerifyPage}
-                                        />
-                                        <Route
-                                            exact
-                                            path={
-                                                pathUtils.regex.surveyRoot +
-                                                '/success'
-                                            }
-                                            component={SurveySuccessPage}
-                                        />
-                                    </Switch>
-                                </SurveyProvider>
-                            </ReduxStore>
-                        </MainContent>
-                    </Route>
-                    <Route>
-                        <MainContent {...darkModeAttributes}>
-                            <NotFoundPage />
-                        </MainContent>
-                    </Route>
-                </Switch>
-            </Route>
-        </BrowserRouter>
-    );
+    if (import.meta.env.VITE_MAINTENANCE === 'true') {
+        return (
+            <MaintenancePage {...darkModeAttributes}>
+                we will be back shortly
+            </MaintenancePage>
+        );
+    } else {
+        return (
+            <BrowserRouter>
+                <Route>
+                    <Switch>
+                        <Route exact path={'/'}>
+                            <LandingPage />
+                        </Route>
+                        <Route
+                            exact
+                            path={
+                                pathUtils.regex.surveyRoot +
+                                pathUtils.regex.surveyAppendix
+                            }
+                        >
+                            <MainContent {...darkModeAttributes}>
+                                <ReduxStore>
+                                    <Message />
+                                    <SurveyProvider>
+                                        <Switch>
+                                            <Route
+                                                exact
+                                                path={
+                                                    pathUtils.regex.surveyRoot +
+                                                    ''
+                                                }
+                                                component={SurveyIndexPage}
+                                            />
+                                            <Route
+                                                exact
+                                                path={
+                                                    pathUtils.regex.surveyRoot +
+                                                    '/form'
+                                                }
+                                                component={SurveyFormPage}
+                                            />
+                                            <Route
+                                                exact
+                                                path={
+                                                    pathUtils.regex.surveyRoot +
+                                                    '/verify'
+                                                }
+                                                component={SurveyVerifyPage}
+                                            />
+                                            <Route
+                                                exact
+                                                path={
+                                                    pathUtils.regex.surveyRoot +
+                                                    '/success'
+                                                }
+                                                component={SurveySuccessPage}
+                                            />
+                                        </Switch>
+                                    </SurveyProvider>
+                                </ReduxStore>
+                            </MainContent>
+                        </Route>
+                        <Route>
+                            <MainContent {...darkModeAttributes}>
+                                <NotFoundPage />
+                            </MainContent>
+                        </Route>
+                    </Switch>
+                </Route>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default PageRouter;
