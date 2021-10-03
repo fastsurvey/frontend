@@ -1,7 +1,6 @@
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
 import {Button} from '@components';
-import {icons} from '@assets/icons';
 import {useHistory} from 'react-router';
 
 function Survey404Text() {
@@ -10,8 +9,9 @@ function Survey404Text() {
         <>
             <h1
                 className={
-                    'centering-row font-weight-600 text-lg text-gray-900 ' +
-                    'no-selection mb-3'
+                    'flex-row-center font-weight-600 text-lg ' +
+                    'no-selection mb-3 mt-4 ' +
+                    'text-gray-900 dark:text-gray-100'
                 }
             >
                 404: Survey not found
@@ -25,7 +25,6 @@ function Survey404Text() {
             </div>
             <Button
                 text='Back to Landing Page'
-                icon={icons.chevronLeftCircle}
                 onClick={() => {
                     history.push('/');
                 }}

@@ -21,7 +21,7 @@ function SurveySuccessPage(props: {
                     Your submission is now verified. Thank you for using{' '}
                     <strong className='font-weight-600'>FastSurvey!</strong>
                 </VisualTextCard>
-                <VisualInfoCard variant='change-later' />
+                <VisualInfoCard variant='success' />
             </div>
         );
     } else {

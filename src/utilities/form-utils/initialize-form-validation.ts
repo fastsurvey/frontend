@@ -32,7 +32,7 @@ export function initializeFormValidation(
 
         if (fieldValidation !== undefined) {
             Object.assign(formValidation, {
-                [index.toString()]: fieldValidation,
+                [field.identifier]: fieldValidation,
             });
         }
     });

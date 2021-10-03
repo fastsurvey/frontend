@@ -25,7 +25,7 @@ const ColoredText = (props: {
         />
     </div>
 );
-export default function LandingSection1Intro() {
+export default function LandingSection1Intro(props: {baseUrl: string}) {
     return (
         <LandingPageSection
             leftChild={
@@ -45,14 +45,14 @@ export default function LandingSection1Intro() {
                     </div>
                     <div className='space-x-2 centering-row'>
                         <a
-                            href='https://console.fastsurvey.de/register'
+                            href={`https://console.${props.baseUrl}/register`}
                             target='_self'
                             className='rounded ringable'
                         >
                             <Button text='Sign up' variant='light-on-dark' />
                         </a>
                         <a
-                            href='https://console.fastsurvey.de/login'
+                            href={`https://console.${props.baseUrl}/login`}
                             target='_self'
                             className='rounded ringable'
                         >
