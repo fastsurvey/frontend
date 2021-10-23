@@ -35,12 +35,12 @@ export default function LandingSection1Intro(props: {baseUrl: string}) {
                             <img src={RocketLogoLight} alt='FastSurvey Logo' />
                         </div>
                         <div className='flex-col-left gap-y-1'>
-                            <div className='text-3xl text-blue-100 font-weight-600 '>
+                            <h1 className='text-3xl text-blue-100 font-weight-600 '>
                                 Fastsurvey
-                            </div>
-                            <div className='text-lg tracking-wide text-gray-200 uppercase font-weight-400 '>
+                            </h1>
+                            <h2 className='text-lg tracking-wide text-gray-200 uppercase font-weight-400 '>
                                 Never assume anymore
-                            </div>
+                            </h2>
                         </div>
                     </div>
                     <div className='space-x-2 centering-row'>

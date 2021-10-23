@@ -42,9 +42,9 @@ export default function LandingSection2Demo() {
         <LandingPageSection
             leftChild={
                 <div className='space-y-4 flex-col-left'>
-                    <div className='text-xl text-blue-100 uppercase'>
+                    <h2 className='text-xl text-blue-100 uppercase'>
                         <strong>How</strong> does it work?
-                    </div>
+                    </h2>
                     <div className='space-y-1 text-base text-gray-100 flex-col-left'>
                         <BulletPoint
                             active={imageIndex === 0}
