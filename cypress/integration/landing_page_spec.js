@@ -3,9 +3,23 @@ describe('The Landing Page', () => {
         cy.visit('/'); // change URL to match your dev URL
     });
 
+    it('contains five sections', () => {
+        cy.get('main').children().should('have.length', 5);
+    });
+
+    it('contains three content sections', () => {
+        cy.get('h2').contains('how does it work?').should('have.length', 1);
+        cy.get('h2')
+            .contains('pricing should be transparent and fair')
+            .should('have.length', 1);
+        cy.get('h2')
+            .contains('frequently asked questions')
+            .should('have.length', 1);
+    });
+
     it('has a working demo image slider', () => {
         cy.get('h2')
-            .contains('How does it work?')
+            .contains('how does it work?')
             .parents('.grid')
             .as('demoSection');
 

@@ -15,7 +15,7 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
 const PricingText = () => (
     <>
         <h2 className='text-xl text-blue-100 uppercase'>
-            <strong>Pricing</strong> should be{' '}
+            <strong>pricing</strong> should be{' '}
             <span className='whitespace-nowrap'>transparent and fair</span>
         </h2>
         <div className='mt-4 space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>

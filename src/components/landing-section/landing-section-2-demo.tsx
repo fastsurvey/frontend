@@ -43,7 +43,7 @@ export default function LandingSection2Demo() {
             leftChild={
                 <div className='space-y-4 flex-col-left'>
                     <h2 className='text-xl text-blue-100 uppercase'>
-                        <strong>How</strong> does it work?
+                        <strong>how</strong> does it work?
                     </h2>
                     <div className='space-y-1 text-base text-gray-100 flex-col-left'>
                         <BulletPoint
