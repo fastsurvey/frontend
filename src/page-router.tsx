@@ -2,20 +2,20 @@ import React, {useState} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import ReduxStore from './redux-store';
 
-import {Message, MainContent} from '@components';
-import {pathUtils} from '@utilities';
+import {Message, MainContent} from '/components';
+import {pathUtils} from '/utilities';
 
-import SurveyProvider from '@pages/survey-provider';
-import SurveyIndexPage from '@pages/survey-page/index';
-import SurveyFormPage from '@pages/survey-page/form';
-import SurveyVerifyPage from '@pages/survey-page/verify';
-import SurveySuccessPage from '@pages/survey-page/success';
-import LandingPage from '@pages/landing-page/landing-page';
-import NotFoundPage from './pages/not-found-page';
+import SurveyProvider from '/pages/survey-provider';
+import SurveyIndexPage from '/pages/survey-page/index';
+import SurveyFormPage from '/pages/survey-page/form';
+import SurveyVerifyPage from '/pages/survey-page/verify';
+import SurveySuccessPage from '/pages/survey-page/success';
+import LandingPage from '/pages/landing-page/landing-page';
+import NotFoundPage from '/pages/not-found-page';
 import {useEffect} from 'react';
 import Cookies from 'js-cookie';
 import {types} from 'types';
-import MaintenancePage from './components/layout/maintenance-page';
+import MaintenancePage from '/components/layout/maintenance-page';
 
 function PageRouter() {
     function systemIsDark() {

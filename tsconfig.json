@@ -17,15 +17,13 @@
         "downlevelIteration": true,
         "baseUrl": "src",
         "paths": {
-            "@assets/*": ["assets/*"],
-            "@components/*": ["components/*"],
-            "@pages/*": ["pages/*"],
-            "@styles/*": ["styles/*"],
-            "@utilities/*": ["utilities/*"],
+            "/assets/*": ["assets/*"],
+            "/components/*": ["components/*"],
+            "/pages/*": ["pages/*"],
+            "/styles/*": ["styles/*"],
+            "/utilities/*": ["utilities/*"],
 
-            "@types": ["types.ts"],
-            "@utilities": ["utilities"],
-            "@components": ["components"]
+            "types": ["types.ts"]
         }
     },
     "include": ["src"],

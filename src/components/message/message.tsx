@@ -1,10 +1,10 @@
 import React from 'react';
-import {types} from '@types';
+import {types} from 'types';
 import {connect} from 'react-redux';
-import {icons} from '@assets/icons';
-import {reduxUtils} from '@utilities';
+import {icons} from '/src/assets/icons';
+import {reduxUtils} from '/src/utilities';
 
-function Message(props: {
+export function MessageComponent(props: {
     message: types.Message | undefined;
     closeMessage(): void;
 }) {
@@ -55,4 +55,4 @@ const mapDispatchToProps = (dispatch: any) => ({
     closeMessage: reduxUtils.dispatchers.closeMessage(dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Message);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageComponent);

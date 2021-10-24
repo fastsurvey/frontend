@@ -1,5 +1,5 @@
-import {types} from '@types';
-import {formUtils} from '@utilities';
+import {types} from '/src/types';
+import {formUtils} from '/src/utilities';
 
 export function initializeFormValidation(
     config: types.SurveyConfig,

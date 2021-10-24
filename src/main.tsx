@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'typeface-quicksand';
-import '@styles/tailwind.css';
+import '/styles/tailwind.css';
 
 import PageRouter from './page-router';
 

@@ -10,7 +10,8 @@
         "develop": "vite --host",
         "build": "tsc && vite build",
         "serve": "vite preview",
-        "cypress:open": "cypress open"
+        "cypress:open": "cypress open",
+        "tailwind:build": "npx tailwindcss -i src/styles/tailwind.css -o src/styles/tailwind.out.css"
     },
     "dependencies": {
         "axios": "^0.21.1",
@@ -25,6 +26,9 @@
         "typeface-quicksand": "^1.1.13"
     },
     "devDependencies": {
+        "@cypress/react": "^5.10.1",
+        "@cypress/vite-dev-server": "^2.2.0",
+        "@cypress/webpack-dev-server": "^1.7.0",
         "@types/jest": "^26.0.23",
         "@types/js-cookie": "^2.2.7",
         "@types/lodash": "^4.14.170",
@@ -37,6 +41,7 @@
         "jest": "^27.0.6",
         "tailwindcss": "^2.2.4",
         "typescript": "^4.3.2",
-        "vite": "^2.3.8"
+        "vite": "^2.3.8",
+        "webpack-dev-server": "^4.3.1"
     }
 }

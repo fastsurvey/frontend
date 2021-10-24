@@ -1,4 +1,4 @@
-import {Button} from '@components';
+import {Button} from 'components';
 import React from 'react';
 import Gif from '@assets/gifs/computer.webp';
 import {useHistory} from 'react-router';
