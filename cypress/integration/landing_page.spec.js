@@ -1,6 +1,6 @@
 describe('The Landing Page', () => {
     it('successfully loads', () => {
-        cy.visit('/'); // change URL to match your dev URL
+        cy.visit('/');
     });
 
     it('contains five sections', () => {
