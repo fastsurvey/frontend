@@ -5,7 +5,7 @@ import {
     LandingSection3Pricing,
     LandingSectionLinks,
     LandingSectionFAQ,
-} from '@components';
+} from '/src/components';
 
 const VITE_ENV = import.meta.env.VITE_ENV;
 let baseUrl =

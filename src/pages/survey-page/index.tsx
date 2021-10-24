@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {types} from '@types';
+import {types} from '/src/types';
 
 import {
     VisualUserTextCard,
     VisualInfoCard,
     TimePill,
     Button,
-} from '@components';
-import {pathUtils} from '@utilities';
-import reduxUtils from '../../utilities/redux-utils/index';
+} from '/src/components';
+import {pathUtils, reduxUtils} from '/src/utilities';
 
 function SurveyIndexPage(props: {
     formConfig: types.SurveyConfig | undefined;

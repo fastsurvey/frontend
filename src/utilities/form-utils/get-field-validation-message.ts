@@ -1,5 +1,5 @@
 import {filter} from 'lodash';
-import {types} from '@types';
+import {types} from '/src/types';
 
 export function getFieldValidationMessage(
     fieldConfig: types.SurveyField,

@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import ReduxStore from './redux-store';
-
-import {Message, MainContent} from '/components';
-import {pathUtils} from '/utilities';
-
-import SurveyProvider from '/pages/survey-provider';
-import SurveyIndexPage from '/pages/survey-page/index';
-import SurveyFormPage from '/pages/survey-page/form';
-import SurveyVerifyPage from '/pages/survey-page/verify';
-import SurveySuccessPage from '/pages/survey-page/success';
-import LandingPage from '/pages/landing-page/landing-page';
-import NotFoundPage from '/pages/not-found-page';
-import {useEffect} from 'react';
 import Cookies from 'js-cookie';
-import {types} from 'types';
-import MaintenancePage from '/components/layout/maintenance-page';
+
+import {Message, MainContent} from '/src/components';
+import {pathUtils} from '/src/utilities';
+
+import SurveyProvider from '/src/pages/survey-provider';
+import SurveyIndexPage from '/src/pages/survey-page/index';
+import SurveyFormPage from '/src/pages/survey-page/form';
+import SurveyVerifyPage from '/src/pages/survey-page/verify';
+import SurveySuccessPage from '/src/pages/survey-page/success';
+import LandingPage from '/src/pages/landing-page/landing-page';
+import NotFoundPage from '/src/pages/not-found-page';
+import {types} from '/src/types';
+import MaintenancePage from '/src/components/layout/maintenance-page';
 
 function PageRouter() {
     function systemIsDark() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import {types} from '@types';
-import {icons} from '@assets/icons';
+import {types} from '/src/types';
+import {icons} from '/src/assets/icons';
 
 function RadioForm(props: {
     fieldConfig: types.RadioField;

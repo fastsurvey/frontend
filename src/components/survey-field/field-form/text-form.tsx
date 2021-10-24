@@ -1,5 +1,5 @@
 import React from 'react';
-import {types} from '@types';
+import {types} from '/src/types';
 
 function TextForm(props: {
     fieldConfig: types.TextField;

@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {types} from '@types';
-
-import {LoadingText, Survey404Text} from '@components';
-import {formUtils, reduxUtils} from '@utilities';
+import {types} from '/src/types';
+import {LoadingText, Survey404Text} from '/src/components';
+import {formUtils, reduxUtils} from '/src/utilities';
 
 /*
 This component manages the different view states on a survey page:

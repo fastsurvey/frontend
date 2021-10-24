@@ -1,6 +1,6 @@
 import React from 'react';
-import {types} from '@types';
-import {icons} from '@assets/icons/index';
+import {types} from '/src/types';
+import {icons} from '/src/assets/icons';
 
 function SelectionForm(props: {
     fieldConfig: types.SelectionField;

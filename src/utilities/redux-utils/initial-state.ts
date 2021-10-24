@@ -1,4 +1,4 @@
-import {types} from '@types';
+import {types} from '/src/types';
 
 const initialState: types.ReduxState = {
     fetching: true,

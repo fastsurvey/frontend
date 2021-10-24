@@ -6,11 +6,13 @@
         "email": "moritz@dostuffthatmatters.dev",
         "url": "https://dostuffthatmatters.dev/"
     },
+    "license": "UNLICENSED",
     "scripts": {
         "develop": "vite --host",
         "build": "tsc && vite build",
         "serve": "vite preview",
-        "cypress:open": "cypress open",
+        "cypress:integration": "cypress open",
+        "cypress:component": "yarn tailwind:build && cypress open-ct",
         "tailwind:build": "npx tailwindcss -i src/styles/tailwind.css -o src/styles/tailwind.out.css"
     },
     "dependencies": {

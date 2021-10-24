@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {types} from '@types';
-import {icons} from '@assets/icons';
-import {formUtils, reduxUtils} from '@utilities';
+import {types} from '/src/types';
+import {icons} from '/src/assets/icons';
+import {formUtils, reduxUtils} from '/src/utilities';
 
 import OptionForm from './field-form/option-form';
 import RadioForm from './field-form/radio-form';

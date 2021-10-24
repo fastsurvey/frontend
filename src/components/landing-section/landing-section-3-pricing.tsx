@@ -1,6 +1,6 @@
 import React from 'react';
-import Gif from '@assets/gifs/money.webp';
-import {icons} from '@assets/icons';
+import Gif from '/src/assets/gifs/money.webp';
+import {icons} from '/src/assets/icons';
 import LandingPageSection from './section';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (

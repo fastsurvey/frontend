@@ -1,6 +1,6 @@
 import React from 'react';
-import RocketLogoLight from '@assets/branding/rocket-light.svg';
-import {Button} from 'components';
+import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
+import {Button} from '/src/components';
 import LandingPageSection from './section';
 
 const ColoredText = (props: {

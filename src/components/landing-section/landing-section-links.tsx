@@ -1,7 +1,7 @@
 import React from 'react';
-import RocketLogoLight from '@assets/branding/rocket-light.svg';
-import {Button} from '@components';
-import {icons} from '@assets/icons';
+import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
+import {Button} from '/src/components';
+import {icons} from '/src/assets/icons';
 import {Link} from 'react-router-dom';
 import LandingPageSection from './section';
 

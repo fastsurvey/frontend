@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {types} from 'types';
+import {types} from '/src/types';
 import {mount} from '@cypress/react';
 import {MessageComponent} from './message';
 import '/src/styles/tailwind.out.css';
