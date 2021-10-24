@@ -80,12 +80,12 @@ function MainContent(props: {
                             'absolute top-0 right-0 p-1 w-7 h-7 group-hover:hidden'
                         }
                     >
-                        <div className='block w-full h-full dark:hidden icon-dark-blue'>
+                        <button className='block w-full h-full dark:hidden icon-dark-blue'>
                             {icons.light}
-                        </div>
-                        <div className='hidden w-full h-full dark:block icon-blue'>
+                        </button>
+                        <button className='hidden w-full h-full dark:block icon-blue'>
                             {icons.light}
-                        </div>
+                        </button>
                     </div>
                 </div>
             </header>
