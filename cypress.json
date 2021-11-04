@@ -1,8 +1,8 @@
 {
     "baseUrl": "http://localhost:3000",
-    "testFiles": "cypress/integration/*.spec.js",
+    "testFiles": "**/*.e2e.spec.js",
     "component": {
-        "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
+        "testFiles": "**/*.ct.spec.{js,ts,jsx,tsx}",
         "componentFolder": "src",
         "viewportHeight": 500,
         "viewportWidth": 700
