@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {types} from '/src/types';
 import {mount} from '@cypress/react';
-import {SurveyFieldComponent} from './survey-field';
+import {SurveyFieldComponent} from '../survey-field';
 import '/src/styles/tailwind.out.css';
 
 function State(props: {fieldConfig: types.OptionField; fieldIndex: number}) {
-    const [formData, modifyData] = useState(false);
+    const [formData, modifyData] = useState({
+        [props.fieldConfig.identifier]: false,
+    });
     const [formValidation, modifyValidation] = useState({
         [props.fieldConfig.identifier]: !props.fieldConfig.required,
     });
