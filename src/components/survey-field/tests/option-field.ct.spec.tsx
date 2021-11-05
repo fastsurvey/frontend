@@ -55,7 +55,7 @@ it('works as expected', () => {
             fieldIndex={17}
         />,
     );
-    cy.get('h2').contains('18. <title>');
+    cy.get('h2').contains('18. <title>').should('have.length', 1);
     validationIsCorrect({valid: false});
     cy.get('button').contains('<description>').click();
     validationIsCorrect({valid: true});

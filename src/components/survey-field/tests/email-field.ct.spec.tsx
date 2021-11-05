@@ -58,7 +58,7 @@ it('works as for any email', () => {
             fieldIndex={7}
         />,
     );
-    cy.get('h2').contains('8. <title>');
+    cy.get('h2').contains('8. <title>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: 'Not a valid email',

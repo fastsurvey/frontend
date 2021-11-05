@@ -57,7 +57,7 @@ it('works as expected', () => {
             fieldIndex={3}
         />,
     );
-    cy.get('h2').contains('4. <title>');
+    cy.get('h2').contains('4. <title>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: '4 characters below minimum (4)',
