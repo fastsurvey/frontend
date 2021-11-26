@@ -16,6 +16,7 @@
         "tailwind:build": "npx tailwindcss -i src/styles/tailwind.css -o src/styles/tailwind.out.css"
     },
     "dependencies": {
+        "@sentry/react": "^6.15.0",
         "axios": "^0.21.1",
         "express": "^4.17.1",
         "js-cookie": "^3.0.1",
