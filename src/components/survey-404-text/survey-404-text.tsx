@@ -1,6 +1,6 @@
 import React from 'react';
-import Gif from '@assets/gifs/computer.webp';
-import {Button} from '@components';
+import Gif from '/src/assets/gifs/computer.webp';
+import {Button} from '/src/components';
 import {useHistory} from 'react-router';
 
 function Survey404Text() {

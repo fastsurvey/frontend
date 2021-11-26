@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {VisualTextCard, VisualInfoCard, Button} from '@components';
-import {pathUtils, backend, reduxUtils} from '@utilities';
 import {useHistory} from 'react-router-dom';
-import {types} from 'types';
 import {connect} from 'react-redux';
+import {VisualTextCard, VisualInfoCard, Button} from '/src/components';
+import {pathUtils, backend, reduxUtils} from '/src/utilities';
+import {types} from '/src/types';
 
 function SurveyVerifyPage(props: {openMessage(m: types.Message): void}) {
     const email = new URLSearchParams(window.location.search).get('email');

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SVG = (props: {children: React.ReactNode}) => (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+const SVG = (props: {children: React.ReactNode; id?: string}) => (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' id={props.id}>
         {props.children}
     </svg>
 );
@@ -241,7 +241,7 @@ export const icons = {
         </SVG>
     ),
     chevronLeftCircle: (
-        <SVG>
+        <SVG id='chevron-left-circle'>
             <circle cx='12' cy='12' r='10' className='primary' />
             <path
                 className='secondary'
@@ -250,7 +250,7 @@ export const icons = {
         </SVG>
     ),
     chevronRightCircle: (
-        <SVG>
+        <SVG id='chevron-right-circle'>
             <circle cx='12' cy='12' r='10' className='primary' />
             <path
                 className='secondary'

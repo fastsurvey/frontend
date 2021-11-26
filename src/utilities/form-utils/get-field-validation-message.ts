@@ -1,5 +1,5 @@
 import {filter} from 'lodash';
-import {types} from '@types';
+import {types} from '/src/types';
 
 export function getFieldValidationMessage(
     fieldConfig: types.SurveyField,
@@ -52,13 +52,15 @@ export function getFieldValidationMessage(
 
         case 'text':
             if (fieldData.length < fieldConfig.min_chars) {
-                return `${
-                    fieldConfig.min_chars - fieldData.length
-                } characters below minimum (${fieldConfig.min_chars})`;
+                const diff = fieldConfig.min_chars - fieldData.length;
+                return `${diff} character${
+                    diff !== 1 ? 's' : ''
+                } below minimum (${fieldConfig.min_chars})`;
             } else if (fieldData.length > fieldConfig.max_chars) {
-                return `${
-                    fieldData.length - fieldConfig.max_chars
-                } characters over maximum (${fieldConfig.max_chars})`;
+                const diff = fieldData.length - fieldConfig.max_chars;
+                return `${diff} character${
+                    diff !== 1 ? 's' : ''
+                } above maximum (${fieldConfig.max_chars})`;
             } else {
                 return `Valid: ${fieldData.length}/${fieldConfig.max_chars} characters`;
             }

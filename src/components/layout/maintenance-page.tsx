@@ -1,9 +1,9 @@
 import React from 'react';
-import RocketLogo from '@assets/branding/rocket.svg';
-import RocketLogoLight from '@assets/branding/rocket-light.svg';
-import {types} from 'types';
-import {icons} from '@assets/icons';
-import Gif from '@assets/gifs/monkey-throwing-computer.gif';
+import RocketLogo from '/src/assets/branding/rocket.svg';
+import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
+import {types} from '/src/types';
+import {icons} from '/src/assets/icons';
+import Gif from '/src/assets/gifs/monkey-throwing-computer.gif';
 
 export default function MaintenancePage(props: {
     children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from 'react';
-import {icons} from '@assets/icons';
-import {pathUtils} from '@utilities';
+import {icons} from '/src/assets/icons';
+import {pathUtils} from '/src/utilities';
 import {Link} from 'react-router-dom';
 
 function VisualInfoCard(props: {

@@ -49,7 +49,7 @@ export default function LandingSectionFAQ() {
         <div className='px-4 py-8 md:px-8 md:py-16 bg-gray-900 border-b-[2px] last:border-b-0 border-gray-700 w-full'>
             <div className='mx-auto lg:max-w-[66rem] xl:max-w-[67rem] flex-col-center'>
                 <h2 className='text-xl text-blue-100 uppercase'>
-                    Frequently asked <strong>questions</strong>
+                    frequently asked <strong>questions</strong>
                 </h2>
                 <div className='mt-6 md:mt-12'>
                     <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3'>

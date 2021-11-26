@@ -1,6 +1,6 @@
 import React from 'react';
-import {types} from '@types';
-import {formUtils} from '@utilities';
+import {types} from '/src/types';
+import {formUtils} from '/src/utilities';
 
 function EmailForm(props: {
     fieldConfig: types.EmailField;

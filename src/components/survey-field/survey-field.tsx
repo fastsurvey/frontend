@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {types} from '@types';
-import {icons} from '@assets/icons';
-import {formUtils, reduxUtils} from '@utilities';
+import {types} from '/src/types';
+import {icons} from '/src/assets/icons';
+import {formUtils, reduxUtils} from '/src/utilities';
 
 import OptionForm from './field-form/option-form';
 import RadioForm from './field-form/radio-form';
@@ -10,7 +10,7 @@ import SelectionForm from './field-form/selection-form';
 import TextForm from './field-form/text-form';
 import EmailForm from './field-form/email-form';
 
-function SurveyField(props: {
+export function SurveyFieldComponent(props: {
     fieldConfig: types.SurveyField;
     fieldIndex: number;
     formData: any;
@@ -57,14 +57,14 @@ function SurveyField(props: {
     return (
         <div className='w-full overflow-hidden rounded shadow centering-col'>
             <div className='w-full p-4 bg-white dark:bg-gray-700 lg:p-6 centering-col'>
-                <div
+                <h2
                     className={
                         'w-full mb-0.5 text-lg text-left font-weight-700 md:font-weight-600 ' +
                         'text-black md:text-gray-700 dark:text-white '
                     }
                 >
                     {fieldIndex + 1}. {fieldConfig.title}
-                </div>
+                </h2>
                 {fieldConfig.type !== 'option' &&
                     fieldConfig.description.replace(' ', '').length > 0 && (
                         <div
@@ -126,4 +126,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     modifyValidation: reduxUtils.dispatchers.modifyValidation(dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SurveyField);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(SurveyFieldComponent);

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {icons} from '@assets/icons/index';
+import {icons} from '/src/assets/icons/index';
 import LandingPageSection from './section';
-import DemoImage1 from '@assets/images/image-01-create.png';
-import DemoImage2 from '@assets/images/image-02-collect.png';
-import DemoImage3 from '@assets/images/image-03-analyze.png';
+import DemoImage1 from '/src/assets/images/image-01-create.png';
+import DemoImage2 from '/src/assets/images/image-02-collect.png';
+import DemoImage3 from '/src/assets/images/image-03-analyze.png';
 
 const BulletPoint = (props: {
     icon: React.ReactNode;
@@ -42,9 +42,9 @@ export default function LandingSection2Demo() {
         <LandingPageSection
             leftChild={
                 <div className='space-y-4 flex-col-left'>
-                    <div className='text-xl text-blue-100 uppercase'>
-                        <strong>How</strong> does it work?
-                    </div>
+                    <h2 className='text-xl text-blue-100 uppercase'>
+                        <strong>how</strong> does it work?
+                    </h2>
                     <div className='space-y-1 text-base text-gray-100 flex-col-left'>
                         <BulletPoint
                             active={imageIndex === 0}

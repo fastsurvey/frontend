@@ -1,6 +1,6 @@
 import React from 'react';
-import Gif from '@assets/gifs/money.webp';
-import {icons} from '@assets/icons';
+import Gif from '/src/assets/gifs/money.webp';
+import {icons} from '/src/assets/icons';
 import LandingPageSection from './section';
 
 const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
@@ -14,10 +14,10 @@ const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
 
 const PricingText = () => (
     <>
-        <div className='text-xl text-blue-100 uppercase'>
-            <strong>Pricing</strong> should be{' '}
+        <h2 className='text-xl text-blue-100 uppercase'>
+            <strong>pricing</strong> should be{' '}
             <span className='whitespace-nowrap'>transparent and fair</span>
-        </div>
+        </h2>
         <div className='mt-4 space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
             <div className='pb-2 text-base text-white font-weight-600'>
                 As many surveys as you want -{' '}

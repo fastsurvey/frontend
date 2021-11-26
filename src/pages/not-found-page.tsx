@@ -1,7 +1,7 @@
-import {Button} from '@components';
 import React from 'react';
-import Gif from '@assets/gifs/computer.webp';
 import {useHistory} from 'react-router';
+import Gif from '/src/assets/gifs/computer.webp';
+import {Button} from '/src/components';
 
 export default function NotFoundPage() {
     const history = useHistory();
