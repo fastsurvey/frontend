@@ -12,6 +12,7 @@ import SurveyFormPage from '/src/pages/survey-page/form';
 import SurveyVerifyPage from '/src/pages/survey-page/verify';
 import SurveySuccessPage from '/src/pages/survey-page/success';
 import LandingPage from '/src/pages/landing-page/landing-page';
+import NewLandingPage from '/src/pages/new-landing-page/new-landing-page';
 import NotFoundPage from '/src/pages/not-found-page';
 import {types} from '/src/types';
 import MaintenancePage from '/src/components/layout/maintenance-page';
@@ -56,8 +57,11 @@ function PageRouter() {
             <BrowserRouter>
                 <Route>
                     <Switch>
-                        <Route exact path={'/'}>
+                        <Route exact path='/'>
                             <LandingPage />
+                        </Route>
+                        <Route exact path='/new-landing-page'>
+                            <NewLandingPage />
                         </Route>
                         <Route
                             exact
