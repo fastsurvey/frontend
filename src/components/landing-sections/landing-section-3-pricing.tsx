@@ -1,6 +1,7 @@
 import React from 'react';
 import {icons} from '/src/assets/icons';
 import {Button} from '/src/components';
+import {NewLandingPageSection, LandingHeading} from './section';
 
 const PricingPanel = (props: {
     title: string;
@@ -8,7 +9,11 @@ const PricingPanel = (props: {
     bulletPoints: {icon: React.ReactNode; text: React.ReactNode}[];
     register?: {baseUrl: string};
 }) => (
-    <div className={'p-4 bg-gray-800 w-full rounded shadow-md flex-col-center'}>
+    <div
+        className={
+            'py-3 px-4 bg-gray-800 w-full rounded shadow-md flex-col-center'
+        }
+    >
         <div className='space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
             <h3 className='w-full pb-2 text-base leading-tight flex-col-center'>
                 <strong className='text-lg text-white font-weight-700'>
@@ -49,14 +54,14 @@ const PricingPanel = (props: {
 
 export default function LandingSection3Pricing(props: {baseUrl: string}) {
     return (
-        <div className='w-full py-12 border-b-2 border-gray-700 flex-col-center'>
+        <NewLandingPageSection index={2}>
             <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
-                <h2 className='col-span-2 mb-2 text-xl text-center text-blue-100 uppercase'>
-                    <strong>pricing</strong> should be{' '}
-                    <span className='whitespace-nowrap'>
-                        transparent and fair
-                    </span>
-                </h2>
+                <LandingHeading
+                    boldText='pricing'
+                    slimText='should be transparent and fair'
+                    className='col-span-2'
+                />
+
                 <PricingPanel
                     title='Community'
                     subtitle='hosted by us on fastsurvey.de'
@@ -110,8 +115,12 @@ export default function LandingSection3Pricing(props: {baseUrl: string}) {
                         'border-2 border-dashed border-gray-700 col-span-2'
                     }
                 >
-                    <h3 className='mb-1 text-gray-200 font-weight-600'>
-                        Interested in an enterprise license?
+                    <h3 className='mb-1 text-gray-200 font-weight-500'>
+                        Interested in an{' '}
+                        <strong className='text-white font-weight-700'>
+                            enterprise
+                        </strong>{' '}
+                        license?
                     </h3>{' '}
                     Please contact us via{' '}
                     <a
@@ -123,6 +132,6 @@ export default function LandingSection3Pricing(props: {baseUrl: string}) {
                     and we will work out something.
                 </div>
             </div>
-        </div>
+        </NewLandingPageSection>
     );
 }

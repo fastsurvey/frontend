@@ -24,3 +24,52 @@ export default function LandingPageSection(props: {
         </div>
     );
 }
+
+export function NewLandingPageSection(props: {
+    children: React.ReactChild;
+    index: number;
+}) {
+    let borderColor: string;
+    switch (props.index) {
+        case 0:
+            borderColor = 'border-gray-700';
+            break;
+        case 1:
+            borderColor = 'border-gray-700';
+            break;
+        case 2:
+            borderColor = 'border-gray-700';
+            break;
+        case 3:
+            borderColor = 'border-gray-700';
+            break;
+        case 4:
+            borderColor = 'border-gray-700';
+            break;
+    }
+    return (
+        <div className='w-full py-12 border-b-2 border-gray-700 flex-col-center'>
+            {props.children}
+        </div>
+    );
+}
+
+export function LandingHeading(props: {
+    boldText: string;
+    slimText: string;
+    className?: string;
+}) {
+    return (
+        <h2
+            className={
+                'mb-3 text-2xl text-center text-blue-200 uppercase font-weight-400 ' +
+                (props.className ? props.className : '')
+            }
+        >
+            <strong className='text-blue-50 font-weight-700'>
+                {props.boldText}
+            </strong>{' '}
+            {props.slimText}
+        </h2>
+    );
+}
