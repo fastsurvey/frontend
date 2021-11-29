@@ -1,89 +1,128 @@
 import React from 'react';
-import Gif from '/src/assets/gifs/money.webp';
 import {icons} from '/src/assets/icons';
-import LandingPageSection from './section';
+import {Button} from '/src/components';
 
-const BulletPoint = (props: {icon: React.ReactNode; text: string}) => (
-    <div className='w-full px-1 py-1 space-x-3 flex-row-left'>
-        <div className={'w-6 h-6 p-0.5 icon-landing-bullet flex-shrink-0'}>
-            {props.icon}
+const PricingPanel = (props: {
+    title: string;
+    subtitle: React.ReactNode;
+    bulletPoints: {icon: React.ReactNode; text: React.ReactNode}[];
+    register?: {baseUrl: string};
+}) => (
+    <div className={'p-4 bg-gray-800 w-full rounded shadow-md flex-col-center'}>
+        <div className='space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
+            <h3 className='w-full pb-2 text-base leading-tight flex-col-center'>
+                <strong className='text-lg text-white font-weight-700'>
+                    {props.title}{' '}
+                    <span className='font-weight-400'>Edition</span>
+                </strong>
+                <span className='-mt-0.5 text-sm text-blue-100'>
+                    {props.subtitle}
+                </span>
+            </h3>
+            {props.bulletPoints.map((bp) => (
+                <div className='w-full px-1 py-1 space-x-2 text-sm flex-row-left'>
+                    <div
+                        className={
+                            'w-6 h-6 p-0.5 svg-landing-bullet flex-shrink-0'
+                        }
+                    >
+                        {bp.icon}
+                    </div>
+                    <div className={'flex-max leading-tight'}>{bp.text}</div>
+                </div>
+            ))}
         </div>
-        <div className={'flex-max leading-6'}>{props.text}</div>
+        <div className='flex-grow min-h-4' />
+        {props.register && (
+            <div className='w-full flex-row-center'>
+                <a
+                    href={`https://console.${props.baseUrl}/register`}
+                    target='_self'
+                    className='rounded ringable'
+                >
+                    <Button text='Sign up' variant='flat-light-blue' />
+                </a>
+            </div>
+        )}
     </div>
 );
 
-const PricingText = () => (
-    <>
-        <h2 className='text-xl text-blue-100 uppercase'>
-            <strong>pricing</strong> should be{' '}
-            <span className='whitespace-nowrap'>transparent and fair</span>
-        </h2>
-        <div className='mt-4 space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
-            <div className='pb-2 text-base text-white font-weight-600'>
-                As many surveys as you want -{' '}
-                <span className='whitespace-nowrap'>billing per survey:</span>
-            </div>
-            <BulletPoint
-                icon={icons.discount}
-                text='The first 100 submissions of any survey are free'
-            />
-            <BulletPoint
-                icon={icons.currencyEuro}
-                text='4ct. per submission beyond the free tier'
-            />
-            <div className='pt-8 pb-2 text-base text-white font-weight-600'>
-                No hidden fees or dark patterns:
-            </div>
-            <BulletPoint
-                icon={icons.package}
-                text='All features included (paid or free)'
-            />
-            <BulletPoint
-                icon={icons.calculator}
-                text='No survey submissions = no running costs'
-            />
-            <BulletPoint
-                icon={icons.creditCard}
-                text='Use the free tier forever - without any payment information'
-            />
-            <BulletPoint
-                icon={icons.security}
-                text='We make money by selling submissions, not your data'
-            />
-        </div>
-    </>
-);
-
-export default function LandingSection3Pricing() {
+export default function LandingSection3Pricing(props: {baseUrl: string}) {
     return (
-        <LandingPageSection
-            leftChild={
-                <div className='w-full py-8 ml-auto lg:max-w-lg flex-col-left'>
-                    <PricingText />
-                    <div
-                        className={
-                            'mt-10 w-full rounded-lg p-4 text-gray-400 text-sm font-weight-400 ' +
-                            'border-2 border-dashed border-gray-700'
-                        }
+        <div className='w-full py-12 border-b-2 border-gray-700 flex-col-center'>
+            <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
+                <h2 className='col-span-2 mb-2 text-xl text-center text-blue-100 uppercase'>
+                    <strong>pricing</strong> should be{' '}
+                    <span className='whitespace-nowrap'>
+                        transparent and fair
+                    </span>
+                </h2>
+                <PricingPanel
+                    title='Community'
+                    subtitle='hosted by us on fastsurvey.de'
+                    bulletPoints={[
+                        {
+                            icon: icons.package,
+                            text: (
+                                <>
+                                    All features included,{' '}
+                                    <span className='text-white font-weight-700'>
+                                        free to use, forever!
+                                    </span>
+                                </>
+                            ),
+                        },
+                        {
+                            icon: icons.security,
+                            text: 'We make money by selling licenses, not your data',
+                        },
+                    ]}
+                    register={props}
+                />
+                <PricingPanel
+                    title='Enterprise'
+                    subtitle='host our source code wherever you want'
+                    bulletPoints={[
+                        {
+                            icon: icons.package,
+                            text: 'All features + full control over your data',
+                        },
+                        {
+                            icon: icons.paint,
+                            text: 'Fully customize the look of your surveys',
+                        },
+                        {
+                            icon: icons.certificate,
+                            text: (
+                                <>
+                                    <span className='text-white font-weight-700'>
+                                        Lifetime licenses
+                                    </span>{' '}
+                                    (incl. one year of free updates)
+                                </>
+                            ),
+                        },
+                    ]}
+                />
+                <div
+                    className={
+                        'w-full rounded-lg p-3 text-gray-400 text-sm font-weight-400 ' +
+                        'border-2 border-dashed border-gray-700 col-span-2'
+                    }
+                >
+                    <h3 className='mb-1 text-gray-200 font-weight-600'>
+                        Interested in an enterprise license?
+                    </h3>{' '}
+                    Please contact us via{' '}
+                    <a
+                        href='mailto:contact@fastsurvey.de'
+                        className='text-blue-100 underline'
                     >
-                        <span className='text-gray-300 font-weight-600'>
-                            Right now, our tool is still completely free to use.
-                        </span>{' '}
-                        We want to see how people use it and implement important
-                        features before spending time on implementing payment
-                        logic.
-                    </div>
+                        contact@fastsurvey.de
+                    </a>{' '}
+                    and we will work out something.
                 </div>
-            }
-            rightChild={
-                <div className='w-full max-w-md mx-auto overflow-hidden rounded-lg'>
-                    <img
-                        src={Gif}
-                        className='w-full h-auto'
-                        alt='Monkey with a cash'
-                    />
-                </div>
-            }
-        />
+            </div>
+        </div>
     );
 }

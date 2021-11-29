@@ -17,7 +17,7 @@ function LandingPage() {
             <main className='w-full bg-gray-900 centering-col'>
                 <LandingSection1Intro baseUrl={baseUrl} />
                 <LandingSection2Demo />
-                <LandingSection3Pricing />
+                <LandingSection3Pricing baseUrl={baseUrl} />
                 <LandingSectionFAQ />
                 <LandingSectionLinks baseUrl={baseUrl} />
             </main>

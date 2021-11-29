@@ -188,10 +188,10 @@
     @apply fill-red-900;
 }
 
-.icon-landing-bullet .primary {
-    @apply fill-gray-500;
+.svg-landing-bullet .primary {
+    @apply fill-blue-400;
 }
 
-.icon-landing-bullet .secondary {
+.svg-landing-bullet .secondary {
     @apply fill-blue-100;
 }

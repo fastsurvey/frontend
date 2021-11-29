@@ -11,18 +11,13 @@ const ColoredText = (props: {
     <div className='relative inline-block'>
         <div
             className={
-                'relative z-10 block font-weight-700 text-gray-200 ' +
-                (props.pr ? 'pr-1.5 ' : '')
+                'relative z-10 block font-weight-500 text-gray-200 ' +
+                (props.pr ? 'pr-1.5 ' : '') +
+                (props.good ? 'text-green-200 ' : 'text-red-200 ')
             }
         >
             {props.children}
         </div>
-        <div
-            className={
-                'absolute block bottom-[0.325rem] left-0 z-0 w-full h-1 ' +
-                (props.good ? 'bg-green-800 ' : 'bg-red-800 ')
-            }
-        />
     </div>
 );
 export default function LandingSection1Intro(props: {baseUrl: string}) {
