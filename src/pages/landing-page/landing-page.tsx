@@ -14,7 +14,7 @@ let baseUrl =
 function LandingPage() {
     return (
         <div className='relative'>
-            <main className='w-full bg-gray-900 centering-col'>
+            <main className='w-full bg-gray-950 centering-col'>
                 <LandingSection1Intro baseUrl={baseUrl} />
                 <LandingSection2Demo />
                 <LandingSection3Pricing baseUrl={baseUrl} />

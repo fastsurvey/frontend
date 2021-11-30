@@ -61,7 +61,6 @@ export default function LandingSection3Pricing(props: {baseUrl: string}) {
                     slimText='should be transparent and fair'
                     className='col-span-2'
                 />
-
                 <PricingPanel
                     title='Community'
                     subtitle='hosted by us on fastsurvey.de'

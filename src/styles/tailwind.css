@@ -56,6 +56,12 @@
         @apply focus:ring-blue-200;
     }
 
+    .not-ringable {
+        @apply ring-[2.5px];
+        @apply ring-transparent;
+        @apply focus:outline-none;
+    }
+
     .ringable-light {
         @apply ring-[2.5px];
         @apply ring-transparent;
@@ -194,4 +200,12 @@
 
 .svg-landing-bullet .secondary {
     @apply fill-blue-100;
+}
+
+.svg-landing-slider .primary {
+    fill: white;
+}
+
+.svg-landing-slider .secondary {
+    @apply fill-blue-600;
 }

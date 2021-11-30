@@ -26,7 +26,7 @@ export default function LandingPageSection(props: {
 }
 
 export function NewLandingPageSection(props: {
-    children: React.ReactChild;
+    children: React.ReactNode;
     index: number;
 }) {
     let borderColor: string;

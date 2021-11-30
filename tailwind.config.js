@@ -18,6 +18,7 @@ const customColors = {
   
     // Neutrals
     gray: colors.blueGray,
+    'gray-950': '#09101D',
   
     green: {
         50: "#F0FCF9",
