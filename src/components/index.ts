@@ -10,7 +10,7 @@ export {default as LandingSection1Intro} from './landing-sections/landing-sectio
 export {default as LandingSection2Demo} from './landing-sections/landing-section-2-demo';
 export {default as LandingSection3Pricing} from './landing-sections/landing-section-3-pricing';
 export {default as LandingSectionLinks} from './landing-sections/landing-section-links';
-export {default as LandingSectionFAQ} from './landing-sections/landing-section-faq';
+export {default as LandingSectionQuestions} from './landing-sections/landing-section-questions';
 
 export {default as LandingPitchIntro} from './landing-pitch/landing-pitch-intro';
 export {default as LandingPitchDemo} from './landing-pitch/landing-pitch-demo';

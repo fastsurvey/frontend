@@ -38,10 +38,10 @@ const PricingPanel = (props: {
             ))}
         </div>
         <div className='flex-grow min-h-4' />
-        {props.register && (
+        {props.register !== undefined && (
             <div className='w-full flex-row-center'>
                 <a
-                    href={`https://console.${props.baseUrl}/register`}
+                    href={`https://console.${props.register.baseUrl}/register`}
                     target='_self'
                     className='rounded ringable'
                 >
@@ -56,11 +56,17 @@ export default function LandingSection3Pricing(props: {baseUrl: string}) {
     return (
         <NewLandingPageSection index={2}>
             <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
-                <LandingHeading
-                    boldText='pricing'
-                    slimText='should be transparent and fair'
-                    className='col-span-2'
-                />
+                <h2
+                    className={
+                        'mb-3 text-2xl uppercase text-center ' +
+                        'text-blue-200 font-weight-400 col-span-2'
+                    }
+                >
+                    <strong className='text-blue-50 font-weight-700'>
+                        pricing
+                    </strong>{' '}
+                    should be transparent and fair!
+                </h2>
                 <PricingPanel
                     title='Community'
                     subtitle='hosted by us on fastsurvey.de'
@@ -108,27 +114,26 @@ export default function LandingSection3Pricing(props: {baseUrl: string}) {
                         },
                     ]}
                 />
-                <div
-                    className={
-                        'w-full rounded-lg p-3 text-gray-400 text-sm font-weight-400 ' +
-                        'border-2 border-dashed border-gray-700 col-span-2'
-                    }
-                >
-                    <h3 className='mb-1 text-gray-200 font-weight-500'>
+                <div className='px-4 py-2 border-[2px] border-dashed border-gray-700 rounded-lg w-full col-span-2'>
+                    <h3 className='text-base leading-6 text-gray-200 font-weight-500'>
                         Interested in an{' '}
                         <strong className='text-white font-weight-700'>
                             enterprise
                         </strong>{' '}
                         license?
-                    </h3>{' '}
-                    Please contact us via{' '}
-                    <a
-                        href='mailto:contact@fastsurvey.de'
-                        className='text-blue-100 underline'
-                    >
-                        contact@fastsurvey.de
-                    </a>{' '}
-                    and we will work out something.
+                    </h3>
+                    <div className='mt-1 mb-0.5 text-sm text-gray-300 font-weight-400'>
+                        Please contact us via{' '}
+                        <a
+                            href='mailto:contact@fastsurvey.de'
+                            target='blank'
+                            rel='noopener noreferrer'
+                            className='text-blue-100 underline font-weight-600'
+                        >
+                            contact@fastsurvey.de
+                        </a>{' '}
+                        and we will work out something.
+                    </div>
                 </div>
             </div>
         </NewLandingPageSection>

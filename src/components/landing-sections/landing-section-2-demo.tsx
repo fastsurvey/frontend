@@ -37,11 +37,17 @@ export default function LandingSection2Demo() {
     return (
         <NewLandingPageSection index={1}>
             <div className='max-w-6xl space-x-3 space-y-2 flex-col-center'>
-                <LandingHeading
-                    boldText='how'
-                    slimText='does it work?'
-                    className=''
-                />
+                <h2
+                    className={
+                        'mb-3 text-2xl uppercase text-center ' +
+                        'text-blue-200 font-weight-400'
+                    }
+                >
+                    <strong className='text-blue-50 font-weight-700'>
+                        how
+                    </strong>{' '}
+                    does it work?
+                </h2>
                 <div className='pb-3 space-x-2 flex-row-center'>
                     {steps.map((s, i) => (
                         <button

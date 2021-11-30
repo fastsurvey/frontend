@@ -1,4 +1,5 @@
 import React from 'react';
+import {NewLandingPageSection} from './section';
 
 const faqs = [
     {
@@ -14,11 +15,10 @@ const faqs = [
                     console.fastsurvey.de
                 </a>
                 - The survey itself can be found on{' '}
-                <a className='underline cursor-not-allowed'>
+                <a className='underline break-all cursor-not-allowed'>
                     fastsurvey.de/{'<your-username>/<survey-identifier>'}
                 </a>{' '}
-                - the latter is the link, which you can share with your
-                respondents.
+                (the link to be shared with your respondents).
             </>
         ),
     },
@@ -44,12 +44,20 @@ const faqs = [
     },
 ];
 
-export default function LandingSectionFAQ() {
+export default function LandingSectionQuestions() {
     return (
-        <div className='px-4 py-8 md:px-8 md:py-16 bg-gray-900 border-b-[2px] last:border-b-0 border-gray-700 w-full'>
+        <NewLandingPageSection index={3}>
             <div className='mx-auto lg:max-w-[66rem] xl:max-w-[67rem] flex-col-center'>
-                <h2 className='text-xl text-blue-100 uppercase'>
-                    frequently asked <strong>questions</strong>
+                <h2
+                    className={
+                        'mb-3 text-2xl uppercase text-center ' +
+                        'text-blue-200 font-weight-400'
+                    }
+                >
+                    frequently asked{' '}
+                    <strong className='text-blue-50 font-weight-700'>
+                        questions
+                    </strong>
                 </h2>
                 <div className='mt-6 md:mt-12'>
                     <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3'>
@@ -58,33 +66,33 @@ export default function LandingSectionFAQ() {
                                 <dt className='text-base leading-6 text-white font-weight-600'>
                                     {faq.question}
                                 </dt>
-                                <dd className='mt-2 text-sm text-gray-200 font-weight-400'>
+                                <dd className='mt-2 text-sm text-justify text-gray-200 font-weight-400'>
                                     {faq.answer}
                                 </dd>
                             </div>
                         ))}
                     </dl>
                 </div>
-                <div className='p-4 md:-m-4 md:p-4 !mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-full md:w-[calc(100%+2rem)]'>
+                <div className='px-4 py-2 md:-m-4 !mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-full md:w-[calc(100%+2rem)]'>
                     <h3 className='text-base leading-6 text-white font-weight-600'>
                         Any further questions? Something is not working? Missing
                         an important feature?
                     </h3>
-                    <div className='mt-2 text-sm text-gray-200 font-weight-400'>
+                    <div className='mt-1 mb-0.5 text-sm text-gray-300 font-weight-400'>
                         Please drop us a line under{' '}
                         <a
-                            href='mailto:info@fastsurvey.de'
+                            href='mailto:contact@fastsurvey.de'
                             target='blank'
                             rel='noopener noreferrer'
                             className='text-blue-100 underline font-weight-600'
                         >
-                            info@fastsurvey.de
+                            contact@fastsurvey.de
                         </a>
                         . We will help you and possibly fix any bugs as quickly
                         as we can!
                     </div>
                 </div>
             </div>
-        </div>
+        </NewLandingPageSection>
     );
 }

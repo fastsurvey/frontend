@@ -4,7 +4,7 @@ import {
     LandingSection2Demo,
     LandingSection3Pricing,
     LandingSectionLinks,
-    LandingSectionFAQ,
+    LandingSectionQuestions,
 } from '/src/components';
 
 const VITE_ENV = import.meta.env.VITE_ENV;
@@ -18,7 +18,7 @@ function LandingPage() {
                 <LandingSection1Intro baseUrl={baseUrl} />
                 <LandingSection2Demo />
                 <LandingSection3Pricing baseUrl={baseUrl} />
-                <LandingSectionFAQ />
+                <LandingSectionQuestions />
                 <LandingSectionLinks baseUrl={baseUrl} />
             </main>
             <footer className='absolute bottom-0 left-0 z-0 w-full flex-row-center'>
