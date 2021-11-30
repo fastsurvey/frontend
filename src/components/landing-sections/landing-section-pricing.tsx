@@ -14,7 +14,7 @@ const PricingPanel = (props: {
             'py-3 px-4 bg-gray-800 w-full rounded shadow-md flex-col-center'
         }
     >
-        <div className='space-y-1 text-base text-gray-200 font-weight-400 flex-col-left'>
+        <div className='w-full space-y-1.5 text-base text-gray-200 font-weight-400 flex-col-left'>
             <h3 className='w-full pb-2 text-base leading-tight flex-col-center'>
                 <strong className='text-lg text-white font-weight-700'>
                     {props.title}{' '}
@@ -28,12 +28,12 @@ const PricingPanel = (props: {
                 <div className='w-full px-1 py-1 space-x-2 text-sm flex-row-left'>
                     <div
                         className={
-                            'w-6 h-6 p-0.5 svg-landing-bullet flex-shrink-0'
+                            'w-6 h-6 p-0.5 svg-landing-bullet -translate-y-px flex-shrink-0'
                         }
                     >
                         {bp.icon}
                     </div>
-                    <div className={'flex-max leading-tight'}>{bp.text}</div>
+                    <div className={'leading-tight'}>{bp.text}</div>
                 </div>
             ))}
         </div>
@@ -76,18 +76,22 @@ export default function LandingSectionPricing(props: {
                     bulletPoints={[
                         {
                             icon: icons.package,
-                            text: (
-                                <>
-                                    All features included,{' '}
-                                    <span className='text-white font-weight-700'>
-                                        free to use, forever!
-                                    </span>
-                                </>
-                            ),
+                            text: 'All features for individuals',
                         },
                         {
                             icon: icons.security,
-                            text: 'We make money by selling licenses, not your data',
+                            text: 'We do not sell data',
+                        },
+                        {
+                            icon: icons.heart,
+                            text: (
+                                <>
+                                    Unlimited usage,{' '}
+                                    <span className='text-white font-weight-700'>
+                                        free to use
+                                    </span>
+                                </>
+                            ),
                         },
                     ]}
                     register={props}
@@ -98,11 +102,15 @@ export default function LandingSectionPricing(props: {
                     bulletPoints={[
                         {
                             icon: icons.package,
-                            text: 'All features + full control over your data',
+                            text: 'All features',
+                        },
+                        {
+                            icon: icons.security,
+                            text: 'Full control over your data/your servers',
                         },
                         {
                             icon: icons.paint,
-                            text: 'Fully customize the look of your surveys',
+                            text: 'Customize the look of your surveys',
                         },
                         {
                             icon: icons.certificate,
@@ -111,7 +119,7 @@ export default function LandingSectionPricing(props: {
                                     <span className='text-white font-weight-700'>
                                         Lifetime licenses
                                     </span>{' '}
-                                    (incl. one year of free updates)
+                                    (with 12 months of free upgrades)
                                 </>
                             ),
                         },

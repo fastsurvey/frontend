@@ -16,7 +16,7 @@ export default function LandingSectionIntro(props: {
                     </div>
                     <div className='flex-col-left gap-y-1'>
                         <h1 className='text-3xl text-blue-100 font-weight-600 '>
-                            Fastsurvey
+                            FastSurvey
                         </h1>
                         <h2 className='text-lg tracking-wide text-gray-200 uppercase font-weight-400 '>
                             Never assume anymore
