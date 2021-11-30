@@ -48,7 +48,7 @@ export function NewLandingPageSection(props: {
             break;
     }
     return (
-        <div className='w-full py-12 border-b-2 border-gray-700 flex-col-center'>
+        <div className='w-full min-h-[calc(100vh-4rem)] py-12 border-b-2 border-gray-700 flex-col-center'>
             {props.children}
         </div>
     );

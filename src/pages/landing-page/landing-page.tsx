@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-    LandingSection1Intro,
-    LandingSection2Demo,
-    LandingSection3Pricing,
+    LandingSectionIntro,
+    LandingSectionWhy,
+    LandingSectionDemo,
+    LandingSectionPricing,
     LandingSectionLinks,
     LandingSectionQuestions,
 } from '/src/components';
@@ -15,9 +16,10 @@ function LandingPage() {
     return (
         <div className='relative'>
             <main className='w-full bg-gray-950 centering-col'>
-                <LandingSection1Intro baseUrl={baseUrl} />
-                <LandingSection2Demo />
-                <LandingSection3Pricing baseUrl={baseUrl} />
+                <LandingSectionIntro baseUrl={baseUrl} />
+                <LandingSectionWhy />
+                <LandingSectionDemo />
+                <LandingSectionPricing baseUrl={baseUrl} />
                 <LandingSectionQuestions />
                 <LandingSectionLinks baseUrl={baseUrl} />
             </main>

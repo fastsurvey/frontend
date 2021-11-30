@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import DemoImage1 from '/src/assets/images/image-01-create.png';
 import DemoImage2 from '/src/assets/images/image-02-collect.png';
 import DemoImage3 from '/src/assets/images/image-03-analyze.png';
-import {NewLandingPageSection, LandingHeading} from './section';
+import {NewLandingPageSection} from './section';
 
-export default function LandingSection2Demo() {
+export default function LandingSectionDemo() {
     const [imageIndex, setImageIndex] = useState<number>(0);
 
     const steps = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import {icons} from '/src/assets/icons';
 import {Button} from '/src/components';
-import {NewLandingPageSection, LandingHeading} from './section';
+import {NewLandingPageSection} from './section';
 
 const PricingPanel = (props: {
     title: string;
@@ -52,7 +52,7 @@ const PricingPanel = (props: {
     </div>
 );
 
-export default function LandingSection3Pricing(props: {baseUrl: string}) {
+export default function LandingSectionPricing(props: {baseUrl: string}) {
     return (
         <NewLandingPageSection index={2}>
             <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
