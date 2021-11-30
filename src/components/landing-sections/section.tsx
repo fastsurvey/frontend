@@ -29,47 +29,15 @@ export function NewLandingPageSection(props: {
     children: React.ReactNode;
     index: number;
 }) {
-    let borderColor: string;
-    switch (props.index) {
-        case 0:
-            borderColor = 'border-gray-700';
-            break;
-        case 1:
-            borderColor = 'border-gray-700';
-            break;
-        case 2:
-            borderColor = 'border-gray-700';
-            break;
-        case 3:
-            borderColor = 'border-gray-700';
-            break;
-        case 4:
-            borderColor = 'border-gray-700';
-            break;
-    }
+    let borderColor: string = 'border-gray-800';
     return (
-        <div className='w-full min-h-[calc(100vh-4rem)] py-12 border-b-2 border-gray-700 flex-col-center'>
-            {props.children}
-        </div>
-    );
-}
-
-export function LandingHeading(props: {
-    boldText: string;
-    slimText: string;
-    className?: string;
-}) {
-    return (
-        <h2
+        <div
             className={
-                'mb-3 text-2xl text-center text-blue-200 uppercase font-weight-400 ' +
-                (props.className ? props.className : '')
+                'w-full min-h-[calc(100vh-4rem)] py-12 flex-col-center ' +
+                `border-b-2 ${borderColor}`
             }
         >
-            <strong className='text-blue-50 font-weight-700'>
-                {props.boldText}
-            </strong>{' '}
-            {props.slimText}
-        </h2>
+            {props.children}
+        </div>
     );
 }

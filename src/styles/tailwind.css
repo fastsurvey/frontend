@@ -202,10 +202,10 @@
     @apply fill-blue-100;
 }
 
-.svg-landing-slider .primary {
-    fill: white;
+.svg-landing-link .primary {
+    @apply fill-gray-900;
 }
 
-.svg-landing-slider .secondary {
-    @apply fill-blue-600;
+.svg-landing-link .secondary {
+    @apply fill-gray-300;
 }

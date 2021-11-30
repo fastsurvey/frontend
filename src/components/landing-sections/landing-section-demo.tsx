@@ -4,7 +4,7 @@ import DemoImage2 from '/src/assets/images/image-02-collect.png';
 import DemoImage3 from '/src/assets/images/image-03-analyze.png';
 import {NewLandingPageSection} from './section';
 
-export default function LandingSectionDemo() {
+export default function LandingSectionDemo(props: {index: number}) {
     const [imageIndex, setImageIndex] = useState<number>(0);
 
     const steps = [
@@ -35,7 +35,7 @@ export default function LandingSectionDemo() {
     ];
 
     return (
-        <NewLandingPageSection index={1}>
+        <NewLandingPageSection index={props.index}>
             <div className='max-w-6xl space-x-3 space-y-2 flex-col-center'>
                 <h2
                     className={

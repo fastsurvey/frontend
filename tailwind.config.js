@@ -61,6 +61,10 @@ const customColors = {
 
     orange: colors.orange,
     teal: colors.teal,
+    sky: colors.sky,
+    indigo: colors.indigo,
+    purple: colors.purple,
+    pink: colors.pink,
     rose: colors.rose
 };
 

@@ -3,7 +3,7 @@ import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {Button} from '/src/components';
 import {icons} from '/src/assets/icons';
 import {Link} from 'react-router-dom';
-import LandingPageSection from './section';
+import {NewLandingPageSection} from './section';
 
 const LinkButton = (props: {
     text: React.ReactChild;
@@ -18,7 +18,7 @@ const LinkButton = (props: {
             <div className='flex-max' />
             <div
                 className={
-                    'w-12 md:w-9 h-12 md:h-9 p-3 md:p-2 icon-landing-bullet flex-shrink-0 ' +
+                    'w-12 md:w-9 h-12 md:h-9 p-3 md:p-2 svg-landing-link flex-shrink-0 ' +
                     (props.exists ? '' : 'opacity-60')
                 }
             >
@@ -58,9 +58,9 @@ const LinkButton = (props: {
                 <div className='group-hover:opacity-0 '>{content}</div>
                 <div
                     className={
-                        'flex-row-center text-transparent group-hover:text-white ' +
+                        'flex-row-center rounded-sm ' +
                         'absolute top-0 left-0 w-full h-full z-10 ' +
-                        'font-weight-600 text-white rounded-sm'
+                        'font-weight-600 text-transparent group-hover:text-white '
                     }
                 >
                     coming soon...
@@ -69,10 +69,13 @@ const LinkButton = (props: {
         );
     }
 };
-export default function LandingSectionLinks(props: {baseUrl: string}) {
+export default function LandingSectionLinks(props: {
+    baseUrl: string;
+    index: number;
+}) {
     return (
-        <LandingPageSection
-            leftChild={
+        <NewLandingPageSection index={props.index}>
+            <div className='grid max-w-4xl grid-cols-2 gap-x-3 gap-y-3'>
                 <div className='py-6 space-y-2 flex-col-left md:py-0'>
                     <div className='mb-4 font-bold centering-row'>
                         <div className='w-16 h-16 mr-4'>
@@ -104,28 +107,16 @@ export default function LandingSectionLinks(props: {baseUrl: string}) {
                         </a>
                     </div>
                 </div>
-            }
-            rightChild={
                 <div className='text-sm gap-y-1 flex-col-left'>
                     <LinkButton
                         to='https://docs.fastsurvey.de/'
                         exists
                         text={
                             <>
-                                Troubleshooting: Read our{' '}
+                                Troubleshooting/Questions: Read our{' '}
                                 <strong className='text-white'>
                                     do&shy;cumen&shy;ta&shy;tion
                                 </strong>
-                            </>
-                        }
-                    />
-                    <LinkButton
-                        to='https://github.com/fastsurvey'
-                        exists
-                        text={
-                            <>
-                                FastSurvey is fully open source on{' '}
-                                <strong className='text-white'>Github</strong>!
                             </>
                         }
                     />
@@ -140,7 +131,7 @@ export default function LandingSectionLinks(props: {baseUrl: string}) {
                                 : Field types, authen&shy;ti&shy;cation methods,
                                 full API re&shy;ference,{' '}
                                 <span className='whitespace-nowrap'>
-                                    feature road&shy;map, ...
+                                    road&shy;map ...
                                 </span>
                             </>
                         }
@@ -149,7 +140,7 @@ export default function LandingSectionLinks(props: {baseUrl: string}) {
                         to='/comparison'
                         text={
                             <>
-                                Competitor-
+                                Detailed Competitor-
                                 <strong className='text-gray-300'>
                                     comparison
                                 </strong>
@@ -158,7 +149,7 @@ export default function LandingSectionLinks(props: {baseUrl: string}) {
                         }
                     />
                 </div>
-            }
-        />
+            </div>
+        </NewLandingPageSection>
     );
 }

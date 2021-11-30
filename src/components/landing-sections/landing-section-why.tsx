@@ -11,9 +11,9 @@ const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
         {props.children}
     </span>
 );
-export default function LandingSectionWhy(props: {}) {
+export default function LandingSectionWhy(props: {index: number}) {
     return (
-        <NewLandingPageSection index={1}>
+        <NewLandingPageSection index={props.index}>
             <div className='max-w-xl text-lg text-gray-300 font-weight-500'>
                 <h2
                     className={

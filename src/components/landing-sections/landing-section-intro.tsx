@@ -3,9 +3,12 @@ import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {Button} from '/src/components';
 import {NewLandingPageSection} from './section';
 
-export default function LandingSectionIntro(props: {baseUrl: string}) {
+export default function LandingSectionIntro(props: {
+    baseUrl: string;
+    index: number;
+}) {
     return (
-        <NewLandingPageSection index={0}>
+        <NewLandingPageSection index={props.index}>
             <div className='py-8 space-y-2 flex-col-left md:py-0'>
                 <div className='mb-4 font-bold centering-row'>
                     <div className='w-16 h-16 mr-4'>

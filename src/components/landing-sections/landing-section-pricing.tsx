@@ -52,9 +52,12 @@ const PricingPanel = (props: {
     </div>
 );
 
-export default function LandingSectionPricing(props: {baseUrl: string}) {
+export default function LandingSectionPricing(props: {
+    baseUrl: string;
+    index: number;
+}) {
     return (
-        <NewLandingPageSection index={2}>
+        <NewLandingPageSection index={props.index}>
             <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
                 <h2
                     className={
