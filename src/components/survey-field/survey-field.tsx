@@ -4,8 +4,6 @@ import {types} from '/src/types';
 import {icons} from '/src/assets/icons';
 import {formUtils, reduxUtils} from '/src/utilities';
 
-import OptionForm from './field-form/option-form';
-import RadioForm from './field-form/radio-form';
 import SelectionForm from './field-form/selection-form';
 import TextForm from './field-form/text-form';
 import EmailForm from './field-form/email-form';
@@ -40,12 +38,6 @@ export function SurveyFieldComponent(props: {
         case 'email':
             Component = EmailForm;
             break;
-        case 'option':
-            Component = OptionForm;
-            break;
-        case 'radio':
-            Component = RadioForm;
-            break;
         case 'selection':
             Component = SelectionForm;
             break;
@@ -65,17 +57,16 @@ export function SurveyFieldComponent(props: {
                 >
                     {fieldIndex + 1}. {fieldConfig.title}
                 </h2>
-                {fieldConfig.type !== 'option' &&
-                    fieldConfig.description.replace(' ', '').length > 0 && (
-                        <div
-                            className={
-                                'w-full mt-0.5 mb-2 text-sm leading-tight text-justify ' +
-                                'text-gray-700 font-weight-500 dark:text-gray-200 '
-                            }
-                        >
-                            {fieldConfig.description}
-                        </div>
-                    )}
+                {fieldConfig.description.replace(' ', '').length > 0 && (
+                    <div
+                        className={
+                            'w-full mt-0.5 mb-2 text-sm leading-tight text-justify ' +
+                            'text-gray-700 font-weight-500 dark:text-gray-200 '
+                        }
+                    >
+                        {fieldConfig.description}
+                    </div>
+                )}
                 <Component
                     fieldConfig={fieldConfig}
                     fieldData={formData[fieldConfig.identifier]}
