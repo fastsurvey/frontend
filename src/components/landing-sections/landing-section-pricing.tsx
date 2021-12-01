@@ -11,7 +11,7 @@ const PricingPanel = (props: {
 }) => (
     <div
         className={
-            'py-3 px-4 bg-gray-800 w-full rounded shadow-md flex-col-center'
+            'py-3 px-4 bg-gray-800 w-full rounded shadow-md flex-col-center max-w-md'
         }
     >
         <div className='w-full space-y-1.5 text-base text-gray-200 font-weight-400 flex-col-left'>
@@ -20,12 +20,15 @@ const PricingPanel = (props: {
                     {props.title}{' '}
                     <span className='font-weight-400'>Edition</span>
                 </strong>
-                <span className='-mt-0.5 text-sm text-blue-100'>
+                <span className='-mt-0.5 text-sm text-blue-100 text-center leading-tight'>
                     {props.subtitle}
                 </span>
             </h3>
-            {props.bulletPoints.map((bp) => (
-                <div className='w-full px-1 py-1 space-x-2 text-sm flex-row-left'>
+            {props.bulletPoints.map((bp, i) => (
+                <div
+                    key={i}
+                    className='w-full px-1 py-1 space-x-2 text-sm flex-row-left'
+                >
                     <div
                         className={
                             'w-6 h-6 p-0.5 svg-landing-bullet -translate-y-px flex-shrink-0'
@@ -39,7 +42,7 @@ const PricingPanel = (props: {
         </div>
         <div className='flex-grow min-h-4' />
         {props.register !== undefined && (
-            <div className='w-full flex-row-center'>
+            <div className='w-full mt-4 md:mt-0 flex-row-right md:justify-center'>
                 <a
                     href={`https://console.${props.register.baseUrl}/register`}
                     target='_self'
@@ -58,11 +61,11 @@ export default function LandingSectionPricing(props: {
 }) {
     return (
         <NewLandingPageSection index={props.index} id='pricing'>
-            <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
+            <div className='grid max-w-3xl grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-3'>
                 <h2
                     className={
-                        'mb-3 text-2xl uppercase text-center ' +
-                        'text-blue-200 font-weight-400 col-span-2'
+                        'mb-3 text-2xl uppercase text-center max-w-md ' +
+                        'text-blue-200 font-weight-400 col-span-1 md:col-span-2'
                     }
                 >
                     <strong className='text-blue-50 font-weight-700'>
@@ -125,7 +128,12 @@ export default function LandingSectionPricing(props: {
                         },
                     ]}
                 />
-                <div className='px-4 py-2 border-[2px] border-dashed border-gray-700 rounded-lg w-full col-span-2'>
+                <div
+                    className={
+                        'px-4 py-2 border-[2px] border-dashed border-gray-700 rounded-lg w-full ' +
+                        'col-span-1 md:col-span-2 max-w-md md:max-w-full'
+                    }
+                >
                     <h3 className='text-base leading-6 text-gray-200 font-weight-500'>
                         Interested in an{' '}
                         <strong className='text-white font-weight-700'>

@@ -1,6 +1,8 @@
 // prettier-ignore
 
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 const customColors = {
     // Primary
     blue: {
@@ -76,6 +78,10 @@ module.exports = {
         './src/**/*.{js,jsx,ts,tsx}',
       ],
     theme: {
+        screens: {
+            'xs': '475px',
+            ...defaultTheme.screens,
+        },
         extend: {
             colors: customColors,
             fill: customColors,

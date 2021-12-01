@@ -63,7 +63,7 @@ export default function LandingSectionQuestions(props: {index: number}) {
                 <div className='mt-6 md:mt-12'>
                     <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3'>
                         {faqs.map((faq, index) => (
-                            <div key={index}>
+                            <div key={index} className='max-w-md'>
                                 <dt className='text-base leading-6 text-white font-weight-600'>
                                     {faq.question}
                                 </dt>
@@ -74,7 +74,7 @@ export default function LandingSectionQuestions(props: {index: number}) {
                         ))}
                     </dl>
                 </div>
-                <div className='px-4 py-2 md:-m-4 !mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-full md:w-[calc(100%+2rem)]'>
+                <div className='px-4 py-2 md:-m-4 !mt-12 border-[2px] border-dashed border-gray-700 rounded-lg w-full md:w-[calc(100%+2rem)] max-w-md md:max-w-full'>
                     <h3 className='text-base leading-6 text-white font-weight-600'>
                         Any further questions? Something is not working? Missing
                         an important feature?

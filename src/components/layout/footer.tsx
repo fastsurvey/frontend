@@ -28,13 +28,21 @@ const navigation = {
 export default function Footer() {
     return (
         <footer className='bg-gray-900'>
-            <div className='max-w-xl p-6 mx-auto overflow-hidden sm:px-6 lg:px-8'>
+            <div
+                className={
+                    'p-6 overflow-hidden sm:px-6 lg:px-8 ' +
+                    'mx-auto w-full sm:max-w-md md:max-w-xl'
+                }
+            >
                 <nav
-                    className='flex flex-wrap justify-between'
+                    className={
+                        'flex flex-wrap justify-center gap-y-1.5 ' +
+                        'md:justify-between md:gap-y-0'
+                    }
                     aria-label='Footer'
                 >
                     {navigation.main.map((item) => (
-                        <div key={item.name} className='px-4'>
+                        <div key={item.name} className='px-4 md:px-4'>
                             <a
                                 href={item.href}
                                 className='text-sm text-blue-200 hover:text-blue-50 font-weight-600'
@@ -44,8 +52,13 @@ export default function Footer() {
                         </div>
                     ))}
                 </nav>
-                <div className='mt-6 text-gray-300 flex-row-center font-weight-400'>
-                    <p className='px-4 text-sm text-center'>
+                <div
+                    className={
+                        'flex-col-center xs:flex-row gap-y-1 xs:gap-y-0 ' +
+                        'mt-6 text-gray-300 font-weight-400'
+                    }
+                >
+                    <p className='w-48 px-4 text-sm text-center'>
                         &copy; 2021 FastSurvey
                     </p>
                     <div className='flex-max' />
@@ -58,7 +71,7 @@ export default function Footer() {
                         </a>
                     ))}
                     <div className='flex-max' />
-                    <p className='px-4 text-sm text-center'>
+                    <p className='w-48 px-4 text-sm text-center'>
                         {import.meta.env.MODE === 'development' && (
                             <>development</>
                         )}

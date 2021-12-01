@@ -36,7 +36,7 @@ export default function LandingSectionDemo(props: {index: number}) {
 
     return (
         <NewLandingPageSection index={props.index} id='demo'>
-            <div className='max-w-6xl space-x-3 space-y-2 flex-col-center'>
+            <div className='relative max-w-6xl space-x-3 space-y-2 flex-col-center'>
                 <h2
                     className={
                         'mb-3 text-2xl uppercase text-center ' +
@@ -48,12 +48,13 @@ export default function LandingSectionDemo(props: {index: number}) {
                     </strong>{' '}
                     does it work?
                 </h2>
-                <div className='pb-3 space-x-2 flex-row-center'>
+                <div className='flex-wrap pb-3 gap-x-2 gap-y-2 flex-row-center'>
                     {steps.map((s, i) => (
                         <button
+                            key={i}
                             className={
                                 'rounded px-3 py-1.5 font-weight-400 text-base ' +
-                                'cursor-pointer ringable ' +
+                                'cursor-pointer ringable whitespace-nowrap ' +
                                 'hover:bg-gray-800 hover:text-gray-100 ' +
                                 (imageIndex === i
                                     ? 'text-gray-100 bg-gray-800 shadow-md '
@@ -65,7 +66,7 @@ export default function LandingSectionDemo(props: {index: number}) {
                         </button>
                     ))}
                 </div>
-                <div className='w-[calc(100vw-4rem)] lg:w-[60rem] lg:max-w-full'>
+                <div className='w-full sm:w-[36rem] md:w-[44rem] lg:w-[60rem] lg:max-w-full !m-0'>
                     <div className='relative w-full h-0 pt-[calc((9/16)*100%)] rounded-md shadow-md overflow-hidden'>
                         <div className='absolute top-0 w-full h-full bg-gray-600' />
                         <img

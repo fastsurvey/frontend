@@ -34,7 +34,7 @@ export function NewLandingPageSection(props: {
     return (
         <div
             className={
-                'w-full min-h-[calc(100vh-4rem)] py-12 flex-col-center ' +
+                'w-full min-h-[calc(100vh-4rem)] py-12 px-4 flex-col-center ' +
                 `relative border-b ${borderColor}`
             }
         >

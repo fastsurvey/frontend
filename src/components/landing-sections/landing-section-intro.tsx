@@ -9,7 +9,7 @@ export default function LandingSectionIntro(props: {
 }) {
     return (
         <NewLandingPageSection index={props.index}>
-            <div className='py-8 space-y-2 flex-col-left md:py-0'>
+            <div className='py-8 space-y-2 flex-col-center md:py-0'>
                 <div className='mb-4 font-bold centering-row'>
                     <div className='w-16 h-16 mr-4'>
                         <img src={RocketLogoLight} alt='FastSurvey Logo' />
