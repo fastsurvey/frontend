@@ -1,14 +1,14 @@
 import React from 'react';
 import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {Button} from '/src/components';
-import {NewLandingPageSection} from './section';
+import {LandingPageSection} from './section';
 
 export default function LandingSectionIntro(props: {
     baseUrl: string;
     index: number;
 }) {
     return (
-        <NewLandingPageSection index={props.index}>
+        <LandingPageSection index={props.index} id='intro'>
             <div className='py-8 space-y-2 flex-col-center md:py-0'>
                 <div className='mb-4 font-bold centering-row'>
                     <div className='w-16 h-16 mr-4'>
@@ -40,6 +40,6 @@ export default function LandingSectionIntro(props: {
                     </a>
                 </div>
             </div>
-        </NewLandingPageSection>
+        </LandingPageSection>
     );
 }

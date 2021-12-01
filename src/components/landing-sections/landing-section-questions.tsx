@@ -1,6 +1,6 @@
 import {props} from 'cypress/types/bluebird';
 import React from 'react';
-import {NewLandingPageSection} from './section';
+import {LandingPageSection} from './section';
 
 const faqs = [
     {
@@ -47,7 +47,7 @@ const faqs = [
 
 export default function LandingSectionQuestions(props: {index: number}) {
     return (
-        <NewLandingPageSection index={props.index} id='faq'>
+        <LandingPageSection index={props.index} id='faq'>
             <div className='mx-auto lg:max-w-[66rem] xl:max-w-[67rem] flex-col-center'>
                 <h2
                     className={
@@ -94,6 +94,6 @@ export default function LandingSectionQuestions(props: {index: number}) {
                     </div>
                 </div>
             </div>
-        </NewLandingPageSection>
+        </LandingPageSection>
     );
 }

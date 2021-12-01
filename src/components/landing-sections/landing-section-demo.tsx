@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import DemoImage1 from '/src/assets/images/image-01-create.png';
 import DemoImage2 from '/src/assets/images/image-02-collect.png';
 import DemoImage3 from '/src/assets/images/image-03-analyze.png';
-import {NewLandingPageSection} from './section';
+import {LandingPageSection} from './section';
 
 export default function LandingSectionDemo(props: {index: number}) {
     const [imageIndex, setImageIndex] = useState<number>(0);
@@ -35,7 +35,7 @@ export default function LandingSectionDemo(props: {index: number}) {
     ];
 
     return (
-        <NewLandingPageSection index={props.index} id='demo'>
+        <LandingPageSection index={props.index} id='demo'>
             <div className='relative max-w-6xl space-x-3 space-y-2 flex-col-center'>
                 <h2
                     className={
@@ -61,6 +61,9 @@ export default function LandingSectionDemo(props: {index: number}) {
                                     : 'text-gray-300 ')
                             }
                             onClick={() => setImageIndex(i)}
+                            data-cy={`button-step-${i} ${
+                                imageIndex === i ? 'isactive' : 'isinactive'
+                            }`}
                         >
                             {s.text}
                         </button>
@@ -78,6 +81,6 @@ export default function LandingSectionDemo(props: {index: number}) {
                     </div>
                 </div>
             </div>
-        </NewLandingPageSection>
+        </LandingPageSection>
     );
 }

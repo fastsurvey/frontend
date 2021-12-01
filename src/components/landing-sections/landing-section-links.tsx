@@ -3,7 +3,7 @@ import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {Button} from '/src/components';
 import {icons} from '/src/assets/icons';
 import {Link} from 'react-router-dom';
-import {NewLandingPageSection} from './section';
+import {LandingPageSection} from './section';
 
 const LinkButton = (props: {
     text: React.ReactChild;
@@ -74,7 +74,7 @@ export default function LandingSectionLinks(props: {
     index: number;
 }) {
     return (
-        <NewLandingPageSection index={props.index}>
+        <LandingPageSection index={props.index} id='links'>
             <div className='grid max-w-4xl grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-3'>
                 <div className='py-6 space-y-2 flex-col-center md:items-start md:py-0'>
                     <div className='mb-4 font-bold centering-row'>
@@ -150,6 +150,6 @@ export default function LandingSectionLinks(props: {
                     />
                 </div>
             </div>
-        </NewLandingPageSection>
+        </LandingPageSection>
     );
 }

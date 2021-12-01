@@ -1,5 +1,5 @@
 import React from 'react';
-import {NewLandingPageSection} from './section';
+import {LandingPageSection} from './section';
 
 const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
     <span
@@ -13,7 +13,7 @@ const ColoredText = (props: {children: React.ReactNode; good?: boolean}) => (
 );
 export default function LandingSectionWhy(props: {index: number}) {
     return (
-        <NewLandingPageSection index={props.index} id='why'>
+        <LandingPageSection index={props.index} id='why'>
             <div className='max-w-xl text-lg text-gray-300 font-weight-500'>
                 <h2
                     className={
@@ -44,6 +44,6 @@ export default function LandingSectionWhy(props: {index: number}) {
                     however you like.
                 </div>
             </div>
-        </NewLandingPageSection>
+        </LandingPageSection>
     );
 }
