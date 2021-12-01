@@ -57,7 +57,7 @@ export default function LandingSectionPricing(props: {
     index: number;
 }) {
     return (
-        <NewLandingPageSection index={props.index}>
+        <NewLandingPageSection index={props.index} id='pricing'>
             <div className='grid max-w-3xl grid-cols-2 gap-x-3 gap-y-3'>
                 <h2
                     className={

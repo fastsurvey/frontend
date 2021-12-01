@@ -209,3 +209,19 @@
 .svg-landing-link .secondary {
     @apply fill-gray-300;
 }
+
+.svg-footer .primary {
+    @apply fill-gray-300;
+}
+
+.svg-footer .secondary {
+    @apply fill-gray-300;
+}
+
+.svg-footer:hover .primary {
+    @apply fill-gray-100;
+}
+
+.svg-footer:hover .secondary {
+    @apply fill-gray-100;
+}

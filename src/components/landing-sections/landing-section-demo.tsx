@@ -35,7 +35,7 @@ export default function LandingSectionDemo(props: {index: number}) {
     ];
 
     return (
-        <NewLandingPageSection index={props.index}>
+        <NewLandingPageSection index={props.index} id='demo'>
             <div className='max-w-6xl space-x-3 space-y-2 flex-col-center'>
                 <h2
                     className={

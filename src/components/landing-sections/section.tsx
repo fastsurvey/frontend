@@ -28,15 +28,19 @@ export default function LandingPageSection(props: {
 export function NewLandingPageSection(props: {
     children: React.ReactNode;
     index: number;
+    id?: string;
 }) {
     let borderColor: string = 'border-gray-800';
     return (
         <div
             className={
                 'w-full min-h-[calc(100vh-4rem)] py-12 flex-col-center ' +
-                `border-b-2 ${borderColor}`
+                `relative border-b ${borderColor}`
             }
         >
+            {props.id !== undefined && (
+                <div className='absolute top-0 left-0' id={props.id} />
+            )}
             {props.children}
         </div>
     );

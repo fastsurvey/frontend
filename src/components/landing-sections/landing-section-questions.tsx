@@ -47,7 +47,7 @@ const faqs = [
 
 export default function LandingSectionQuestions(props: {index: number}) {
     return (
-        <NewLandingPageSection index={props.index}>
+        <NewLandingPageSection index={props.index} id='faq'>
             <div className='mx-auto lg:max-w-[66rem] xl:max-w-[67rem] flex-col-center'>
                 <h2
                     className={
