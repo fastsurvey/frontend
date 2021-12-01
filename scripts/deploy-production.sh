@@ -3,7 +3,7 @@
 export VITE_COMMIT_SHA="$(git rev-parse --short --verify HEAD)"
 yarn build
 
-docker build -t gcr.io/fastsurvey-infrastructure/frontend .
+docker build --platform linux/amd64 -t gcr.io/fastsurvey-infrastructure/frontend .
 docker push gcr.io/fastsurvey-infrastructure/frontend:latest
 
 gcloud run deploy frontend \
