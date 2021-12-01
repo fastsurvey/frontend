@@ -19,7 +19,7 @@ const navigation = {
     social: [
         {
             name: 'GitHub',
-            href: '#',
+            href: 'https://github.com/fastsurvey',
             icon: () => icons.gitHub,
         },
     ],

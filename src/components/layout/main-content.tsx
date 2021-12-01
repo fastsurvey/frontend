@@ -4,6 +4,7 @@ import RocketLogo from '/src/assets/branding/rocket.svg';
 import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {types} from '/src/types';
 import {icons} from '/src/assets/icons';
+import Footer from '/src/components/layout/footer';
 
 function MainContent(props: {
     children: React.ReactNode;
@@ -89,7 +90,7 @@ function MainContent(props: {
                     </div>
                 </div>
             </header>
-            <div className={'relative ' + (props.darkMode ? 'dark ' : ' ')}>
+            <div className={props.darkMode ? 'dark ' : ' '}>
                 <main
                     className={
                         'w-screen min-h-screen px-2 ' +
@@ -100,17 +101,8 @@ function MainContent(props: {
                 >
                     {props.children}
                 </main>
-                <footer className='absolute bottom-0 left-0 z-0 w-full flex-row-center'>
-                    <div className='py-1 text-sm text-gray-400 font-weight-500'>
-                        {import.meta.env.MODE === 'development' && (
-                            <>development</>
-                        )}
-                        {import.meta.env.MODE === 'production' && (
-                            <>version {import.meta.env.VITE_COMMIT_SHA}</>
-                        )}
-                    </div>
-                </footer>
             </div>
+            <Footer />
         </React.Fragment>
     );
 }
