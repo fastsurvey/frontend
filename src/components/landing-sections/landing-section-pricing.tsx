@@ -2,16 +2,22 @@ import React from 'react';
 import {icons} from '/src/assets/icons';
 import {Button} from '/src/components';
 import {LandingPageSection} from './section';
+import {filter} from 'lodash';
 
 const PricingPanel = (props: {
     title: string;
     subtitle: React.ReactNode;
-    bulletPoints: {icon: React.ReactNode; text: React.ReactNode}[];
+    bulletPoints: {
+        icon: React.ReactNode;
+        text: React.ReactNode;
+        preview?: boolean;
+    }[];
     register?: {baseUrl: string};
 }) => (
     <div
         className={
-            'py-3 px-4 bg-gray-800 w-full rounded shadow-md flex-col-center max-w-md'
+            'relative py-3 px-4 w-full flex-col-center max-w-md ' +
+            'bg-gray-800 rounded shadow-md'
         }
     >
         <div className='w-full space-y-1.5 text-base text-gray-200 font-weight-400 flex-col-left'>
@@ -27,7 +33,10 @@ const PricingPanel = (props: {
             {props.bulletPoints.map((bp, i) => (
                 <div
                     key={i}
-                    className='w-full px-1 py-1 space-x-2 text-sm flex-row-left'
+                    className={
+                        'w-full px-1 py-1 space-x-2 text-sm flex-row-left ' +
+                        (bp.preview === true ? 'opacity-50' : '')
+                    }
                 >
                     <div
                         className={
@@ -36,7 +45,10 @@ const PricingPanel = (props: {
                     >
                         {bp.icon}
                     </div>
-                    <div className={'leading-tight'}>{bp.text}</div>
+                    <div className={'leading-tight'}>
+                        {bp.text}
+                        {bp.preview === true ? ' *' : ''}
+                    </div>
                 </div>
             ))}
         </div>
@@ -50,6 +62,11 @@ const PricingPanel = (props: {
                 >
                     <Button text='Sign up' variant='flat-light-blue' />
                 </a>
+            </div>
+        )}
+        {props.bulletPoints.filter((bp) => bp.preview === true).length > 0 && (
+            <div className='absolute text-xs text-gray-200 opacity-50 bottom-1 right-2 font-weight-600'>
+                * coming soon
             </div>
         )}
     </div>
@@ -112,10 +129,6 @@ export default function LandingSectionPricing(props: {
                             text: 'Full control over your data/your servers',
                         },
                         {
-                            icon: icons.paint,
-                            text: 'Customize the look of your surveys',
-                        },
-                        {
                             icon: icons.certificate,
                             text: (
                                 <>
@@ -125,6 +138,16 @@ export default function LandingSectionPricing(props: {
                                     (with 12 months of free upgrades)
                                 </>
                             ),
+                        },
+                        {
+                            icon: icons.paint,
+                            text: 'Customize the look of your surveys',
+                            preview: true,
+                        },
+                        {
+                            icon: icons.chatGroup,
+                            text: 'Collaboration features',
+                            preview: true,
                         },
                     ]}
                 />
