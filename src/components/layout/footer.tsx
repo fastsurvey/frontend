@@ -14,6 +14,7 @@ const navigation = {
         {name: 'FAQ', href: '/#faq'},
         {name: 'Register', href: `https://console.${baseUrl}/register`},
         {name: 'Login', href: `https://console.${baseUrl}/login`},
+        {name: 'Status', href: `https://fastsurvey.instatus.com/`},
     ],
     social: [
         {
