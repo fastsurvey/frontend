@@ -18,11 +18,10 @@ function LandingPage() {
         <div className='relative'>
             <main className='w-full bg-gray-950 centering-col'>
                 <LandingSectionIntro index={0} baseUrl={baseUrl} />
-                <LandingSectionWhy index={1} />
-                <LandingSectionDemo index={2} />
-                <LandingSectionPricing index={3} baseUrl={baseUrl} />
-                <LandingSectionQuestions index={4} />
-                <LandingSectionLinks index={5} baseUrl={baseUrl} />
+                <LandingSectionDemo index={1} />
+                <LandingSectionPricing index={2} baseUrl={baseUrl} />
+                <LandingSectionQuestions index={3} />
+                <LandingSectionLinks index={4} baseUrl={baseUrl} />
             </main>
             <Footer />
         </div>
