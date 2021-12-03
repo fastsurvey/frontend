@@ -56,7 +56,7 @@ function PageRouter() {
             <BrowserRouter>
                 <Route>
                     <Switch>
-                        <Route exact path={'/'}>
+                        <Route exact path='/'>
                             <LandingPage />
                         </Route>
                         <Route

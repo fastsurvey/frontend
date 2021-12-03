@@ -56,6 +56,12 @@
         @apply focus:ring-blue-200;
     }
 
+    .not-ringable {
+        @apply ring-[2.5px];
+        @apply ring-transparent;
+        @apply focus:outline-none;
+    }
+
     .ringable-light {
         @apply ring-[2.5px];
         @apply ring-transparent;
@@ -188,10 +194,34 @@
     @apply fill-red-900;
 }
 
-.icon-landing-bullet .primary {
-    @apply fill-gray-500;
+.svg-landing-bullet .primary {
+    @apply fill-blue-400;
 }
 
-.icon-landing-bullet .secondary {
+.svg-landing-bullet .secondary {
     @apply fill-blue-100;
+}
+
+.svg-landing-link .primary {
+    @apply fill-gray-900;
+}
+
+.svg-landing-link .secondary {
+    @apply fill-gray-300;
+}
+
+.svg-footer .primary {
+    @apply fill-gray-300;
+}
+
+.svg-footer .secondary {
+    @apply fill-gray-300;
+}
+
+.svg-footer:hover .primary {
+    @apply fill-gray-100;
+}
+
+.svg-footer:hover .secondary {
+    @apply fill-gray-100;
 }

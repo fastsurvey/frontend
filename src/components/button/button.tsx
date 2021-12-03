@@ -18,7 +18,7 @@ export default function Button(props: {
         case 'flat-light-blue':
             variantClasses = disabled
                 ? 'bg-gray-200 text-gray-400 icon-gray cursor-not-allowed '
-                : 'bg-blue-50 text-blue-900 icon-dark-blue ringable ';
+                : 'bg-blue-50 hover:bg-white hover:text-blue-900 text-blue-800 icon-dark-blue ringable ';
             loadingClasses = 'bg-blue-100 text-blue-900 icon-dark-blue ';
             break;
         case 'light-on-dark':

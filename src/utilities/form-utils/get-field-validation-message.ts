@@ -22,20 +22,6 @@ export function getFieldValidationMessage(
 
             return 'Valid';
 
-        case 'option':
-            if (fieldData || !fieldConfig.required) {
-                return 'Valid';
-            } else {
-                return 'Required';
-            }
-
-        case 'radio':
-            if (fieldData === '') {
-                return 'Please choose one';
-            } else {
-                return 'Valid';
-            }
-
         case 'selection':
             const selectionCount = filter(fieldData).length;
             if (selectionCount < fieldConfig.min_select) {

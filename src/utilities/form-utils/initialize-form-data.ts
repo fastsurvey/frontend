@@ -6,18 +6,12 @@ export function initializeFormData(config: types.SurveyConfig): types.FormData {
     config.fields.forEach((field, index) => {
         let fieldData: object | string | boolean | undefined;
         switch (field.type) {
-            case 'radio':
-                fieldData = '';
-                break;
             case 'selection':
                 fieldData = [];
                 break;
             case 'email':
             case 'text':
                 fieldData = '';
-                break;
-            case 'option':
-                fieldData = false;
                 break;
             default:
                 fieldData = undefined;
