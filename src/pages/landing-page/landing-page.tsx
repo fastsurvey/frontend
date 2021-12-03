@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     LandingSectionIntro,
-    LandingSectionWhy,
     LandingSectionDemo,
     LandingSectionPricing,
     LandingSectionLinks,

@@ -43,7 +43,7 @@ export default function LandingSectionIntro(props: {
                 </Link>
             </div>
             <div
-                className='hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full'
+                className='hidden overflow-hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full'
                 aria-hidden='true'
             >
                 <div className='relative h-full mx-auto max-w-7xl'>
@@ -115,29 +115,32 @@ export default function LandingSectionIntro(props: {
             </div>
             <div
                 className={
-                    'py-8 space-y-2 flex-col-center md:py-0 gap-y-2 ' +
+                    'py-8 flex-col-center md:py-0 gap-y-8 ' +
                     'text-gray-200 text-lg max-w-xl text-left'
                 }
             >
                 <h1 className='text-4xl text-blue-100 font-weight-600'>
                     Online Surveys How They're Supposed To Be
                 </h1>
-                <div className='mb-2'>
-                    There are a ton of survey tools. <em>However</em>, existing
-                    solutions push{' '}
-                    <ColoredText>inflexible monthly pricing</ColoredText>, are{' '}
-                    <ColoredText>hard too use</ColoredText> and are{' '}
-                    <em>blackboxes</em> when it comes to{' '}
-                    <ColoredText>data-privacy</ColoredText>.
-                </div>
-                <div>
-                    FastSurvey has{' '}
-                    <ColoredText good>fair and transparent pricing</ColoredText>
-                    , it is{' '}
-                    <ColoredText good>opinionated and minimalistic</ColoredText>
-                    , and can be{' '}
-                    <ColoredText good>self-hosted and customized</ColoredText>{' '}
-                    however you like.
+                <div className='flex-col-left gap-y-4'>
+                    <span>
+                        There are a ton of survey tools. <em>However</em>,
+                        existing solutions push{' '}
+                        <ColoredText>inflexible monthly pricing</ColoredText>,
+                        are <ColoredText>painfully complex</ColoredText> and are{' '}
+                        <em>blackboxes</em> when it comes to{' '}
+                        <ColoredText>data-privacy</ColoredText>.
+                    </span>
+
+                    <span>
+                        FastSurvey is{' '}
+                        <ColoredText good>free for individuals</ColoredText>, is{' '}
+                        <ColoredText good>easy to use</ColoredText>, and can be{' '}
+                        <ColoredText good>
+                            self-hosted and customized
+                        </ColoredText>{' '}
+                        however you like.
+                    </span>
                 </div>
                 <div className='space-x-2 centering-row'>
                     <a

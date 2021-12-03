@@ -7,7 +7,6 @@ export {default as VisualTextCard} from './text-card/visual-text-card';
 export {default as VisualInfoCard} from './text-card/visual-info-card';
 
 export {default as LandingSectionIntro} from './landing-sections/landing-section-intro';
-export {default as LandingSectionWhy} from './landing-sections/landing-section-why';
 export {default as LandingSectionDemo} from './landing-sections/landing-section-demo';
 export {default as LandingSectionPricing} from './landing-sections/landing-section-pricing';
 export {default as LandingSectionLinks} from './landing-sections/landing-section-links';
