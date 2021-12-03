@@ -24,24 +24,34 @@ const faqs = [
         ),
     },
     {
-        question: 'Where can I add payment information?',
-        answer: 'Right now, our tool is still completely free to use: No need to pay anything yet.',
-    },
-    {
         question: 'When it is currently free, how do you make money?',
-        answer: 'We do not have any investors and pay for the servers ourselves.',
-    },
-    {
-        question: 'Will prices be increased in the future?',
-        answer: 'Definitely not! We will never limit an existing feature to any premium plan. If we change anything about the prices, we will only decrease them - either for everyone or for surveys/accounts with a lot of submissions.',
+        answer: 'We do not have any investors and pay for the servers ourselves. We plan to sell licenses for self-hosting FastSurvey in the future. We will never sell data.',
     },
     {
         question: 'What features are planned in the future?',
-        answer: 'We have a lot of exciting stuff planned. In October 2021 we will release a public roadmap, where you can see all of our ideas, comment and vote for your favorite ones.',
+        answer: `We have a lot of exciting stuff planned. In January 2022 we will release a public roadmap, where you can see all of our ideas, comment and vote for your favorite ones.`,
     },
     {
-        question: 'Why is your free plan so generous?',
-        answer: 'In our opinion, it is not great behavior to make users pay for something before they had time to extensively test it. Limiting features to expensive plans or having a very tiny "trial"-version are exactly the things we strongly oppose.',
+        question: "What's included in the free plan?",
+        answer: 'Everything for now. In the future we plan to develop features for team collaboration and easy ways of customizing FastSurvey, which will probably not be part of the free plan.',
+    },
+    {
+        question: 'Where is my email?',
+        answer: (
+            <>
+                Sometimes, emails can take a while to get delivered. Be sure to
+                check your spam folder. In case your email never reaches you,
+                please report this to us via{' '}
+                <a
+                    href='mailto:contact@fastsurvey.de'
+                    target='_blank'
+                    className='px-1 py-0.5 -my-0.5 rounded ringable font-weight-600 text-blue-100 underline'
+                >
+                    contact@fastsurvey.de
+                </a>{' '}
+                and we will work something out.
+            </>
+        ),
     },
 ];
 
