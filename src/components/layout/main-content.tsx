@@ -38,6 +38,7 @@ function MainContent(props: {
                         <div
                             className={
                                 'mx-2 text-2xl lg:text-2xl ' +
+                                'block md:hidden xl:block ' +
                                 'font-weight-700 lg:font-weight-600 ' +
                                 'text-gray-800 dark:text-gray-100'
                             }
