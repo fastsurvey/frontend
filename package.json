@@ -1,6 +1,7 @@
 {
     "name": "fastsurvey-frontend",
-    "version": "0.5.0",
+    "version": "0.6.1",
+    "main": "server.js",
     "author": {
         "name": "Moritz Makowski",
         "email": "moritz@dostuffthatmatters.dev",
@@ -9,16 +10,19 @@
     "license": "UNLICENSED",
     "scripts": {
         "develop": "vite --host",
-        "build": "tsc && vite build",
+        "build": "VITE_COMMIT_SHA=\"$(git rev-parse --short --verify HEAD)\" && tsc && vite build",
         "serve": "vite preview",
+        "analyze": "source-map-explorer 'dist/assets/*.js'",
         "cypress:integration": "cypress open",
         "cypress:component": "yarn tailwind:build && cypress open-ct",
         "tailwind:build": "npx tailwindcss -i src/styles/tailwind.css -o src/styles/tailwind.out.css"
     },
     "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
         "@sentry/react": "^6.15.0",
         "axios": "^0.21.1",
-        "express": "^4.17.1",
         "js-cookie": "^3.0.1",
         "lodash": "^4.17.21",
         "react": "^17.0.0",
@@ -26,9 +30,7 @@
         "react-redux": "^7.2.4",
         "react-router-dom": "^5.2.0",
         "redux": "^4.1.1",
-        "typeface-quicksand": "^1.1.13"
-    },
-    "devDependencies": {
+        "typeface-quicksand": "^1.1.13",
         "@cypress/react": "^5.10.1",
         "@cypress/vite-dev-server": "^2.2.0",
         "@cypress/webpack-dev-server": "^1.7.0",

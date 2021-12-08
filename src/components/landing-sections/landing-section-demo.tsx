@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import DemoImage1 from '/src/assets/images/image-01-create.png';
-import DemoImage2 from '/src/assets/images/image-02-collect.png';
-import DemoImage3 from '/src/assets/images/image-03-analyze.png';
+import DemoImage1 from '/src/assets/images/editor.png';
+import DemoImage2 from '/src/assets/images/form.png';
+import DemoImage3 from '/src/assets/images/results.png';
 import {LandingPageSection} from './section';
 
 export default function LandingSectionDemo(props: {index: number}) {
@@ -69,16 +69,16 @@ export default function LandingSectionDemo(props: {index: number}) {
                         </button>
                     ))}
                 </div>
-                <div className='w-full sm:w-[36rem] md:w-[44rem] lg:w-[60rem] lg:max-w-full !m-0'>
-                    <div className='relative w-full h-0 pt-[calc((9/16)*100%)] rounded-md shadow-md overflow-hidden'>
-                        <div className='absolute top-0 w-full h-full bg-gray-600' />
-                        <img
-                            className='absolute top-0 w-full h-full'
-                            src={
-                                [DemoImage1, DemoImage2, DemoImage3][imageIndex]
-                            }
-                        />
-                    </div>
+                <div
+                    className={
+                        'w-full sm:w-[36rem] md:w-[44rem] lg:w-[60rem] lg:max-w-full !m-0 ' +
+                        'rounded-lg shadow-md overflow-hidden'
+                    }
+                >
+                    <img
+                        className='w-full h-full'
+                        src={[DemoImage1, DemoImage2, DemoImage3][imageIndex]}
+                    />
                 </div>
             </div>
         </LandingPageSection>

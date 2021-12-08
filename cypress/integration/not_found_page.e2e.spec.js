@@ -6,7 +6,7 @@ describe('The Not Found Page', () => {
             .first()
             .should('have.text', 'Back to Landing Page')
             .click();
-        cy.url().should('eq', 'http://localhost:3000/');
+        cy.location('pathname').should('eq', '/');
     }
     it('works for 404s', () => {
         cy.visit('/some-unknown-url');
