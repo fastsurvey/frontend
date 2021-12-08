@@ -5,7 +5,6 @@ const get = getCySelector;
 
 const elements = {
     sectionIntro: () => get(['landing-section-intro'], {count: 1}),
-    sectionWhy: () => get(['landing-section-why'], {count: 1}),
     sectionDemo: () => get(['landing-section-demo'], {count: 1}),
     sectionPricing: () => get(['landing-section-pricing'], {count: 1}),
     sectionQuestions: () => get(['landing-section-faq'], {count: 1}),
@@ -19,7 +18,6 @@ describe('The Landing Page', () => {
     it('successfully loads, contains all sections', () => {
         cy.visit('/');
         elements.sectionIntro();
-        elements.sectionWhy();
         elements.sectionDemo();
         elements.sectionPricing();
         elements.sectionQuestions();

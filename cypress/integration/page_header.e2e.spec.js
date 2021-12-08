@@ -34,7 +34,7 @@ describe('The Page Header', () => {
     it('has a working logo link', () => {
         cy.visit('/some-unknown-url');
         cy.get('header').find('a').should('have.text', 'FastSurvey').click();
-        cy.url().should('eq', 'http://localhost:3000/');
+        cy.location('pathname').should('eq', '/');
     });
 
     it('has working dark mode toggles', () => {
