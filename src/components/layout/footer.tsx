@@ -59,7 +59,7 @@ export default function Footer() {
                     }
                 >
                     <p className='w-48 px-4 text-sm text-center'>
-                        &copy; 2021 FastSurvey
+                        &copy; {new Date().getFullYear()} FastSurvey
                     </p>
                     <div className='flex-max' />
                     {navigation.social.map((item) => (
