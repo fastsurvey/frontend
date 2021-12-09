@@ -10,7 +10,7 @@ export function LandingPageSection(props: {
         <div
             className={
                 'w-full min-h-[calc(100vh-4rem)] py-12 px-4 flex-col-center ' +
-                `relative border-b ${borderColor}`
+                `relative border-b ${borderColor} overflow-hidden`
             }
             data-cy={`landing-section-${props.id}`}
         >

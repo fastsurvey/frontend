@@ -46,7 +46,7 @@ export default function LandingSectionDemo(props: {index: number}) {
                     <strong className='text-blue-50 font-weight-700'>
                         how
                     </strong>{' '}
-                    does it work?
+                    <span className='whitespace-nowrap'>does it work?</span>
                 </h2>
                 <div className='flex-wrap pb-3 gap-x-2 gap-y-2 flex-row-center'>
                     {steps.map((s, i) => (

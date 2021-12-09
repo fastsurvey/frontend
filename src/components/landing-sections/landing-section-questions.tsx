@@ -65,7 +65,7 @@ export default function LandingSectionQuestions(props: {index: number}) {
                         'text-blue-200 font-weight-400'
                     }
                 >
-                    frequently asked{' '}
+                    <span className='whitespace-nowrap'>frequently asked</span>{' '}
                     <strong className='text-blue-50 font-weight-700'>
                         questions
                     </strong>
