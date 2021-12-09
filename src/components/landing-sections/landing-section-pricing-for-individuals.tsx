@@ -13,7 +13,7 @@ export default function LandingSectionPricingForIndividuals(props: {
             <div
                 className={
                     'absolute bottom-0 left-0 z-0 w-full ' +
-                    'scale-y-[200%] origin-bottom'
+                    'scale-y-[200%] md:scale-y-100 origin-bottom'
                 }
             >
                 <img src={Waves} className='w-full ' />
