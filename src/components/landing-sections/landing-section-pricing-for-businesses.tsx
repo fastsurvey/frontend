@@ -212,7 +212,7 @@ function ContactSection() {
                     </div>
                 )}
                 {submissionState === 'submitted' && (
-                    <div className='text-sm text-gray-200 font-weight-500 flex-col-center md:flex-row'>
+                    <div className='text-sm text-gray-200 font-weight-500 flex-col-center md:flex-row md:h-9'>
                         <span className='flex-row-center'>
                             <div className='w-5 h-5 mr-1 svg-landing-enterprise-notify'>
                                 {icons.check}
