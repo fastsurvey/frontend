@@ -202,6 +202,14 @@
     @apply fill-green-400;
 }
 
+.svg-landing-enterprise-notify .primary {
+    @apply fill-green-200;
+}
+
+.svg-landing-enterprise-notify .secondary {
+    @apply fill-green-900;
+}
+
 .svg-landing-link .primary {
     @apply fill-gray-900;
 }

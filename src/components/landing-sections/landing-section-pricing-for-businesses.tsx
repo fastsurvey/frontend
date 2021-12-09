@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {icons} from '/src/assets/icons';
 import {LandingPageSection} from './section';
 import {Button} from '/src/components';
+import {backend} from '/src/utilities';
 
 const features = [
     {
@@ -97,8 +98,23 @@ function ContactSection() {
         'not-submitted' | 'submitting' | 'submitted'
     >('not-submitted');
 
+    const submittable =
+        submissionState !== 'submitting' && new RegExp('^.+@.+$').test(email);
+
     function submit() {
-        console.log('SUBMIT');
+        const onSuccess = () => {
+            setSubmissionState('submitted');
+        };
+        if (submittable) {
+            setSubmissionState('submitting');
+            backend.postSubmission(
+                'fastsurvey',
+                'self-hosting-notification',
+                {1: email},
+                onSuccess,
+                onSuccess,
+            );
+        }
     }
 
     return (
@@ -126,48 +142,92 @@ function ContactSection() {
                     />
                 </svg>
             </div>
-            <div className='relative '>
-                <h2 className='text-2xl tracking-tight text-center text-white font-weight-500 sm:text-2xl'>
+            <div className='relative flex-col-center'>
+                <h2 className='mb-4 text-2xl tracking-tight text-center text-white font-weight-500 sm:text-2xl'>
                     Get notified when we&rsquo;re launching.
                 </h2>
-                <div className='w-full max-w-md mx-auto mt-2 text-sm bg-white rounded flex-row-center'>
-                    <input
-                        type='email'
-                        name='email'
-                        id='email'
-                        className={
-                            'flex-grow px-2.5 py-1 rounded h-9 font-weight-500 ' +
-                            'ringable z-0 focus:z-10'
-                        }
-                        placeholder='you@yourcompany.com'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        onKeyDown={(
-                            e: React.KeyboardEvent<HTMLInputElement>,
-                        ) => {
-                            if (e.key === 'Escape') {
-                                // @ts-ignore
-                                e.target.blur();
-                            } else if (e.key === 'Enter') {
-                                // @ts-ignore
-                                e.target.blur();
-                                submit();
+                {submissionState !== 'submitted' && (
+                    <div className='w-full max-w-md mx-auto text-sm bg-white rounded flex-row-center'>
+                        <input
+                            type='email'
+                            name='email'
+                            id='email'
+                            className={
+                                'flex-grow px-2.5 py-1 rounded h-9 font-weight-500 ' +
+                                'ringable z-0 focus:z-10 ' +
+                                (submissionState !== 'submitting'
+                                    ? 'cursor-text '
+                                    : 'cursor-not-allowed ')
                             }
-                        }}
-                    />
-                    <button
-                        type='button'
-                        className={
-                            'text-blue-800 bg-blue-100 rounded font-weight-600 ' +
-                            'h-9 px-2.5 py-1 rounded-none rounded-r ' +
-                            'ringable z-0 focus:z-10 focus:rounded-l ' +
-                            'focus:text-blue-900 focus:bg-blue-50 ' +
-                            'hover:text-blue-900 hover:bg-blue-50 '
-                        }
-                    >
-                        Notify me
-                    </button>
-                </div>
+                            placeholder='you@yourcompany.com'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={(
+                                e: React.KeyboardEvent<HTMLInputElement>,
+                            ) => {
+                                if (e.key === 'Escape') {
+                                    // @ts-ignore
+                                    e.target.blur();
+                                } else if (e.key === 'Enter') {
+                                    // @ts-ignore
+                                    e.target.blur();
+                                    submit();
+                                }
+                            }}
+                            disabled={submissionState === 'submitting'}
+                        />
+                        <button
+                            type='button'
+                            className={
+                                'text-blue-800 bg-blue-100 rounded font-weight-600 ' +
+                                'h-9 px-2.5 py-1 rounded-none rounded-r relative ' +
+                                'ringable z-0 focus:z-10 focus:rounded-l ' +
+                                (submittable
+                                    ? 'focus:text-blue-900 focus:bg-blue-50 ' +
+                                      'hover:text-blue-900 hover:bg-blue-50 '
+                                    : 'cursor-not-allowed ')
+                            }
+                            onClick={submit}
+                        >
+                            <span
+                                className={
+                                    submissionState === 'submitting'
+                                        ? 'opacity-0'
+                                        : ''
+                                }
+                            >
+                                Notify me
+                            </span>
+                            {submissionState === 'submitting' && (
+                                <div
+                                    className={
+                                        'flex-row-center space-x-0.5 font-weight-600 z-10 ' +
+                                        'absolute top-0 left-0 w-full h-full rounded text-blue-900 '
+                                    }
+                                >
+                                    ...
+                                </div>
+                            )}
+                        </button>
+                    </div>
+                )}
+                {submissionState === 'submitted' && (
+                    <div className='text-sm text-gray-200 font-weight-500 flex-col-center md:flex-row'>
+                        <span className='flex-row-center'>
+                            <div className='w-5 h-5 mr-1 svg-landing-enterprise-notify'>
+                                {icons.check}
+                            </div>
+                            We'll let your inbox know:
+                        </span>{' '}
+                        <strong className='ml-1'>{email}</strong>
+                        <button
+                            className='mt-2 ml-3 text-gray-200 underline md:mt-0 font-weight-500'
+                            onClick={() => setSubmissionState('not-submitted')}
+                        >
+                            typo?
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );
