@@ -1,5 +1,4 @@
 import React from 'react';
-import {icons} from '/src/assets/icons';
 import {LandingPageSection} from './section';
 import {Button} from '/src/components';
 import Waves from '/src/assets/images/layered-waves-haikei.svg';

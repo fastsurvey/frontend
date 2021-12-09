@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {icons} from '/src/assets/icons';
 import {LandingPageSection} from './section';
-import {Button} from '/src/components';
 import {backend} from '/src/utilities';
 
 const features = [

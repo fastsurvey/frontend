@@ -13,11 +13,21 @@ const faqs = [
                     target='_blank'
                     className='px-1 py-0.5 -my-0.5 rounded ringable font-weight-600 text-blue-100 underline'
                 >
-                    console.fastsurvey.de
+                    console.
+                    <wbr />
+                    fastsurvey.
+                    <wbr />
+                    de
                 </a>
                 - The survey itself can be found on{' '}
-                <a className='underline break-all cursor-not-allowed'>
-                    fastsurvey.de/{'<your-username>/<survey-identifier>'}
+                <a className='underline cursor-not-allowed'>
+                    fastsurvey.
+                    <wbr />
+                    de/{'<'}your-
+                    <wbr />
+                    username{'>'}/{'<'}survey-
+                    <wbr />
+                    identifier{'>'}
                 </a>{' '}
                 (the link to be shared with your respondents).
             </>
@@ -47,7 +57,11 @@ const faqs = [
                     target='_blank'
                     className='px-1 py-0.5 -my-0.5 rounded ringable font-weight-600 text-blue-100 underline'
                 >
-                    contact@fastsurvey.de
+                    contact@
+                    <wbr />
+                    fastsurvey.
+                    <wbr />
+                    de
                 </a>{' '}
                 and we will work something out.
             </>
@@ -89,7 +103,7 @@ export default function LandingSectionQuestions(props: {index: number}) {
                         Any further questions? Something is not working? Missing
                         an important feature?
                     </h3>
-                    <div className='mt-1 mb-0.5 text-sm text-gray-300 font-weight-400'>
+                    <div className='mt-1 mb-0.5 text-sm text-gray-300 font-weight-400 text-justify'>
                         Please drop us a line under{' '}
                         <a
                             href='mailto:contact@fastsurvey.de'
@@ -97,7 +111,11 @@ export default function LandingSectionQuestions(props: {index: number}) {
                             rel='noopener noreferrer'
                             className='text-blue-100 underline font-weight-600'
                         >
-                            contact@fastsurvey.de
+                            contact
+                            <wbr />
+                            @fastsurvey.
+                            <wbr />
+                            de
                         </a>
                         . We will help you and possibly fix any bugs as quickly
                         as we can!
