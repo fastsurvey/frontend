@@ -10,7 +10,7 @@ const navigation = {
     main: [
         {name: 'Why', href: '/#why'},
         {name: 'Demo', href: '/#demo'},
-        {name: 'Pricing', href: '/#pricing'},
+        {name: 'Pricing', href: '/#pricing-for-individuals'},
         {name: 'FAQ', href: '/#faq'},
         {name: 'Register', href: `https://console.${baseUrl}/register`},
         {name: 'Login', href: `https://console.${baseUrl}/login`},
