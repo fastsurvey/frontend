@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import DemoImage1 from '/src/assets/images/editor.png';
+import DemoImage1Mobile from '/src/assets/images/editor-mobile.png';
 import DemoImage2 from '/src/assets/images/form.png';
+import DemoImage2Mobile from '/src/assets/images/form-mobile.png';
 import DemoImage3 from '/src/assets/images/results.png';
+import DemoImage3Mobile from '/src/assets/images/results-mobile.png';
 import {LandingPageSection} from './section';
 
 export default function LandingSectionDemo(props: {index: number}) {
@@ -46,7 +49,7 @@ export default function LandingSectionDemo(props: {index: number}) {
                     <strong className='text-blue-50 font-weight-700'>
                         how
                     </strong>{' '}
-                    does it work?
+                    <span className='whitespace-nowrap'>does it work?</span>
                 </h2>
                 <div className='flex-wrap pb-3 gap-x-2 gap-y-2 flex-row-center'>
                     {steps.map((s, i) => (
@@ -76,8 +79,18 @@ export default function LandingSectionDemo(props: {index: number}) {
                     }
                 >
                     <img
-                        className='w-full h-full'
+                        className='hidden w-full h-full sm:block'
                         src={[DemoImage1, DemoImage2, DemoImage3][imageIndex]}
+                    />
+                    <img
+                        className='block w-full h-full sm:hidden'
+                        src={
+                            [
+                                DemoImage1Mobile,
+                                DemoImage2Mobile,
+                                DemoImage3Mobile,
+                            ][imageIndex]
+                        }
                     />
                 </div>
             </div>

@@ -194,12 +194,20 @@
     @apply fill-red-900;
 }
 
-.svg-landing-bullet .primary {
-    @apply fill-blue-400;
+.svg-landing-enterprise-card .primary {
+    @apply fill-green-800;
 }
 
-.svg-landing-bullet .secondary {
-    @apply fill-blue-100;
+.svg-landing-enterprise-card .secondary {
+    @apply fill-green-400;
+}
+
+.svg-landing-enterprise-notify .primary {
+    @apply fill-green-200;
+}
+
+.svg-landing-enterprise-notify .secondary {
+    @apply fill-green-900;
 }
 
 .svg-landing-link .primary {

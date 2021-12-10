@@ -80,7 +80,9 @@ export default function Button(props: {
                     ...
                 </div>
             )}
-            <div className={'px-5 sm:px-4 md:px-2.5 z-0'}>{text}</div>
+            <div className={'px-5 sm:px-4 md:px-2.5 z-0 whitespace-nowrap'}>
+                {text}
+            </div>
         </Linker>
     );
 }

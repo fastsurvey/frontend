@@ -1,5 +1,4 @@
 import React from 'react';
-import RocketLogo from '/src/assets/branding/rocket.svg';
 import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {Button} from '/src/components';
 import {LandingPageSection} from './section';
@@ -115,7 +114,7 @@ export default function LandingSectionIntro(props: {
             </div>
             <div
                 className={
-                    'py-8 flex-col-center md:py-0 gap-y-8 ' +
+                    'py-8 flex-col-center md:py-0 gap-y-8 pt-16 ' +
                     'text-gray-200 text-lg max-w-xl text-left'
                 }
             >
