@@ -15,7 +15,7 @@ function VisualUserTextCard(props: {title: string; text: string}) {
                     dangerouslySetInnerHTML={{
                         __html: ''.concat(
                             ...props.text
-                                .replaceAll(/<[^>]*>/g, '')
+                                .replace(/<[^>]*>/g, '')
                                 .split('\n\n')
                                 .map(
                                     (s) => `<p>${s.replace('\n', '<br/>')}</p>`,
