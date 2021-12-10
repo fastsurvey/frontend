@@ -9,14 +9,21 @@ export default function LandingSectionPricingForIndividuals(props: {
 }) {
     return (
         <LandingPageSection index={props.index} id='pricing-for-individuals'>
-            <div
+            <img
+                src={Waves}
                 className={
                     'absolute bottom-0 left-0 z-0 w-full ' +
-                    'scale-y-[200%] md:scale-y-100 origin-bottom'
+                    'origin-bottom block md:hidden'
                 }
-            >
-                <img src={Waves} className='w-full ' />
-            </div>
+                style={{WebkitTransform: 'scale(1, 2.5)'}}
+            />
+            <img
+                src={Waves}
+                className={
+                    'absolute bottom-0 left-0 z-0 w-full ' +
+                    'origin-bottom hidden md:block'
+                }
+            />
             <h2
                 className={
                     'mb-3 text-2xl uppercase text-center ' +
@@ -47,7 +54,7 @@ export default function LandingSectionPricingForIndividuals(props: {
             </p>
             <div
                 className={
-                    'z-10 mt-3 space-x-2 centering-row ' + 'mb-32 md:mb-56'
+                    'z-10 mt-3 space-x-2 centering-row ' + 'mb-40 md:mb-56'
                 }
             >
                 <a

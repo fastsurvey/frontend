@@ -61,7 +61,7 @@ export default function LandingSectionPricingForBusinesses(props: {
                 fastsurvey{' '}
                 <span className='whitespace-nowrap'>for full control!</span>
             </h2>
-            <div className='max-w-3xl my-4 text-center md:my-8'>
+            <div className='max-w-3xl mt-4 mb-8 text-center md:my-8'>
                 <div className='grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2'>
                     {features.map((feature) => (
                         <div key={feature.name} className='pt-6 '>
