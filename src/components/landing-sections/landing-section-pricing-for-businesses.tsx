@@ -117,7 +117,10 @@ function ContactSection() {
     }
 
     return (
-        <div className='relative w-full max-w-3xl px-4 py-10 overflow-hidden rounded-lg shadow-xl bg-rose-600 sm:py-12'>
+        <div
+            data-cy={`notify-at-launch form-is-${submissionState}`}
+            className='relative w-full max-w-3xl px-4 py-10 overflow-hidden rounded-lg shadow-xl bg-rose-600 sm:py-12'
+        >
             <div
                 aria-hidden='true'
                 className='absolute inset-0 -mt-72 sm:-mt-32 md:mt-0'
@@ -142,12 +145,13 @@ function ContactSection() {
                 </svg>
             </div>
             <div className='relative flex-col-center'>
-                <h2 className='mb-4 text-2xl tracking-tight text-center text-white font-weight-500 sm:text-2xl'>
+                <h3 className='mb-4 text-2xl tracking-tight text-center text-white font-weight-500 sm:text-2xl'>
                     Get notified when we&rsquo;re launching.
-                </h2>
+                </h3>
                 {submissionState !== 'submitted' && (
                     <div className='w-full max-w-md mx-auto text-sm bg-white rounded flex-row-center'>
                         <input
+                            data-cy='input-email'
                             type='email'
                             name='email'
                             id='email'
@@ -177,6 +181,7 @@ function ContactSection() {
                         />
                         <button
                             type='button'
+                            data-cy='button-submit'
                             className={
                                 'text-blue-800 bg-blue-100 rounded font-weight-600 ' +
                                 'h-9 px-2.5 py-1 rounded-none rounded-r relative ' +
@@ -218,10 +223,13 @@ function ContactSection() {
                             </div>
                             We'll let your inbox know:
                         </span>{' '}
-                        <strong className='ml-1'>{email}</strong>
+                        <strong className='ml-1' data-cy='email-confirmation'>
+                            {email}
+                        </strong>
                         <button
                             className='mt-2 ml-3 text-gray-200 underline md:mt-0 font-weight-500'
                             onClick={() => setSubmissionState('not-submitted')}
+                            data-cy='button-typo'
                         >
                             typo?
                         </button>
