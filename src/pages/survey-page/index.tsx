@@ -12,7 +12,7 @@ import {pathUtils, reduxUtils} from '/src/utilities';
 
 function SurveyIndexPage(props: {
     formConfig: types.SurveyConfig | undefined;
-    openMessage(m: types.Message): void;
+    openMessage(m: types.MessageId): void;
 }) {
     const renderable = props.formConfig !== undefined;
     useEffect(() => {
@@ -53,12 +53,7 @@ function SurveyIndexPage(props: {
                 {!isOpen && (
                     <Button
                         text='Start'
-                        onClick={() =>
-                            props.openMessage({
-                                text: 'The survey is currently not open for submissions',
-                                variant: 'error',
-                            })
-                        }
+                        onClick={() => props.openMessage('error-timing')}
                     />
                 )}
             </div>

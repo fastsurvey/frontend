@@ -16,5 +16,5 @@ export {default as LandingSectionQuestions} from './landing-sections/landing-sec
 export {default as LoadingText} from './loading-text/loading-text';
 export {default as Survey404Text} from './survey-404-text/survey-404-text';
 
-export {default as Message} from './message/message';
+export {default as MessageQueue} from './message-queue/message-queue';
 export {default as MainContent} from './layout/main-content';

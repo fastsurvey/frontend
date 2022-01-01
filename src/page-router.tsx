@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import ReduxStore from './redux-store';
 import Cookies from 'js-cookie';
-
-import {Message, MainContent} from '/src/components';
 import {pathUtils} from '/src/utilities';
+import {types} from '/src/types';
 
 import SurveyProvider from './survey-provider';
+import ReduxStore from './redux-store';
+
+import {MainContent, MessageQueue} from '/src/components';
 import {LandingPage, NotFoundPage, MaintenancePage} from '/src/pages';
-import {types} from '/src/types';
 
 function PageRouter() {
     function systemIsDark() {
@@ -60,12 +60,12 @@ function PageRouter() {
                                 pathUtils.regex.surveyAppendix
                             }
                         >
-                            <MainContent {...darkModeAttributes}>
-                                <ReduxStore>
-                                    <Message />
+                            <ReduxStore>
+                                <MessageQueue />
+                                <MainContent {...darkModeAttributes}>
                                     <SurveyProvider />
-                                </ReduxStore>
-                            </MainContent>
+                                </MainContent>
+                            </ReduxStore>
                         </Route>
                         <Route>
                             <MainContent {...darkModeAttributes}>

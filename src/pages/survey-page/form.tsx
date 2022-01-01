@@ -11,7 +11,7 @@ function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;
     formData: types.FormData | undefined;
     formValidation: types.FormValidation | undefined;
-    openMessage(message: types.Message): void;
+    openMessage(m: types.MessageId): void;
 }) {
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,15 +57,9 @@ function SurveyFormPage(props: {
         const error = (type?: 'regex' | 'config') => {
             // TODO: Think about error scenarios
             if (type === 'config') {
-                props.openMessage({
-                    text: 'Survey has been modified, please reload the page',
-                    variant: 'error',
-                });
+                props.openMessage('error-config-change');
             } else {
-                props.openMessage({
-                    text: 'Backend error',
-                    variant: 'error',
-                });
+                props.openMessage('error-server');
             }
             setIsSubmitting(false);
         };
@@ -82,10 +76,7 @@ function SurveyFormPage(props: {
                 error,
             );
         } else {
-            props.openMessage({
-                text: 'Please fill out all the fields first!',
-                variant: 'error',
-            });
+            props.openMessage('warning-incomplete');
             setIsSubmitting(false);
         }
     };

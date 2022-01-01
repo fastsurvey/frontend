@@ -5,7 +5,7 @@ const initialState: types.ReduxState = {
     formConfig: undefined,
     formData: undefined,
     formValidation: undefined,
-    message: undefined,
+    messages: [],
 };
 
 export default initialState;

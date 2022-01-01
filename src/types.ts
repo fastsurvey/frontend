@@ -2,8 +2,10 @@ export declare namespace types {
     export type darkModeSetting = 'light' | 'auto' | 'dark';
 
     export type Message = {
+        id: MessageId;
         text: string;
-        variant: 'success' | 'error';
+        randomToken: number;
+        type: 'success' | 'error' | 'warning';
     };
     export interface SurveyConfig {
         survey_name: string;
@@ -93,7 +95,7 @@ export declare namespace types {
         formConfig: SurveyConfig | undefined;
         formData: FormData | undefined;
         formValidation: FormValidation | undefined;
-        message: types.Message | undefined;
+        messages: types.Message[];
     }
 
     export interface FormData {
@@ -108,6 +110,13 @@ export declare namespace types {
     export interface FormValidation {
         [key: string]: boolean;
     }
+
+    export type MessageId =
+        | 'error-config-change'
+        | 'error-timing'
+        | 'error-verification'
+        | 'error-server'
+        | 'warning-incomplete';
 
     export type ReduxAction =
         | {
@@ -127,9 +136,10 @@ export declare namespace types {
           }
         | {
               type: 'OPEN_MESSAGE';
-              message: types.Message;
+              messageId: types.MessageId;
           }
         | {
               type: 'CLOSE_MESSAGE';
+              messageId: types.MessageId;
           };
 }
