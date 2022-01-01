@@ -15,32 +15,44 @@ export function MessageComponent(props: {
         <div className='fixed bottom-0 left-0 p-2 max-w-screen md:p-4 md:max-w-lg'>
             <div
                 className={
-                    'shadow-md centering-row ' +
-                    'rounded pl-4 pr-2 py-1.5 md:py-2 shadow-md box-content ' +
-                    'text-lg font-weight-600 bg-gray-900 dark:bg-gray-800 ' +
-                    (props.message.variant === 'error' ? 'text-red-100 ' : '') +
+                    'flex flex-row items-stretch ' +
+                    'border-l-4 text-gray-200 ' +
+                    'shadow rounded-r ' +
+                    'text-lg font-weight-500 bg-gray-800 dark:bg-gray-800 ' +
+                    (props.message.variant === 'error'
+                        ? 'border-red-200 '
+                        : '') +
                     (props.message.variant === 'success'
-                        ? 'text-green-100 '
+                        ? 'border-green-300 '
                         : '')
                 }
             >
-                <div className='text-sm leading-normal '>
+                <div
+                    className={
+                        'flex items-center ' +
+                        'px-3 py-2 min-h-12 md:min-h-[2.5rem] ' +
+                        'text-sm leading-normal'
+                    }
+                >
                     {props.message.text}
                 </div>
                 <button
                     className={
-                        'flex-shrink-0 w-12 h-12 md:w-9 md:h-9 p-2 md:p-1.5 ml-2 cursor-pointer rounded-full ' +
+                        'flex items-center ' +
+                        'cursor-pointer rounded-r relative ' +
                         'ringable hover:bg-gray-700 focus:bg-gray-700 ' +
                         (props.message.variant === 'error'
                             ? 'fill-red-200 hover:bg-gray-700 focus:bg-gray-700 '
                             : '') +
                         (props.message.variant === 'success'
-                            ? 'fill-green-200 '
+                            ? 'fill-green-300 '
                             : '')
                     }
                     onClick={props.closeMessage}
                 >
-                    {icons.close}
+                    <div className='w-12 h-12 p-3 md:w-10 md:h-10 md:p-2'>
+                        {icons.close}
+                    </div>
                 </button>
             </div>
         </div>
