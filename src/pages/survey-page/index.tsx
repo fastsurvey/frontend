@@ -20,22 +20,24 @@ function SurveyIndexPage(props: {
     }, [renderable]);
 
     if (!props.formConfig) {
-        return <div />;
+        throw 'Routing error, rendering page with undefined formConfig';
     }
 
     const config: types.SurveyConfig = props.formConfig;
 
     const now: number = new Date().getTime() / 1000;
-    const isOpen = now > config.start && now < config.end;
+    const isOpen =
+        config.fields !== undefined &&
+        config.start !== null &&
+        now > config.start &&
+        (config.end === null || now < config.end);
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualUserTextCard
-                title={config.title}
-                text={config.description}
-            />
-            {config.fields.filter((f) => f.type === 'email' && f.verify)
-                .length > 0 && <VisualInfoCard variant='email-auth' />}
+            <VisualUserTextCard title={config.title} />
+            {config.fields &&
+                config.fields.filter((f) => f.type === 'email' && f.verify)
+                    .length > 0 && <VisualInfoCard variant='email-auth' />}
             <div className='flex-row-top'>
                 <TimePill config={config} />
                 <div className='flex-max' />

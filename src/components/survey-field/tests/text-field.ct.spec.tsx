@@ -49,7 +49,6 @@ it('works as expected', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'text',
-                title: '<title>',
                 description: '<description>',
                 min_chars: 4,
                 max_chars: 10,
@@ -57,7 +56,7 @@ it('works as expected', () => {
             fieldIndex={3}
         />,
     );
-    cy.get('h2').contains('4. <title>').should('have.length', 1);
+    cy.get('h2').contains('4. <description>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: '4 characters below minimum (4)',

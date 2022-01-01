@@ -51,6 +51,6 @@ export function getFieldValidationMessage(
                 return `Valid: ${fieldData.length}/${fieldConfig.max_chars} characters`;
             }
         default:
-            return '';
+            throw `Unknown field type: ${fieldConfig.type}`;
     }
 }

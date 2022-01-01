@@ -58,7 +58,6 @@ it('works as expected', () => {
             fieldConfig={{
                 identifier: 2,
                 type: 'selection',
-                title: '<title>',
                 description: '<description>',
                 options: ['<option 1>', '<option 2>', '<option 3>'],
                 min_select: 0,
@@ -67,7 +66,7 @@ it('works as expected', () => {
             fieldIndex={1}
         />,
     );
-    cy.get('h2').contains('2. <title>').should('have.length', 1);
+    cy.get('h2').contains('2. <description>').should('have.length', 1);
 
     cy.get('button').should('have.length', 3);
     validationIsCorrect({
@@ -111,7 +110,6 @@ it('works for min_select > 0', () => {
             fieldConfig={{
                 identifier: 2,
                 type: 'selection',
-                title: '<title>',
                 description: '<description>',
                 options: ['<option 1>', '<option 2>', '<option 3>'],
                 min_select: 2,
@@ -120,7 +118,7 @@ it('works for min_select > 0', () => {
             fieldIndex={1}
         />,
     );
-    cy.get('h2').contains('2. <title>').should('have.length', 1);
+    cy.get('h2').contains('2. <description>').should('have.length', 1);
 
     cy.get('button').should('have.length', 3);
     validationIsCorrect({

@@ -4,14 +4,13 @@ import {connect} from 'react-redux';
 import {types} from '/src/types';
 import {VisualTextCard, VisualInfoCard} from '/src/components';
 
-function SurveySuccessPage(props: {
-    formConfig: types.SurveyConfig | undefined;
-}) {
-    if (!props.formConfig) {
-        return <div />;
+function SurveySuccessPage(props: {formConfig?: types.SurveyConfig}) {
+    if (!props.formConfig || props.formConfig.fields === undefined) {
+        throw 'Routing error, rendering page with undefined formConfig';
     }
 
-    const config: types.SurveyConfig = props.formConfig;
+    // @ts-ignore
+    const config: types.FullSurveyConfig = props.formConfig;
 
     if (
         config.fields.filter((f) => f.type === 'email' && f.verify).length > 0

@@ -7,43 +7,76 @@ export declare namespace types {
     };
     export interface SurveyConfig {
         survey_name: string;
-        start: number;
-        end: number;
-        draft: boolean;
+        start: number | null;
+        end: number | null;
         limit: number;
         title: string;
-        description: string;
+        fields?: SurveyField[];
+    }
+
+    export interface FullSurveyConfig {
+        survey_name: string;
+        start: number | null;
+        end: number | null;
+        limit: number;
+        title: string;
         fields: SurveyField[];
     }
 
-    export type SurveyField = EmailField | SelectionField | TextField;
+    export type SurveyField =
+        | EmailField
+        | SelectionField
+        | TextField
+        | BreakField
+        | MarkdownField;
+
+    export type QuestionField = EmailField | SelectionField | TextField;
 
     interface GeneralSurveyField {
-        title: string;
         description: string;
         identifier: number;
     }
 
-    export type FieldType = 'email' | 'selection' | 'text';
+    export type FieldType =
+        | 'email'
+        | 'selection'
+        | 'text'
+        | 'break'
+        | 'markdown';
 
-    export interface EmailField extends GeneralSurveyField {
+    export interface EmailField {
         type: 'email';
+        description: string;
+        identifier: number;
         regex: string;
         hint: string;
         verify: boolean;
     }
 
-    export interface SelectionField extends GeneralSurveyField {
+    export interface SelectionField {
         type: 'selection';
+        description: string;
+        identifier: number;
         min_select: number;
         max_select: number;
         options: string[];
     }
 
-    export interface TextField extends GeneralSurveyField {
+    export interface TextField {
         type: 'text';
+        description: string;
+        identifier: number;
         min_chars: number;
         max_chars: number;
+    }
+
+    export interface BreakField {
+        type: 'break';
+    }
+
+    export interface MarkdownField {
+        type: 'markdown';
+        description: string;
     }
 
     export interface EmailRegexSetup {

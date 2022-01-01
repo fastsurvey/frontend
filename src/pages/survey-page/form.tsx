@@ -13,7 +13,6 @@ function SurveyFormPage(props: {
     formValidation: types.FormValidation | undefined;
     openMessage(message: types.Message): void;
 }) {
-    const {formConfig, formData, formValidation} = props;
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -21,12 +20,21 @@ function SurveyFormPage(props: {
         window.scrollTo(0, 0);
     }, []);
 
-    if (!formConfig || !formData || !formValidation) {
-        return <div />;
+    if (
+        props.formConfig === undefined ||
+        props.formConfig.fields === undefined ||
+        props.formData === undefined ||
+        props.formValidation === undefined
+    ) {
+        throw 'Routing error, rendering page with undefined formConfig';
     }
 
-    const submittable =
-        filter(props.formValidation, (x: boolean) => !x).length === 0;
+    // @ts-ignore
+    const formConfig: types.FullSurveyConfig = props.formConfig;
+    const formData: types.FormData = props.formData;
+    const formValidation: types.FormValidation = props.formValidation;
+
+    const submittable = filter(formValidation, (x: boolean) => !x).length === 0;
 
     const onSubmit = () => {
         setIsSubmitting(true);
@@ -34,10 +42,9 @@ function SurveyFormPage(props: {
         const success = () => {
             setIsSubmitting(false);
 
-            const emailField: types.SurveyField | undefined =
-                formConfig.fields.filter(
-                    (f) => f.type === 'email' && f.verify,
-                )[0];
+            const emailField: any = formConfig.fields.filter(
+                (f) => f.type === 'email' && f.verify,
+            )[0];
 
             history.push(
                 pathUtils.getRootPath(window.location.pathname) +
@@ -85,16 +92,16 @@ function SurveyFormPage(props: {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            {formConfig.fields.map(
-                (fieldConfig: types.SurveyField, fieldIndex: number) => (
+            {formConfig.fields
+                .filter((f) => ['selection', 'text', 'email'].includes(f.type))
+                .map((fieldConfig: any, fieldIndex: number) => (
                     <div key={fieldIndex}>
                         <SurveyField
                             fieldConfig={fieldConfig}
                             fieldIndex={fieldIndex}
                         />
                     </div>
-                ),
-            )}
+                ))}
             <div className='centering-row'>
                 <TimePill config={formConfig} />
                 <div className='flex-max' />

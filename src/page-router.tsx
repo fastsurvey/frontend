@@ -6,15 +6,9 @@ import Cookies from 'js-cookie';
 import {Message, MainContent} from '/src/components';
 import {pathUtils} from '/src/utilities';
 
-import SurveyProvider from '/src/pages/survey-provider';
-import SurveyIndexPage from '/src/pages/survey-page/index';
-import SurveyFormPage from '/src/pages/survey-page/form';
-import SurveyVerifyPage from '/src/pages/survey-page/verify';
-import SurveySuccessPage from '/src/pages/survey-page/success';
-import LandingPage from '/src/pages/landing-page/landing-page';
-import NotFoundPage from '/src/pages/not-found-page';
+import SurveyProvider from './survey-provider';
+import {LandingPage, NotFoundPage, MaintenancePage} from '/src/pages';
 import {types} from '/src/types';
-import MaintenancePage from '/src/components/layout/maintenance-page';
 
 function PageRouter() {
     function systemIsDark() {
@@ -69,42 +63,7 @@ function PageRouter() {
                             <MainContent {...darkModeAttributes}>
                                 <ReduxStore>
                                     <Message />
-                                    <SurveyProvider>
-                                        <Switch>
-                                            <Route
-                                                exact
-                                                path={
-                                                    pathUtils.regex.surveyRoot +
-                                                    ''
-                                                }
-                                                component={SurveyIndexPage}
-                                            />
-                                            <Route
-                                                exact
-                                                path={
-                                                    pathUtils.regex.surveyRoot +
-                                                    '/form'
-                                                }
-                                                component={SurveyFormPage}
-                                            />
-                                            <Route
-                                                exact
-                                                path={
-                                                    pathUtils.regex.surveyRoot +
-                                                    '/verify'
-                                                }
-                                                component={SurveyVerifyPage}
-                                            />
-                                            <Route
-                                                exact
-                                                path={
-                                                    pathUtils.regex.surveyRoot +
-                                                    '/success'
-                                                }
-                                                component={SurveySuccessPage}
-                                            />
-                                        </Switch>
-                                    </SurveyProvider>
+                                    <SurveyProvider />
                                 </ReduxStore>
                             </MainContent>
                         </Route>

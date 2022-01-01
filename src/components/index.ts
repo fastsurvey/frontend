@@ -18,4 +18,3 @@ export {default as Survey404Text} from './survey-404-text/survey-404-text';
 
 export {default as Message} from './message/message';
 export {default as MainContent} from './layout/main-content';
-export {default as MaintenancePage} from './layout/maintenance-page';

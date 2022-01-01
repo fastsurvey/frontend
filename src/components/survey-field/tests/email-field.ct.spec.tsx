@@ -49,7 +49,6 @@ it('works as for any email', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'email',
-                title: '<title>',
                 description: '<description>',
                 hint: '<hint>',
                 regex: '.*',
@@ -58,7 +57,7 @@ it('works as for any email', () => {
             fieldIndex={7}
         />,
     );
-    cy.get('h2').contains('8. <title>').should('have.length', 1);
+    cy.get('h2').contains('8. <description>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: 'Not a valid email',
@@ -81,7 +80,6 @@ it('works as for specific emails', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'email',
-                title: '<title>',
                 description: '<description>',
                 hint: '<hint>',
                 regex: '[a-z]{6}@somedomain.(de|com)',
@@ -90,7 +88,7 @@ it('works as for specific emails', () => {
             fieldIndex={7}
         />,
     );
-    cy.get('h2').contains('8. <title>');
+    cy.get('h2').contains('8. <description>');
     validationIsCorrect({
         valid: false,
         contains: 'Not a valid email',
