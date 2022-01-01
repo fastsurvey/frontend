@@ -12,7 +12,7 @@ interface Props {
 }
 function MessageQueue(props: Props) {
     return (
-        <div className='fixed bottom-0 right-0 z-30 w-full max-w-md flex-col-right'>
+        <div className='fixed bottom-0 left-0 z-30 w-full max-w-md flex-col-right'>
             {props.messages.length >= 2 && (
                 <button
                     className={

@@ -4,6 +4,7 @@ import {constants} from '/src/utilities';
 
 function updateState(state: types.ReduxState, action: types.ReduxAction) {
     const newState = cloneDeep(state);
+    console.debug(action.type, action);
 
     switch (action.type) {
         case 'ADD_CONFIG':
@@ -24,6 +25,7 @@ function updateState(state: types.ReduxState, action: types.ReduxAction) {
             break;
 
         case 'OPEN_MESSAGE':
+            // do not have mutliple messages with the same text
             // increase the randomToken parameter when messages
             // are already there
             const existingMessages = newState.messages.filter(
@@ -55,8 +57,17 @@ function updateState(state: types.ReduxState, action: types.ReduxAction) {
             );
             break;
 
-        default:
+        case 'CLOSE_ALL_MESSAGES':
+            newState.messages = [];
             break;
+
+        default:
+            // @ts-ignore
+            if (!action.type.startsWith('@@redux')) {
+                throw `Unknown action: ${JSON.stringify(
+                    action,
+                )}, ${JSON.stringify(state)}`;
+            }
     }
 
     return newState;

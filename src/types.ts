@@ -141,5 +141,6 @@ export declare namespace types {
         | {
               type: 'CLOSE_MESSAGE';
               messageId: types.MessageId;
-          };
+          }
+        | {type: 'CLOSE_ALL_MESSAGES'};
 }
