@@ -41,13 +41,13 @@ function SelectionForm(props: {
                         'py-2 my-[3px] text-sm relative ' +
                         'border ringable ' +
                         (fieldData.includes(fieldOption)
-                            ? 'text-blue-900 border-blue-150 bg-blue-150'
-                            : 'text-gray-600 border-gray-150 bg-gray-75 focus:border-gray-75')
+                            ? 'text-blue-900 border-blue-150 bg-blue-150 dark:text-blue-900 dark:border-blue-400 dark:bg-blue-400 '
+                            : 'text-gray-600 border-gray-150 bg-gray-50 focus:border-gray-50 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-750 dark:focus:bg-gray-800 dark:hover:bg-gray-800 dark:focus:border-gray-750 ')
                     }
                 >
                     <div className={'flex flex-row items-center'}>
                         <div
-                            className={`w-4.5 h-4.5 flex-shrink-0 ${
+                            className={`w-4 h-4 flex-shrink-0 ${
                                 fieldData.includes(fieldOption)
                                     ? 'svg-toggle-true'
                                     : 'svg-toggle-false'

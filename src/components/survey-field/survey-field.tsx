@@ -47,7 +47,11 @@ export function SurveyFieldComponent(props: {
     }
 
     return (
-        <div className={'w-full overflow-hidden rounded shadow centering-col '}>
+        <div
+            className={
+                'w-full overflow-hidden rounded shadow-sm centering-col '
+            }
+        >
             <div
                 className={
                     'w-full px-4 py-2 lg:px-5 lg:py-3 ' +
@@ -56,7 +60,7 @@ export function SurveyFieldComponent(props: {
             >
                 <h2
                     className={
-                        'w-full mt-1 mb-1.5 text-lg text-left ' +
+                        'w-full mt-1 mb-1 text-lg text-left ' +
                         'font-weight-700 md:font-weight-600 ' +
                         'text-black md:text-gray-700 dark:text-white '
                     }
@@ -72,7 +76,7 @@ export function SurveyFieldComponent(props: {
             </div>
             <div
                 className={
-                    'w-full flex flex-row items-stretch space-x-2 ' +
+                    'w-full flex flex-row items-stretch space-x-1.5 ' +
                     'px-3 text-justify border-t rounded-b ' +
                     'bg-gray-75 border-gray-150 ' +
                     'dark:bg-gray-800 dark:border-gray-600 ' +
@@ -84,18 +88,16 @@ export function SurveyFieldComponent(props: {
                 <div className='flex flex-row items-center'>
                     <div
                         className={
-                            'flex-shrink-0 w-4.5 h-4.5 ' +
+                            'flex-shrink-0 w-2.5 h-2.5 ' +
                             (formValidation[fieldConfig.identifier]
                                 ? 'icon-validation-green '
                                 : 'icon-validation-red ')
                         }
                     >
-                        {formValidation[fieldConfig.identifier]
-                            ? icons.check
-                            : icons.error}
+                        {icons.circle}
                     </div>
                 </div>
-                <div className='py-2.5 text-base text-left md:text-sm font-weight-600'>
+                <div className='py-2 text-base text-left md:text-sm font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
                         formData[fieldConfig.identifier],

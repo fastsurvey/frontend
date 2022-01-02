@@ -179,19 +179,11 @@
 }
 
 .icon-validation-green .primary {
-    @apply fill-green-150;
-}
-
-.icon-validation-green .secondary {
-    @apply fill-green-800;
+    @apply fill-green-300;
 }
 
 .icon-validation-red .primary {
-    @apply fill-red-150;
-}
-
-.icon-validation-red .secondary {
-    @apply fill-red-800;
+    @apply fill-red-300;
 }
 
 .svg-landing-enterprise-card .primary {
@@ -260,13 +252,13 @@
 }
 
 .svg-toggle-true .primary {
-    @apply fill-blue-50;
+    @apply fill-blue-50 dark:fill-blue-150;
 }
 .svg-toggle-true .secondary {
-    @apply fill-blue-900;
+    @apply fill-blue-900 dark:fill-blue-700;
 }
 .svg-toggle-false .primary {
-    @apply fill-gray-200;
+    @apply fill-gray-200 dark:fill-gray-600;
 }
 .svg-toggle-false .secondary {
     fill: transparent;
