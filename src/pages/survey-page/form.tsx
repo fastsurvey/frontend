@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {connect} from 'react-redux';
-import {filter} from 'lodash';
+import {filter, initial, last, reduce} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '/src/types';
 
-import {TimePill, SurveyField, Button} from '/src/components';
-import {pathUtils, backend, reduxUtils} from '/src/utilities';
+import {SurveyField, Button} from '/src/components';
+import {pathUtils, backend, reduxUtils, eventUtils} from '/src/utilities';
+import Pagination from '/src/components/pagination/pagination';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig | undefined;
@@ -15,10 +16,43 @@ function SurveyFormPage(props: {
 }) {
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [pageIndex, setPageIndex] = useState(0);
+    const [paginationIsFixed, setPaginationIsFixed] = useState(true);
+
+    const fieldGroups = useMemo(() => {
+        let groups: types.SurveyField[][] = [];
+        if (props.formConfig?.fields !== undefined) {
+            groups = reduce(
+                props.formConfig.fields,
+                (acc: types.SurveyField[][], f) =>
+                    f.type === 'break'
+                        ? [...acc, []]
+                        : // @ts-ignore
+                          [...initial(acc), [...last(acc), f]],
+                [[]],
+            );
+        }
+        return groups;
+    }, [props.formConfig]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [pageIndex]);
+
+    function updatePaginationClass() {
+        const footerElementRect = document
+            .querySelector('footer')
+            ?.getBoundingClientRect();
+        if (footerElementRect !== undefined) {
+            setPaginationIsFixed(
+                footerElementRect.top >
+                    (window.innerHeight ||
+                        document.documentElement.clientHeight),
+            );
+        }
+    }
+
+    eventUtils.useEvent('scroll', updatePaginationClass);
 
     if (
         props.formConfig === undefined ||
@@ -82,27 +116,54 @@ function SurveyFormPage(props: {
     };
 
     return (
-        <div className='w-full max-w-xl space-y-4'>
-            {formConfig.fields
-                .filter((f) => ['selection', 'text', 'email'].includes(f.type))
-                .map((fieldConfig: any, fieldIndex: number) => (
-                    <div key={fieldIndex}>
-                        <SurveyField
-                            fieldConfig={fieldConfig}
-                            fieldIndex={fieldIndex}
-                        />
-                    </div>
-                ))}
-            <div className='centering-row'>
-                <TimePill config={formConfig} />
-                <div className='flex-max' />
-                <Button
-                    text='Submit'
-                    onClick={onSubmit}
-                    loading={isSubmitting}
-                />
+        <>
+            <div
+                className={
+                    'flex w-full max-w-xl space-y-4 flex-col-top ' +
+                    'pb-18 sm:pb-16 md:pb-15'
+                    // padding bottom for pagination bar
+                }
+            >
+                {fieldGroups[pageIndex].map(
+                    (fieldConfig, fieldIndex: number) => (
+                        <>
+                            {(fieldConfig.type === 'selection' ||
+                                fieldConfig.type === 'text' ||
+                                fieldConfig.type === 'email') && (
+                                <SurveyField
+                                    key={fieldIndex}
+                                    fieldConfig={fieldConfig}
+                                    fieldIndex={fieldIndex}
+                                />
+                            )}
+                            {fieldConfig.type === 'markdown' && (
+                                <div key={fieldIndex}>markdown</div>
+                            )}
+                        </>
+                    ),
+                )}
             </div>
-        </div>
+            <div
+                className={
+                    'bottom-0 left-0 w-full py-4 shadow-lg bg-gray-50 flex-row-center ' +
+                    (paginationIsFixed ? 'fixed ' : 'absolute')
+                }
+            >
+                <div className='flex w-full max-w-xl'>
+                    <Pagination
+                        index={pageIndex}
+                        setIndex={setPageIndex}
+                        length={fieldGroups.length}
+                    />
+                    <div className='flex-max' />
+                    <Button
+                        text='Submit'
+                        onClick={onSubmit}
+                        loading={isSubmitting}
+                    />
+                </div>
+            </div>
+        </>
     );
 }
 

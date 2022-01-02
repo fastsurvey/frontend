@@ -49,7 +49,8 @@ export function SurveyFieldComponent(props: {
     return (
         <div
             className={
-                'w-full overflow-hidden rounded shadow-sm centering-col '
+                'w-full overflow-hidden rounded shadow-sm ' +
+                'flex-col-center flex-shrink-0'
             }
         >
             <div

@@ -264,6 +264,13 @@
     fill: transparent;
 }
 
+.svg-pagination .primary {
+    fill: transparent;
+}
+.svg-pagination .secondary {
+    @apply fill-gray-600;
+}
+
 .hyphens {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;

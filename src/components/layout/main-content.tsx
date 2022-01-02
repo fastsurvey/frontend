@@ -94,10 +94,10 @@ function MainContent(props: {
             <div className={props.darkMode ? 'dark ' : ' '}>
                 <main
                     className={
-                        'w-screen min-h-screen px-2 ' +
-                        'pb-12 pt-20 md:pt-12 flex flex-col items-center ' +
+                        'w-screen min-h-screen px-2 relative ' +
+                        'pb-12 pt-20 md:py-20 flex flex-col items-center ' +
                         'justify-start md:justify-center z-10 ' +
-                        'bg-gray-100 dark:bg-gray-900 '
+                        'bg-gray-150 dark:bg-gray-900 '
                     }
                 >
                     {props.children}
