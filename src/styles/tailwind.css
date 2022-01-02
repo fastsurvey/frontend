@@ -268,7 +268,7 @@
     fill: transparent;
 }
 .svg-pagination .secondary {
-    @apply fill-gray-600;
+    @apply fill-gray-600 dark:fill-gray-300 dark:group-focus:fill-blue-900;
 }
 
 .hyphens {

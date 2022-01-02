@@ -32,7 +32,7 @@ function SurveyFormPage(props: {
                 [[]],
             );
         }
-        return groups;
+        return groups.filter((g) => g.length > 0);
     }, [props.formConfig]);
 
     useEffect(() => {
@@ -145,7 +145,7 @@ function SurveyFormPage(props: {
             </div>
             <div
                 className={
-                    'bottom-0 left-0 w-full py-4 shadow-lg bg-gray-50 flex-row-center ' +
+                    'bottom-0 left-0 w-full py-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 ' +
                     (paginationIsFixed ? 'fixed ' : 'absolute')
                 }
             >

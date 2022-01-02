@@ -25,7 +25,8 @@ export default function Pagination(props: {
             className={
                 'text-base md:text-sm h-10 sm:h-8 md:h-7 ' +
                 'bg-white shadow-sm rounded ' +
-                'flex items-stretch divide-x divide-gray-200 '
+                'flex items-stretch divide-x divide-gray-200 ' +
+                'dark:bg-gray-750 dark:divide-gray-600'
             }
         >
             <button
@@ -33,7 +34,8 @@ export default function Pagination(props: {
                 className={
                     'flex items-center justify-center w-10 ' +
                     'ringable focus:rounded focus:!border-blue-50 ' +
-                    'focus:bg-blue-50 focus:z-20'
+                    'focus:bg-blue-50 focus:z-20 group ' +
+                    'dark:focus:bg-blue-300 dark:focus:!border-blue-300'
                 }
             >
                 <div className='w-5 h-5 svg-pagination'>
@@ -58,10 +60,10 @@ export default function Pagination(props: {
                         className={
                             'flex items-center justify-center ' +
                             'w-10 text-sm ' +
-                            'ringable focus:rounded focus:!border-blue-50 focus:bg-blue-50 ' +
+                            'ringable focus:rounded focus:!border-blue-50 focus:bg-blue-50 dark:focus:!border-blue-300 dark:focus:bg-blue-300 dark:focus:text-blue-900 ' +
                             (i === index
-                                ? 'text-black font-weight-600 bg-gray-200 z-10 '
-                                : 'text-gray-600 font-weight-500 z-0 focus:z-20')
+                                ? 'text-black font-weight-600 bg-gray-200 z-10 dark:text-white dark:bg-gray-600 '
+                                : 'text-gray-600 font-weight-500 z-0 focus:z-20 dark:text-gray-300')
                         }
                     >
                         {i + 1}
@@ -75,7 +77,8 @@ export default function Pagination(props: {
                 className={
                     'flex items-center justify-center w-10 ' +
                     'ringable focus:rounded focus:!border-blue-50 ' +
-                    'focus:bg-blue-50 focus:z-20'
+                    'focus:bg-blue-50 focus:z-20 group ' +
+                    'dark:focus:bg-blue-300 dark:focus:!border-blue-300'
                 }
             >
                 <div className='w-5 h-5 rotate-180 svg-pagination'>

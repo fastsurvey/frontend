@@ -35,7 +35,7 @@ export default function Button(props: {
             variantClasses =
                 'shadow-sm hover:shadow icon-blue ringable ' +
                 'bg-white hover:bg-blue-50 text-gray-900 hover:text-blue-900 ' +
-                'dark:bg-gray-800 dark:hover:bg-blue-900 dark:text-gray-100 dark:hover:text-blue-50 ';
+                'dark:bg-gray-750 dark:hover:bg-blue-300 dark:text-gray-100 dark:hover:text-blue-900 ';
             loadingClasses =
                 'bg-gray-50 dark:bg-gray-800 shadow text-blue-900 dark:text-gray-200 icon-blue ';
             break;
