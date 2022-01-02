@@ -8,13 +8,15 @@ let baseUrl =
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = {
     main: [
-        {name: 'Why', href: '/#why'},
+        /*{name: 'Why', href: '/#why'},
         {name: 'Demo', href: '/#demo'},
         {name: 'Pricing', href: '/#pricing-for-individuals'},
-        {name: 'FAQ', href: '/#faq'},
+        {name: 'FAQ', href: '/#faq'},*/
+        {name: 'About', href: '/'},
         {name: 'Register', href: `https://console.${baseUrl}/register`},
         {name: 'Login', href: `https://console.${baseUrl}/login`},
         {name: 'Status', href: `https://fastsurvey.instatus.com/`},
+        {name: 'Documentation', href: `/documentation`},
     ],
     social: [
         {

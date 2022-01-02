@@ -109,7 +109,7 @@ export default function LandingSectionLinks(props: {
                 </div>
                 <div className='max-w-md text-sm gap-y-1 flex-col-left'>
                     <LinkButton
-                        to='https://docs.fastsurvey.de/'
+                        to={`https://${props.baseUrl}/documentation`}
                         exists
                         text={
                             <>
