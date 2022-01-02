@@ -1,6 +1,6 @@
 {
     "name": "fastsurvey-frontend",
-    "version": "0.6.1",
+    "version": "0.7.0",
     "main": "server.js",
     "author": {
         "name": "Moritz Makowski",
@@ -10,7 +10,9 @@
     "license": "UNLICENSED",
     "scripts": {
         "develop": "vite --host",
-        "build": "export VITE_COMMIT_SHA=\"$(git rev-parse --short --verify HEAD)\" && tsc && vite build",
+        "build": "yarn build:documentation && yarn build:app",
+        "build:documentation": "cd ../fastsurvey-docs && yarn build && cd ../fastsurvey-frontend",
+        "build:app": "export VITE_COMMIT_SHA=\"$(git rev-parse --short --verify HEAD)\" && tsc && vite build && mv dist/app/dist/app/assets dist/app/assets && rmdir dist/app/dist/app dist/app/dist",
         "serve": "vite preview",
         "analyze": "source-map-explorer 'dist/assets/*.js'",
         "cypress:integration": "cypress open",
