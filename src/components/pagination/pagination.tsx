@@ -6,8 +6,9 @@ export default function Pagination(props: {
     index: number;
     setIndex(i: number): void;
     length: number;
+    hints?: boolean[];
 }) {
-    const {index, setIndex, length} = props;
+    const {index, setIndex, length, hints} = props;
 
     let visiblePageRange = [];
     if (length <= 5) {
@@ -58,14 +59,26 @@ export default function Pagination(props: {
                         key={i}
                         onClick={() => setIndex(i)}
                         className={
-                            'flex items-center justify-center ' +
-                            'w-10 text-sm ' +
+                            'flex-row-center text-sm ' +
+                            (hints !== undefined ? 'w-14 ' : 'w-12 ') +
                             'ringable focus:rounded focus:!border-blue-50 focus:bg-blue-50 dark:focus:!border-blue-300 dark:focus:bg-blue-300 dark:focus:text-blue-900 ' +
                             (i === index
-                                ? 'text-black font-weight-600 bg-gray-200 z-10 dark:text-white dark:bg-gray-600 '
+                                ? 'text-black font-weight-600 bg-gray-150 z-10 dark:text-white dark:bg-gray-600 '
                                 : 'text-gray-600 font-weight-500 z-0 focus:z-20 dark:text-gray-300')
                         }
                     >
+                        {hints && (
+                            <div
+                                className={
+                                    'flex-shrink-0 w-[10px] h-[10px] mr-2 ' +
+                                    (hints[i]
+                                        ? 'icon-pagination-validation-green '
+                                        : 'icon-pagination-validation-red ')
+                                }
+                            >
+                                {icons.circle}
+                            </div>
+                        )}
                         {i + 1}
                     </button>
                 ),

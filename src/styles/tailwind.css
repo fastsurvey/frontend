@@ -235,7 +235,7 @@
 }
 
 .animate-pop {
-    animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+    animation: pulse 0.35s cubic-bezier(0.4, 0, 0.6, 1);
     transform-origin: bottom left;
 }
 
@@ -244,7 +244,7 @@
         transform: scale(1);
     }
     50% {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     100% {
         transform: scale(1);
@@ -269,6 +269,14 @@
 }
 .svg-pagination .secondary {
     @apply fill-gray-600 dark:fill-gray-300 dark:group-focus:fill-blue-900;
+}
+
+.icon-pagination-validation-green .primary {
+    @apply fill-green-400;
+}
+
+.icon-pagination-validation-red .primary {
+    @apply fill-red-400;
 }
 
 .hyphens {

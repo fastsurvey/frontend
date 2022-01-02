@@ -116,7 +116,7 @@ export declare namespace types {
         | 'error-timing'
         | 'error-verification'
         | 'error-server'
-        | 'warning-incomplete';
+        | 'error-incomplete';
 
     export type ReduxAction =
         | {

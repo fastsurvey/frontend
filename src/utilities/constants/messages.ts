@@ -25,10 +25,10 @@ export const messages: {[key in types.MessageId]: types.Message} = {
         text: 'Server Error',
         type: 'error',
     },
-    'warning-incomplete': {
-        id: 'warning-incomplete',
+    'error-incomplete': {
+        id: 'error-incomplete',
         randomToken: 0,
         text: 'Please fill out all the fields first',
-        type: 'warning',
+        type: 'error',
     },
 };

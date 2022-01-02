@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {connect} from 'react-redux';
-import {filter, initial, last, reduce} from 'lodash';
+import {every, filter, initial, last, reduce} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '/src/types';
 
@@ -9,15 +9,16 @@ import {pathUtils, backend, reduxUtils, eventUtils} from '/src/utilities';
 import Pagination from '/src/components/pagination/pagination';
 
 function SurveyFormPage(props: {
-    formConfig: types.SurveyConfig | undefined;
-    formData: types.FormData | undefined;
-    formValidation: types.FormValidation | undefined;
+    formConfig: types.SurveyConfig;
+    formData: types.FormData;
+    formValidation: types.FormValidation;
     openMessage(m: types.MessageId): void;
 }) {
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [pageIndex, setPageIndex] = useState(0);
     const [paginationIsFixed, setPaginationIsFixed] = useState(true);
+    const [paginationHintsVisible, setPaginationHintsVisible] = useState(false);
 
     const fieldGroups = useMemo(() => {
         let groups: types.SurveyField[][] = [];
@@ -34,6 +35,14 @@ function SurveyFormPage(props: {
         }
         return groups.filter((g) => g.length > 0);
     }, [props.formConfig]);
+
+    const paginationHints = fieldGroups
+        .map((g) =>
+            g
+                .filter((f) => f.type !== 'markdown')
+                .map((f: any) => props.formValidation[f.identifier]),
+        )
+        .map((g) => every(g, Boolean));
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -71,8 +80,6 @@ function SurveyFormPage(props: {
     const submittable = filter(formValidation, (x: boolean) => !x).length === 0;
 
     const onSubmit = () => {
-        setIsSubmitting(true);
-
         const success = () => {
             setIsSubmitting(false);
 
@@ -99,6 +106,7 @@ function SurveyFormPage(props: {
         };
 
         if (submittable) {
+            setIsSubmitting(true);
             const {username, survey_name} = pathUtils.getPathId(
                 window.location.pathname,
             );
@@ -110,8 +118,8 @@ function SurveyFormPage(props: {
                 error,
             );
         } else {
-            props.openMessage('warning-incomplete');
-            setIsSubmitting(false);
+            setPaginationHintsVisible(true);
+            props.openMessage('error-incomplete');
         }
     };
 
@@ -154,6 +162,9 @@ function SurveyFormPage(props: {
                         index={pageIndex}
                         setIndex={setPageIndex}
                         length={fieldGroups.length}
+                        hints={
+                            paginationHintsVisible ? paginationHints : undefined
+                        }
                     />
                     <div className='flex-max' />
                     <Button
@@ -167,11 +178,7 @@ function SurveyFormPage(props: {
     );
 }
 
-const mapStateToProps = (state: types.ReduxState) => ({
-    formConfig: state.formConfig,
-    formData: state.formData,
-    formValidation: state.formValidation,
-});
+const mapStateToProps = (state: types.ReduxState) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
     openMessage: reduxUtils.dispatchers.openMessage(dispatch),

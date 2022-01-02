@@ -13,10 +13,12 @@ export function initializeFormValidation(
             ),
             (acc, fieldConfig: any) => ({
                 ...acc,
-                [fieldConfig.identifier]: formUtils.getFieldValidationMessage(
-                    fieldConfig,
-                    formData[fieldConfig.identifier],
-                ),
+                [fieldConfig.identifier]: formUtils
+                    .getFieldValidationMessage(
+                        fieldConfig,
+                        formData[fieldConfig.identifier],
+                    )
+                    .startsWith('Valid'),
             }),
             {},
         );

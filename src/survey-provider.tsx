@@ -69,11 +69,13 @@ function SurveyProvider(props: {
                     path={pathUtils.regex.surveyRoot + ''}
                     component={SurveyIndexPage}
                 />
-                <Route
-                    exact
-                    path={pathUtils.regex.surveyRoot + '/form'}
-                    component={SurveyFormPage}
-                />
+                <Route exact path={pathUtils.regex.surveyRoot + '/form'}>
+                    <SurveyFormPage
+                        formConfig={formConfig}
+                        formData={formData}
+                        formValidation={formValidation}
+                    />
+                </Route>
                 <Route
                     exact
                     path={pathUtils.regex.surveyRoot + '/verify'}
