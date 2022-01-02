@@ -8,6 +8,7 @@ const customColors = {
     blue: {
         50: "#DCEEFB",
         100: "#B6E0FE",
+        150: "#9DD2F9",
         200: "#84C5F4",
         300: "#62B0E8",
         400: "#4098D7",
@@ -27,6 +28,7 @@ const customColors = {
         50: "#F0FCF9",
         75: "#DBF9F1",
         100: "#C6F7E9",
+        150: "#aaf2dd",
         200: "#8EEDD1",
         300: "#5FE3C0",
         400: "#2DCCA7",
@@ -40,6 +42,7 @@ const customColors = {
     red: {
         50: "#FFEEEE",
         100: "#FACDCD",
+        150: "#f6b4b4",
         200: "#F29B9B",
         300: "#E66A6A",
         400: "#D64545",

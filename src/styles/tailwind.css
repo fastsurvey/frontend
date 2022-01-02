@@ -178,20 +178,20 @@
     @apply fill-red-400;
 }
 
-.icon-dark-green .primary {
-    @apply fill-green-100;
+.icon-validation-green .primary {
+    @apply fill-green-150;
 }
 
-.icon-dark-green .secondary {
-    @apply fill-green-900;
+.icon-validation-green .secondary {
+    @apply fill-green-800;
 }
 
-.icon-dark-red .primary {
-    @apply fill-red-100;
+.icon-validation-red .primary {
+    @apply fill-red-150;
 }
 
-.icon-dark-red .secondary {
-    @apply fill-red-900;
+.icon-validation-red .secondary {
+    @apply fill-red-800;
 }
 
 .svg-landing-enterprise-card .primary {
@@ -249,4 +249,24 @@
     100% {
         transform: scale(1);
     }
+}
+
+.svg-toggle-true .primary {
+    @apply fill-blue-50;
+}
+.svg-toggle-true .secondary {
+    @apply fill-blue-900;
+}
+.svg-toggle-false .primary {
+    @apply fill-gray-200;
+}
+.svg-toggle-false .secondary {
+    fill: transparent;
+}
+
+.hyphens {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }

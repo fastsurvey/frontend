@@ -47,11 +47,16 @@ export function SurveyFieldComponent(props: {
     }
 
     return (
-        <div className='w-full overflow-hidden rounded shadow centering-col'>
-            <div className='w-full p-4 bg-white dark:bg-gray-700 lg:p-6 centering-col'>
+        <div className={'w-full overflow-hidden rounded shadow centering-col '}>
+            <div
+                className={
+                    'w-full px-4 py-2 lg:px-5 lg:py-3 ' +
+                    'bg-white dark:bg-gray-700 centering-col'
+                }
+            >
                 <h2
                     className={
-                        'w-full mb-0.5 text-lg text-left ' +
+                        'w-full mt-1 mb-1.5 text-lg text-left ' +
                         'font-weight-700 md:font-weight-600 ' +
                         'text-black md:text-gray-700 dark:text-white '
                     }
@@ -67,28 +72,30 @@ export function SurveyFieldComponent(props: {
             </div>
             <div
                 className={
-                    'w-full px-3 text-justify flex-row-left space-x-2 ' +
-                    'border-t-2 h-12 md:h-10 rounded-b ' +
-                    'bg-gray-50 border-gray-200 ' +
+                    'w-full flex flex-row items-stretch space-x-2 ' +
+                    'px-3 text-justify border-t rounded-b ' +
+                    'bg-gray-75 border-gray-150 ' +
                     'dark:bg-gray-800 dark:border-gray-600 ' +
                     (formValidation[fieldConfig.identifier]
-                        ? 'text-green-900 dark:text-green-50 '
-                        : 'text-red-900 dark:text-red-50 ')
+                        ? 'text-green-800 dark:text-green-50 '
+                        : 'text-red-800 dark:text-red-50 ')
                 }
             >
-                <div
-                    className={
-                        'flex-shrink-0 w-5 h-5 ' +
-                        (formValidation[fieldConfig.identifier]
-                            ? 'icon-dark-green '
-                            : 'icon-dark-red ')
-                    }
-                >
-                    {formValidation[fieldConfig.identifier]
-                        ? icons.check
-                        : icons.error}
+                <div className='flex flex-row items-center'>
+                    <div
+                        className={
+                            'flex-shrink-0 w-4.5 h-4.5 ' +
+                            (formValidation[fieldConfig.identifier]
+                                ? 'icon-validation-green '
+                                : 'icon-validation-red ')
+                        }
+                    >
+                        {formValidation[fieldConfig.identifier]
+                            ? icons.check
+                            : icons.error}
+                    </div>
                 </div>
-                <div className='text-base text-left md:text-sm font-weight-600'>
+                <div className='py-2.5 text-base text-left md:text-sm font-weight-600'>
                     {formUtils.getFieldValidationMessage(
                         fieldConfig,
                         formData[fieldConfig.identifier],
