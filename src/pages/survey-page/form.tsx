@@ -156,7 +156,7 @@ function SurveyFormPage(props: {
             </div>
             <div
                 className={
-                    'bottom-0 left-0 w-full py-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 ' +
+                    'bottom-0 left-0 w-full py-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 border-b border-gray-700 ' +
                     (paginationIsFixed ? 'fixed ' : 'absolute')
                 }
             >

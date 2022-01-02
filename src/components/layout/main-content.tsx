@@ -94,7 +94,7 @@ function MainContent(props: {
             <div className={props.darkMode ? 'dark ' : ' '}>
                 <main
                     className={
-                        'w-screen min-h-screen px-2 relative ' +
+                        'w-screen min-h-screen px-2 relative overflow-hidden ' +
                         'pb-12 pt-20 md:py-20 flex flex-col items-center ' +
                         'justify-start md:justify-center z-10 ' +
                         'bg-gray-150 dark:bg-gray-900 '

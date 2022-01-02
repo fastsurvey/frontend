@@ -20,7 +20,7 @@ export function VisualMessage(props: {message: types.Message; close(): void}) {
                 'flex flex-row items-stretch ' +
                 'border-l-4 text-gray-200 m-2 shadow rounded-r ' +
                 (animate ? 'animate-pop ' : ' ') +
-                'text-lg font-weight-500 bg-gray-800 ' +
+                'text-lg font-weight-500 bg-gray-900 ' +
                 (props.message.type === 'error' ? 'border-red-200 ' : '') +
                 (props.message.type === 'warning' ? 'border-yellow-300 ' : '') +
                 (props.message.type === 'success' ? 'border-green-300 ' : '')
