@@ -2,7 +2,7 @@ export {default as SurveyField} from './survey-field/survey-field';
 export {default as Button} from './button/button';
 export {default as TimePill} from './time-pill/time-pill';
 
-export {default as VisualUserTextCard} from './text-card/visual-user-text-card';
+export {default as SurveyTitleCard} from './text-card/survey-title-card';
 export {default as VisualTextCard} from './text-card/visual-text-card';
 export {default as VisualInfoCard} from './text-card/visual-info-card';
 

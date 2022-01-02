@@ -38,8 +38,8 @@ export function VisualMessage(props: {message: types.Message; close(): void}) {
             <div className='flex-max' />
             <button
                 className={
-                    'flex items-center ' +
-                    'cursor-pointer rounded-r relative ' +
+                    'flex items-center relative ' +
+                    'cursor-pointer rounded-r focus:rounded ' +
                     'ringable hover:bg-gray-700 focus:bg-gray-700 ' +
                     (props.message.type === 'error' ? 'fill-red-200 ' : '') +
                     (props.message.type === 'warning'

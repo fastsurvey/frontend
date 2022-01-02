@@ -24,7 +24,7 @@ function VisualTimePill(props: {
             className={
                 'rounded-sm font-weight-600 text-sm no-selection ' +
                 colorClasses +
-                'shadow px-2.5 py-0.5 '
+                'shadow-sm px-2.5 py-0.5 '
             }
             data-cy={`time-pill ${props.variant}`}
         >

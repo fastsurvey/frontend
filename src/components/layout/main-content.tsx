@@ -66,7 +66,7 @@ function MainContent(props: {
                                 key={m}
                                 onClick={() => props.setDarkModeToggle(m)}
                                 className={
-                                    'first:pl-3 last:pr-3 px-3 font-weight-700 ' +
+                                    'first:pl-3 last:pr-3 px-3 font-weight-600 ' +
                                     'h-full flex-row-center rounded-sm ' +
                                     (props.darkModeToggle === m
                                         ? 'text-blue-900 bg-blue-100 dark:text-blue-50 dark:bg-blue-900 '

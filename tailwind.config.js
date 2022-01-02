@@ -20,8 +20,20 @@ const customColors = {
     },  
   
     // Neutrals
-    gray: colors.blueGray,
+    'gray-50': '#f8fafc',
     'gray-75': '#f4f7fa',
+    'gray-100': '#f1f5f9',
+    'gray-150': '#e9eef4',
+    'gray-200': '#e2e8f0',
+    'gray-300': '#cbd5e1',
+    'gray-400': '#94a3b8',
+    'gray-500': '#64748b',
+    'gray-600': '#475569',
+    'gray-700': '#334155',
+    'gray-750': '#283548',
+    'gray-800': '#1e293b',
+    'gray-850': '#162032',
+    'gray-900': '#0f172a',
     'gray-950': '#0B111F',
   
     green: {

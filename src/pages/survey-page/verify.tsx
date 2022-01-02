@@ -5,7 +5,7 @@ import {VisualTextCard, VisualInfoCard, Button} from '/src/components';
 import {pathUtils, backend, reduxUtils} from '/src/utilities';
 import {types} from '/src/types';
 
-function SurveyVerifyPage(props: {openMessage(m: types.Message): void}) {
+function SurveyVerifyPage(props: {openMessage(m: types.MessageId): void}) {
     const email = new URLSearchParams(window.location.search).get('email');
     const token = new URLSearchParams(window.location.search).get('token');
 
@@ -24,15 +24,9 @@ function SurveyVerifyPage(props: {openMessage(m: types.Message): void}) {
 
         const error = (cose: 401 | 500) => {
             if (cose === 401) {
-                props.openMessage({
-                    text: 'Verification token invalid',
-                    variant: 'error',
-                });
+                props.openMessage('error-verification');
             } else {
-                props.openMessage({
-                    text: 'Backend error',
-                    variant: 'error',
-                });
+                props.openMessage('error-server');
             }
             setIsSubmitting(false);
         };
@@ -56,7 +50,6 @@ function SurveyVerifyPage(props: {openMessage(m: types.Message): void}) {
             <div className='w-full max-w-xl space-y-4 flex-col-center '>
                 <Button
                     text='verify submission'
-                    variant='flat-light-blue'
                     onClick={submitVerification}
                     loading={isSubmitting}
                 />

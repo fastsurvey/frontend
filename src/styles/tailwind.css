@@ -234,9 +234,17 @@
     @apply fill-gray-100;
 }
 
+.svg-info-card .primary {
+    @apply fill-blue-100 dark:fill-blue-400;
+}
+
+.svg-info-card .secondary {
+    @apply fill-blue-500 dark:fill-blue-900;
+}
+
 .animate-pop {
     animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
-    transform-origin: bottom right;
+    transform-origin: bottom left;
 }
 
 @keyframes pulse {

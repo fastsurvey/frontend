@@ -2,12 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {types} from '/src/types';
 
-import {
-    VisualUserTextCard,
-    VisualInfoCard,
-    TimePill,
-    Button,
-} from '/src/components';
+import {SurveyTitleCard, TimePill, Button} from '/src/components';
 import {pathUtils, reduxUtils} from '/src/utilities';
 
 function SurveyIndexPage(props: {
@@ -34,10 +29,14 @@ function SurveyIndexPage(props: {
 
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualUserTextCard title={config.title} />
-            {config.fields &&
-                config.fields.filter((f) => f.type === 'email' && f.verify)
-                    .length > 0 && <VisualInfoCard variant='email-auth' />}
+            <SurveyTitleCard
+                title={config.title}
+                surveyRequiresVerification={
+                    config.fields !== undefined &&
+                    config.fields.filter((f) => f.type === 'email' && f.verify)
+                        .length > 0
+                }
+            />
             <div className='flex-row-top'>
                 <TimePill config={config} />
                 <div className='flex-max' />

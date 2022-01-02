@@ -27,7 +27,7 @@ const navigation = {
 
 export default function Footer() {
     return (
-        <footer className='bg-gray-900'>
+        <footer className='bg-gray-850'>
             <div
                 className={
                     'p-6 overflow-hidden sm:px-6 lg:px-8 ' +

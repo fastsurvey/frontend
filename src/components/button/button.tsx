@@ -33,9 +33,9 @@ export default function Button(props: {
             break;
         default:
             variantClasses =
-                'shadow icon-blue ringable ' +
-                'bg-white hover:bg-gray-100 text-gray-900 hover:text-black ' +
-                'dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 dark:hover:text-gray-100 ';
+                'shadow-sm hover:shadow icon-blue ringable ' +
+                'bg-white hover:bg-blue-50 text-gray-900 hover:text-blue-900 ' +
+                'dark:bg-gray-800 dark:hover:bg-blue-900 dark:text-gray-100 dark:hover:text-blue-50 ';
             loadingClasses =
                 'bg-gray-50 dark:bg-gray-800 shadow text-blue-900 dark:text-gray-200 icon-blue ';
             break;
