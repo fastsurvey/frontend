@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {VisualTextCard, VisualInfoCard, Button} from '/src/components';
+import {SurveyVerifyCard, Button} from '/src/components';
 import {pathUtils, backend, reduxUtils} from '/src/utilities';
 import {types} from '/src/types';
 
@@ -58,14 +58,7 @@ function SurveyVerifyPage(props: {openMessage(m: types.MessageId): void}) {
     }
     return (
         <div className='w-full max-w-xl space-y-4'>
-            <VisualTextCard title={'Verify now!'}>
-                Please log into your email account and click on the verification
-                link in the email named <strong>"FastSurvey Submission"</strong>
-            </VisualTextCard>
-            <VisualInfoCard
-                variant='verify'
-                email={email === null ? undefined : email}
-            />
+            <SurveyVerifyCard email={email === null ? undefined : email} />
         </div>
     );
 }

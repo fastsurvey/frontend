@@ -3,8 +3,8 @@ export {default as Button} from './button/button';
 export {default as TimePill} from './time-pill/time-pill';
 
 export {default as SurveyTitleCard} from './text-card/survey-title-card';
-export {default as VisualTextCard} from './text-card/visual-text-card';
-export {default as VisualInfoCard} from './text-card/visual-info-card';
+export {default as SurveyVerifyCard} from './text-card/survey-verify-card';
+export {default as SurveySuccessCard} from './text-card/survey-success-card';
 
 export {default as LandingSectionIntro} from './landing-sections/landing-section-intro';
 export {default as LandingSectionDemo} from './landing-sections/landing-section-demo';
