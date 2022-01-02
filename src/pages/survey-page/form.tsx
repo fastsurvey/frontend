@@ -4,7 +4,7 @@ import {every, filter, initial, last, reduce} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '/src/types';
 
-import {SurveyField, Button} from '/src/components';
+import {SurveyField, Button, MarkdownContent} from '/src/components';
 import {pathUtils, backend, reduxUtils, eventUtils} from '/src/utilities';
 import Pagination from '/src/components/pagination/pagination';
 
@@ -145,7 +145,10 @@ function SurveyFormPage(props: {
                                 />
                             )}
                             {fieldConfig.type === 'markdown' && (
-                                <div key={fieldIndex}>markdown</div>
+                                <MarkdownContent
+                                    key={fieldIndex}
+                                    content={fieldConfig.description}
+                                />
                             )}
                         </>
                     ),

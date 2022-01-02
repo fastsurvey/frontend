@@ -272,11 +272,11 @@
 }
 
 .icon-pagination-validation-green .primary {
-    @apply fill-green-400;
+    @apply fill-green-300;
 }
 
 .icon-pagination-validation-red .primary {
-    @apply fill-red-400;
+    @apply fill-red-300;
 }
 
 .hyphens {
