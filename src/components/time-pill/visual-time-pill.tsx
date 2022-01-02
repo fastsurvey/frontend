@@ -7,21 +7,24 @@ function VisualTimePill(props: {
     let colorClasses: string;
     switch (props.variant) {
         case 'pending':
-            colorClasses = 'bg-yellow-100 text-yellow-800 ';
+            colorClasses =
+                'bg-yellow-75 dark:bg-yellow-600 text-yellow-600 dark:text-yellow-100 ';
             break;
         case 'running':
-            colorClasses = 'bg-green-100 text-green-700 ';
+            colorClasses =
+                'bg-green-75 dark:bg-green-600 text-green-600 dark:text-green-100 ';
             break;
         case 'finished':
-            colorClasses = 'bg-gray-200 text-gray-600 ';
+            colorClasses =
+                'bg-gray-75 dark:bg-gray-600 text-gray-600 dark:text-gray-100 ';
             break;
     }
     return (
         <div
             className={
-                'font-weight-600 text-sm no-selection ' +
+                'rounded-sm font-weight-600 text-sm no-selection ' +
                 colorClasses +
-                'rounded-full px-2.5 py-0.5 '
+                'shadow px-2.5 py-0.5 '
             }
             data-cy={`time-pill ${props.variant}`}
         >

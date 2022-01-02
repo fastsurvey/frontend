@@ -20,10 +20,12 @@ const customColors = {
   
     // Neutrals
     gray: colors.blueGray,
+    'gray-75': '#f4f7fa',
     'gray-950': '#0B111F',
   
     green: {
         50: "#F0FCF9",
+        75: "#DBF9F1",
         100: "#C6F7E9",
         200: "#8EEDD1",
         300: "#5FE3C0",
@@ -50,6 +52,7 @@ const customColors = {
     
     yellow: {
         50: "#FFFAEB",
+        75: "#fdf4d9",
         100: "#FCEFC7",
         200: "#F8E3A3",
         300: "#F9DA8B",
