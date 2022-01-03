@@ -11,8 +11,8 @@
     "scripts": {
         "develop": "vite --host",
         "build": "yarn build:documentation && yarn build:app",
-        "build:documentation": "cd ../fastsurvey-docs && yarn build && cd ../fastsurvey-frontend",
-        "build:app": "export VITE_DOCS_COMMIT_SHA=\"$(cd ../fastsurvey-docs && git rev-parse --short --verify HEAD && cd ../fastsurvey-frontend)\" && export VITE_APP_COMMIT_SHA=\"$(git rev-parse --short --verify HEAD)\" && tsc && vite build && mv dist/app/dist/app/assets dist/app/assets && rmdir dist/app/dist/app dist/app/dist",
+        "build:documentation": "cd ../fastsurvey-docs && yarn build:production && cd ../fastsurvey-frontend",
+        "build:app": "export VITE_DOCS_COMMIT_SHA=\"$(cd ../fastsurvey-docs && git rev-parse --short --verify HEAD && cd ../fastsurvey-frontend)\" && export VITE_APP_COMMIT_SHA=\"$(git rev-parse --short --verify HEAD)\" && tsc && vite build && mv dist/app/app/assets dist/app/assets && rmdir dist/app/app",
         "serve": "vite preview",
         "analyze": "source-map-explorer 'dist/assets/*.js'",
         "cypress:integration": "cypress open",

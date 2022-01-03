@@ -13,6 +13,6 @@ export default defineConfig({
     build: {
         sourcemap: true,
         outDir: 'dist/app',
-        assetsDir: 'dist/app/assets'
+        assetsDir: 'app/assets'
     },
 });

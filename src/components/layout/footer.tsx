@@ -29,12 +29,12 @@ const navigation = [
             {
                 target: '_blank',
                 name: 'User Guides',
-                href: `/documentation/docs/guides`,
+                href: `/documentation/docs/guides/overview`,
             },
             {
                 target: '_blank',
                 name: 'API Reference',
-                href: `/documentation/docs/api`,
+                href: `/documentation/docs/api/overview`,
             },
         ],
     },
