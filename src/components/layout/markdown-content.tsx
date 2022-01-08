@@ -6,7 +6,7 @@ import remarkMath from 'remark-math';
 const MarkdownContent = (props: {content: string; className?: string}) => (
     <div
         className={
-            'h-full w-full overflow-y-scroll prose-sm prose-slate px-4 py-4 z-0 ' +
+            'h-full w-full overflow-y-scroll prose-sm prose-slate px-4 pb-2 pt-6 z-0 ' +
             'text-gray-800 prose-headings:text-black ' +
             'dark:text-gray-200 dark:prose-headings:text-white ' +
             'prose-headings:font-weight-700 prose-headings:mb-2 prose-headings:mt-0 ' +

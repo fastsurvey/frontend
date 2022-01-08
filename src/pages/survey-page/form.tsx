@@ -173,15 +173,19 @@ function SurveyFormPage(props: {
                 }
             >
                 <div className='flex w-full max-w-xl'>
-                    <Pagination
-                        index={pageIndex}
-                        setIndex={setPageIndex}
-                        length={fieldGroups.length}
-                        hints={
-                            paginationHintsVisible ? paginationHints : undefined
-                        }
-                    />
-                    <div className='flex-max' />
+                    {fieldGroups.length > 1 && (
+                        <Pagination
+                            index={pageIndex}
+                            setIndex={setPageIndex}
+                            length={fieldGroups.length}
+                            hints={
+                                paginationHintsVisible
+                                    ? paginationHints
+                                    : undefined
+                            }
+                        />
+                    )}
+                    <div className='flex-grow' />
                     <Button
                         text='Submit'
                         onClick={onSubmit}
