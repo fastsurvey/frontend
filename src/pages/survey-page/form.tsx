@@ -140,6 +140,18 @@ function SurveyFormPage(props: {
                     // padding bottom for pagination bar
                 }
             >
+                {pageIndex !== 0 && (
+                    <button
+                        onClick={() => setPageIndex(pageIndex - 1)}
+                        className={
+                            'mb-2 rounded px-2 py-1 ringable ' +
+                            'text-sm font-weight-600 text-blue-700 ' +
+                            'bg-gray-50 hover:bg-white'
+                        }
+                    >
+                        Previous Page
+                    </button>
+                )}
                 {fieldGroups[pageIndex].map(
                     (fieldConfig, fieldIndex: number) => (
                         <>
@@ -164,6 +176,18 @@ function SurveyFormPage(props: {
                             )}
                         </>
                     ),
+                )}
+                {pageIndex !== fieldGroups.length - 1 && (
+                    <button
+                        onClick={() => setPageIndex(pageIndex + 1)}
+                        className={
+                            'mt-2 rounded px-2 py-1 ringable ' +
+                            'text-sm font-weight-600 text-blue-700 ' +
+                            'bg-gray-50 hover:bg-white'
+                        }
+                    >
+                        Next Page
+                    </button>
                 )}
             </div>
             <div
