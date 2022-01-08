@@ -123,6 +123,14 @@ function SurveyFormPage(props: {
         }
     };
 
+    const identifierToOrder: any = reduce(
+        props.formConfig.fields.filter((f) =>
+            ['email', 'selection', 'text'].includes(f.type),
+        ),
+        (acc, f: any, i) => ({...acc, [f.identifier]: i + 1}),
+        {},
+    );
+
     return (
         <>
             <div
@@ -139,9 +147,13 @@ function SurveyFormPage(props: {
                                 fieldConfig.type === 'text' ||
                                 fieldConfig.type === 'email') && (
                                 <SurveyField
-                                    key={fieldIndex}
+                                    key={fieldConfig.identifier}
                                     fieldConfig={fieldConfig}
-                                    fieldIndex={fieldIndex}
+                                    fieldNumber={
+                                        identifierToOrder[
+                                            fieldConfig.identifier
+                                        ]
+                                    }
                                 />
                             )}
                             {fieldConfig.type === 'markdown' && (

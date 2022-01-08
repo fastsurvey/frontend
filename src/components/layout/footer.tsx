@@ -8,7 +8,7 @@ const navigation = [
     {
         label: 'About',
         elements: [
-            {target: '_self', name: 'Why', href: '/#why'},
+            {target: '_self', name: 'Why', href: '/#intro'},
             {target: '_self', name: 'Demo', href: '/#demo'},
             {
                 target: '_self',

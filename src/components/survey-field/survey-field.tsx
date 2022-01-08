@@ -10,14 +10,14 @@ import EmailForm from './field-form/email-form';
 
 export function SurveyFieldComponent(props: {
     fieldConfig: types.QuestionField;
-    fieldIndex: number;
+    fieldNumber: number;
     formData: any;
     formValidation: any;
 
     modifyData(newData: any): void;
     modifyValidation(newValidation: any): void;
 }) {
-    const {fieldConfig, fieldIndex, formData, formValidation} = props;
+    const {fieldConfig, fieldNumber, formData, formValidation} = props;
 
     const modifyFieldData = (newFieldData: any) => {
         props.modifyData({
@@ -66,7 +66,7 @@ export function SurveyFieldComponent(props: {
                         'text-black md:text-gray-700 dark:text-white '
                     }
                 >
-                    {fieldIndex + 1}. {fieldConfig.description}
+                    {fieldNumber}. {fieldConfig.description}
                 </h2>
                 <Component
                     fieldConfig={fieldConfig}
