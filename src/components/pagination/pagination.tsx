@@ -33,7 +33,7 @@ export default function Pagination(props: {
             <button
                 onClick={() => setIndex(index !== 0 ? index - 1 : 0)}
                 className={
-                    'flex items-center justify-center w-10 ' +
+                    'flex-row-center w-10 ' +
                     'ringable focus:rounded focus:!border-blue-50 ' +
                     'focus:bg-blue-50 focus:z-20 group ' +
                     'dark:focus:bg-blue-300 dark:focus:!border-blue-300'
@@ -43,11 +43,13 @@ export default function Pagination(props: {
                     {icons.chevronLeftCircle}
                 </div>
             </button>
+
             {visiblePageRange.map((i) =>
                 i < 0 ? (
                     <div
                         className={
-                            'flex items-center justify-center z-0 cursor-default ' +
+                            'items-center justify-center z-0 ' +
+                            'cursor-default hidden md:flex ' +
                             'w-10 text-sm text-gray-500 font-weight-500 '
                         }
                         key={i}
@@ -59,7 +61,7 @@ export default function Pagination(props: {
                         key={i}
                         onClick={() => setIndex(i)}
                         className={
-                            'flex-row-center text-sm ' +
+                            'text-sm hidden md:flex items-center justify-center ' +
                             (hints !== undefined ? 'w-14 ' : 'w-12 ') +
                             'ringable focus:rounded focus:!border-blue-50 focus:bg-blue-50 dark:focus:!border-blue-300 dark:focus:bg-blue-300 dark:focus:text-blue-900 ' +
                             (i === index
@@ -83,6 +85,27 @@ export default function Pagination(props: {
                     </button>
                 ),
             )}
+            <div
+                className={
+                    'text-sm flex-row-center md:hidden ' +
+                    (hints !== undefined ? 'w-18 ' : 'w-16 ') +
+                    'text-black dark:text-white font-weight-500 '
+                }
+            >
+                {hints && (
+                    <div
+                        className={
+                            'flex-shrink-0 w-[10px] h-[10px] mr-2 ' +
+                            (hints[index]
+                                ? 'icon-pagination-validation-green '
+                                : 'icon-pagination-validation-red ')
+                        }
+                    >
+                        {icons.circle}
+                    </div>
+                )}
+                {index + 1}/{length}
+            </div>
             <button
                 onClick={() =>
                     setIndex(index !== length - 1 ? index + 1 : length - 1)
