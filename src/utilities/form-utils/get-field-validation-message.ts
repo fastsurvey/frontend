@@ -23,17 +23,27 @@ export function getFieldValidationMessage(
             return 'Valid';
 
         case 'selection':
+            const {min_select, max_select} = fieldConfig;
             const selectionCount = filter(fieldData).length;
-            if (selectionCount < fieldConfig.min_select) {
-                return `Select at least ${fieldConfig.min_select} option${
-                    fieldConfig.min_select !== 1 ? 's' : ''
-                }`;
-            } else if (selectionCount > fieldConfig.max_select) {
-                return `Select at most ${fieldConfig.max_select} option${
-                    fieldConfig.max_select !== 1 ? 's' : ''
-                }`;
+
+            if (min_select === 1 && min_select === max_select) {
+                if (selectionCount !== 1) {
+                    return 'Select exactly one option';
+                } else {
+                    return 'Valid';
+                }
             } else {
-                return 'Valid';
+                if (selectionCount < min_select) {
+                    return `Select at least ${min_select} option${
+                        min_select !== 1 ? 's' : ''
+                    }`;
+                } else if (selectionCount > max_select) {
+                    return `Select at most ${max_select} option${
+                        max_select !== 1 ? 's' : ''
+                    }`;
+                } else {
+                    return `Valid (between ${min_select} and ${max_select} options)`;
+                }
             }
 
         case 'text':
