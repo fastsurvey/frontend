@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import RocketLogo from '/src/assets/branding/rocket.svg';
 import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {types} from '/src/types';
@@ -12,6 +12,11 @@ function MainContent(props: {
     setDarkModeToggle(t: types.darkModeSetting): void;
     darkMode: boolean;
 }) {
+    const location = useLocation();
+    const isFormPage =
+        location.pathname.endsWith('/form') ||
+        location.pathname.endsWith('/form/');
+
     return (
         <React.Fragment>
             <header
@@ -103,7 +108,7 @@ function MainContent(props: {
                     {props.children}
                 </main>
             </div>
-            <Footer />
+            {!isFormPage && <Footer />}
         </React.Fragment>
     );
 }
