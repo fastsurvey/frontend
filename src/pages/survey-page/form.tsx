@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {every, filter, initial, last, reduce} from 'lodash';
 import {useHistory} from 'react-router-dom';
@@ -7,6 +7,7 @@ import {types} from '/src/types';
 import {SurveyField, Button, MarkdownContent} from '/src/components';
 import {pathUtils, backend, reduxUtils, eventUtils} from '/src/utilities';
 import Pagination from '/src/components/pagination/pagination';
+import {flushSync} from 'react-dom';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig;
@@ -19,6 +20,9 @@ function SurveyFormPage(props: {
     const [pageIndex, setPageIndex] = useState(0);
     const [paginationIsFixed, setPaginationIsFixed] = useState(true);
     const [paginationHintsVisible, setPaginationHintsVisible] = useState(false);
+
+    const prevButtonRef = useRef<HTMLButtonElement>(null);
+    const nextButtonRef = useRef<HTMLButtonElement>(null);
 
     const fieldGroups = useMemo(() => {
         let groups: types.SurveyField[][] = [];
@@ -142,7 +146,14 @@ function SurveyFormPage(props: {
             >
                 {pageIndex !== 0 && (
                     <button
-                        onClick={() => setPageIndex(pageIndex - 1)}
+                        ref={prevButtonRef}
+                        onClick={() => {
+                            setPageIndex(pageIndex - 1);
+                            setTimeout(
+                                () => nextButtonRef.current?.focus(),
+                                50,
+                            );
+                        }}
                         className={
                             'mb-2 rounded px-2 py-1 ringable ' +
                             'text-sm font-weight-600 text-blue-700 ' +
@@ -179,7 +190,14 @@ function SurveyFormPage(props: {
                 )}
                 {pageIndex !== fieldGroups.length - 1 && (
                     <button
-                        onClick={() => setPageIndex(pageIndex + 1)}
+                        ref={nextButtonRef}
+                        onClick={() => {
+                            setPageIndex(pageIndex + 1);
+                            setTimeout(
+                                () => prevButtonRef.current?.focus(),
+                                50,
+                            );
+                        }}
                         className={
                             'mt-2 rounded px-2 py-1 ringable ' +
                             'text-sm font-weight-600 text-blue-700 ' +
