@@ -28,7 +28,7 @@ function SurveyIndexPage(props: {
         (config.end === null || now < config.end);
 
     return (
-        <div className='w-full max-w-xl space-y-4'>
+        <div className={'w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'}>
             <SurveyTitleCard
                 title={config.title}
                 surveyRequiresVerification={
@@ -37,9 +37,9 @@ function SurveyIndexPage(props: {
                         .length > 0
                 }
             />
-            <div className='flex-row-top'>
+            <div className='w-full flex-row-top'>
                 <TimePill config={config} />
-                <div className='flex-max' />
+                <div className='flex-grow' />
                 {isOpen && (
                     <Button
                         text='Start'

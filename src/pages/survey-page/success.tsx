@@ -13,7 +13,9 @@ function SurveySuccessPage(props: {formConfig?: types.SurveyConfig}) {
     const config: types.FullSurveyConfig = props.formConfig;
 
     return (
-        <div className='w-full max-w-xl space-y-4'>
+        <div
+            className={'flex w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'}
+        >
             <SurveySuccessCard
                 surveyRequiresVerification={
                     config.fields.filter((f) => f.type === 'email' && f.verify)

@@ -55,15 +55,15 @@ export function SurveyFieldComponent(props: {
         >
             <div
                 className={
-                    'w-full px-4 py-2 lg:px-5 lg:py-3 ' +
+                    'w-full px-2 py-2 lg:px-3 lg:py-3 ' +
                     'bg-white dark:bg-gray-700 centering-col'
                 }
             >
                 <h2
                     className={
-                        'w-full mt-1 mb-1 text-lg text-left ' +
-                        'font-weight-700 md:font-weight-600 ' +
-                        'text-black md:text-gray-700 dark:text-white '
+                        'w-full mt-2 mb-2 md:mt-1 px-2 text-left ' +
+                        'text-xl font-weight-700 leading-snug ' +
+                        'text-black dark:text-white '
                     }
                 >
                     {fieldNumber}. {fieldConfig.description}

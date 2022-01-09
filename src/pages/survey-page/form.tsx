@@ -5,9 +5,8 @@ import {useHistory} from 'react-router-dom';
 import {types} from '/src/types';
 
 import {SurveyField, Button, MarkdownContent} from '/src/components';
-import {pathUtils, backend, reduxUtils, eventUtils} from '/src/utilities';
+import {pathUtils, backend, reduxUtils} from '/src/utilities';
 import Pagination from '/src/components/pagination/pagination';
-import {flushSync} from 'react-dom';
 
 function SurveyFormPage(props: {
     formConfig: types.SurveyConfig;
@@ -18,7 +17,6 @@ function SurveyFormPage(props: {
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [pageIndex, setPageIndex] = useState(0);
-    const [paginationIsFixed, setPaginationIsFixed] = useState(true);
     const [paginationHintsVisible, setPaginationHintsVisible] = useState(false);
 
     const prevButtonRef = useRef<HTMLButtonElement>(null);
@@ -52,21 +50,6 @@ function SurveyFormPage(props: {
         window.scrollTo(0, 0);
     }, [pageIndex]);
 
-    function updatePaginationClass() {
-        const footerElementRect = document
-            .querySelector('footer')
-            ?.getBoundingClientRect();
-        if (footerElementRect !== undefined) {
-            setPaginationIsFixed(
-                footerElementRect.top >
-                    (window.innerHeight ||
-                        document.documentElement.clientHeight),
-            );
-        }
-    }
-
-    eventUtils.useEvent('scroll', updatePaginationClass);
-
     if (
         props.formConfig === undefined ||
         props.formConfig.fields === undefined ||
@@ -97,6 +80,7 @@ function SurveyFormPage(props: {
                         ? `/verify?email=${formData[emailField.identifier]}`
                         : '/success'),
             );
+            window.scrollTo(0, 0);
         };
 
         const error = (type?: 'regex' | 'config') => {
@@ -139,9 +123,7 @@ function SurveyFormPage(props: {
         <>
             <div
                 className={
-                    'flex w-full max-w-xl space-y-4 flex-col-top ' +
-                    'pb-18 sm:pb-16 md:pb-15'
-                    // padding bottom for pagination bar
+                    'flex w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'
                 }
             >
                 {pageIndex !== 0 && (
@@ -155,8 +137,8 @@ function SurveyFormPage(props: {
                             );
                         }}
                         className={
-                            'mb-2 rounded px-2 py-1 ringable ' +
-                            'text-sm font-weight-600 text-blue-700 ' +
+                            'mb-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'text-base md:text-sm font-weight-600 text-blue-700 ' +
                             'bg-gray-50 hover:bg-white'
                         }
                     >
@@ -199,8 +181,8 @@ function SurveyFormPage(props: {
                             );
                         }}
                         className={
-                            'mt-2 rounded px-2 py-1 ringable ' +
-                            'text-sm font-weight-600 text-blue-700 ' +
+                            'mt-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'text-base md:text-sm font-weight-600 text-blue-700 ' +
                             'bg-gray-50 hover:bg-white'
                         }
                     >
@@ -210,8 +192,7 @@ function SurveyFormPage(props: {
             </div>
             <div
                 className={
-                    'bottom-0 left-0 w-full p-3 md:p-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 ' +
-                    (paginationIsFixed ? 'fixed ' : 'absolute')
+                    'bottom-0 left-0 w-full p-3 md:p-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 fixed '
                 }
             >
                 <div className='flex w-full max-w-xl'>

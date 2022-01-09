@@ -45,20 +45,20 @@ function SurveyVerifyPage(props: {openMessage(m: types.MessageId): void}) {
         }
     };
 
-    if (token !== null) {
-        return (
-            <div className='w-full max-w-xl space-y-4 flex-col-center '>
+    return (
+        <div
+            className={'flex w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'}
+        >
+            {token !== null && (
                 <Button
                     text='verify submission'
                     onClick={submitVerification}
                     loading={isSubmitting}
                 />
-            </div>
-        );
-    }
-    return (
-        <div className='w-full max-w-xl space-y-4'>
-            <SurveyVerifyCard email={email === null ? undefined : email} />
+            )}
+            {token === null && (
+                <SurveyVerifyCard email={email === null ? undefined : email} />
+            )}
         </div>
     );
 }

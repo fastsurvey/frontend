@@ -38,7 +38,7 @@ function SelectionForm(props: {
                     className={
                         'w-full pl-2 pr-3 rounded flex flex-row items-stretch ' +
                         'space-x-2 font-weight-500 ' +
-                        'py-2 my-[3px] text-sm relative ' +
+                        'py-3 md:py-2 my-[3px] text-base md:text-sm relative ' +
                         'border ringable ' +
                         (fieldData.includes(fieldOption)
                             ? 'text-blue-900 border-blue-150 bg-blue-150 dark:text-blue-900 dark:border-blue-400 dark:bg-blue-400 '
