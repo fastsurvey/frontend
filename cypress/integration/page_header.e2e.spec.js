@@ -21,14 +21,14 @@ describe('The Page Header', () => {
         cy.root()
             .get('main')
             .should('have.css', 'background-color')
-            .and('eq', 'rgb(241, 245, 249)');
+            .and('eq', 'rgb(233, 238, 244)');
     }
 
     function assertDarkBackground() {
         cy.root()
             .get('main')
             .should('have.css', 'background-color')
-            .and('eq', 'rgb(15, 23, 42)');
+            .and('eq', 'rgb(11, 17, 31)');
     }
 
     it('has a working logo link', () => {
