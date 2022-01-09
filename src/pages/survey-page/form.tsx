@@ -123,7 +123,7 @@ function SurveyFormPage(props: {
         <>
             <div
                 className={
-                    'flex w-full max-w-xl gap-y-4 flex-col-top pb-16 pt-4'
+                    'flex w-full max-w-xl gap-y-4 flex-col-top pb-10 md:pb-6 pt-0'
                 }
             >
                 {pageIndex !== 0 && (
@@ -149,9 +149,9 @@ function SurveyFormPage(props: {
                             );
                         }}
                         className={
-                            'mb-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'mb-2 mt-6 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
                             'text-base md:text-sm font-weight-600 text-blue-700 ' +
-                            'bg-gray-50 hover:bg-white z-20 py-12 -my-12'
+                            'bg-gray-50 hover:bg-white z-20'
                         }
                     >
                         Previous Page
@@ -195,9 +195,9 @@ function SurveyFormPage(props: {
                         }}
                         onFocus={() => nextButtonRef.current?.scrollIntoView()}
                         className={
-                            'mt-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'mt-2 mb-6 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
                             'text-base md:text-sm font-weight-600 text-blue-700 ' +
-                            'bg-gray-50 hover:bg-white z-20 py-12 -my-12'
+                            'bg-gray-50 hover:bg-white z-20'
                         }
                     >
                         Next Page
