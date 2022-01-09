@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yarn build
+yarn build:development
 
 docker build --platform linux/amd64 -t gcr.io/fastsurvey-infrastructure/frontend-dev .
 docker push gcr.io/fastsurvey-infrastructure/frontend-dev:latest
