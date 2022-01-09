@@ -123,7 +123,7 @@ function SurveyFormPage(props: {
         <>
             <div
                 className={
-                    'flex w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'
+                    'flex w-full max-w-xl gap-y-4 flex-col-top pb-16 pt-4'
                 }
             >
                 {pageIndex !== 0 && (
@@ -135,11 +135,23 @@ function SurveyFormPage(props: {
                                 () => nextButtonRef.current?.focus(),
                                 50,
                             );
+                            setTimeout(
+                                () => nextButtonRef.current?.scrollIntoView(),
+                                50,
+                            );
+                            setTimeout(
+                                () =>
+                                    window.scrollTo(
+                                        0,
+                                        document.body.scrollHeight,
+                                    ),
+                                75,
+                            );
                         }}
                         className={
                             'mb-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
                             'text-base md:text-sm font-weight-600 text-blue-700 ' +
-                            'bg-gray-50 hover:bg-white'
+                            'bg-gray-50 hover:bg-white z-20 py-12 -my-12'
                         }
                     >
                         Previous Page
@@ -179,11 +191,13 @@ function SurveyFormPage(props: {
                                 () => prevButtonRef.current?.focus(),
                                 50,
                             );
+                            setTimeout(() => window.scrollTo(0, 0), 75);
                         }}
+                        onFocus={() => nextButtonRef.current?.scrollIntoView()}
                         className={
                             'mt-2 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
                             'text-base md:text-sm font-weight-600 text-blue-700 ' +
-                            'bg-gray-50 hover:bg-white'
+                            'bg-gray-50 hover:bg-white z-20 py-12 -my-12'
                         }
                     >
                         Next Page
@@ -192,7 +206,7 @@ function SurveyFormPage(props: {
             </div>
             <div
                 className={
-                    'bottom-0 left-0 w-full p-3 md:p-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 fixed '
+                    'bottom-0 left-0 w-full p-3 md:p-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 fixed z-30'
                 }
             >
                 <div className='flex w-full max-w-xl'>

@@ -9,6 +9,10 @@
     user-select: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* TODO: Add fallback fonts */
 
 * {

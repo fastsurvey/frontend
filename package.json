@@ -9,7 +9,7 @@
     },
     "license": "UNLICENSED",
     "scripts": {
-        "develop": "vite --host",
+        "develop": "export VITE_ENV=\"development\" && vite --host",
         "build": "yarn build:documentation && yarn build:app",
         "build:development": "export VITE_ENV=\"development\" && yarn build",
         "build:production": "export VITE_ENV=\"production\" && yarn build",

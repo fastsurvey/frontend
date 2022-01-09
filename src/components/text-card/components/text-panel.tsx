@@ -9,7 +9,7 @@ function TextPanel(props: {
     return (
         <div
             className={
-                'overflow-hidden rounded shadow-sm ' +
+                'w-full overflow-hidden rounded shadow-sm ' +
                 'bg-white dark:bg-gray-700 ' +
                 (props.appendix === undefined ? 'pb-4 ' : ' ')
             }
