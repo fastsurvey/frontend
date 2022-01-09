@@ -85,6 +85,11 @@ export function SurveyFieldComponent(props: {
                         ? 'text-green-800 dark:text-green-50 '
                         : 'text-red-800 dark:text-red-50 ')
                 }
+                data-cy={`validation-bar ${
+                    formValidation[fieldConfig.identifier]
+                        ? 'isvalid'
+                        : 'isinvalid'
+                }`}
             >
                 <div className='flex flex-row items-center'>
                     <div

@@ -30,11 +30,7 @@ it('message works as expected', () => {
             }}
         />,
     );
-    cy.get('div')
-        .contains('test message 1')
-        .parent()
-        .children()
-        .should('have.length', 2);
+    cy.get('div').contains('test message 1').should('have.length', 1);
     cy.get('div')
         .contains('test message 1')
         .parent()
@@ -44,26 +40,4 @@ it('message works as expected', () => {
         .click();
 
     cy.get('div').contains('test message 1').should('have.length', 0);
-
-    mount(
-        <ComponentWrapper
-            message={{
-                id: 'error-config-change',
-                randomToken: 0,
-                text: 'test message 2',
-                type: 'error',
-            }}
-        />,
-    );
-    cy.get('div')
-        .contains('test message 2')
-        .parent()
-        .children()
-        .should('have.length', 2);
-    cy.get('div')
-        .contains('test message 2')
-        .parent()
-        .find('button')
-        .should('have.length', 1)
-        .should('have.class', 'fill-green-200');
 });

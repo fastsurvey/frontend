@@ -44,6 +44,11 @@ function SelectionForm(props: {
                             ? 'text-blue-900 border-blue-150 bg-blue-150 dark:text-blue-900 dark:border-blue-400 dark:bg-blue-400 '
                             : 'text-gray-600 border-gray-150 bg-gray-50 focus:border-gray-50 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-750 dark:focus:bg-gray-800 dark:hover:bg-gray-800 dark:focus:border-gray-750 ')
                     }
+                    data-cy={`selection-option-${optionIndex} ${
+                        fieldData.includes(fieldOption)
+                            ? 'isselected'
+                            : 'isnotselected'
+                    }`}
                 >
                     <div className={'flex flex-row items-center'}>
                         <div
