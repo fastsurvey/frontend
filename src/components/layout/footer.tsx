@@ -28,6 +28,11 @@ const navigation = [
             },
             {
                 target: '_blank',
+                name: 'Contact Us',
+                href: `mailto:contact@fastsurvey.de`,
+            },
+            /*{
+                target: '_blank',
                 name: 'User Guides',
                 href: `/documentation/docs/guides/overview`,
             },
@@ -35,7 +40,7 @@ const navigation = [
                 target: '_blank',
                 name: 'API Reference',
                 href: `/documentation/docs/api/overview`,
-            },
+            },*/
         ],
     },
     {
