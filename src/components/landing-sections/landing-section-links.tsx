@@ -75,7 +75,7 @@ export default function LandingSectionLinks(props: {
 }) {
     return (
         <LandingPageSection index={props.index} id='links'>
-            <div className='grid max-w-4xl grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-3'>
+            <div className='grid max-w-4xl grid-cols-1 gap-x-3 gap-y-3'>
                 <div className='py-6 space-y-2 flex-col-center md:items-start md:py-0'>
                     <div className='mb-4 font-bold centering-row'>
                         <div className='w-16 h-16 mr-4'>
@@ -107,10 +107,10 @@ export default function LandingSectionLinks(props: {
                         </a>
                     </div>
                 </div>
+                {/*
                 <div className='max-w-md text-sm gap-y-1 flex-col-left'>
                     <LinkButton
-                        to='https://docs.fastsurvey.de/'
-                        exists
+                        to={`https://${props.baseUrl}/documentation`}
                         text={
                             <>
                                 Troubleshooting/Questions: Read our{' '}
@@ -148,7 +148,7 @@ export default function LandingSectionLinks(props: {
                             </>
                         }
                     />
-                </div>
+                </div>*/}
             </div>
         </LandingPageSection>
     );

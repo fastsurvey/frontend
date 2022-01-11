@@ -9,6 +9,10 @@
     user-select: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* TODO: Add fallback fonts */
 
 * {
@@ -99,6 +103,18 @@
     .icon-dark-blue .secondary {
         @apply fill-blue-900;
     }
+
+    .svg-message-error .secondary {
+        @apply fill-red-300;
+    }
+
+    .svg-message-warning .secondary {
+        @apply fill-yellow-300;
+    }
+
+    .svg-message-success .secondary {
+        @apply fill-green-300;
+    }
 }
 
 .centering-row {
@@ -178,20 +194,12 @@
     @apply fill-red-400;
 }
 
-.icon-dark-green .primary {
-    @apply fill-green-100;
+.icon-validation-green .primary {
+    @apply fill-green-300;
 }
 
-.icon-dark-green .secondary {
-    @apply fill-green-900;
-}
-
-.icon-dark-red .primary {
-    @apply fill-red-100;
-}
-
-.icon-dark-red .secondary {
-    @apply fill-red-900;
+.icon-validation-red .primary {
+    @apply fill-red-300;
 }
 
 .svg-landing-enterprise-card .primary {
@@ -232,4 +240,64 @@
 
 .svg-footer:hover .secondary {
     @apply fill-gray-100;
+}
+
+.svg-info-card .primary {
+    @apply fill-blue-100 dark:fill-blue-400;
+}
+
+.svg-info-card .secondary {
+    @apply fill-blue-500 dark:fill-blue-900;
+}
+
+.animate-pop {
+    animation: pulse 0.35s cubic-bezier(0.4, 0, 0.6, 1);
+    transform-origin: bottom left;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.svg-toggle-true .primary {
+    @apply fill-blue-50 dark:fill-blue-150;
+}
+.svg-toggle-true .secondary {
+    @apply fill-blue-900 dark:fill-blue-700;
+}
+.svg-toggle-false .primary {
+    @apply fill-gray-200 dark:fill-gray-600;
+}
+.svg-toggle-false .secondary {
+    fill: transparent;
+}
+
+.svg-pagination .primary {
+    fill: transparent;
+}
+.svg-pagination .secondary {
+    @apply fill-gray-600 dark:fill-gray-300 dark:group-focus:fill-blue-900;
+}
+
+.icon-pagination-validation-green .primary {
+    @apply fill-green-300;
+}
+
+.icon-pagination-validation-red .primary {
+    @apply fill-red-300;
+}
+
+.hyphens {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }

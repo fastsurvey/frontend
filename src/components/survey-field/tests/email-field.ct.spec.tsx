@@ -3,8 +3,12 @@ import {types} from '/src/types';
 import {mount} from '@cypress/react';
 import {SurveyFieldComponent} from '../survey-field';
 import '/src/styles/tailwind.out.css';
+import {
+    assertDataCy,
+    getCySelector,
+} from '../../../../cypress/support/utilities';
 
-function State(props: {fieldConfig: types.EmailField; fieldIndex: number}) {
+function State(props: {fieldConfig: types.EmailField; fieldNumber: number}) {
     const [formData, modifyData] = useState({
         [props.fieldConfig.identifier]: '',
     });
@@ -28,19 +32,11 @@ function State(props: {fieldConfig: types.EmailField; fieldIndex: number}) {
 }
 
 function validationIsCorrect(props: {valid: boolean; contains: string}) {
-    // TODO: Test the validation message text, not only the color
-    cy.get('div')
-        .contains(props.contains)
-        .should('have.length', 1)
-        .parent()
-        .should('have.class', props.valid ? 'text-green-900' : 'text-red-900')
-        .find('svg')
-        .should('have.length', 1)
-        .parent()
-        .should(
-            'have.class',
-            props.valid ? 'icon-dark-green' : 'icon-dark-red',
-        );
+    assertDataCy(
+        getCySelector(['validation-bar'], {count: 1}),
+        props.valid ? 'isvalid' : 'isinvalid',
+    );
+    getCySelector(['validation-bar'], {count: 1}).contains(props.contains);
 }
 
 it('works as for any email', () => {
@@ -49,16 +45,15 @@ it('works as for any email', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'email',
-                title: '<title>',
                 description: '<description>',
                 hint: '<hint>',
                 regex: '.*',
                 verify: false,
             }}
-            fieldIndex={7}
+            fieldNumber={8}
         />,
     );
-    cy.get('h2').contains('8. <title>').should('have.length', 1);
+    cy.get('h2').contains('8. <description>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: 'Not a valid email',
@@ -81,16 +76,15 @@ it('works as for specific emails', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'email',
-                title: '<title>',
                 description: '<description>',
                 hint: '<hint>',
                 regex: '[a-z]{6}@somedomain.(de|com)',
                 verify: false,
             }}
-            fieldIndex={7}
+            fieldNumber={8}
         />,
     );
-    cy.get('h2').contains('8. <title>');
+    cy.get('h2').contains('8. <description>');
     validationIsCorrect({
         valid: false,
         contains: 'Not a valid email',

@@ -74,12 +74,26 @@ export const icons = {
             />
         </SVG>
     ),
+    circle: (
+        <SVG>
+            <circle cx='12' cy='12' r='10' className='primary' />
+        </SVG>
+    ),
     close: (
         <SVG>
             <path
                 className='secondary'
                 fillRule='evenodd'
                 d='M15.78 14.36a1 1 0 0 1-1.42 1.42l-2.82-2.83-2.83 2.83a1 1 0 1 1-1.42-1.42l2.83-2.82L7.3 8.7a1 1 0 0 1 1.42-1.42l2.83 2.83 2.82-2.83a1 1 0 0 1 1.42 1.42l-2.83 2.83 2.83 2.82z'
+            />
+        </SVG>
+    ),
+    closeCircle: (
+        <SVG>
+            <circle cx='12' cy='12' r='10' className='primary' />
+            <path
+                className='secondary'
+                d='M13.41 12l2.83 2.83a1 1 0 0 1-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 1 1-1.41-1.41L10.59 12 7.76 9.17a1 1 0 0 1 1.41-1.41L12 10.59l2.83-2.83a1 1 0 0 1 1.41 1.41L13.41 12z'
             />
         </SVG>
     ),

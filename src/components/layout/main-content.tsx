@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import RocketLogo from '/src/assets/branding/rocket.svg';
 import RocketLogoLight from '/src/assets/branding/rocket-light.svg';
 import {types} from '/src/types';
@@ -12,6 +12,11 @@ function MainContent(props: {
     setDarkModeToggle(t: types.darkModeSetting): void;
     darkMode: boolean;
 }) {
+    const location = useLocation();
+    const isFormPage =
+        location.pathname.endsWith('/form') ||
+        location.pathname.endsWith('/form/');
+
     return (
         <React.Fragment>
             <header
@@ -66,7 +71,7 @@ function MainContent(props: {
                                 key={m}
                                 onClick={() => props.setDarkModeToggle(m)}
                                 className={
-                                    'first:pl-3 last:pr-3 px-3 font-weight-700 ' +
+                                    'first:pl-3 last:pr-3 px-3 font-weight-600 ' +
                                     'h-full flex-row-center rounded-sm ' +
                                     (props.darkModeToggle === m
                                         ? 'text-blue-900 bg-blue-100 dark:text-blue-50 dark:bg-blue-900 '
@@ -94,16 +99,16 @@ function MainContent(props: {
             <div className={props.darkMode ? 'dark ' : ' '}>
                 <main
                     className={
-                        'w-screen min-h-screen px-2 ' +
-                        'pb-12 pt-20 md:pt-12 flex flex-col items-center ' +
+                        'w-screen min-h-screen px-2 relative overflow-hidden ' +
+                        'pb-12 pt-20 md:py-20 flex flex-col items-center ' +
                         'justify-start md:justify-center z-10 ' +
-                        'bg-gray-100 dark:bg-gray-900 '
+                        'bg-gray-150 dark:bg-gray-950 '
                     }
                 >
                     {props.children}
                 </main>
             </div>
-            <Footer />
+            {!isFormPage && <Footer />}
         </React.Fragment>
     );
 }

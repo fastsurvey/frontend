@@ -1,84 +1,124 @@
 import React from 'react';
-import {icons} from '/src/assets/icons';
 
 const VITE_ENV = import.meta.env.VITE_ENV;
 let baseUrl =
     VITE_ENV === 'development' ? 'dev.fastsurvey.de' : 'fastsurvey.de';
 
-/* This example requires Tailwind CSS v2.0+ */
-const navigation = {
-    main: [
-        {name: 'Why', href: '/#why'},
-        {name: 'Demo', href: '/#demo'},
-        {name: 'Pricing', href: '/#pricing-for-individuals'},
-        {name: 'FAQ', href: '/#faq'},
-        {name: 'Register', href: `https://console.${baseUrl}/register`},
-        {name: 'Login', href: `https://console.${baseUrl}/login`},
-        {name: 'Status', href: `https://fastsurvey.instatus.com/`},
-    ],
-    social: [
-        {
-            name: 'GitHub',
-            href: 'https://github.com/fastsurvey',
-            icon: () => icons.gitHub,
-        },
-    ],
-};
+const navigation = [
+    {
+        label: 'About',
+        elements: [
+            {target: '_self', name: 'Why', href: '/#intro'},
+            {target: '_self', name: 'Demo', href: '/#demo'},
+            {
+                target: '_self',
+                name: 'Pricing',
+                href: '/#pricing-for-individuals',
+            },
+            {target: '_self', name: 'FAQ', href: '/#faq'},
+        ],
+    },
+    {
+        label: 'Support',
+        elements: [
+            {
+                target: '_blank',
+                name: 'Service Status',
+                href: `https://fastsurvey.instatus.com/`,
+            },
+            {
+                target: '_blank',
+                name: 'Contact Us',
+                href: `mailto:contact@fastsurvey.de`,
+            },
+            /*{
+                target: '_blank',
+                name: 'User Guides',
+                href: `/documentation/docs/guides/overview`,
+            },
+            {
+                target: '_blank',
+                name: 'API Reference',
+                href: `/documentation/docs/api/overview`,
+            },*/
+        ],
+    },
+    {
+        label: 'Social',
+        elements: [
+            {
+                target: '_blank',
+                name: 'GitHub',
+                href: 'https://github.com/fastsurvey',
+            },
+        ],
+    },
+    {
+        label: 'Use FastSurvey',
+        elements: [
+            {
+                target: '_self',
+                name: 'Register',
+                href: `https://console.${baseUrl}/register`,
+            },
+            {
+                target: '_self',
+                name: 'Login',
+                href: `https://console.${baseUrl}/login`,
+            },
+        ],
+    },
+];
 
 export default function Footer() {
     return (
-        <footer className='bg-gray-900'>
-            <div
-                className={
-                    'p-6 overflow-hidden sm:px-6 lg:px-8 ' +
-                    'mx-auto w-full sm:max-w-md md:max-w-xl'
-                }
-            >
-                <nav
-                    className={
-                        'flex flex-wrap justify-center gap-y-1.5 ' +
-                        'md:justify-between md:gap-y-0'
-                    }
-                    aria-label='Footer'
-                >
-                    {navigation.main.map((item) => (
-                        <div key={item.name} className='px-4 md:px-4'>
-                            <a
-                                href={item.href}
-                                className='text-sm text-blue-200 hover:text-blue-50 font-weight-600'
-                            >
-                                {item.name}
-                            </a>
+        <footer className='z-40 bg-gray-850'>
+            <div className={'p-6 overflow-hidden sm:px-6 lg:px-8 '}>
+                <nav className='grid grid-cols-2 gap-8 md:grid-cols-4'>
+                    {navigation.map((column) => (
+                        <div>
+                            <h3 className='text-sm font-semibold tracking-wider text-gray-200 uppercase'>
+                                {column.label}
+                            </h3>
+                            <ul role='list' className='mt-3 space-y-1'>
+                                {column.elements.map((e) => (
+                                    <li key={e.name}>
+                                        <a
+                                            href={e.href}
+                                            target={e.target}
+                                            className='text-sm text-gray-400 hover:text-gray-100'
+                                        >
+                                            {e.name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     ))}
                 </nav>
-                <div
-                    className={
-                        'flex-col-center xs:flex-row gap-y-1 xs:gap-y-0 ' +
-                        'mt-6 text-gray-300 font-weight-400'
-                    }
-                >
-                    <p className='w-48 px-4 text-sm text-center'>
-                        &copy; {new Date().getFullYear()} FastSurvey
-                    </p>
-                    <div className='flex-max' />
-                    {navigation.social.map((item) => (
-                        <a key={item.name} href={item.href}>
-                            <span className='sr-only'>{item.name}</span>
-                            <div className='w-6 h-6 svg-footer'>
-                                <item.icon />
-                            </div>
-                        </a>
-                    ))}
-                    <div className='flex-max' />
-                    <p className='w-48 px-4 text-sm text-center'>
+                <div className='pt-6 mt-6 border-t border-gray-500'>
+                    <div className='flex w-full text-sm divide-x divide-gray-500'>
+                        <div className='px-2 text-gray-200 font-weight-600 '>
+                            &copy; {new Date().getFullYear()} FastSurvey
+                        </div>
+
                         {import.meta.env.MODE === 'development' && (
-                            <>development</>
+                            <div className='px-2 text-gray-400 font-weight-400'>
+                                development
+                            </div>
                         )}
                         {import.meta.env.MODE === 'production' && (
-                            <>version {import.meta.env.VITE_COMMIT_SHA}</>
+                            <>
+                                <div className='px-2 text-gray-400 font-weight-400'>
+                                    app {import.meta.env.VITE_APP_COMMIT_SHA}
+                                </div>
+                                <div className='px-2 text-gray-400 font-weight-400'>
+                                    documentation{' '}
+                                    {import.meta.env.VITE_DOCS_COMMIT_SHA}
+                                </div>
+                            </>
                         )}
-                    </p>
+                    </div>
                 </div>
             </div>
         </footer>

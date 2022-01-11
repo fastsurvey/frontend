@@ -2,48 +2,83 @@ export declare namespace types {
     export type darkModeSetting = 'light' | 'auto' | 'dark';
 
     export type Message = {
+        id: MessageId;
         text: string;
-        variant: 'success' | 'error';
+        randomToken: number;
+        type: 'success' | 'error' | 'warning';
     };
     export interface SurveyConfig {
         survey_name: string;
-        start: number;
-        end: number;
-        draft: boolean;
+        start: number | null;
+        end: number | null;
         limit: number;
         title: string;
-        description: string;
+        fields?: SurveyField[];
+    }
+
+    export interface FullSurveyConfig {
+        survey_name: string;
+        start: number | null;
+        end: number | null;
+        limit: number;
+        title: string;
         fields: SurveyField[];
     }
 
-    export type SurveyField = EmailField | SelectionField | TextField;
+    export type SurveyField =
+        | EmailField
+        | SelectionField
+        | TextField
+        | BreakField
+        | MarkdownField;
+
+    export type QuestionField = EmailField | SelectionField | TextField;
 
     interface GeneralSurveyField {
-        title: string;
         description: string;
         identifier: number;
     }
 
-    export type FieldType = 'email' | 'selection' | 'text';
+    export type FieldType =
+        | 'email'
+        | 'selection'
+        | 'text'
+        | 'break'
+        | 'markdown';
 
-    export interface EmailField extends GeneralSurveyField {
+    export interface EmailField {
         type: 'email';
+        description: string;
+        identifier: number;
         regex: string;
         hint: string;
         verify: boolean;
     }
 
-    export interface SelectionField extends GeneralSurveyField {
+    export interface SelectionField {
         type: 'selection';
+        description: string;
+        identifier: number;
         min_select: number;
         max_select: number;
         options: string[];
     }
 
-    export interface TextField extends GeneralSurveyField {
+    export interface TextField {
         type: 'text';
+        description: string;
+        identifier: number;
         min_chars: number;
         max_chars: number;
+    }
+
+    export interface BreakField {
+        type: 'break';
+    }
+
+    export interface MarkdownField {
+        type: 'markdown';
+        description: string;
     }
 
     export interface EmailRegexSetup {
@@ -60,7 +95,7 @@ export declare namespace types {
         formConfig: SurveyConfig | undefined;
         formData: FormData | undefined;
         formValidation: FormValidation | undefined;
-        message: types.Message | undefined;
+        messages: types.Message[];
     }
 
     export interface FormData {
@@ -75,6 +110,13 @@ export declare namespace types {
     export interface FormValidation {
         [key: string]: boolean;
     }
+
+    export type MessageId =
+        | 'error-config-change'
+        | 'error-timing'
+        | 'error-verification'
+        | 'error-server'
+        | 'error-incomplete';
 
     export type ReduxAction =
         | {
@@ -94,9 +136,11 @@ export declare namespace types {
           }
         | {
               type: 'OPEN_MESSAGE';
-              message: types.Message;
+              messageId: types.MessageId;
           }
         | {
               type: 'CLOSE_MESSAGE';
-          };
+              messageId: types.MessageId;
+          }
+        | {type: 'CLOSE_ALL_MESSAGES'};
 }

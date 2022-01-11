@@ -1,43 +1,78 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {connect} from 'react-redux';
-import {filter} from 'lodash';
+import {every, filter, initial, last, reduce} from 'lodash';
 import {useHistory} from 'react-router-dom';
 import {types} from '/src/types';
 
-import {TimePill, SurveyField, Button} from '/src/components';
+import {SurveyField, Button, MarkdownContent} from '/src/components';
 import {pathUtils, backend, reduxUtils} from '/src/utilities';
+import Pagination from '/src/components/pagination/pagination';
 
 function SurveyFormPage(props: {
-    formConfig: types.SurveyConfig | undefined;
-    formData: types.FormData | undefined;
-    formValidation: types.FormValidation | undefined;
-    openMessage(message: types.Message): void;
+    formConfig: types.SurveyConfig;
+    formData: types.FormData;
+    formValidation: types.FormValidation;
+    openMessage(m: types.MessageId): void;
 }) {
-    const {formConfig, formData, formValidation} = props;
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [pageIndex, setPageIndex] = useState(0);
+    const [paginationHintsVisible, setPaginationHintsVisible] = useState(false);
+
+    const prevButtonRef = useRef<HTMLButtonElement>(null);
+    const nextButtonRef = useRef<HTMLButtonElement>(null);
+
+    const fieldGroups = useMemo(() => {
+        let groups: types.SurveyField[][] = [];
+        if (props.formConfig?.fields !== undefined) {
+            groups = reduce(
+                props.formConfig.fields,
+                (acc: types.SurveyField[][], f) =>
+                    f.type === 'break'
+                        ? [...acc, []]
+                        : // @ts-ignore
+                          [...initial(acc), [...last(acc), f]],
+                [[]],
+            );
+        }
+        return groups.filter((g) => g.length > 0);
+    }, [props.formConfig]);
+
+    const paginationHints = fieldGroups
+        .map((g) =>
+            g
+                .filter((f) => f.type !== 'markdown')
+                .map((f: any) => props.formValidation[f.identifier]),
+        )
+        .map((g) => every(g, Boolean));
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [pageIndex]);
 
-    if (!formConfig || !formData || !formValidation) {
-        return <div />;
+    if (
+        props.formConfig === undefined ||
+        props.formConfig.fields === undefined ||
+        props.formData === undefined ||
+        props.formValidation === undefined
+    ) {
+        throw 'Routing error, rendering page with undefined formConfig';
     }
 
-    const submittable =
-        filter(props.formValidation, (x: boolean) => !x).length === 0;
+    // @ts-ignore
+    const formConfig: types.FullSurveyConfig = props.formConfig;
+    const formData: types.FormData = props.formData;
+    const formValidation: types.FormValidation = props.formValidation;
+
+    const submittable = filter(formValidation, (x: boolean) => !x).length === 0;
 
     const onSubmit = () => {
-        setIsSubmitting(true);
-
         const success = () => {
             setIsSubmitting(false);
 
-            const emailField: types.SurveyField | undefined =
-                formConfig.fields.filter(
-                    (f) => f.type === 'email' && f.verify,
-                )[0];
+            const emailField: any = formConfig.fields.filter(
+                (f) => f.type === 'email' && f.verify,
+            )[0];
 
             history.push(
                 pathUtils.getRootPath(window.location.pathname) +
@@ -45,25 +80,21 @@ function SurveyFormPage(props: {
                         ? `/verify?email=${formData[emailField.identifier]}`
                         : '/success'),
             );
+            window.scrollTo(0, 0);
         };
 
         const error = (type?: 'regex' | 'config') => {
             // TODO: Think about error scenarios
             if (type === 'config') {
-                props.openMessage({
-                    text: 'Survey has been modified, please reload the page',
-                    variant: 'error',
-                });
+                props.openMessage('error-config-change');
             } else {
-                props.openMessage({
-                    text: 'Backend error',
-                    variant: 'error',
-                });
+                props.openMessage('error-server');
             }
             setIsSubmitting(false);
         };
 
         if (submittable) {
+            setIsSubmitting(true);
             const {username, survey_name} = pathUtils.getPathId(
                 window.location.pathname,
             );
@@ -75,44 +106,135 @@ function SurveyFormPage(props: {
                 error,
             );
         } else {
-            props.openMessage({
-                text: 'Please fill out all the fields first!',
-                variant: 'error',
-            });
-            setIsSubmitting(false);
+            setPaginationHintsVisible(true);
+            props.openMessage('error-incomplete');
         }
     };
 
+    const identifierToOrder: any = reduce(
+        props.formConfig.fields.filter((f) =>
+            ['email', 'selection', 'text'].includes(f.type),
+        ),
+        (acc, f: any, i) => ({...acc, [f.identifier]: i + 1}),
+        {},
+    );
+
     return (
-        <div className='w-full max-w-xl space-y-4'>
-            {formConfig.fields.map(
-                (fieldConfig: types.SurveyField, fieldIndex: number) => (
-                    <div key={fieldIndex}>
-                        <SurveyField
-                            fieldConfig={fieldConfig}
-                            fieldIndex={fieldIndex}
-                        />
-                    </div>
-                ),
-            )}
-            <div className='centering-row'>
-                <TimePill config={formConfig} />
-                <div className='flex-max' />
-                <Button
-                    text='Submit'
-                    onClick={onSubmit}
-                    loading={isSubmitting}
-                />
+        <>
+            <div
+                className={
+                    'flex w-full max-w-xl gap-y-4 flex-col-top pb-10 md:pb-6 pt-0'
+                }
+            >
+                {pageIndex !== 0 && (
+                    <button
+                        ref={prevButtonRef}
+                        onClick={() => {
+                            setPageIndex(pageIndex - 1);
+                            setTimeout(
+                                () => nextButtonRef.current?.focus(),
+                                50,
+                            );
+                            setTimeout(
+                                () => nextButtonRef.current?.scrollIntoView(),
+                                50,
+                            );
+                            setTimeout(
+                                () =>
+                                    window.scrollTo(
+                                        0,
+                                        document.body.scrollHeight,
+                                    ),
+                                75,
+                            );
+                        }}
+                        className={
+                            'mb-2 mt-6 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'text-base md:text-sm font-weight-600 text-blue-700 ' +
+                            'bg-gray-50 hover:bg-white z-20'
+                        }
+                    >
+                        Previous Page
+                    </button>
+                )}
+                {fieldGroups[pageIndex].map(
+                    (fieldConfig, fieldIndex: number) => (
+                        <>
+                            {(fieldConfig.type === 'selection' ||
+                                fieldConfig.type === 'text' ||
+                                fieldConfig.type === 'email') && (
+                                <SurveyField
+                                    key={fieldConfig.identifier}
+                                    fieldConfig={fieldConfig}
+                                    fieldNumber={
+                                        identifierToOrder[
+                                            fieldConfig.identifier
+                                        ]
+                                    }
+                                />
+                            )}
+                            {fieldConfig.type === 'markdown' && (
+                                <MarkdownContent
+                                    key={fieldIndex}
+                                    content={fieldConfig.description}
+                                />
+                            )}
+                        </>
+                    ),
+                )}
+                {pageIndex !== fieldGroups.length - 1 && (
+                    <button
+                        ref={nextButtonRef}
+                        onClick={() => {
+                            setPageIndex(pageIndex + 1);
+                            setTimeout(
+                                () => prevButtonRef.current?.focus(),
+                                50,
+                            );
+                            setTimeout(() => window.scrollTo(0, 0), 75);
+                        }}
+                        onFocus={() => nextButtonRef.current?.scrollIntoView()}
+                        className={
+                            'mt-2 mb-6 rounded px-3 py-2 md:px-2 md:py-1 ringable ' +
+                            'text-base md:text-sm font-weight-600 text-blue-700 ' +
+                            'bg-gray-50 hover:bg-white z-20'
+                        }
+                    >
+                        Next Page
+                    </button>
+                )}
             </div>
-        </div>
+            <div
+                className={
+                    'bottom-0 left-0 w-full p-3 md:p-4 shadow-lg bg-gray-75 flex-row-center dark:bg-gray-800 fixed z-30'
+                }
+            >
+                <div className='flex w-full max-w-xl'>
+                    {fieldGroups.length > 1 && (
+                        <Pagination
+                            index={pageIndex}
+                            setIndex={setPageIndex}
+                            length={fieldGroups.length}
+                            hints={
+                                paginationHintsVisible
+                                    ? paginationHints
+                                    : undefined
+                            }
+                        />
+                    )}
+                    <div className='flex-grow' />
+                    <Button
+                        text='Submit'
+                        onClick={onSubmit}
+                        loading={isSubmitting}
+                    />
+                </div>
+            </div>
+        </>
     );
 }
 
-const mapStateToProps = (state: types.ReduxState) => ({
-    formConfig: state.formConfig,
-    formData: state.formData,
-    formValidation: state.formValidation,
-});
+const mapStateToProps = (state: types.ReduxState) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
     openMessage: reduxUtils.dispatchers.openMessage(dispatch),

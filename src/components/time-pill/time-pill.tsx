@@ -19,22 +19,35 @@ const diffToPhrase = (diff: number): string => {
         }
     }
 
-    return 'now';
+    return '1 second';
 };
 
 function TimePill(props: {config: types.SurveyConfig}) {
     const now: number = new Date().getTime() / 1000;
+    const {start, end} = props.config;
 
-    if (props.config.start > now) {
-        const phrase = `Starting in ${diffToPhrase(props.config.start - now)}`;
-        return <VisualTimePill variant='pending' phrase={phrase} />;
-    } else if (props.config.end > now) {
-        const phrase = `Ending in ${diffToPhrase(props.config.end - now)}`;
-        return <VisualTimePill variant='running' phrase={phrase} />;
+    let phrase: string;
+    let variant: 'pending' | 'running' | 'finished';
+    if (start === null) {
+        phrase = `always closed`;
+        variant = 'finished';
     } else {
-        const phrase = `Ended ${diffToPhrase(now - props.config.end)} ago`;
-        return <VisualTimePill variant='finished' phrase={phrase} />;
+        if (start > now) {
+            phrase = `Starting in ${diffToPhrase(start - now)}`;
+            variant = 'pending';
+        } else if (end === null) {
+            phrase = `open end`;
+            variant = 'running';
+        } else if (end > now) {
+            phrase = `Ending in ${diffToPhrase(end - now)}`;
+            variant = 'running';
+        } else {
+            phrase = `Ended ${diffToPhrase(now - end)} ago`;
+            variant = 'finished';
+        }
     }
+
+    return <VisualTimePill variant={variant} phrase={phrase} />;
 }
 
 export default TimePill;

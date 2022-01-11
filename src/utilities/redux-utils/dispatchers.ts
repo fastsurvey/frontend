@@ -24,14 +24,21 @@ const dispatchers = {
             }),
     openMessage:
         (dispatch: any) =>
-        (message: types.Message): void =>
+        (messageId: types.MessageId): void =>
             dispatch({
                 type: 'OPEN_MESSAGE',
-                message,
+                messageId,
             }),
-    closeMessage: (dispatch: any) => (): void =>
+    closeMessage:
+        (dispatch: any) =>
+        (messageId: types.MessageId): void =>
+            dispatch({
+                type: 'CLOSE_MESSAGE',
+                messageId,
+            }),
+    closeAllMessages: (dispatch: any) => (): void =>
         dispatch({
-            type: 'CLOSE_MESSAGE',
+            type: 'CLOSE_ALL_MESSAGES',
         }),
 };
 

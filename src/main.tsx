@@ -7,8 +7,12 @@ import PageRouter from './page-router';
 import 'typeface-quicksand';
 import '/src/styles/tailwind.css';
 
-// only use sentry when image was built with docker
-if (import.meta.env.MODE === 'production') {
+// only use sentry when image was built with
+// docker AND when code uses production backend
+if (
+    import.meta.env.MODE === 'production' &&
+    import.meta.env.VITE_ENV === 'production'
+) {
     Sentry.init({
         dsn: `${import.meta.env.VITE_SENTRY_API}`,
         environment: `${import.meta.env.VITE_ENV}`,

@@ -36,26 +36,36 @@ function SelectionForm(props: {
                     key={optionIndex}
                     onClick={toggle(fieldOption)}
                     className={
-                        'w-full mt-2 ringable rounded ' +
+                        'w-full pl-2 pr-3 rounded flex flex-row items-stretch ' +
+                        'space-x-2 font-weight-500 ' +
+                        'py-3 md:py-2 my-[3px] text-base md:text-sm relative ' +
+                        'border ringable ' +
                         (fieldData.includes(fieldOption)
-                            ? 'font-weight-700 bg-gray-100 text-black dark:bg-gray-800 dark:text-white '
-                            : 'font-weight-600 bg-gray-200 text-gray-500 dark:bg-gray-600 dark:text-gray-100 ')
+                            ? 'text-blue-900 border-blue-150 bg-blue-150 dark:text-blue-900 dark:border-blue-400 dark:bg-blue-400 '
+                            : 'text-gray-600 border-gray-150 bg-gray-50 focus:border-gray-50 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-750 dark:focus:bg-gray-800 dark:hover:bg-gray-800 dark:focus:border-gray-750 ')
                     }
+                    data-cy={`selection-option-${optionIndex} ${
+                        fieldData.includes(fieldOption)
+                            ? 'isselected'
+                            : 'isnotselected'
+                    }`}
                 >
+                    <div className={'flex flex-row items-center'}>
+                        <div
+                            className={`w-4 h-4 flex-shrink-0 ${
+                                fieldData.includes(fieldOption)
+                                    ? 'svg-toggle-true'
+                                    : 'svg-toggle-false'
+                            }`}
+                        >
+                            {icons.check}
+                        </div>
+                    </div>
                     <div
-                        className={
-                            'w-full flex-row-left no-selection ' +
-                            'pl-3 pr-2 py-2 cursor-pointer ' +
-                            'text-base leading-7 md:leading-6 md:text-sm '
-                        }
+                        className={'text-left leading-snug hyphens break-words'}
+                        style={{width: 'calc(100% - 1.625rem)'}}
                     >
                         {fieldOption}
-                        <div className='flex-grow' />
-                        {fieldData.includes(fieldOption) && (
-                            <div className='w-5 h-5 icon-dark-blue'>
-                                {icons.check}
-                            </div>
-                        )}
                     </div>
                 </button>
             ))}

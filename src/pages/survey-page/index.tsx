@@ -2,17 +2,12 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {types} from '/src/types';
 
-import {
-    VisualUserTextCard,
-    VisualInfoCard,
-    TimePill,
-    Button,
-} from '/src/components';
+import {SurveyTitleCard, TimePill, Button} from '/src/components';
 import {pathUtils, reduxUtils} from '/src/utilities';
 
 function SurveyIndexPage(props: {
     formConfig: types.SurveyConfig | undefined;
-    openMessage(m: types.Message): void;
+    openMessage(m: types.MessageId): void;
 }) {
     const renderable = props.formConfig !== undefined;
     useEffect(() => {
@@ -20,25 +15,31 @@ function SurveyIndexPage(props: {
     }, [renderable]);
 
     if (!props.formConfig) {
-        return <div />;
+        throw 'Routing error, rendering page with undefined formConfig';
     }
 
     const config: types.SurveyConfig = props.formConfig;
 
     const now: number = new Date().getTime() / 1000;
-    const isOpen = now > config.start && now < config.end;
+    const isOpen =
+        config.fields !== undefined &&
+        config.start !== null &&
+        now > config.start &&
+        (config.end === null || now < config.end);
 
     return (
-        <div className='w-full max-w-xl space-y-4'>
-            <VisualUserTextCard
+        <div className={'w-full max-w-xl space-y-4 flex-col-top pb-16 pt-4'}>
+            <SurveyTitleCard
                 title={config.title}
-                text={config.description}
+                surveyRequiresVerification={
+                    config.fields !== undefined &&
+                    config.fields.filter((f) => f.type === 'email' && f.verify)
+                        .length > 0
+                }
             />
-            {config.fields.filter((f) => f.type === 'email' && f.verify)
-                .length > 0 && <VisualInfoCard variant='email-auth' />}
-            <div className='flex-row-top'>
+            <div className='w-full flex-row-top'>
                 <TimePill config={config} />
-                <div className='flex-max' />
+                <div className='flex-grow' />
                 {isOpen && (
                     <Button
                         text='Start'
@@ -51,12 +52,7 @@ function SurveyIndexPage(props: {
                 {!isOpen && (
                     <Button
                         text='Start'
-                        onClick={() =>
-                            props.openMessage({
-                                text: 'The survey is currently not open for submissions',
-                                variant: 'error',
-                            })
-                        }
+                        onClick={() => props.openMessage('error-timing')}
                     />
                 )}
             </div>

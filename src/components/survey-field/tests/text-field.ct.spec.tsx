@@ -3,8 +3,12 @@ import {types} from '/src/types';
 import {mount} from '@cypress/react';
 import {SurveyFieldComponent} from '../survey-field';
 import '/src/styles/tailwind.out.css';
+import {
+    assertDataCy,
+    getCySelector,
+} from '../../../../cypress/support/utilities';
 
-function State(props: {fieldConfig: types.TextField; fieldIndex: number}) {
+function State(props: {fieldConfig: types.TextField; fieldNumber: number}) {
     const [formData, modifyData] = useState({
         [props.fieldConfig.identifier]: '',
     });
@@ -28,19 +32,11 @@ function State(props: {fieldConfig: types.TextField; fieldIndex: number}) {
 }
 
 function validationIsCorrect(props: {valid: boolean; contains: string}) {
-    // TODO: Test the validation message text, not only the color
-    cy.get('div')
-        .contains(props.contains)
-        .should('have.length', 1)
-        .parent()
-        .should('have.class', props.valid ? 'text-green-900' : 'text-red-900')
-        .find('svg')
-        .should('have.length', 1)
-        .parent()
-        .should(
-            'have.class',
-            props.valid ? 'icon-dark-green' : 'icon-dark-red',
-        );
+    assertDataCy(
+        getCySelector(['validation-bar'], {count: 1}),
+        props.valid ? 'isvalid' : 'isinvalid',
+    );
+    getCySelector(['validation-bar'], {count: 1}).contains(props.contains);
 }
 
 it('works as expected', () => {
@@ -49,15 +45,14 @@ it('works as expected', () => {
             fieldConfig={{
                 identifier: 4,
                 type: 'text',
-                title: '<title>',
                 description: '<description>',
                 min_chars: 4,
                 max_chars: 10,
             }}
-            fieldIndex={3}
+            fieldNumber={4}
         />,
     );
-    cy.get('h2').contains('4. <title>').should('have.length', 1);
+    cy.get('h2').contains('4. <description>').should('have.length', 1);
     validationIsCorrect({
         valid: false,
         contains: '4 characters below minimum (4)',

@@ -1,36 +1,28 @@
+import {reduce} from 'lodash';
 import {types} from '/src/types';
 import {formUtils} from '/src/utilities';
 
 export function initializeFormValidation(
     config: types.SurveyConfig,
+    formData: types.FormData,
 ): types.FormValidation {
-    const formValidation: object = {};
-
-    config.fields.forEach((field, index) => {
-        let fieldValidation: boolean | undefined;
-        switch (field.type) {
-            case 'selection':
-                fieldValidation = field.min_select === 0;
-                break;
-            case 'email':
-                fieldValidation =
-                    formUtils.getFieldValidationMessage(field, '') === 'Valid';
-                break;
-            case 'text':
-                fieldValidation = field.min_chars === 0;
-                break;
-            default:
-                fieldValidation = undefined;
-                break;
-        }
-
-        if (fieldValidation !== undefined) {
-            Object.assign(formValidation, {
-                [field.identifier]: fieldValidation,
-            });
-        }
-    });
-
-    // @ts-ignore
-    return formValidation;
+    if (config.fields !== undefined) {
+        return reduce(
+            config.fields.filter((f) =>
+                ['selection', 'email', 'text'].includes(f.type),
+            ),
+            (acc, fieldConfig: any) => ({
+                ...acc,
+                [fieldConfig.identifier]: formUtils
+                    .getFieldValidationMessage(
+                        fieldConfig,
+                        formData[fieldConfig.identifier],
+                    )
+                    .startsWith('Valid'),
+            }),
+            {},
+        );
+    } else {
+        return {};
+    }
 }
