@@ -104,16 +104,26 @@ html {
         @apply fill-blue-900;
     }
 
+    .svg-message-error .primary,
     .svg-message-error .secondary {
         @apply fill-red-300;
     }
 
+    .svg-message-warning .primary,
     .svg-message-warning .secondary {
         @apply fill-yellow-300;
     }
 
+    .svg-message-success .primary,
     .svg-message-success .secondary {
         @apply fill-green-300;
+    }
+
+    .svg-message-queue-close .primary {
+        @apply fill-transparent;
+    }
+    .svg-message-queue-close .secondary {
+        @apply fill-gray-700;
     }
 }
 
@@ -252,7 +262,7 @@ html {
 
 .animate-pop {
     animation: pulse 0.35s cubic-bezier(0.4, 0, 0.6, 1);
-    transform-origin: bottom left;
+    transform-origin: bottom right;
 }
 
 @keyframes pulse {
