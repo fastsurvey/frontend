@@ -103,6 +103,18 @@ html {
     .icon-dark-blue .secondary {
         @apply fill-blue-900;
     }
+
+    .svg-message-error .secondary {
+        @apply fill-red-300;
+    }
+
+    .svg-message-warning .secondary {
+        @apply fill-yellow-300;
+    }
+
+    .svg-message-success .secondary {
+        @apply fill-green-300;
+    }
 }
 
 .centering-row {

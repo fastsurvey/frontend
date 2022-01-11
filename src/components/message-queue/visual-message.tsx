@@ -6,22 +6,18 @@ export function VisualMessage(props: {message: types.Message; close(): void}) {
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
-        console.log('ANIMATE');
         setAnimate(true);
-        setTimeout(() => {
-            setAnimate(false);
-            console.log('ANIMATE OFF');
-        }, 450);
+        setTimeout(() => setAnimate(false), 400);
     }, [props.message.randomToken]);
 
     return (
         <div
             className={
                 'flex flex-row items-stretch ' +
-                'border-l-4 text-gray-200 m-2 shadow rounded-r ' +
+                'border-l-[6px] text-gray-200 m-2 shadow rounded ' +
                 (animate ? 'animate-pop ' : ' ') +
                 'text-lg font-weight-500 bg-gray-900 ' +
-                (props.message.type === 'error' ? 'border-red-200 ' : '') +
+                (props.message.type === 'error' ? 'border-red-300 ' : '') +
                 (props.message.type === 'warning' ? 'border-yellow-300 ' : '') +
                 (props.message.type === 'success' ? 'border-green-300 ' : '')
             }
@@ -35,21 +31,29 @@ export function VisualMessage(props: {message: types.Message; close(): void}) {
             >
                 {props.message.text}
             </div>
-            <div className='flex-max' />
+            <div className='flex-grow' />
             <button
                 className={
                     'flex items-center relative ' +
                     'cursor-pointer rounded-r focus:rounded ' +
-                    'ringable hover:bg-gray-700 focus:bg-gray-700 ' +
-                    (props.message.type === 'error' ? 'fill-red-200 ' : '') +
-                    (props.message.type === 'warning'
-                        ? 'fill-yellow-300 '
-                        : '') +
-                    (props.message.type === 'success' ? 'fill-green-300 ' : '')
+                    'ringable hover:bg-gray-700 focus:bg-gray-700 '
                 }
                 onClick={props.close}
             >
-                <div className='w-12 h-12 p-3 md:w-10 md:h-10 md:p-2'>
+                <div
+                    className={
+                        'w-12 h-12 p-3 md:w-10 md:h-10 md:p-2 ' +
+                        (props.message.type === 'error'
+                            ? 'svg-message-error '
+                            : '') +
+                        (props.message.type === 'warning'
+                            ? 'svg-message-warning '
+                            : '') +
+                        (props.message.type === 'success'
+                            ? 'svg-message-success '
+                            : '')
+                    }
+                >
                     {icons.close}
                 </div>
             </button>
