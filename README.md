@@ -25,6 +25,6 @@ The backend requires a https://postmarkapp.com/ api token (100 emails/month are 
 
 ## How to select the backend url?
 
-By setting the env var `VITE_API_URL`, you can overwrite the used `apiUrl`. By default it is set to `https://api.fastsurvey.de`.
+By setting the environment variable `VITE_API_URL`, you can overwrite the default `https://api.fastsurvey.de`.
 
 If you have a `.env` file in you project directory. Those variable will be used in `yarn develop` and `yarn build && yarn serve`.
